@@ -1,0 +1,22 @@
+{
+  "name": "figma-export-tool",
+  "version": "1.0.0",
+  "description": "Chrome extension to export HTML content for Figma",
+  "main": "background.js",
+  "scripts": {
+    "build": "tsc && node src/copyStaticFiles.cjs",
+    "start": "tsc --watch",
+    "install-types": "npm install --save-dev @types/chrome",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "PolaCode",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.0.196",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
+}

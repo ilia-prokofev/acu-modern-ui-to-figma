@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f3f6fa;
+    width: 200px;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    color: #2a7de1;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.description {
+    color: #6c757d;
+    font-size: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.btn {
+    background-color: #2a7de1;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #1f5bbd;
+}
+
+.btn:active {
+    transform: scale(0.98); /* Небольшое уменьшение при клике */
+}
+
+.success {
+    background-color: #28a745 !important; /* Зеленый цвет */
+}
+
+.error {
+    background-color: #dc3545 !important; /* Красный цвет */
+}
