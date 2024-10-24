@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es6",
     "lib": ["es6"],
-    "strict": true,
+//    "strict": true,
     "esModuleInterop": true,
     "typeRoots": [
       "./node_modules/@types",

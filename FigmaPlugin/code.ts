@@ -1,6 +1,8 @@
 // This plugin will open a window to prompt the user to enter a number, and
 // it will then create that many rectangles on the screen.
 
+import AcuPageParser from "./acu-page-parser";
+
 // This file holds the main code for plugins. Code in this file has access to
 // the *figma document* via the figma global object.
 // You can access browser APIs in the <script> tag inside "ui.html" which has a
@@ -39,14 +41,15 @@ function SetProperty(node: InstanceNode, property: string, newVal : string) {
 // posted message.
 figma.ui.onmessage =  async(msg: {input: string}) => {
 
-  if (msg.input === '') {
-    //figma.closePlugin();
-    //return;
-    msg.input = "[{\"label\":\"Default settings\",\"fields\":[{\"label\":\"Non-Project Code\",\"type\":\"text-editor\"},{\"label\":\"Empty Item UOM\",\"type\":\"selector\"},{\"label\":\"Cost Budget Update\",\"type\":\"drop-down\"},{\"label\":\"Automatically Post\",\"type\":\"checkbox\"}]},{\"label\":\"222\",\"fields\":[{\"label\":\"Non-Project Code\",\"type\":\"text-editor\"},{\"label\":\"Empty Item UOM\",\"type\":\"selector\"},{\"label\":\"Cost Budget Update\",\"type\":\"drop-down\"},{\"label\":\"Automatically Post\",\"type\":\"checkbox\"}]}]";
-  }
 
-  await figma.loadAllPagesAsync();
+  //await figma.loadAllPagesAsync();
   
+  console.log('asd');
+  const parser = new AcuPageParser();
+  const root = await parser.parse(msg.input);
+  console.log(JSON.stringify(root));
+  return;
+
   const schema: Fieldset[] = JSON.parse(msg.input);
   console.log(schema);
 
