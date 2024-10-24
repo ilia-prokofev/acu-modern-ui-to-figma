@@ -1,5 +1,5 @@
 
-import AcuPageParser from "./acu-page-parser";
+// import AcuPageParser from "../acu-page-parser";
 
 // This file holds the main code for plugins. Code in this file has access to
 // the *figma document* via the figma global object.
@@ -74,6 +74,7 @@ function SetBoolProperty(node: InstanceNode, property: string, newVal : boolean)
 
 function DrawFieldset(fs: Fieldset, dx = 0, dy = 0)
 {
+  let i: string | number;
   console.log(fs.label);
   const compSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Fieldset') as ComponentSetNode;
   const component = compSet.findOne(node => node.type === 'COMPONENT' && node.name === 'Wrapping=Gray, Label Length=sm') as ComponentNode;
@@ -93,11 +94,11 @@ function DrawFieldset(fs: Fieldset, dx = 0, dy = 0)
   //   SetStringProperty(instance, 'Label Length', 'm');
   // }
 
-  for (var i = 1; i <= Math.max(5, fs.fields.length); i++) {
+  for (i = 1; i <= Math.max(5, fs.fields.length); i++) {
     SetBoolProperty(instance, 'Show Row ' + i + '#', i <= fs.fields.length);
   }
 
-  for (var i = 1; i <= fs.fields.length; i++) {
+  for (i = 1; i <= fs.fields.length; i++) {
     const field = fs.fields[i - 1];
     const rowNode = instance.findOne(node => node.type === 'INSTANCE' && node.name === 'Row ' + i) as InstanceNode;
     const labelNode = rowNode.findOne(node => node.type === 'INSTANCE' && node.name === 'Label') as InstanceNode;
@@ -131,10 +132,10 @@ figma.ui.onmessage = async(msg: {input: string, format: string}) => {
 
   if (msg.format === 'html')
   {
-    console.log('html is not supported yet');
-    const parser = new AcuPageParser();
-    const root = await parser.parse(msg.input);
-    console.log(JSON.stringify(root));
+    // console.log('html is not supported yet');
+    // const parser = new AcuPageParser();
+    // const root = await parser.parse(msg.input);
+    // console.log(JSON.stringify(root));
     return;
   }
 
