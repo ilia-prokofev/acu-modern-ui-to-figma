@@ -1,5 +1,3 @@
-// This plugin will open a window to prompt the user to enter a number, and
-// it will then create that many rectangles on the screen.
 
 import AcuPageParser from "./acu-page-parser";
 
@@ -11,7 +9,26 @@ import AcuPageParser from "./acu-page-parser";
 // This shows the HTML page in "ui.html".
 figma.showUI(__html__);
 
+const spacer = 20;
+
+interface Container {
+  name: string;
+  align: string;
+  children: Container | Fieldset | Tabbar;
+}
+
+interface Tabbar {
+  tabs: Tabs;
+  content: Container;
+}
+
+interface Tabs {
+  tabs: string[];
+  activeTab: string;
+}
+
 interface Fieldset {
+  class: string;
   label: string;
   fields: Field[];
 }
@@ -19,6 +36,20 @@ interface Fieldset {
 interface Field {
   label: string;
   type: string;
+  value: string;
+}
+
+function MapType(type: string)
+{
+  switch (type){
+    case 'datetime-edit': return 'Date';
+    case 'currency': return 'Currency';
+    case 'expanded': return 'Label + Text Area';
+    case 'number-editor': return 'Label + Number Field';
+    case 'qp-check-box-control': return 'Checkbox';
+    default: return 'Label + Field';
+  }
+
 }
 
 function FindPropertyName(node: InstanceNode, property: string) {
@@ -31,90 +62,129 @@ function FindPropertyName(node: InstanceNode, property: string) {
   return '';
 }
 
-function SetProperty(node: InstanceNode, property: string, newVal : string) {
+function SetStringProperty(node: InstanceNode, property: string, newVal : string) {
   const propertyName: string = FindPropertyName(node, property);
   node.setProperties({[propertyName]: newVal});
+}
+
+function SetBoolProperty(node: InstanceNode, property: string, newVal : boolean) {
+  const propertyName: string = FindPropertyName(node, property);
+  node.setProperties({[propertyName]: newVal});
+}
+
+function DrawFieldset(fs: Fieldset, dx = 0, dy = 0)
+{
+  console.log(fs.label);
+  const compSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Fieldset') as ComponentSetNode;
+  const component = compSet.findOne(node => node.type === 'COMPONENT' && node.name === 'Wrapping=Gray, Label Length=sm') as ComponentNode;
+  const instance = component.createInstance();
+  instance.x = dx;
+  instance.y = dy;
+
+  const header = instance.findOne(node => node.type === 'INSTANCE' && node.name === 'Group Header') as InstanceNode;
+  if (fs.label === undefined || fs.label === '')
+    SetBoolProperty(instance, 'Show Group Header', false);
+  else
+    SetStringProperty(header, 'Text Value', fs.label);
+
+  // if (fs.class === 'highlights-section')
+  // {
+  //   SetStringProperty(instance, 'Wrapping', 'Blue');
+  //   SetStringProperty(instance, 'Label Length', 'm');
+  // }
+
+  for (var i = 1; i <= Math.max(5, fs.fields.length); i++) {
+    SetBoolProperty(instance, 'Show Row ' + i + '#', i <= fs.fields.length);
+  }
+
+  for (var i = 1; i <= fs.fields.length; i++) {
+    const field = fs.fields[i - 1];
+    const rowNode = instance.findOne(node => node.type === 'INSTANCE' && node.name === 'Row ' + i) as InstanceNode;
+    const labelNode = rowNode.findOne(node => node.type === 'INSTANCE' && node.name === 'Label') as InstanceNode;
+    const fieldNode = rowNode.findOne(node => node.type === 'INSTANCE' && node.name === 'Field') as InstanceNode;
+    if (labelNode)
+      SetStringProperty(labelNode, 'Label Value', field.label);
+    if (rowNode)
+      SetStringProperty(rowNode, 'Type', MapType(field.type));
+    // if (fieldNode && field.value)
+    //   SetStringProperty(fieldNode, 'Text Value', field.value);
+  }
+
+  figma.currentPage.appendChild(instance);
+  
+  dx += instance.width + spacer;
+  dy += instance.height + spacer;
+
+  return {newX: dx, newY: dy}
 }
 
 // Calls to "parent.postMessage" from within the HTML page will trigger this
 // callback. The callback will be passed the "pluginMessage" property of the
 // posted message.
-figma.ui.onmessage =  async(msg: {input: string}) => {
+figma.ui.onmessage = async(msg: {input: string, format: string}) => {
 
+  if (msg.format === '')
+  {
+    figma.closePlugin();
+    return;
+  }
 
-  //await figma.loadAllPagesAsync();
+  if (msg.format === 'html')
+  {
+    console.log('html is not supported yet');
+    const parser = new AcuPageParser();
+    const root = await parser.parse(msg.input);
+    console.log(JSON.stringify(root));
+    return;
+  }
+
+  if (msg.input === '') {
+    msg.input = "[{\"fields\":[{\"label\":\"Subcontract Nbr.\",\"type\":\"selector\",\"value\":\"SC-000034\"},{\"label\":\"Status\",\"type\":\"selector\",\"value\":\"open\"},{\"label\":\"Date\",\"type\":\"datetime-edit\",\"value\":\"10/24/2024\"},{\"label\":\"Start Date\",\"type\":\"datetime-edit\",\"value\":\"10/24/2024\"}]},{\"fields\":[{\"label\":\"Vendor\",\"type\":\"selector\"},{\"label\":\"Location\",\"type\":\"selector\"},{\"label\":\"Owner\",\"type\":\"selector\",\"value\":\"Maxwell Baker\"},{\"label\":\"Currency\",\"type\":\"currency\",\"value\":\"USD\"},{\"label\":\"Description\",\"type\":\"expanded\"}]},{\"fields\":[{\"label\":\"Detail Total\",\"type\":\"number-editor\",\"value\":\"100.00\"},{\"label\":\"Tax Total\",\"type\":\"number-editor\",\"value\":\"0.00\"},{\"label\":\"Subcontract Total\",\"type\":\"number-editor\",\"value\":\"100.00\"}]}]";
+  }
+
+  await figma.loadAllPagesAsync();
   
-  console.log('asd');
-  const parser = new AcuPageParser();
-  const root = await parser.parse(msg.input);
-  console.log(JSON.stringify(root));
-  return;
-
+  //const schema: Container[] = JSON.parse(msg.input);
   const schema: Fieldset[] = JSON.parse(msg.input);
   console.log(schema);
 
+  let dx = 0;
+  let dy = 0;
+
   schema.forEach(fs => {
-    console.log(fs.label);
-    const compSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Fieldset') as ComponentSetNode;
-    const component = compSet.findOne(node => node.type === 'COMPONENT' && node.name === 'Wrapping=Gray, Label Length=sm') as ComponentNode;
-    const instance = component.createInstance();
-    instance.x = 0;
-    instance.y = 0;
-
-    const header = instance.findOne(node => node.type === 'INSTANCE' && node.name === 'Group Header') as InstanceNode;
-    //header.setProperties({'Text Value ▶#4494:3': fs.label});
-    SetProperty(header, 'Text Value', 'aasd');
-
-    instance.setProperties({'Show Row 1': true});
-    instance.setProperties({'Show Row 2': true});
-    instance.setProperties({'Show Row 3': true});
-    instance.setProperties({'Show Row 4': false});
-    instance.setProperties({'Show Row 5': false});
-    figma.currentPage.appendChild(instance);
-  
-    
+    const {newX, newY} = DrawFieldset(fs, dx, 0);
+    dx = newX;
+    dy = Math.max(newY, dy);
   });
   
-  // const compSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Row') as ComponentSetNode;
-  // const component = compSet.findOne(node => node.type === 'COMPONENT' && node.name === 'Type=Currency, Label Position=Left, Label Length=s') as ComponentNode;
-  // const instance = component.createInstance();
-  // instance.setProperties({'Type': 'Checkbox'});
-  // instance.x = 0;
-  // instance.y = 0;
-  // figma.currentPage.appendChild(instance);
+  let component = figma.root.findOne(node => node.type === 'COMPONENT' && node.name === 'Tabbar') as ComponentNode;
+  let instance = component.createInstance();
+  instance.x = 0;
+  instance.y = dy;
+  figma.currentPage.appendChild(instance);
 
+  dy += instance.height + spacer;
 
-  // const compSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Fieldset') as ComponentSetNode;
-  // const component = compSet.findOne(node => node.type === 'COMPONENT' && node.name === 'Wrapping=Gray, Label Length=sm') as ComponentNode;
-  // const instance = component.createInstance();
-  // instance.x = 0;
-  // instance.y = 0;
-  // instance.setProperties({'Show Row 1': true});
-  // instance.setProperties({'Show Row 2': true});
-  // instance.setProperties({'Show Row 3': true});
-  // instance.setProperties({'Show Row 4': false});
-  // instance.setProperties({'Show Row 5': false});
-  // figma.currentPage.appendChild(instance);
+  let componentSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Grid') as ComponentSetNode;
+  component = componentSet.defaultVariant;
+  instance = component.createInstance();
+  instance.x = 0;
+  instance.y = dy;
+  figma.currentPage.appendChild(instance);
 
-  // One way of distinguishing between different types of messages sent from
-  // your HTML page is to use an object with a "type" property like this.
-  // if (msg.type === 'create-shapes1') {
-  //   // This plugin creates rectangles on the screen.
-  //   const numberOfRectangles = msg.count;
+  componentSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Toolbar') as ComponentSetNode;
+  component = componentSet.defaultVariant;
+  const toolbar = component.createInstance();
+  toolbar.x = -50;
+  toolbar.y = -toolbar.height - spacer;
+  figma.currentPage.appendChild(toolbar);
 
-  //   const nodes: SceneNode[] = [];
-  //   for (let i = 0; i < numberOfRectangles; i++) {
-  //     const rect = figma.createRectangle();
-  //     rect.x = i * 150;
-  //     rect.fills = [{ type: 'SOLID', color: { r: 1, g: 0.5, b: 0 } }];
-  //     figma.currentPage.appendChild(rect);
-  //     nodes.push(rect);
-  //   }
-  //   figma.currentPage.selection = nodes;
-  //   figma.viewport.scrollAndZoomIntoView(nodes);
-  // }
+  componentSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Main header') as ComponentSetNode;
+  component = componentSet.defaultVariant;
+  const mainHeader = component.createInstance();
+  mainHeader.x = -50;
+  mainHeader.y = -toolbar.height-mainHeader.height-spacer;
+  figma.currentPage.appendChild(mainHeader);
 
-  // Make sure to close the plugin when you're done. Otherwise the plugin will
-  // keep running, which shows the cancel button at the bottom of the screen.
   figma.closePlugin();
 };

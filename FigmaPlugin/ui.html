@@ -1,22 +1,24 @@
 <h2>Modern UI Creator</h2>
 <p>JSON: <textarea id="inputText" cols="30" rows="4"></textarea></p>
-<button id="create">Create</button>
+<button id="html">From HTML</button>
+<button id="json">From JSON</button>
 <button id="cancel">Cancel</button>
 <script>
 
-document.onload = () => {
-  const textbox = document.getElementById('inputText');
-  textbox.value = "{\"fields\":[{\"field\":{\"label\":\"Non-Project Code\",\"type\":\"text-editor\"}},{\"field\":{\"label\":\"Non-Project Code\",\"type\":\"drop-down\"}}]}";
-}
-
-document.getElementById('create').onclick = () => {
+document.getElementById('html').onclick = () => {
   const textbox = document.getElementById('inputText');
   const inputText = textbox.value;
-  parent.postMessage({ pluginMessage: { input: inputText} }, '*')
+  parent.postMessage({ pluginMessage: { input: inputText, format: 'html'} }, '*')
+}
+
+document.getElementById('json').onclick = () => {
+  const textbox = document.getElementById('inputText');
+  const inputText = textbox.value;
+  parent.postMessage({ pluginMessage: { input: inputText, format: 'json'} }, '*')
 }
 
 document.getElementById('cancel').onclick = () => {
-  parent.postMessage({ pluginMessage: { input: '' } }, '*')
+  parent.postMessage({ pluginMessage: { input: '', format: '' } }, '*')
 }
 
 </script>
