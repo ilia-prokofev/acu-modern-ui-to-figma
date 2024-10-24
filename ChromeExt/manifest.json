@@ -1,0 +1,10 @@
+{
+    "manifest_version": 3,
+    "name": "Modern UI to Figma Exporter",
+    "version": "1.0.0",
+    "description": "Parses HTML and copies it to clipboard for Figma",
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": ["scripting", "activeTab", "clipboardWrite"]
+}
