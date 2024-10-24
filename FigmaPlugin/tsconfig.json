@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "lib": ["es6"],
-//    "strict": true,
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+    "target": "ESNext",
+    "lib": ["ESNext"],
+    "types": ["@figma/plugin-typings", "jest"],
     "esModuleInterop": true,
-    "typeRoots": [
-      "./node_modules/@types",
-      "./node_modules/@figma"
-    ]
-  }
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "exclude": ["node_modules", "node_modules/@types/node"]
 }
