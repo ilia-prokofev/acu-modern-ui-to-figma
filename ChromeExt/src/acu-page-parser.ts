@@ -4,6 +4,7 @@ import {AcuContainer} from "./elements/acu-container";
 import {QPFieldset} from "./elements/qp-fieldset";
 import {FieldsetSlot} from "./elements/qp-fieldset-slot";
 import {Template} from "./elements/qp-template";
+import {Tab, TabBar} from "./elements/qp-tabbar";
 
 function findClasses(htmlElement: Element, ...classNames: string[]): boolean {
     const classAttr = htmlElement.attributes.getNamedItem("class")?.value;
@@ -22,7 +23,7 @@ function findClasses(htmlElement: Element, ...classNames: string[]): boolean {
 }
 
 function findElementByClassesUp(htmlElement: Element, ...classNames: string[]): Element | null {
-    if (findClasses(htmlElement, ...classNames)){
+    if (findClasses(htmlElement, ...classNames)) {
         return htmlElement;
     }
 
@@ -31,6 +32,21 @@ function findElementByClassesUp(htmlElement: Element, ...classNames: string[]): 
     }
 
     return findElementByClassesUp(htmlElement.parentElement, ...classNames);
+}
+
+function findElementByClassesDown(htmlElement: Element, ...classNames: string[]): Element | null {
+    if (findClasses(htmlElement, ...classNames)) {
+        return htmlElement;
+    }
+
+    for (let i = 0; i < htmlElement.children.length; i++) {
+        const child = findElementByClassesDown(htmlElement.children[i], ...classNames);
+        if (child) {
+            return child;
+        }
+    }
+
+    return null;
 }
 
 interface ElementVisitor {
@@ -199,7 +215,59 @@ export class QPTemplateVisitor implements ElementVisitor {
 
 export class QPTabBarSelectorVisitor implements ElementVisitor {
     visit(htmlElement: Element, parent: AcuElement): boolean {
-        return false;
+        if (!(parent as AcuContainer)?.Children) {
+            return false;
+        }
+
+        if (htmlElement.nodeName.toLowerCase() !== "div") {
+            return false;
+        }
+
+        if (!findClasses(htmlElement, 'qp-tabbar', 'au-target')) {
+            return false;
+        }
+
+        const child: TabBar = {
+            Type: AcuElementType.Tabbar,
+            Children: [],
+            Tabs: [],
+        };
+
+        const tabsContainer = findElementByClassesDown(htmlElement, 'qp-tabbar-wrapper', 'au-target');
+        if (!tabsContainer) {
+            return false;
+        }
+
+        for (let i = 0; i < tabsContainer.children.length; i++) {
+            const tabElement = tabsContainer.children[i];
+            if (!findClasses(tabElement, 'tab-header-container')) {
+                continue;
+            }
+
+            if (tabElement.children.length === 0 ||
+                tabElement.children[0].children.length === 0) {
+                continue;
+            }
+
+            const tabLabelElement = tabElement.children[0].children[0];
+            if (!findClasses(tabLabelElement, 'au-target')) {
+                continue;
+            }
+
+            const tab: Tab = {
+                Type: AcuElementType.Tab,
+                Label: tabLabelElement.textContent?.trim() ?? '',
+                IsActive: findClasses(tabElement, 'qp-tabbar-tab--first'),
+            };
+
+            child.Tabs.push(tab);
+        }
+
+        (parent as AcuContainer).Children.push(child);
+
+        VisitChildren(htmlElement, child);
+
+        return true;
     }
 }
 

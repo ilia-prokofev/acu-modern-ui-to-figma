@@ -93,6 +93,7 @@ document.getElementById('exportBtn')?.addEventListener('click', () => {
 
                 if (results && results[0] && results[0].result) {
                     const htmlContent = results[0].result;
+                    console.log(htmlContent);
                     // Create instance of AcuPageParser and parse HTML content
                     const parser = new AcuPageParser();
                     const parsedStructure = parser.parse(htmlContent);

@@ -136,279 +136,285 @@
             {
               "Children": [
                 {
-                  "ElementType": "Selector",
-                  "Label": "Vendor Tax Zone",
-                  "Type": "Field",
-                  "Value": ""
-                }
-              ],
-              "Label": null,
-              "Type": "FieldSet"
-            },
-            {
-              "Children": [
-                {
-                  "ElementType": "NumberEditor",
-                  "Label": "Tax Exempt Total",
-                  "Type": "Field",
-                  "Value": "0.00"
+                  "Children": [
+                    {
+                      "ElementType": "Selector",
+                      "Label": "Vendor Tax Zone",
+                      "Type": "Field",
+                      "Value": ""
+                    }
+                  ],
+                  "Label": null,
+                  "Type": "FieldSet"
                 },
                 {
-                  "ElementType": "NumberEditor",
-                  "Label": "Taxable Total",
-                  "Type": "Field",
-                  "Value": "0.00"
-                },
-                {
-                  "ElementType": "NumberEditor",
-                  "Label": "Tax Total",
-                  "Type": "Field",
-                  "Value": "0.00"
+                  "Children": [
+                    {
+                      "ElementType": "NumberEditor",
+                      "Label": "Tax Exempt Total",
+                      "Type": "Field",
+                      "Value": "0.00"
+                    },
+                    {
+                      "ElementType": "NumberEditor",
+                      "Label": "Taxable Total",
+                      "Type": "Field",
+                      "Value": "0.00"
+                    },
+                    {
+                      "ElementType": "NumberEditor",
+                      "Label": "Tax Total",
+                      "Type": "Field",
+                      "Value": "0.00"
+                    }
+                  ],
+                  "Label": null,
+                  "Type": "FieldSet"
                 }
               ],
-              "Label": null,
-              "Type": "FieldSet"
+              "ID": "B",
+              "Type": "FieldsetSlot"
             }
           ],
-          "ID": "B",
-          "Type": "FieldsetSlot"
-        }
-      ],
-      "Name": "17-7",
-      "Type": "Template"
-    },
-    {
-      "Children": [
-        {
-          "Children": [
-            {
-              "Children": [
-                {
-                  "ElementType": "CheckBox",
-                  "Label": "Override",
-                  "Type": "Field",
-                  "Value": "on"
-                },
-                {
-                  "ElementType": "TextEditor",
-                  "Label": "Account Name",
-                  "Type": "Field",
-                  "Value": ""
-                },
-                {
-                  "ElementType": "TextEditor",
-                  "Label": "Job Title",
-                  "Type": "Field",
-                  "Value": ""
-                },
-                {
-                  "ElementType": "TextEditor",
-                  "Label": "Phone 1",
-                  "Type": "Field",
-                  "Value": ""
-                },
-                {
-                  "ElementType": "TextEditor",
-                  "Label": "Email",
-                  "Type": "Field",
-                  "Value": ""
-                }
-              ],
-              "Label": null,
-              "Type": "FieldSet"
-            }
-          ],
-          "ID": "A",
-          "Type": "FieldsetSlot"
+          "Name": "17-7",
+          "Type": "Template"
         },
         {
           "Children": [
             {
               "Children": [
                 {
-                  "ElementType": "CheckBox",
-                  "Label": "Override",
-                  "Type": "Field",
-                  "Value": "on"
-                },
-                {
-                  "ElementType": null,
-                  "Label": "",
-                  "Type": "Field",
-                  "Value": null
-                },
-                {
-                  "ElementType": "TextEditor",
-                  "Label": "Address Line 1",
-                  "Type": "Field",
-                  "Value": ""
-                },
-                {
-                  "ElementType": "TextEditor",
-                  "Label": "Address Line 2",
-                  "Type": "Field",
-                  "Value": ""
-                },
-                {
-                  "ElementType": "TextEditor",
-                  "Label": "City",
-                  "Type": "Field",
-                  "Value": ""
-                },
-                {
-                  "ElementType": "Selector",
-                  "Label": "Country",
-                  "Type": "Field",
-                  "Value": "US - United States of America"
-                },
-                {
-                  "ElementType": "Selector",
-                  "Label": "State",
-                  "Type": "Field",
-                  "Value": ""
-                },
-                {
-                  "ElementType": "TextEditor",
-                  "Label": "Postal Code",
-                  "Type": "Field",
-                  "Value": ""
+                  "Children": [
+                    {
+                      "ElementType": "CheckBox",
+                      "Label": "Override",
+                      "Type": "Field",
+                      "Value": "on"
+                    },
+                    {
+                      "ElementType": "TextEditor",
+                      "Label": "Account Name",
+                      "Type": "Field",
+                      "Value": ""
+                    },
+                    {
+                      "ElementType": "TextEditor",
+                      "Label": "Job Title",
+                      "Type": "Field",
+                      "Value": ""
+                    },
+                    {
+                      "ElementType": "TextEditor",
+                      "Label": "Phone 1",
+                      "Type": "Field",
+                      "Value": ""
+                    },
+                    {
+                      "ElementType": "TextEditor",
+                      "Label": "Email",
+                      "Type": "Field",
+                      "Value": ""
+                    }
+                  ],
+                  "Label": null,
+                  "Type": "FieldSet"
                 }
               ],
-              "Label": null,
-              "Type": "FieldSet"
-            }
-          ],
-          "ID": "B",
-          "Type": "FieldsetSlot"
-        }
-      ],
-      "Name": "17-17-14",
-      "Type": "Template"
-    },
-    {
-      "Children": [
-        {
-          "Children": [
+              "ID": "A",
+              "Type": "FieldsetSlot"
+            },
             {
               "Children": [
                 {
-                  "ElementType": "Selector",
-                  "Label": "Branch",
-                  "Type": "Field",
-                  "Value": "PRODWHOLE - Products Wholesale"
-                },
-                {
-                  "ElementType": "Selector",
-                  "Label": "Terms",
-                  "Type": "Field",
-                  "Value": ""
-                },
-                {
-                  "ElementType": "TextEditor",
-                  "Label": "Tax Exemption Number",
-                  "Type": "Field",
-                  "Value": ""
-                },
-                {
-                  "ElementType": "DropDown",
-                  "Label": "Tax Exemption Type",
-                  "Type": "Field",
-                  "Value": "Default"
-                },
-                {
-                  "ElementType": "Selector",
-                  "Label": "Pay-to Vendor",
-                  "Type": "Field",
-                  "Value": ""
-                },
-                {
-                  "ElementType": "Selector",
-                  "Label": "Workgroup ID",
-                  "Type": "Field",
-                  "Value": ""
-                },
-                {
-                  "ElementType": "CheckBox",
-                  "Label": "Printed",
-                  "Type": "Field",
-                  "Value": "on"
-                },
-                {
-                  "ElementType": "CheckBox",
-                  "Label": "Emailed",
-                  "Type": "Field",
-                  "Value": "on"
+                  "Children": [
+                    {
+                      "ElementType": "CheckBox",
+                      "Label": "Override",
+                      "Type": "Field",
+                      "Value": "on"
+                    },
+                    {
+                      "ElementType": null,
+                      "Label": "",
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "TextEditor",
+                      "Label": "Address Line 1",
+                      "Type": "Field",
+                      "Value": ""
+                    },
+                    {
+                      "ElementType": "TextEditor",
+                      "Label": "Address Line 2",
+                      "Type": "Field",
+                      "Value": ""
+                    },
+                    {
+                      "ElementType": "TextEditor",
+                      "Label": "City",
+                      "Type": "Field",
+                      "Value": ""
+                    },
+                    {
+                      "ElementType": "Selector",
+                      "Label": "Country",
+                      "Type": "Field",
+                      "Value": "US - United States of America"
+                    },
+                    {
+                      "ElementType": "Selector",
+                      "Label": "State",
+                      "Type": "Field",
+                      "Value": ""
+                    },
+                    {
+                      "ElementType": "TextEditor",
+                      "Label": "Postal Code",
+                      "Type": "Field",
+                      "Value": ""
+                    }
+                  ],
+                  "Label": null,
+                  "Type": "FieldSet"
                 }
               ],
-              "Label": null,
-              "Type": "FieldSet"
+              "ID": "B",
+              "Type": "FieldsetSlot"
             }
           ],
-          "ID": "A",
-          "Type": "FieldsetSlot"
+          "Name": "17-17-14",
+          "Type": "Template"
         },
         {
           "Children": [
             {
               "Children": [
                 {
-                  "ElementType": "CheckBox",
-                  "Label": "Apply Retainage",
-                  "Type": "Field",
-                  "Value": "on"
-                },
-                {
-                  "ElementType": "NumberEditor",
-                  "Label": "Retainage Percent",
-                  "Type": "Field",
-                  "Value": ""
+                  "Children": [
+                    {
+                      "ElementType": "Selector",
+                      "Label": "Branch",
+                      "Type": "Field",
+                      "Value": "PRODWHOLE - Products Wholesale"
+                    },
+                    {
+                      "ElementType": "Selector",
+                      "Label": "Terms",
+                      "Type": "Field",
+                      "Value": ""
+                    },
+                    {
+                      "ElementType": "TextEditor",
+                      "Label": "Tax Exemption Number",
+                      "Type": "Field",
+                      "Value": ""
+                    },
+                    {
+                      "ElementType": "DropDown",
+                      "Label": "Tax Exemption Type",
+                      "Type": "Field",
+                      "Value": "Default"
+                    },
+                    {
+                      "ElementType": "Selector",
+                      "Label": "Pay-to Vendor",
+                      "Type": "Field",
+                      "Value": ""
+                    },
+                    {
+                      "ElementType": "Selector",
+                      "Label": "Workgroup ID",
+                      "Type": "Field",
+                      "Value": ""
+                    },
+                    {
+                      "ElementType": "CheckBox",
+                      "Label": "Printed",
+                      "Type": "Field",
+                      "Value": "on"
+                    },
+                    {
+                      "ElementType": "CheckBox",
+                      "Label": "Emailed",
+                      "Type": "Field",
+                      "Value": "on"
+                    }
+                  ],
+                  "Label": null,
+                  "Type": "FieldSet"
                 }
               ],
-              "Label": null,
-              "Type": "FieldSet"
-            },
-            {
-              "Children": [],
-              "Label": null,
-              "Type": "FieldSet"
+              "ID": "A",
+              "Type": "FieldsetSlot"
             },
             {
               "Children": [
                 {
-                  "ElementType": "NumberEditor",
-                  "Label": "Unbilled Quantity",
-                  "Type": "Field",
-                  "Value": "0.00"
+                  "Children": [
+                    {
+                      "ElementType": "CheckBox",
+                      "Label": "Apply Retainage",
+                      "Type": "Field",
+                      "Value": "on"
+                    },
+                    {
+                      "ElementType": "NumberEditor",
+                      "Label": "Retainage Percent",
+                      "Type": "Field",
+                      "Value": ""
+                    }
+                  ],
+                  "Label": null,
+                  "Type": "FieldSet"
                 },
                 {
-                  "ElementType": "NumberEditor",
-                  "Label": "Unbilled Amount",
-                  "Type": "Field",
-                  "Value": "0.00"
+                  "Children": [],
+                  "Label": null,
+                  "Type": "FieldSet"
                 },
                 {
-                  "ElementType": "NumberEditor",
-                  "Label": "Unbilled Prepayment Total",
-                  "Type": "Field",
-                  "Value": "0.00"
-                },
-                {
-                  "ElementType": "NumberEditor",
-                  "Label": "Unpaid Amount",
-                  "Type": "Field",
-                  "Value": "0.00"
+                  "Children": [
+                    {
+                      "ElementType": "NumberEditor",
+                      "Label": "Unbilled Quantity",
+                      "Type": "Field",
+                      "Value": "0.00"
+                    },
+                    {
+                      "ElementType": "NumberEditor",
+                      "Label": "Unbilled Amount",
+                      "Type": "Field",
+                      "Value": "0.00"
+                    },
+                    {
+                      "ElementType": "NumberEditor",
+                      "Label": "Unbilled Prepayment Total",
+                      "Type": "Field",
+                      "Value": "0.00"
+                    },
+                    {
+                      "ElementType": "NumberEditor",
+                      "Label": "Unpaid Amount",
+                      "Type": "Field",
+                      "Value": "0.00"
+                    }
+                  ],
+                  "Label": null,
+                  "Type": "FieldSet"
                 }
               ],
-              "Label": null,
-              "Type": "FieldSet"
+              "ID": "B",
+              "Type": "FieldsetSlot"
             }
           ],
-          "ID": "B",
-          "Type": "FieldsetSlot"
+          "Name": "17-17-14",
+          "Type": "Template"
         }
       ],
-      "Name": "17-17-14",
-      "Type": "Template"
+      "Tabs": [],
+      "Type": "Tabbar"
     },
     {
       "Children": [],
