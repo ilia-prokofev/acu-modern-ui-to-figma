@@ -1,33 +1,6 @@
 {
   "Children": [
     {
-      "Children": [],
-      "Label": null,
-      "Type": "FieldSet"
-    },
-    {
-      "Children": [],
-      "Label": null,
-      "Type": "FieldSet"
-    },
-    {
-      "Children": [],
-      "Label": null,
-      "Type": "FieldSet"
-    },
-    {
-      "Children": [
-        {
-          "ElementType": null,
-          "Label": null,
-          "Type": "Field",
-          "Value": null
-        }
-      ],
-      "Label": null,
-      "Type": "FieldSet"
-    },
-    {
       "Children": [
         {
           "Children": [
@@ -139,162 +112,6 @@
                   "Children": [
                     {
                       "ElementType": "Selector",
-                      "Label": "Vendor Tax Zone",
-                      "Type": "Field",
-                      "Value": ""
-                    }
-                  ],
-                  "Label": null,
-                  "Type": "FieldSet"
-                },
-                {
-                  "Children": [
-                    {
-                      "ElementType": "NumberEditor",
-                      "Label": "Tax Exempt Total",
-                      "Type": "Field",
-                      "Value": "0.00"
-                    },
-                    {
-                      "ElementType": "NumberEditor",
-                      "Label": "Taxable Total",
-                      "Type": "Field",
-                      "Value": "0.00"
-                    },
-                    {
-                      "ElementType": "NumberEditor",
-                      "Label": "Tax Total",
-                      "Type": "Field",
-                      "Value": "0.00"
-                    }
-                  ],
-                  "Label": null,
-                  "Type": "FieldSet"
-                }
-              ],
-              "ID": "B",
-              "Type": "FieldsetSlot"
-            }
-          ],
-          "Name": "17-7",
-          "Type": "Template"
-        },
-        {
-          "Children": [
-            {
-              "Children": [
-                {
-                  "Children": [
-                    {
-                      "ElementType": "CheckBox",
-                      "Label": "Override",
-                      "Type": "Field",
-                      "Value": "on"
-                    },
-                    {
-                      "ElementType": "TextEditor",
-                      "Label": "Account Name",
-                      "Type": "Field",
-                      "Value": ""
-                    },
-                    {
-                      "ElementType": "TextEditor",
-                      "Label": "Job Title",
-                      "Type": "Field",
-                      "Value": ""
-                    },
-                    {
-                      "ElementType": "TextEditor",
-                      "Label": "Phone 1",
-                      "Type": "Field",
-                      "Value": ""
-                    },
-                    {
-                      "ElementType": "TextEditor",
-                      "Label": "Email",
-                      "Type": "Field",
-                      "Value": ""
-                    }
-                  ],
-                  "Label": null,
-                  "Type": "FieldSet"
-                }
-              ],
-              "ID": "A",
-              "Type": "FieldsetSlot"
-            },
-            {
-              "Children": [
-                {
-                  "Children": [
-                    {
-                      "ElementType": "CheckBox",
-                      "Label": "Override",
-                      "Type": "Field",
-                      "Value": "on"
-                    },
-                    {
-                      "ElementType": null,
-                      "Label": "",
-                      "Type": "Field",
-                      "Value": null
-                    },
-                    {
-                      "ElementType": "TextEditor",
-                      "Label": "Address Line 1",
-                      "Type": "Field",
-                      "Value": ""
-                    },
-                    {
-                      "ElementType": "TextEditor",
-                      "Label": "Address Line 2",
-                      "Type": "Field",
-                      "Value": ""
-                    },
-                    {
-                      "ElementType": "TextEditor",
-                      "Label": "City",
-                      "Type": "Field",
-                      "Value": ""
-                    },
-                    {
-                      "ElementType": "Selector",
-                      "Label": "Country",
-                      "Type": "Field",
-                      "Value": "US - United States of America"
-                    },
-                    {
-                      "ElementType": "Selector",
-                      "Label": "State",
-                      "Type": "Field",
-                      "Value": ""
-                    },
-                    {
-                      "ElementType": "TextEditor",
-                      "Label": "Postal Code",
-                      "Type": "Field",
-                      "Value": ""
-                    }
-                  ],
-                  "Label": null,
-                  "Type": "FieldSet"
-                }
-              ],
-              "ID": "B",
-              "Type": "FieldsetSlot"
-            }
-          ],
-          "Name": "17-17-14",
-          "Type": "Template"
-        },
-        {
-          "Children": [
-            {
-              "Children": [
-                {
-                  "Children": [
-                    {
-                      "ElementType": "Selector",
                       "Label": "Branch",
                       "Type": "Field",
                       "Value": "PRODWHOLE - Products Wholesale"
@@ -370,11 +187,6 @@
                   "Type": "FieldSet"
                 },
                 {
-                  "Children": [],
-                  "Label": null,
-                  "Type": "FieldSet"
-                },
-                {
                   "Children": [
                     {
                       "ElementType": "NumberEditor",
@@ -413,45 +225,59 @@
           "Type": "Template"
         }
       ],
-      "Tabs": [],
-      "Type": "Tabbar"
-    },
-    {
-      "Children": [],
-      "Label": null,
-      "Type": "FieldSet"
-    },
-    {
-      "Children": [],
-      "Label": null,
-      "Type": "FieldSet"
-    },
-    {
-      "Children": [
+      "Tabs": [
         {
-          "Children": [],
-          "Label": null,
-          "Type": "FieldSet"
-        }
-      ],
-      "Name": "17-17-14",
-      "Type": "Template"
-    },
-    {
-      "Children": [
-        {
-          "Children": [],
-          "Label": null,
-          "Type": "FieldSet"
+          "IsActive": true,
+          "Label": "Details",
+          "Type": "Tab"
         },
         {
-          "Children": [],
-          "Label": null,
-          "Type": "FieldSet"
+          "IsActive": false,
+          "Label": "Taxes",
+          "Type": "Tab"
+        },
+        {
+          "IsActive": false,
+          "Label": "Addresses",
+          "Type": "Tab"
+        },
+        {
+          "IsActive": false,
+          "Label": "Discounts",
+          "Type": "Tab"
+        },
+        {
+          "IsActive": false,
+          "Label": "Billing",
+          "Type": "Tab"
+        },
+        {
+          "IsActive": false,
+          "Label": "Prepayments",
+          "Type": "Tab"
+        },
+        {
+          "IsActive": false,
+          "Label": "Change Orders",
+          "Type": "Tab"
+        },
+        {
+          "IsActive": false,
+          "Label": "Financial",
+          "Type": "Tab"
+        },
+        {
+          "IsActive": false,
+          "Label": "Attributes",
+          "Type": "Tab"
+        },
+        {
+          "IsActive": false,
+          "Label": "Compliance",
+          "Type": "Tab"
         }
       ],
-      "Name": "17-17-14",
-      "Type": "Template"
+      "Type": "Tabbar"
     }
   ],
   "Type": "Root"
