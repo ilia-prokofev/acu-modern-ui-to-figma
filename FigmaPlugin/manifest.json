@@ -1,5 +1,5 @@
 {
-  "name": "Modern UI Figma Plugin",
+  "name": "Acumatica to Figma Plugin",
   "id": "1431175011597677298",
   "api": "1.0.0",
   "main": "dist/code.js",
