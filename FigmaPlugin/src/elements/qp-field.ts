@@ -13,7 +13,7 @@ export enum QPFieldElementType {
 
 export interface QPField extends AcuElement {
     Type: AcuElementType.Field;
-    Label: string;
-    ElementType: QPFieldElementType;
+    Label: string | null;
+    ElementType: QPFieldElementType | null;
     Value: string | null;
 }
