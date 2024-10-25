@@ -1,7 +1,7 @@
 {
   "name": "figma-export-tool",
   "version": "1.0.0",
-  "description": "Chrome extension to export HTML content for Figma",
+  "description": "Chrome extension to export HTML content to Figma",
   "main": "background.js",
   "scripts": {
     "build": "node src/copyStaticFiles.cjs && webpack",
