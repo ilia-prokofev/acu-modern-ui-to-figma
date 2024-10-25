@@ -13,11 +13,14 @@ import {AcuContainer} from "./elements/acu-container";
 import {Tab, TabBar} from "./elements/qp-tabbar";
 import {Grid, GridColumn, GridColumnType} from "./elements/qp-grid";
 import {FrameNode} from "@figma/plugin-typings/plugin-api-standalone";
+import {Root} from "./elements/qp-root";
 
 figma.showUI(__html__, {width: 650, height: 410});
 
 const spacer = 20;
-const pageWidth = 1200;
+const pageWidth = 1536;
+const  pageHeight = 864;
+const viewportWidth = pageWidth - 100;
 
 function MapElementType(type: QPFieldElementType) {
     switch (type) {
@@ -29,13 +32,15 @@ function MapElementType(type: QPFieldElementType) {
             return 'Date';
         case QPFieldElementType.DropDown :
             return 'Label + Field';
-        case QPFieldElementType.NumberEditor :
-            return 'Label + Number Field';
+        // case QPFieldElementType.NumberEditor :
+        //     return 'Label + Number Field';
         case QPFieldElementType.Selector :
             return 'Label + Field';
         case QPFieldElementType.Status :
             return 'Label + Field';
         case QPFieldElementType.TextEditor :
+            return 'Label + Field';
+        case QPFieldElementType.MultilineTextEditor :
             return 'Label + Text Area';
         default:
             return 'Label + Field';
@@ -52,8 +57,9 @@ function FindPropertyName(node: InstanceNode, property: string) {
     return '';
 }
 
-function SetProperty(node: InstanceNode, property: string, newVal: any) {
-    if (!newVal) return;
+function SetProperty(node: InstanceNode, property: string, newVal: string|boolean|null|undefined) {
+    if (newVal === undefined || newVal === null) return;
+    if (property === '') return;
     const propertyName: string = FindPropertyName(node, property);
     node.setProperties({[propertyName]: newVal});
 }
@@ -74,35 +80,41 @@ function DrawSlot(template: FieldsetSlot, x = 0, y = 0, w = 0) {
 }
 
 function DrawGrid(grid: Grid, y = 0) {
-    const componentSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Grid') as ComponentSetNode;
-    const component = componentSet.defaultVariant;
+    const component = figma.root.findOne(node => node.type === 'COMPONENT' && node.name === 'Grid20') as ComponentNode;
     const instance = component.createInstance();
     instance.x = 0;
     instance.y = y;
+
+    // const columns = instance.findOne(node => node.type === 'INSTANCE' && node.name === 'Columns') as ComponentSetNode;
+    // for (let i = 1; i <= Math.max(20, grid.Columns.length); i++) {
+    //     instance.findOne(node => node.type === 'INSTANCE' && node.name === 'Columns') as ComponentSetNode;
+    //     SetProperty(instance, `${i} tab`, i <= grid.Columns.length);
+    // }
+
     figma.currentPage.appendChild(instance);
 }
 
 function DrawTabBar(tb: TabBar, y = 0) {
     let x = 0;
-    let w = pageWidth - (spacer * (tb.Children.length - 1)) / tb.Children.length;
+    let w = viewportWidth - (spacer * (tb.Children.length - 1)) / tb.Children.length;
 
     const component = figma.root.findOne(node => node.type === 'COMPONENT' && node.name === 'Tabbar') as ComponentNode;
     const instance = component.createInstance();
     instance.x = 0;
     instance.y = y;
 
-    for (let i = 1; i <= Math.max(10, tb.Children.length); i++) {
+    for (let i = 1; i <= Math.max(10, tb.Tabs.length); i++) {
         SetProperty(instance, `${i} tab`, i <= tb.Tabs.length);
     }
 
     for (let i = 0; i < tb.Tabs.length; i++) {
         const tab = (tb.Tabs[i] as unknown) as Tab;
         const node = instance.findOne(node => node.type === 'INSTANCE' && node.name === 'Tab ' + (i + 1)) as InstanceNode;
-        console.log('Tab ' + (i + 1));
-        console.log(tab);
-        console.log(node);
-        console.log(tab.Label);
-        console.log(tab.IsActive);
+        // console.log('Tab ' + (i + 1));
+        // console.log(tab);
+        // console.log(node);
+        // console.log(tab.Label);
+        // console.log(tab.IsActive);
 
         SetProperty(node, 'State', 'Normal');
         SetProperty(node, 'Value', tab.Label);
@@ -120,7 +132,7 @@ function DrawTabBar(tb: TabBar, y = 0) {
                 break;
             }
             case AcuElementType.Grid: {
-                DrawGrid((fs as unknown) as Grid);
+                DrawGrid((fs as unknown) as Grid, y);
                 break;
             }
         }
@@ -130,8 +142,8 @@ function DrawTabBar(tb: TabBar, y = 0) {
 
 function DrawTemplate(template: Template, y = 0) {
     let x = 0;
-    let w = (pageWidth - (spacer * (template.Children.length - 1))) / template.Children.length;
-    const parts = template.Name?.split('-').map(p => parseInt(p))??[];
+    let w = (viewportWidth - (spacer * (template.Children.length - 1))) / template.Children.length;
+    const parts = template.Name?.split('-').map(p => parseInt(p)) ?? [];
     let sum = 0;
 
     parts?.forEach((part, i) => {
@@ -143,7 +155,7 @@ function DrawTemplate(template: Template, y = 0) {
     template.Children.forEach((fs, i) => {
         let curW = w;
         if (sum > 0)
-            curW = (pageWidth - (spacer * (template.Children.length - 1))) * parts[i] / sum;
+            curW = (viewportWidth - (spacer * (template.Children.length - 1))) * parts[i] / sum;
         switch (fs.Type) {
             case AcuElementType.FieldSet: {
                 const {newX, newY} = DrawFieldset(fs as QPFieldset, x, y, curW);
@@ -232,25 +244,30 @@ function DrawFieldset(fs: QPFieldset, x = 0, y = 0, w = 0) {
     return {newX: x, newY: y}
 }
 
-function DrawHeader(frame: FrameNode) {
+function DrawHeader(frame: FrameNode, root: Root) {
     let componentSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Header') as ComponentSetNode;
     let component = componentSet.defaultVariant;
-    const toolbar = component.createInstance();
-    toolbar.x = 0;
-    toolbar.y = -toolbar.height - spacer / 2;
-    figma.currentPage.appendChild(toolbar);
+    const header = component.createInstance();
+    header.x = 0;
+    header.y = -header.height - spacer / 2;
+    header.resize(viewportWidth, header.height);
+    SetProperty(header, 'Link Value', root.Caption1);
+    SetProperty(header, 'Title Value', root.Caption2);
+    figma.currentPage.appendChild(header);
 
     componentSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Main header') as ComponentSetNode;
     component = componentSet.defaultVariant;
     const mainHeader = component.createInstance();
     mainHeader.x = 0;
-    mainHeader.y = -toolbar.height - mainHeader.height - spacer;
+    mainHeader.y = -header.height - mainHeader.height - spacer;
+    mainHeader.resize(pageWidth, mainHeader.height);
     figma.currentPage.appendChild(mainHeader);
 
     component = figma.root.findOne(node => node.type === 'COMPONENT' && node.name === 'Left menu/Default') as ComponentNode;
     const leftMenu = component.createInstance();
     leftMenu.x = -leftMenu.width - spacer / 2;
-    leftMenu.y = -toolbar.height - spacer;
+    leftMenu.y = -header.height - spacer;
+    leftMenu.resize(leftMenu.width, frame.height - mainHeader.height);
     figma.currentPage.appendChild(leftMenu);
 
     mainHeader.x = -leftMenu.width - spacer / 2;
@@ -338,9 +355,14 @@ function generateRoot() {
     const template1: Template = {Type: AcuElementType.Template, Name: '7-10-7', Children: [Slot1, Slot2]};
     const template2: Template = {Type: AcuElementType.Template, Name: '7-10-7', Children: [Slot3, Slot4]};
     const tab1: Tab = {Type: AcuElementType.Tab, Label: 'Details1', IsActive: false};
-    const tab2: Tab = {Type: AcuElementType.Tab, Label: 'Bills1', IsActive: true};
-    const tab3: Tab = {Type: AcuElementType.Tab, Label: 'Finance1', IsActive: false};
-    const col1: GridColumn = {Type:AcuElementType.GridColumn, Label: 'Test 1', ColumnType: GridColumnType.Text, Cells: ['a', 'b']};
+    const tab2: Tab = {Type: AcuElementType.Tab, Label: 'Bills1', IsActive: false};
+    const tab3: Tab = {Type: AcuElementType.Tab, Label: 'Finance1', IsActive: true};
+    const col1: GridColumn = {
+        Type: AcuElementType.GridColumn,
+        Label: 'Test 1',
+        ColumnType: GridColumnType.Text,
+        Cells: ['a', 'b']
+    };
     const grid: Grid = {Type: AcuElementType.Grid, Columns: [col1]};
     //const tabBar: TabBar = {Type: AcuElementType.Tabbar, Tabs: [tab1, tab2, tab3], Children: [template2]};
 
@@ -351,7 +373,12 @@ function generateRoot() {
     };
     const tabBar: TabBar = {Type: AcuElementType.Tabbar, Tabs: [tab1, tab2, tab3], Children: []};
     //const root: AcuContainer = {Type: AcuElementType.Root, Children: [templateS]};
-    const root: AcuContainer = {Type: AcuElementType.Root, Children: [templateS, tabBar]};
+    const root: Root = {
+        Caption1: 'Subcontracts',
+        Caption2: 'New Record',
+        Type: AcuElementType.Root,
+        Children: [tabBar]
+    };
     return root;
 }
 
@@ -363,38 +390,40 @@ async function DrawFromHTML(input: string) {
     const frame = figma.createFrame() as FrameNode;
     frame.x = 0;
     frame.y = 0;
-    frame.resize(1346, 903);
+    frame.resize(pageWidth, pageHeight);
 
-    let root = null;
+    let root: Root;
     if (input === '')
         root = generateRoot();
     else
-        root = JSON.parse(input) as AcuContainer;
+        root = JSON.parse(input) as Root;
+    frame.name = root.Caption2??'Screen';
 
-    let y = 0;
+
+        let y = 0;
 
     let progress = 10;
     figma.ui.postMessage({type: 'progress', progress});
     await new Promise(resolve => setTimeout(resolve, 20))
 
     for (const fs of root.Children) {
-      switch (fs.Type) {
-        case AcuElementType.Template:
+        switch (fs.Type) {
+            case AcuElementType.Template:
                 y = DrawTemplate(fs as Template, y);
                 break;
             case AcuElementType.Tabbar:
                 y = DrawTabBar(fs as TabBar, y);
                 break;
             case AcuElementType.Grid:
-          DrawGrid((fs as unknown) as Grid);
-          break;
-      }
-      progress += 25;
-      figma.ui.postMessage({type: 'progress', progress});
-      await new Promise(resolve => setTimeout(resolve, 20));
+                DrawGrid((fs as unknown) as Grid);
+                break;
+        }
+        progress += 25;
+        figma.ui.postMessage({type: 'progress', progress});
+        await new Promise(resolve => setTimeout(resolve, 20));
     }
 
-    DrawHeader(frame);
+    DrawHeader(frame, root);
 }
 
 // Calls to "parent.postMessage" from within the HTML page will trigger this
