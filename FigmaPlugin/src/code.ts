@@ -275,14 +275,17 @@ function generateRoot() {
   const Slot4: FieldsetSlot = {Type: AcuElementType.FieldsetSlot, ID: "2", Children: [qpFieldSet2, qpFieldSet1]};
   const template1: Template = {Type: AcuElementType.Template, Name: '7-10-7', Children: [Slot1, Slot2]};
   const template2: Template = {Type: AcuElementType.Template, Name: '7-10-7', Children: [Slot3, Slot4]};
-  const tab1: Tab = {Label: 'Details', IsActive: false};
-  const tab2: Tab = {Label: 'Bills', IsActive: true};
-  const tab3: Tab = {Label: 'Finance', IsActive: false};
+  const tab1: Tab = {Type:AcuElementType.Tab, Label : 'Details', IsActive: false};
+  const tab2: Tab = {Type:AcuElementType.Tab,Label: 'Bills', IsActive: true};
+  const tab3: Tab = {Type:AcuElementType.Tab,Label: 'Finance', IsActive: false};
   const col1: GridColumn = {Label: 'Test 1', ColumnType: GridColumnType.Text, Cells: ['a', 'b']};
   const grid: Grid = {Type: AcuElementType.Grid, Columns: [col1], Children:[]};
   //const tabBar: TabBar = {Type: AcuElementType.Tabbar, Tabs: [tab1, tab2, tab3], Children: [template2]};
-  const tabBar: TabBar = {Type: AcuElementType.Tabbar, Tabs: [tab1, tab2, tab3], Children: [grid]};
-  const root: AcuContainer = {Type: AcuElementType.Root, Children: [template1, tabBar]};
+
+  const templateS: Template = {Type: AcuElementType.Template, Name: '7-10-7', Children: [qpFieldSet1]};
+  const tabBar: TabBar = {Type: AcuElementType.Tabbar, Tabs: [tab1, tab2, tab3], Children: [templateS]};
+  const root: AcuContainer = {Type: AcuElementType.Root, Children: [templateS, tabBar]};
+  //const root: AcuContainer = {Type: AcuElementType.Root, Children: [template1, tabBar]};
   return root;
 }
 
