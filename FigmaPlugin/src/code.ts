@@ -8,13 +8,14 @@
 import {QPField, QPFieldElementType} from "./elements/qp-field";
 import {Template} from "./elements/qp-template";
 import {QPFieldset} from "./elements/qp-fieldset";
-import {AcuElement, AcuElementType} from "./elements/acu-element";
+import {AcuElementType} from "./elements/acu-element";
 import {FieldsetSlot} from "./elements/qp-fieldset-slot";
 import {AcuContainer} from "./elements/acu-container";
 
 figma.showUI(__html__);
 
 const spacer = 20;
+const pageWidth = 1200;
 
 interface Container {
   name: string;
@@ -144,36 +145,56 @@ function DrawFieldset_0(fs: Fieldset, dx = 0, dy = 0)
   return {newX: dx, newY: dy}
 }
 
-function DrawSlot(template: FieldsetSlot, dx = 0, dy = 0)
+function DrawSlot(template: FieldsetSlot, x = 0, y = 0, w = 0)
 {
-
-}
-
-function DrawTemplate(template: Template, dx = 0, dy = 0)
-{
+  let x1 = 0;
   template.Children.forEach(fs => {
     switch (fs.Type){
       case AcuElementType.FieldSet: {
-        DrawFieldset(fs as QPFieldset);
-        break;
-      }
-      case AcuElementType.FieldsetSlot: {
-        DrawSlot(fs as FieldsetSlot);
+        const {newX, newY} = DrawFieldset(fs as QPFieldset, x, y, w);
+        x1 = newX;
+        y = Math.max(newY, y);
         break;
       }
     }
   });
+  return {newX: x1, newY: y};
+}
+
+function DrawTemplate(template: Template, y = 0)
+{
+  let x = 0;
+  let w = pageWidth - (spacer * (template.Children.length - 1)) / template.Children.length;
+  let y1 = y;
+  template.Children.forEach(fs => {
+    switch (fs.Type){
+      case AcuElementType.FieldSet: {
+        const {newX, newY} = DrawFieldset(fs as QPFieldset, x, y, w);
+        x = newX;
+        y1 = Math.max(newY, y1);
+        break;
+      }
+      case AcuElementType.FieldsetSlot: {
+        const {newX, newY} = DrawSlot(fs as FieldsetSlot, x, y, w);
+        x = newX;
+        y1 = Math.max(newY, y1);
+        break;
+      }
+    }
+  });
+  return y1;
 }
 
 
-function DrawFieldset(fs: QPFieldset, dx = 0, dy = 0)
+function DrawFieldset(fs: QPFieldset, x = 0, y = 0, w = 0)
 {
-  console.log(fs.Label);
   const compSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Fieldset') as ComponentSetNode;
   const component = compSet.findOne(node => node.type === 'COMPONENT' && node.name === 'Wrapping=Gray, Label Length=sm') as ComponentNode;
   const instance = component.createInstance();
-  instance.x = dx;
-  instance.y = dy;
+  instance.x = x;
+  instance.y = y;
+  if (w > 0)
+    instance.resize(w, instance.height);
 
   const header = instance.findOne(node => node.type === 'INSTANCE' && node.name === 'Group Header') as InstanceNode;
   if (fs.Label === undefined || fs.Label === '')
@@ -238,14 +259,17 @@ function DrawFieldset(fs: QPFieldset, dx = 0, dy = 0)
 
   figma.currentPage.appendChild(instance);
   
-  dx += instance.width + spacer;
-  dy += instance.height + spacer;
+  x += instance.width + spacer;
+  y += instance.height + spacer;
 
-  return {newX: dx, newY: dy}
+  console.log(x);
+  console.log(y);
+
+  return {newX: x, newY: y}
 }
 
-function DrawToolbars(x = 0, y = 0) {
-  let componentSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Toolbar') as ComponentSetNode;
+function DrawHeader(x = 0, y = 0) {
+  let componentSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Header') as ComponentSetNode;
   let component = componentSet.defaultVariant;
   const toolbar = component.createInstance();
   toolbar.x = 0;
@@ -306,7 +330,7 @@ function DrawFromJSON(input: string) {
   instance.y = dy;
   figma.currentPage.appendChild(instance);
   
-  DrawToolbars(dx, dy);
+  DrawHeader(dx, dy);
 
 }
 
@@ -319,15 +343,38 @@ function generateRoot() {
   const qpField5: QPField = {Type: AcuElementType.Field, Label: 'Project', ElementType: QPFieldElementType.Selector, Value: 'X'};
   const qpField6: QPField = {Type: AcuElementType.Field, Label: 'Description', ElementType: QPFieldElementType.TextEditor, Value: 'Here would be very very very very long string. Or not.'};
   const qpFieldSet1: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Children: [
-    qpField1,
-    qpField2,
-    qpField3,
-    qpField4,
-    qpField5,
-    qpField6
-  ]};
-  const template: Template = {Type: AcuElementType.Template, Name: '7-10-7', Children: [qpFieldSet1, qpFieldSet1]}
-  const root: AcuContainer = {Type: AcuElementType.Root, Children: [template]}
+      qpField1,
+      qpField2,
+      qpField3,
+      qpField4
+    ]};
+  const qpFieldSet2: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Children: [
+      qpField5,
+      qpField6
+    ]};
+  const qpFieldSet3: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Children: [
+      qpField4,
+      qpField5,
+      qpField1,
+      qpField2,
+      qpField3,
+      qpField6
+    ]};
+  const qpFieldSet4: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Children: [
+      qpField2,
+      qpField4,
+      qpField1,
+      qpField3,
+      qpField5,
+      qpField6
+    ]};
+  const Slot1: FieldsetSlot = {Type: AcuElementType.FieldsetSlot, ID: "1", Children: [qpFieldSet1, qpFieldSet2]};
+  const Slot2: FieldsetSlot = {Type: AcuElementType.FieldsetSlot, ID: "2", Children: [qpFieldSet3]};
+  const Slot3: FieldsetSlot = {Type: AcuElementType.FieldsetSlot, ID: "1", Children: [qpFieldSet4]};
+  const Slot4: FieldsetSlot = {Type: AcuElementType.FieldsetSlot, ID: "2", Children: [qpFieldSet2, qpFieldSet1]};
+  const template1: Template = {Type: AcuElementType.Template, Name: '7-10-7', Children: [Slot1, Slot2]};
+  const template2: Template = {Type: AcuElementType.Template, Name: '7-10-7', Children: [Slot3, Slot4]};
+  const root: AcuContainer = {Type: AcuElementType.Root, Children: [template1, template2]};
   return root;
 }
 
@@ -344,18 +391,39 @@ function DrawFromHTML(input: string) {
 
     console.log(root);
 
+    let y = 0;
+
     root.Children.forEach(fs => {
       switch (fs.Type){
         case AcuElementType.Template: {
-          DrawTemplate(fs as Template);
+          y = DrawTemplate(fs as Template, y);
           break;
         }
-        case AcuElementType.FieldsetSlot: {
-          DrawFieldset(fs as QPFieldset);
+        case AcuElementType.Tabbar: {
+          //DrawFieldset(fs as QPFieldset);
           break;
         }
       }
     });
+
+    return;
+
+    let component = figma.root.findOne(node => node.type === 'COMPONENT' && node.name === 'Tabbar') as ComponentNode;
+    let instance = component.createInstance();
+    instance.x = 0;
+    instance.y = y;
+    figma.currentPage.appendChild(instance);
+  
+    y += instance.height + spacer;
+  
+    let componentSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Grid') as ComponentSetNode;
+    component = componentSet.defaultVariant;
+    instance = component.createInstance();
+    instance.x = 0;
+    instance.y = y;
+    figma.currentPage.appendChild(instance);
+
+    DrawHeader();
 
 }
 
