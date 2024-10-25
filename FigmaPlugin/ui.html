@@ -11,8 +11,8 @@
             padding-top: 10px;
             background-color: #f4f4f4;
             color: #333;
-            min-width: 420px;
-            min-height: 300px;
+            min-width: 600px;
+            min-height: 400px;
         }
 
         .plugin-container {
@@ -90,6 +90,28 @@
         button:hover {
             opacity: 0.9;
         }
+        .progress-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        progress {
+            width: 100%;
+            height: 20px;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        progress::-webkit-progress-bar {
+            background-color: #f3f3f3;
+            border-radius: 8px;
+        }
+        progress::-webkit-progress-value {
+            background-color: #32CD32;
+            border-radius: 8px;
+        }
+        #progress-text {
+            font-size: 14px;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
@@ -102,6 +124,10 @@
         <label for="inputText"></label>
         <textarea id="inputText" placeholder="Enter JSON here..."></textarea>
     </div>
+    <div class="progress-container">
+        <progress id="render-progress" value="0" max="100"></progress>
+        <p id="progress-text">0% Complete</p>
+    </div>
     <div class="button-container">
         <button id="json">Import JSON</button>
         <button id="cancel">Cancel</button>
@@ -112,11 +138,20 @@
     document.getElementById('json').onclick = () => {
         const textbox = document.getElementById('inputText');
         const inputText = textbox.value;
-        parent.postMessage({ pluginMessage: { input: inputText, format: 'html' } }, '*');
+        parent.postMessage({pluginMessage: {input: inputText, format: 'html'}}, '*');
     };
 
     document.getElementById('cancel').onclick = () => {
-        parent.postMessage({ pluginMessage: { input: '', format: '' } }, '*');
+        parent.postMessage({pluginMessage: {input: '', format: ''}}, '*');
+    };
+    window.onmessage = (event) => {
+        const message = event.data.pluginMessage;
+        if (message.type === 'progress') {
+            const progressBar = document.getElementById('render-progress');
+            const progressText = document.getElementById('progress-text');
+            progressBar.value = message.progress;
+            progressText.textContent = `${Math.round(message.progress)}% Complete`;
+        }
     };
 </script>
 </body>
