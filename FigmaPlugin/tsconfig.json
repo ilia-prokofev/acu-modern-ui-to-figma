@@ -1,9 +1,6 @@
 {
   "compilerOptions": {
-    "moduleResolution": "NodeNext",
-    "module": "NodeNext",
-    "target": "ESNext",
-    "lib": ["ESNext"],
+    "target": "es6",
     "types": ["@figma/plugin-typings", "jest"],
     "esModuleInterop": true,
     "strict": true,
