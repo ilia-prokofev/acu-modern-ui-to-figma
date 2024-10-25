@@ -61,6 +61,7 @@ function SetProperty(node: InstanceNode, property: string, newVal: string|boolea
     if (newVal === undefined || newVal === null) return;
     if (property === '') return;
     const propertyName: string = FindPropertyName(node, property);
+    if (propertyName === '') return;
     node.setProperties({[propertyName]: newVal});
 }
 
@@ -110,14 +111,15 @@ function DrawTabBar(tb: TabBar, y = 0) {
     for (let i = 0; i < tb.Tabs.length; i++) {
         const tab = (tb.Tabs[i] as unknown) as Tab;
         const node = instance.findOne(node => node.type === 'INSTANCE' && node.name === 'Tab ' + (i + 1)) as InstanceNode;
-        // console.log('Tab ' + (i + 1));
-        // console.log(tab);
-        // console.log(node);
-        // console.log(tab.Label);
-        // console.log(tab.IsActive);
 
-        SetProperty(node, 'State', 'Normal');
-        SetProperty(node, 'Value', tab.Label);
+        try {
+            SetProperty(node, 'State', 'Normal');
+        }
+        catch (e) {}
+        try {
+            SetProperty(node, 'Value', tab.Label);
+        }
+        catch (e) {}
         //SetProperty(node, 'Selected', tab.IsActive);
     }
 
@@ -400,9 +402,15 @@ async function DrawFromHTML(input: string) {
     frame.name = root.Caption2??'Screen';
 
 
-        let y = 0;
+    let y = 0;
 
-    let progress = 10;
+    let progress = 5;
+    figma.ui.postMessage({type: 'progress', progress});
+    await new Promise(resolve => setTimeout(resolve, 20))
+
+    DrawHeader(frame, root);
+
+    progress += 15;
     figma.ui.postMessage({type: 'progress', progress});
     await new Promise(resolve => setTimeout(resolve, 20))
 
@@ -423,7 +431,6 @@ async function DrawFromHTML(input: string) {
         await new Promise(resolve => setTimeout(resolve, 20));
     }
 
-    DrawHeader(frame, root);
 }
 
 // Calls to "parent.postMessage" from within the HTML page will trigger this
