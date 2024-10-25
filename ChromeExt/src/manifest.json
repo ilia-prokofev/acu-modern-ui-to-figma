@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "Modern UI to Figma Exporter",
+    "name": "Acumatica to Figma",
     "version": "1.0.0",
-    "description": "Parses HTML and copies it to clipboard for Figma",
+    "description": "Chrome extension to export HTML content to Figma",
     "action": {
         "default_popup": "popup.html"
     },
