@@ -12,7 +12,7 @@ import {AcuElementType} from "./elements/acu-element";
 import {FieldsetSlot} from "./elements/qp-fieldset-slot";
 import {AcuContainer} from "./elements/acu-container";
 
-figma.showUI(__html__);
+figma.showUI(__html__, { width: 600, height: 350 });
 
 const spacer = 20;
 const pageWidth = 1200;
