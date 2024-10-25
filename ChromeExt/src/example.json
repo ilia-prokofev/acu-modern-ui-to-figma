@@ -68,10 +68,10 @@
               "Value": "USD"
             },
             {
-              "ElementType": null,
+              "ElementType": "MultilineTextEditor",
               "Label": "Description",
               "Type": "Field",
-              "Value": null
+              "Value": ""
             }
           ],
           "Highlighted": false,
