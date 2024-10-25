@@ -1,6 +1,6 @@
 import {AcuPageParser} from "./acu-page-parser";
-import {AcuElement} from "./elements";
 import * as fs from "node:fs";
+import {AcuElement} from "./elements/acu-element";
 
 describe('AcuPageParser', () => {
     let sut: AcuPageParser;

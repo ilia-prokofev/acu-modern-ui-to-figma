@@ -1,4 +1,7 @@
-import {AcuContainer, AcuElement, AcuElementType, QPField, QPFieldElementType, QPFieldset} from "./elements";
+import {AcuElement, AcuElementType} from "./elements/acu-element";
+import {QPField, QPFieldElementType} from "./elements/qp-field";
+import {AcuContainer} from "./elements/acu-container";
+import {QPFieldset} from "./elements/qp-fieldset";
 
 interface ElementVisitor {
     visit(htmlElement: ChildNode, parent: AcuElement): boolean;
