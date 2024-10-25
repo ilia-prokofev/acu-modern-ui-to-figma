@@ -221,7 +221,7 @@ function DrawFieldset(fs: QPFieldset, dx = 0, dy = 0)
       }
       
     if (rowNode)
-      SetProperty(rowNode, 'Type', MapElementType(field.ElementType));
+      SetProperty(rowNode, 'Type', MapElementType(field.ElementType!));
     if (field.Value)
     {
       let valueNode = rowNode.findOne(node => node.type === 'INSTANCE' && node.name === 'Field');
