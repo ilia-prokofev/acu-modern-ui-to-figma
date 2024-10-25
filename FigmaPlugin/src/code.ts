@@ -282,7 +282,7 @@ function generateRoot() {
   const tab1: Tab = {Type:AcuElementType.Tab, Label : 'Details', IsActive: false};
   const tab2: Tab = {Type:AcuElementType.Tab,Label: 'Bills', IsActive: true};
   const tab3: Tab = {Type:AcuElementType.Tab,Label: 'Finance', IsActive: false};
-  const col1: GridColumn = {Label: 'Test 1', ColumnType: GridColumnType.Text, Cells: ['a', 'b']};
+  const col1: GridColumn = {Type:AcuElementType.GridColumn, Label: 'Test 1', ColumnType: GridColumnType.Text, Cells: ['a', 'b']};
   const grid: Grid = {Type: AcuElementType.Grid, Columns: [col1]};
   //const tabBar: TabBar = {Type: AcuElementType.Tabbar, Tabs: [tab1, tab2, tab3], Children: [template2]};
 
