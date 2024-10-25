@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const filesToCopy = ['popup.html', 'popup.css', 'manifest.json'];
+const filesToCopy = ['popup.html', 'popup.css', 'manifest.json', 'icon16.png', 'icon48.png', 'icon128.png'];
 
 const destinationDir = path.join(__dirname, '../dist');
 
