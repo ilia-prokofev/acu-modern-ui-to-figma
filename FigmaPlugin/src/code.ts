@@ -5,6 +5,13 @@
 // full browser environment (See https://www.figma.com/plugin-docs/how-plugins-run).
 
 // This shows the HTML page in "ui.html".
+import {QPField, QPFieldElementType} from "./elements/qp-field";
+import {Template} from "./elements/qp-template";
+import {QPFieldset} from "./elements/qp-fieldset";
+import {AcuElementType} from "./elements/acu-element";
+import {FieldsetSlot} from "./elements/qp-fieldset-slot";
+import {AcuContainer} from "./elements/acu-container";
+
 figma.showUI(__html__);
 
 const spacer = 20;
@@ -137,7 +144,7 @@ function DrawFieldset_0(fs: Fieldset, dx = 0, dy = 0)
   return {newX: dx, newY: dy}
 }
 
-function DrawSlot(template: Slot, dx = 0, dy = 0)
+function DrawSlot(template: FieldsetSlot, dx = 0, dy = 0)
 {
 
 }
@@ -150,8 +157,8 @@ function DrawTemplate(template: Template, dx = 0, dy = 0)
         DrawFieldset(fs as QPFieldset);
         break;
       }
-      case AcuElementType.Slot: {
-        DrawSlot(fs as Slot);
+      case AcuElementType.FieldsetSlot: {
+        DrawSlot(fs as FieldsetSlot);
         break;
       }
     }

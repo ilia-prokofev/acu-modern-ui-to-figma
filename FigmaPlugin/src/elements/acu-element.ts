@@ -1,8 +1,11 @@
 export enum AcuElementType {
-    QPTemplate = 'QPTemplate',
-    QPFieldSetSlot = 'QPFieldSetSlot',
-    QPField = 'QPField',
-    QPFieldSet = 'QPFieldSet',
+    Field = 'Field',
+    FieldSet = 'FieldSet',
+    Template = 'Template',
+    Tabbar = 'Tabbar',
+    Grid = 'Grid',
+    FieldsetSlot = 'FieldsetSlot',
+    Group = 'Group',
     Root = 'Root',
 }
 

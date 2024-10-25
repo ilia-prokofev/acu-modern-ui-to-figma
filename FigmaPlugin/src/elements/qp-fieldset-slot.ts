@@ -1,7 +1,7 @@
 import {AcuElementType} from "./acu-element";
 import {AcuContainer} from "./acu-container";
 
-export interface QPFieldsetSlot extends AcuContainer {
-    Type: AcuElementType.QPFieldSetSlot;
+export interface FieldsetSlot extends AcuContainer {
+    Type: AcuElementType.FieldsetSlot;
     ID: string;
 }
