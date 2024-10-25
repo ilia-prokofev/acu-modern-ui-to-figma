@@ -2,6 +2,7 @@ import {AcuElement, AcuElementType} from "./acu-element";
 
 export enum QPFieldElementType {
     TextEditor = 'TextEditor',
+    MultilineTextEditor = 'MultilineTextEditor',
     Selector = 'Selector',
     DropDown = 'DropDown',
     CheckBox = 'CheckBox',
@@ -9,7 +10,7 @@ export enum QPFieldElementType {
     NumberEditor = 'NumberEditor',
     Status = 'Status',
     Currency = 'Currency'
-  }
+}
 
 export interface QPField extends AcuElement {
     Type: AcuElementType.Field;

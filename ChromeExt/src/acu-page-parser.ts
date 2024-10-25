@@ -103,6 +103,25 @@ class LabelVisitor implements ElementVisitor {
     }
 }
 
+class MultilineTextEditVisitor implements ElementVisitor {
+    visit(htmlElement: Element, parent: AcuElement): boolean {
+        if (parent.Type !== AcuElementType.Field) {
+            return false;
+        }
+
+        if (htmlElement.nodeName.toLowerCase() !== "textarea") {
+            return false;
+        }
+
+        (parent as QPField).ElementType = QPFieldElementType.MultilineTextEditor;
+        (parent as QPField).Value = htmlElement.textContent?.trim() ?? null;
+
+        VisitChildren(htmlElement, parent);
+
+        return true;
+    }
+}
+
 class TextEditVisitor implements ElementVisitor {
     visit(htmlElement: Element, parent: AcuElement): boolean {
         if (parent.Type !== AcuElementType.Field) {
@@ -391,6 +410,7 @@ const AllVisitors: Array<ElementVisitor> = [
     new QPFieldsetVisitor(),
     new QPFieldVisitor(),
     new LabelVisitor(),
+    new MultilineTextEditVisitor(),
     new TextEditVisitor(),
     new QPTabBarVisitor(),
     new QPGridVisitor(),
