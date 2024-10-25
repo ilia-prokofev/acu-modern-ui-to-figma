@@ -42,6 +42,8 @@ scripts/**/*.js
 scripts/**/*.js.map
 coverage/
 internal/
+FigmaPlugin/src/elements/
+ChromeExt/src/elements/
 **/.DS_Store
 .settings
 **/.vs
