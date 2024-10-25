@@ -5,6 +5,7 @@ import {QPFieldset} from "./elements/qp-fieldset";
 import {FieldsetSlot} from "./elements/qp-fieldset-slot";
 import {Template} from "./elements/qp-template";
 import {Tab, TabBar} from "./elements/qp-tabbar";
+import {Grid} from "./elements/qp-grid";
 
 function findClasses(htmlElement: Element, ...classNames: string[]): boolean {
     const classAttr = htmlElement.attributes.getNamedItem("class")?.value;
@@ -150,6 +151,7 @@ class QPFieldsetVisitor implements ElementVisitor {
             Label: null,
             Type: AcuElementType.FieldSet,
             Children: [],
+            Class: htmlElement.attributes.getNamedItem("class")?.value ?? null,
         };
 
         (parent as AcuContainer).Children.push(child);
@@ -213,7 +215,7 @@ export class QPTemplateVisitor implements ElementVisitor {
     }
 }
 
-export class QPTabBarSelectorVisitor implements ElementVisitor {
+export class QPTabBarVisitor implements ElementVisitor {
     visit(htmlElement: Element, parent: AcuElement): boolean {
         if (!(parent as AcuContainer)?.Children) {
             return false;
@@ -271,6 +273,31 @@ export class QPTabBarSelectorVisitor implements ElementVisitor {
     }
 }
 
+export class QPGridVisitor implements ElementVisitor {
+    visit(htmlElement: Element, parent: AcuElement): boolean {
+        if (!(parent as AcuContainer)?.Children) {
+            return false;
+        }
+
+        if (htmlElement.nodeName.toLowerCase() !== "qp-grid") {
+            return false;
+        }
+
+        const child: Grid = {
+            Type: AcuElementType.Grid,
+            Columns: [],
+        };
+
+        (parent as AcuContainer).Children.push(child);
+
+        VisitChildren(htmlElement, child);
+
+        return true;
+    }
+}
+
+export
+
 function Visit(htmlElement: Element, parent: AcuElement) {
     for (const visitor of AllVisitors) {
         if (visitor.visit(htmlElement, parent)) {
@@ -293,7 +320,8 @@ const AllVisitors: Array<ElementVisitor> = [
     new QPFieldVisitor(),
     new LabelVisitor(),
     new TextEditVisitor(),
-    new QPTabBarSelectorVisitor(),
+    new QPTabBarVisitor(),
+    new QPGridVisitor(),
 ];
 
 export class AcuPageParser {

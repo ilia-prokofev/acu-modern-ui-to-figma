@@ -1,4 +1,5 @@
 import {AcuContainer} from "./acu-container";
+import {AcuElement} from "./acu-element";
 
 export enum GridColumnType {
     Settings = "Settings",
@@ -15,6 +16,6 @@ export interface GridColumn {
     Cells: string[];
 }
 
-export interface Grid extends AcuContainer {
+export interface Grid extends AcuElement {
     Columns: GridColumn[];
 }

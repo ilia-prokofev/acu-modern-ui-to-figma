@@ -35,6 +35,7 @@
               "Value": ""
             }
           ],
+          "Class": "au-target qp-fieldset fieldset-titleless",
           "Label": null,
           "Type": "FieldSet"
         },
@@ -71,6 +72,7 @@
               "Value": null
             }
           ],
+          "Class": "au-target qp-fieldset fieldset-titleless",
           "Label": null,
           "Type": "FieldSet"
         },
@@ -95,6 +97,7 @@
               "Value": "0.00"
             }
           ],
+          "Class": "highlights-section au-target qp-fieldset fieldset-titleless",
           "Label": null,
           "Type": "FieldSet"
         }
@@ -105,124 +108,8 @@
     {
       "Children": [
         {
-          "Children": [
-            {
-              "Children": [
-                {
-                  "Children": [
-                    {
-                      "ElementType": "Selector",
-                      "Label": "Branch",
-                      "Type": "Field",
-                      "Value": "PRODWHOLE - Products Wholesale"
-                    },
-                    {
-                      "ElementType": "Selector",
-                      "Label": "Terms",
-                      "Type": "Field",
-                      "Value": ""
-                    },
-                    {
-                      "ElementType": "TextEditor",
-                      "Label": "Tax Exemption Number",
-                      "Type": "Field",
-                      "Value": ""
-                    },
-                    {
-                      "ElementType": "DropDown",
-                      "Label": "Tax Exemption Type",
-                      "Type": "Field",
-                      "Value": "Default"
-                    },
-                    {
-                      "ElementType": "Selector",
-                      "Label": "Pay-to Vendor",
-                      "Type": "Field",
-                      "Value": ""
-                    },
-                    {
-                      "ElementType": "Selector",
-                      "Label": "Workgroup ID",
-                      "Type": "Field",
-                      "Value": ""
-                    },
-                    {
-                      "ElementType": "CheckBox",
-                      "Label": "Printed",
-                      "Type": "Field",
-                      "Value": "on"
-                    },
-                    {
-                      "ElementType": "CheckBox",
-                      "Label": "Emailed",
-                      "Type": "Field",
-                      "Value": "on"
-                    }
-                  ],
-                  "Label": null,
-                  "Type": "FieldSet"
-                }
-              ],
-              "ID": "A",
-              "Type": "FieldsetSlot"
-            },
-            {
-              "Children": [
-                {
-                  "Children": [
-                    {
-                      "ElementType": "CheckBox",
-                      "Label": "Apply Retainage",
-                      "Type": "Field",
-                      "Value": "on"
-                    },
-                    {
-                      "ElementType": "NumberEditor",
-                      "Label": "Retainage Percent",
-                      "Type": "Field",
-                      "Value": ""
-                    }
-                  ],
-                  "Label": null,
-                  "Type": "FieldSet"
-                },
-                {
-                  "Children": [
-                    {
-                      "ElementType": "NumberEditor",
-                      "Label": "Unbilled Quantity",
-                      "Type": "Field",
-                      "Value": "0.00"
-                    },
-                    {
-                      "ElementType": "NumberEditor",
-                      "Label": "Unbilled Amount",
-                      "Type": "Field",
-                      "Value": "0.00"
-                    },
-                    {
-                      "ElementType": "NumberEditor",
-                      "Label": "Unbilled Prepayment Total",
-                      "Type": "Field",
-                      "Value": "0.00"
-                    },
-                    {
-                      "ElementType": "NumberEditor",
-                      "Label": "Unpaid Amount",
-                      "Type": "Field",
-                      "Value": "0.00"
-                    }
-                  ],
-                  "Label": null,
-                  "Type": "FieldSet"
-                }
-              ],
-              "ID": "B",
-              "Type": "FieldsetSlot"
-            }
-          ],
-          "Name": "17-17-14",
-          "Type": "Template"
+          "Columns": [],
+          "Type": "Grid"
         }
       ],
       "Tabs": [
