@@ -5,7 +5,8 @@ import {QPFieldset} from "./elements/qp-fieldset";
 import {FieldsetSlot} from "./elements/qp-fieldset-slot";
 import {Template} from "./elements/qp-template";
 import {Tab, TabBar} from "./elements/qp-tabbar";
-import {Grid} from "./elements/qp-grid";
+import {Grid, GridColumn, GridColumnType} from "./elements/qp-grid";
+import {Root} from "./elements/qp-root";
 
 function findClasses(htmlElement: Element, ...classNames: string[]): boolean {
     const classAttr = htmlElement.attributes.getNamedItem("class")?.value;
@@ -52,6 +53,36 @@ function findElementByClassesDown(htmlElement: Element, ...classNames: string[])
 
 interface ElementVisitor {
     visit(htmlElement: Element, parent: AcuElement): boolean;
+}
+
+class RootVisitor implements ElementVisitor {
+    visit(htmlElement: Element, parent: AcuElement): boolean {
+        if (parent.Type !== AcuElementType.Root) {
+            return false;
+        }
+
+        if (htmlElement.nodeName.toLowerCase() !== "div") {
+            return false;
+        }
+
+        if (!findClasses(htmlElement, 'au-target', 'pageHeader')) {
+            return false;
+        }
+
+        const captionLineElement = findElementByClassesDown(htmlElement, 'captionLine');
+        if (captionLineElement && captionLineElement.children.length > 0) {
+            (parent as Root).Caption1 = captionLineElement.children[0].textContent?.trim() ?? null;
+        }
+
+        const userCaptionElement = findElementByClassesDown(htmlElement, 'usrCaption', 'au-target');
+        if (userCaptionElement) {
+            (parent as Root).Caption2 = userCaptionElement.textContent?.trim() ?? null;
+        }
+
+        VisitChildren(htmlElement, parent);
+
+        return true;
+    }
 }
 
 class LabelVisitor implements ElementVisitor {
@@ -147,11 +178,13 @@ class QPFieldsetVisitor implements ElementVisitor {
             return false;
         }
 
+        const captionElement = findElementByClassesDown(htmlElement, 'au-target', 'qp-caption');
+
         const child: QPFieldset = {
-            Label: null,
+            Label: captionElement?.textContent?.trim() ?? null,
             Type: AcuElementType.FieldSet,
             Children: [],
-            Class: htmlElement.attributes.getNamedItem("class")?.value ?? null,
+            Highlighted: findClasses(htmlElement, 'highlights-section'),
         };
 
         (parent as AcuContainer).Children.push(child);
@@ -296,7 +329,45 @@ export class QPGridVisitor implements ElementVisitor {
     }
 }
 
-export
+export class QPGridColumnVisitor implements ElementVisitor {
+    visit(htmlElement: Element, parent: AcuElement): boolean {
+        if (!(parent as Grid)?.Columns) {
+            return false;
+        }
+
+        if (htmlElement.nodeName.toLowerCase() !== "th") {
+            return false;
+        }
+
+        const columnLabelElement = findElementByClassesDown(htmlElement, 'grid-header-text')
+
+        let columnType = GridColumnType.Text;
+        switch ((parent as Grid).Columns.length) {
+            case 0:
+                columnType = GridColumnType.Settings
+                break;
+            case 1:
+                columnType = GridColumnType.Files;
+                break;
+            case 2:
+                columnType = GridColumnType.Notes
+                break;
+        }
+
+        const child: GridColumn = {
+            Type: AcuElementType.GridColumn,
+            Label: columnLabelElement?.textContent?.trim() ?? '',
+            ColumnType: columnType,
+            Cells: [],
+        };
+
+        (parent as Grid).Columns.push(child);
+
+        VisitChildren(htmlElement, child);
+
+        return true;
+    }
+}
 
 function Visit(htmlElement: Element, parent: AcuElement) {
     for (const visitor of AllVisitors) {
@@ -314,6 +385,7 @@ function VisitChildren(htmlElement: Element, parent: AcuElement) {
 }
 
 const AllVisitors: Array<ElementVisitor> = [
+    new RootVisitor(),
     new QPTemplateVisitor(),
     new QPFieldSetSlotVisitor(),
     new QPFieldsetVisitor(),
@@ -322,15 +394,18 @@ const AllVisitors: Array<ElementVisitor> = [
     new TextEditVisitor(),
     new QPTabBarVisitor(),
     new QPGridVisitor(),
+    new QPGridColumnVisitor(),
 ];
 
 export class AcuPageParser {
     parse(html: string): AcuElement | null {
         const doc = new DOMParser().parseFromString(html, 'text/html');
 
-        const root: AcuContainer = {
+        const root: Root = {
             Type: AcuElementType.Root,
             Children: [],
+            Caption1: null,
+            Caption2: null,
         }
 
         Visit(doc.body, root);

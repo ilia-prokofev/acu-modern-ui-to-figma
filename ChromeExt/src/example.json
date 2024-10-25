@@ -1,4 +1,6 @@
 {
+  "Caption1": "Subcontracts",
+  "Caption2": "New Record",
   "Children": [
     {
       "Children": [
@@ -35,7 +37,7 @@
               "Value": ""
             }
           ],
-          "Class": "au-target qp-fieldset fieldset-titleless",
+          "Highlighted": false,
           "Label": null,
           "Type": "FieldSet"
         },
@@ -72,7 +74,7 @@
               "Value": null
             }
           ],
-          "Class": "au-target qp-fieldset fieldset-titleless",
+          "Highlighted": false,
           "Label": null,
           "Type": "FieldSet"
         },
@@ -97,7 +99,7 @@
               "Value": "0.00"
             }
           ],
-          "Class": "highlights-section au-target qp-fieldset fieldset-titleless",
+          "Highlighted": true,
           "Label": null,
           "Type": "FieldSet"
         }
@@ -108,7 +110,164 @@
     {
       "Children": [
         {
-          "Columns": [],
+          "Columns": [
+            {
+              "Cells": [],
+              "ColumnType": "Settings",
+              "Label": "",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Files",
+              "Label": "",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Notes",
+              "Label": "",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Branch",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Inventory ID",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Project",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Project Task",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Line Description",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "UOM",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Order Qty.",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Unit Cost",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Ext. Cost",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Prepaid Qty.",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Prepaid Amount",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Amount",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Alternate ID",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Tax Category",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Account",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Description",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Sub.",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Closed",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Billed Qty.",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Billed Amount",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Unbilled Qty.",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Unbilled Amount",
+              "Type": "GridColumn"
+            },
+            {
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Base Order Qty.",
+              "Type": "GridColumn"
+            }
+          ],
           "Type": "Grid"
         }
       ],

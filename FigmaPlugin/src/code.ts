@@ -166,7 +166,7 @@ function DrawFieldset(fs: QPFieldset, x = 0, y = 0, w = 0) {
     else
         SetProperty(instance, 'Show Group Header', false);
 
-    if (fs.Class === 'highlights-section') {
+    if (fs.Highlighted) {
         SetProperty(instance, 'Wrapping', 'Blue');
         //SetProperty(instance, 'Label Length', 'm');
     }
@@ -287,7 +287,7 @@ function generateRoot() {
         Value: 'Here would be very very very very long string. Or not.'
     };
     const qpFieldSet1: QPFieldset = {
-        Label: 'Default values', Type: AcuElementType.FieldSet, Class: 'highlights-section', Children: [
+        Label: 'Default values', Type: AcuElementType.FieldSet, Highlighted: true, Children: [
             qpField1,
             qpField2,
             qpField3,
@@ -295,13 +295,13 @@ function generateRoot() {
         ]
     };
     const qpFieldSet2: QPFieldset = {
-        Label: 'Default values', Type: AcuElementType.FieldSet, Class: '', Children: [
+        Label: 'Default values', Type: AcuElementType.FieldSet, Highlighted: false, Children: [
             qpField5,
             qpField6
         ]
     };
     const qpFieldSet3: QPFieldset = {
-        Label: 'Default values', Type: AcuElementType.FieldSet, Class: '', Children: [
+        Label: 'Default values', Type: AcuElementType.FieldSet, Highlighted: false, Children: [
             qpField4,
             qpField5,
             qpField1,
@@ -311,7 +311,7 @@ function generateRoot() {
         ]
     };
     const qpFieldSet4: QPFieldset = {
-        Label: 'Default values', Type: AcuElementType.FieldSet, Class: '', Children: [
+        Label: 'Default values', Type: AcuElementType.FieldSet, Highlighted: false, Children: [
             qpField2,
             qpField4,
             qpField1,
@@ -329,7 +329,7 @@ function generateRoot() {
     const tab1: Tab = {Type: AcuElementType.Tab, Label: 'Details1', IsActive: false};
     const tab2: Tab = {Type: AcuElementType.Tab, Label: 'Bills1', IsActive: true};
     const tab3: Tab = {Type: AcuElementType.Tab, Label: 'Finance1', IsActive: false};
-    const col1: GridColumn = {Label: 'Test 1', ColumnType: GridColumnType.Text, Cells: ['a', 'b']};
+    const col1: GridColumn = {Type:AcuElementType.GridColumn, Label: 'Test 1', ColumnType: GridColumnType.Text, Cells: ['a', 'b']};
     const grid: Grid = {Type: AcuElementType.Grid, Columns: [col1]};
     //const tabBar: TabBar = {Type: AcuElementType.Tabbar, Tabs: [tab1, tab2, tab3], Children: [template2]};
 

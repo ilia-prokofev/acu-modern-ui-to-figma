@@ -5,6 +5,7 @@ export enum AcuElementType {
     Tab = 'Tab',
     Tabbar = 'Tabbar',
     Grid = 'Grid',
+    GridColumn = 'GridColumn',
     FieldsetSlot = 'FieldsetSlot',
     Group = 'Group',
     Root = 'Root',
