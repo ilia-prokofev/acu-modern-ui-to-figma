@@ -107,7 +107,12 @@ function DrawTabBar(tb: TabBar, y = 0)
 function DrawTemplate(template: Template, y = 0)
 {
   let x = 0;
-  let w = pageWidth - (spacer * (template.Children.length - 1)) / template.Children.length;
+  let w = (pageWidth - (spacer * (template.Children.length - 1))) / template.Children.length;
+
+  console.log('pageWidth = ' + pageWidth);
+  console.log('template.Children.length = ' + template.Children.length);
+  console.log('w = ' + w);
+
   let y1 = y;
   template.Children.forEach(fs => {
     switch (fs.Type){
@@ -128,7 +133,6 @@ function DrawTemplate(template: Template, y = 0)
   return y1;
 }
 
-
 function DrawFieldset(fs: QPFieldset, x = 0, y = 0, w = 0)
 {
   const compSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Fieldset') as ComponentSetNode;
@@ -145,11 +149,11 @@ function DrawFieldset(fs: QPFieldset, x = 0, y = 0, w = 0)
   else
     SetProperty(header, 'Text Value', fs.Label??'');
 
-  // if (fs.class === 'highlights-section')
-  // {
-  //   SetStringProperty(instance, 'Wrapping', 'Blue');
-  //   SetStringProperty(instance, 'Label Length', 'm');
-  // }
+  if (fs.Class === 'highlights-section')
+  {
+    SetProperty(instance, 'Wrapping', 'Blue');
+    //SetProperty(instance, 'Label Length', 'm');
+  }
 
   for (let i = 1; i <= Math.max(5, fs.Children.length); i++) {
     SetProperty(instance, 'Show Row ' + i + '#', i <= fs.Children.length);
@@ -243,17 +247,17 @@ function generateRoot() {
   const qpField4: QPField = {Type: AcuElementType.Field, Label: 'Total Amount', ElementType: QPFieldElementType.NumberEditor, Value: '1256.50'};
   const qpField5: QPField = {Type: AcuElementType.Field, Label: 'Project', ElementType: QPFieldElementType.Selector, Value: 'X'};
   const qpField6: QPField = {Type: AcuElementType.Field, Label: 'Description', ElementType: QPFieldElementType.TextEditor, Value: 'Here would be very very very very long string. Or not.'};
-  const qpFieldSet1: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Children: [
+  const qpFieldSet1: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Class: 'highlights-section', Children: [
       qpField1,
       qpField2,
       qpField3,
       qpField4
     ]};
-  const qpFieldSet2: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Children: [
+  const qpFieldSet2: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Class: '', Children: [
       qpField5,
       qpField6
     ]};
-  const qpFieldSet3: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Children: [
+  const qpFieldSet3: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Class: '', Children: [
       qpField4,
       qpField5,
       qpField1,
@@ -261,7 +265,7 @@ function generateRoot() {
       qpField3,
       qpField6
     ]};
-  const qpFieldSet4: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Children: [
+  const qpFieldSet4: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Class: '', Children: [
       qpField2,
       qpField4,
       qpField1,
@@ -279,13 +283,13 @@ function generateRoot() {
   const tab2: Tab = {Type:AcuElementType.Tab,Label: 'Bills', IsActive: true};
   const tab3: Tab = {Type:AcuElementType.Tab,Label: 'Finance', IsActive: false};
   const col1: GridColumn = {Label: 'Test 1', ColumnType: GridColumnType.Text, Cells: ['a', 'b']};
-  const grid: Grid = {Type: AcuElementType.Grid, Columns: [col1], Children:[]};
+  const grid: Grid = {Type: AcuElementType.Grid, Columns: [col1]};
   //const tabBar: TabBar = {Type: AcuElementType.Tabbar, Tabs: [tab1, tab2, tab3], Children: [template2]};
 
-  const templateS: Template = {Type: AcuElementType.Template, Name: '7-10-7', Children: [qpFieldSet1]};
+  const templateS: Template = {Type: AcuElementType.Template, Name: '7-10-7', Children: [qpFieldSet1, qpFieldSet2, qpFieldSet3]};
   const tabBar: TabBar = {Type: AcuElementType.Tabbar, Tabs: [tab1, tab2, tab3], Children: [templateS]};
-  const root: AcuContainer = {Type: AcuElementType.Root, Children: [templateS, tabBar]};
-  //const root: AcuContainer = {Type: AcuElementType.Root, Children: [template1, tabBar]};
+  //const root: AcuContainer = {Type: AcuElementType.Root, Children: [templateS]};
+  const root: AcuContainer = {Type: AcuElementType.Root, Children: [tabBar]};
   return root;
 }
 
@@ -311,7 +315,7 @@ function DrawFromHTML(input: string) {
           break;
         }
         case AcuElementType.Tabbar: {
-          DrawTabBar(fs as TabBar);
+          y = DrawTabBar(fs as TabBar, y);
           break;
         }
         case AcuElementType.Grid: {
@@ -321,7 +325,7 @@ function DrawFromHTML(input: string) {
       }
     });
 
-    DrawHeader();
+    //DrawHeader();
 }
 
 // Calls to "parent.postMessage" from within the HTML page will trigger this
