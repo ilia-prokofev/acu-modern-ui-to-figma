@@ -106,7 +106,7 @@ function DrawTabBar(tb: TabBar, y = 0) {
 
         SetProperty(node, 'State', 'Normal');
         SetProperty(node, 'Value', tab.Label);
-        SetProperty(node, 'Selected', tab.IsActive);
+        //SetProperty(node, 'Selected', tab.IsActive);
     }
 
     figma.currentPage.appendChild(instance);
@@ -131,17 +131,28 @@ function DrawTabBar(tb: TabBar, y = 0) {
 function DrawTemplate(template: Template, y = 0) {
     let x = 0;
     let w = (pageWidth - (spacer * (template.Children.length - 1))) / template.Children.length;
+    const parts = template.Name?.split('-').map(p => parseInt(p))??[];
+    let sum = 0;
+
+    parts?.forEach((part, i) => {
+        sum += part;
+    })
+
     let y1 = y;
-    template.Children.forEach(fs => {
+
+    template.Children.forEach((fs, i) => {
+        let curW = w;
+        if (sum > 0)
+            curW = (pageWidth - (spacer * (template.Children.length - 1))) * parts[i] / sum;
         switch (fs.Type) {
             case AcuElementType.FieldSet: {
-                const {newX, newY} = DrawFieldset(fs as QPFieldset, x, y, w);
+                const {newX, newY} = DrawFieldset(fs as QPFieldset, x, y, curW);
                 x = newX;
                 y1 = Math.max(newY, y1);
                 break;
             }
             case AcuElementType.FieldsetSlot: {
-                const {newX, newY} = DrawSlot(fs as FieldsetSlot, x, y, w);
+                const {newX, newY} = DrawSlot(fs as FieldsetSlot, x, y, curW);
                 x = newX;
                 y1 = Math.max(newY, y1);
                 break;
@@ -336,11 +347,11 @@ function generateRoot() {
     const templateS: Template = {
         Type: AcuElementType.Template,
         Name: '7-10-7',
-        Children: [qpFieldSet1, qpFieldSet2, qpFieldSet3]
+        Children: [qpFieldSet1, qpFieldSet2]
     };
     const tabBar: TabBar = {Type: AcuElementType.Tabbar, Tabs: [tab1, tab2, tab3], Children: []};
     //const root: AcuContainer = {Type: AcuElementType.Root, Children: [templateS]};
-    const root: AcuContainer = {Type: AcuElementType.Root, Children: [tabBar]};
+    const root: AcuContainer = {Type: AcuElementType.Root, Children: [templateS, tabBar]};
     return root;
 }
 
