@@ -197,6 +197,12 @@ export class QPTemplateVisitor implements ElementVisitor {
     }
 }
 
+export class QPTabBarSelectorVisitor implements ElementVisitor {
+    visit(htmlElement: Element, parent: AcuElement): boolean {
+        return false;
+    }
+}
+
 function Visit(htmlElement: Element, parent: AcuElement) {
     for (const visitor of AllVisitors) {
         if (visitor.visit(htmlElement, parent)) {
@@ -219,6 +225,7 @@ const AllVisitors: Array<ElementVisitor> = [
     new QPFieldVisitor(),
     new LabelVisitor(),
     new TextEditVisitor(),
+    new QPTabBarSelectorVisitor(),
 ];
 
 export class AcuPageParser {
