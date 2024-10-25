@@ -1,4 +1,3 @@
-
 // This file holds the main code for plugins. Code in this file has access to
 // the *figma document* via the figma global object.
 // You can access browser APIs in the <script> tag inside "ui.html" which has a
@@ -13,336 +12,390 @@ import {FieldsetSlot} from "./elements/qp-fieldset-slot";
 import {AcuContainer} from "./elements/acu-container";
 import {Tab, TabBar} from "./elements/qp-tabbar";
 import {Grid, GridColumn, GridColumnType} from "./elements/qp-grid";
+import {FrameNode} from "@figma/plugin-typings/plugin-api-standalone";
 
-figma.showUI(__html__, { width: 600, height: 350 });
+figma.showUI(__html__, {width: 600, height: 350});
 
 const spacer = 20;
 const pageWidth = 1200;
 
-function MapElementType(type: QPFieldElementType)
-{
-  switch (type){
-    case QPFieldElementType.CheckBox : return 'Checkbox';
-    case QPFieldElementType.Currency : return 'Currency';
-    case QPFieldElementType.DatetimeEdit : return 'Date';
-    case QPFieldElementType.DropDown : return 'Label + Field';
-    case QPFieldElementType.NumberEditor : return 'Label + Number Field';
-    case QPFieldElementType.Selector : return 'Label + Field';
-    case QPFieldElementType.Status : return 'Label + Field';
-    case QPFieldElementType.TextEditor : return 'Label + Text Area';
-    default: return 'Label + Field';
-  }
+function MapElementType(type: QPFieldElementType) {
+    switch (type) {
+        case QPFieldElementType.CheckBox :
+            return 'Checkbox';
+        case QPFieldElementType.Currency :
+            return 'Currency';
+        case QPFieldElementType.DatetimeEdit :
+            return 'Date';
+        case QPFieldElementType.DropDown :
+            return 'Label + Field';
+        case QPFieldElementType.NumberEditor :
+            return 'Label + Number Field';
+        case QPFieldElementType.Selector :
+            return 'Label + Field';
+        case QPFieldElementType.Status :
+            return 'Label + Field';
+        case QPFieldElementType.TextEditor :
+            return 'Label + Text Area';
+        default:
+            return 'Label + Field';
+    }
 
 }
 
 function FindPropertyName(node: InstanceNode, property: string) {
-  let t: keyof ComponentProperties;
-  for (t in node.componentProperties)
-  {
-    if(t.startsWith(property))
-      return t;
-  }
-  return '';
+    let t: keyof ComponentProperties;
+    for (t in node.componentProperties) {
+        if (t.startsWith(property))
+            return t;
+    }
+    return '';
 }
 
 function SetProperty(node: InstanceNode, property: string, newVal: any) {
-  const propertyName: string = FindPropertyName(node, property);
-  node.setProperties({[propertyName]: newVal});
+    if (!newVal) return;
+    const propertyName: string = FindPropertyName(node, property);
+    node.setProperties({[propertyName]: newVal});
 }
 
-function DrawSlot(template: FieldsetSlot, x = 0, y = 0, w = 0)
-{
-  let x1 = 0;
-  template.Children.forEach(fs => {
-    switch (fs.Type){
-      case AcuElementType.FieldSet: {
-        const {newX, newY} = DrawFieldset(fs as QPFieldset, x, y, w);
-        x1 = newX;
-        y = Math.max(newY, y);
-        break;
-      }
+function DrawSlot(template: FieldsetSlot, x = 0, y = 0, w = 0) {
+    let x1 = 0;
+    template.Children.forEach(fs => {
+        switch (fs.Type) {
+            case AcuElementType.FieldSet: {
+                const {newX, newY} = DrawFieldset(fs as QPFieldset, x, y, w);
+                x1 = newX;
+                y = Math.max(newY, y);
+                break;
+            }
+        }
+    });
+    return {newX: x1, newY: y};
+}
+
+function DrawGrid(grid: Grid, y = 0) {
+    const componentSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Grid') as ComponentSetNode;
+    const component = componentSet.defaultVariant;
+    const instance = component.createInstance();
+    instance.x = 0;
+    instance.y = y;
+    figma.currentPage.appendChild(instance);
+}
+
+function DrawTabBar(tb: TabBar, y = 0) {
+    let x = 0;
+    let w = pageWidth - (spacer * (tb.Children.length - 1)) / tb.Children.length;
+
+    const component = figma.root.findOne(node => node.type === 'COMPONENT' && node.name === 'Tabbar') as ComponentNode;
+    const instance = component.createInstance();
+    instance.x = 0;
+    instance.y = y;
+
+    for (let i = 1; i <= Math.max(10, tb.Children.length); i++) {
+        SetProperty(instance, `${i} tab`, i <= tb.Tabs.length);
     }
-  });
-  return {newX: x1, newY: y};
-}
 
-function DrawGrid(grid: Grid, y = 0)
-{
-  const componentSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Grid') as ComponentSetNode;
-  const component = componentSet.defaultVariant;
-  const instance = component.createInstance();
-  instance.x = 0;
-  instance.y = y;
-  figma.currentPage.appendChild(instance);
-}
+    for (let i = 0; i < tb.Tabs.length; i++) {
+        const tab = (tb.Tabs[i] as unknown) as Tab;
+        const node = instance.findOne(node => node.type === 'INSTANCE' && node.name === 'Tab ' + (i + 1)) as InstanceNode;
+        console.log('Tab ' + (i + 1));
+        console.log(tab);
+        console.log(node);
+        console.log(tab.Label);
+        console.log(tab.IsActive);
 
-function DrawTabBar(tb: TabBar, y = 0)
-{
-  let x = 0;
-  let w = pageWidth - (spacer * (tb.Children.length - 1)) / tb.Children.length;
-
-  const component = figma.root.findOne(node => node.type === 'COMPONENT' && node.name === 'Tabbar') as ComponentNode;
-  const instance = component.createInstance();
-  instance.x = 0;
-  instance.y = y;
-  figma.currentPage.appendChild(instance);
-
-  y += instance.height + spacer;
-
-  tb.Children.forEach(fs => {
-    switch (fs.Type){
-      case AcuElementType.Template: {
-        y = DrawTemplate(fs as Template, y);
-        break;
-      }
-      case AcuElementType.Grid: {
-        DrawGrid((fs as unknown) as Grid);
-        break;
-      }
+        SetProperty(node, 'State', 'Normal');
+        SetProperty(node, 'Value', tab.Label);
+        SetProperty(node, 'Selected', tab.IsActive);
     }
-  });
-  return y;
+
+    figma.currentPage.appendChild(instance);
+
+    y += instance.height + spacer;
+
+    tb.Children.forEach(fs => {
+        switch (fs.Type) {
+            case AcuElementType.Template: {
+                y = DrawTemplate(fs as Template, y);
+                break;
+            }
+            case AcuElementType.Grid: {
+                DrawGrid((fs as unknown) as Grid);
+                break;
+            }
+        }
+    });
+    return y;
 }
 
-function DrawTemplate(template: Template, y = 0)
-{
-  let x = 0;
-  let w = (pageWidth - (spacer * (template.Children.length - 1))) / template.Children.length;
-
-  console.log('pageWidth = ' + pageWidth);
-  console.log('template.Children.length = ' + template.Children.length);
-  console.log('w = ' + w);
-
-  let y1 = y;
-  template.Children.forEach(fs => {
-    switch (fs.Type){
-      case AcuElementType.FieldSet: {
-        const {newX, newY} = DrawFieldset(fs as QPFieldset, x, y, w);
-        x = newX;
-        y1 = Math.max(newY, y1);
-        break;
-      }
-      case AcuElementType.FieldsetSlot: {
-        const {newX, newY} = DrawSlot(fs as FieldsetSlot, x, y, w);
-        x = newX;
-        y1 = Math.max(newY, y1);
-        break;
-      }
-    }
-  });
-  return y1;
+function DrawTemplate(template: Template, y = 0) {
+    let x = 0;
+    let w = (pageWidth - (spacer * (template.Children.length - 1))) / template.Children.length;
+    let y1 = y;
+    template.Children.forEach(fs => {
+        switch (fs.Type) {
+            case AcuElementType.FieldSet: {
+                const {newX, newY} = DrawFieldset(fs as QPFieldset, x, y, w);
+                x = newX;
+                y1 = Math.max(newY, y1);
+                break;
+            }
+            case AcuElementType.FieldsetSlot: {
+                const {newX, newY} = DrawSlot(fs as FieldsetSlot, x, y, w);
+                x = newX;
+                y1 = Math.max(newY, y1);
+                break;
+            }
+        }
+    });
+    return y1;
 }
 
-function DrawFieldset(fs: QPFieldset, x = 0, y = 0, w = 0)
-{
-  const compSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Fieldset') as ComponentSetNode;
-  const component = compSet.findOne(node => node.type === 'COMPONENT' && node.name === 'Wrapping=Gray, Label Length=sm') as ComponentNode;
-  const instance = component.createInstance();
-  instance.x = x;
-  instance.y = y;
-  if (w > 0)
-    instance.resize(w, instance.height);
+function DrawFieldset(fs: QPFieldset, x = 0, y = 0, w = 0) {
+    const compSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Fieldset') as ComponentSetNode;
+    const component = compSet.findOne(node => node.type === 'COMPONENT' && node.name === 'Wrapping=Gray, Label Length=sm') as ComponentNode;
+    const instance = component.createInstance();
+    instance.x = x;
+    instance.y = y;
+    if (w > 0)
+        instance.resize(w, instance.height);
 
-  const header = instance.findOne(node => node.type === 'INSTANCE' && node.name === 'Group Header') as InstanceNode;
-  if (fs.Label === undefined || fs.Label === '')
-    SetProperty(instance, 'Show Group Header', false);
-  else
-    SetProperty(header, 'Text Value', fs.Label??'');
-
-  if (fs.Class === 'highlights-section')
-  {
-    SetProperty(instance, 'Wrapping', 'Blue');
-    //SetProperty(instance, 'Label Length', 'm');
-  }
-
-  for (let i = 1; i <= Math.max(5, fs.Children.length); i++) {
-    SetProperty(instance, 'Show Row ' + i + '#', i <= fs.Children.length);
-  }
-
-  for (let i = 0; i < fs.Children.length; i++) {
-    const field = fs.Children[i] as QPField;
-    const rowNode = instance.findOne(node => node.type === 'INSTANCE' && node.name === 'Row ' + (i + 1)) as InstanceNode;
-
-    if (field.ElementType === QPFieldElementType.CheckBox)
-    {
-      //const rowNode = figma.root.findOne(node => node.name === 'Row 1999') as InstanceNode;
-      // const cb = row.findOne(node => node.type === 'INSTANCE' && node.name === 'Checkbox') as InstanceNode;
-      // SetProperty(cb, 'Value', 'qqq');
-
-      const labelNode = rowNode.findOne(node => node.type === 'INSTANCE' && node.name === 'Checkbox') as InstanceNode;
-      const all = rowNode.findAll();
-      console.log(all);
-
-      // console.log('in checkbox labelNode = ');
-      // console.log(rowNode);
-      // console.log(rowNode.name);
-      if (labelNode){
-        // console.log('checkbox');
-        SetProperty(labelNode, 'Value', field.Label);
-      }
-    }
+    const header = instance.findOne(node => node.type === 'INSTANCE' && node.name === 'Group Header') as InstanceNode;
+    if (fs.Label)
+        SetProperty(header, 'Text Value', fs.Label ?? '');
     else
-    {
-      const labelNode = rowNode.findOne(node => node.type === 'INSTANCE' && node.name === 'Label') as InstanceNode;
-      if (labelNode)
-        SetProperty(labelNode, 'Label Value', field.Label);
-      }
-      
-    if (rowNode)
-      SetProperty(rowNode, 'Type', MapElementType(field.ElementType!));
-    if (field.Value)
-    {
-      let valueNode = rowNode.findOne(node => node.type === 'INSTANCE' && node.name === 'Field');
-      if (valueNode)
-        SetProperty(valueNode as InstanceNode, 'Text Value', field.Value);
-      else
-      {
-        valueNode = rowNode.findOne(node => node.type === 'INSTANCE' && node.name === 'TextArea');
-        if (valueNode)
-          SetProperty(valueNode as InstanceNode, 'Text Value', field.Value);
-      }
+        SetProperty(instance, 'Show Group Header', false);
+
+    if (fs.Class === 'highlights-section') {
+        SetProperty(instance, 'Wrapping', 'Blue');
+        //SetProperty(instance, 'Label Length', 'm');
     }
-  }
 
-  figma.currentPage.appendChild(instance);
-  
-  x += instance.width + spacer;
-  y += instance.height + spacer;
+    for (let i = 1; i <= Math.max(5, fs.Children.length); i++) {
+        SetProperty(instance, 'Show Row ' + i + '#', i <= fs.Children.length);
+    }
 
-  console.log(x);
-  console.log(y);
+    for (let i = 0; i < fs.Children.length; i++) {
+        const field = fs.Children[i] as QPField;
+        const rowNode = instance.findOne(node => node.type === 'INSTANCE' && node.name === 'Row ' + (i + 1)) as InstanceNode;
 
-  return {newX: x, newY: y}
+        if (field.ElementType === QPFieldElementType.CheckBox) {
+            //const rowNode = figma.root.findOne(node => node.name === 'Row 1999') as InstanceNode;
+            // const cb = row.findOne(node => node.type === 'INSTANCE' && node.name === 'Checkbox') as InstanceNode;
+            // SetProperty(cb, 'Value', 'qqq');
+
+            const labelNode = rowNode.findOne(node => node.type === 'INSTANCE' && node.name === 'Checkbox') as InstanceNode;
+
+            // console.log('in checkbox labelNode = ');
+            // console.log(rowNode);
+            // console.log(rowNode.name);
+            if (labelNode) {
+                // console.log('checkbox');
+                SetProperty(labelNode, 'Value', field.Label);
+            }
+        } else {
+            const labelNode = rowNode.findOne(node => node.type === 'INSTANCE' && node.name === 'Label') as InstanceNode;
+            if (labelNode)
+                SetProperty(labelNode, 'Label Value', field.Label);
+        }
+
+        if (rowNode)
+            SetProperty(rowNode, 'Type', MapElementType(field.ElementType!));
+        if (field.Value) {
+            let valueNode = rowNode.findOne(node => node.type === 'INSTANCE' && node.name === 'Field');
+            if (valueNode)
+                SetProperty(valueNode as InstanceNode, 'Text Value', field.Value);
+            else {
+                valueNode = rowNode.findOne(node => node.type === 'INSTANCE' && node.name === 'TextArea');
+                if (valueNode)
+                    SetProperty(valueNode as InstanceNode, 'Text Value', field.Value);
+            }
+        }
+    }
+
+    figma.currentPage.appendChild(instance);
+
+    x += instance.width + spacer;
+    y += instance.height + spacer;
+
+    return {newX: x, newY: y}
 }
 
-function DrawHeader(x = 0, y = 0) {
-  let componentSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Header') as ComponentSetNode;
-  let component = componentSet.defaultVariant;
-  const toolbar = component.createInstance();
-  toolbar.x = 0;
-  toolbar.y = - toolbar.height - spacer / 2;
-  figma.currentPage.appendChild(toolbar);
+function DrawHeader(frame: FrameNode) {
+    let componentSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Header') as ComponentSetNode;
+    let component = componentSet.defaultVariant;
+    const toolbar = component.createInstance();
+    toolbar.x = 0;
+    toolbar.y = -toolbar.height - spacer / 2;
+    figma.currentPage.appendChild(toolbar);
 
-  componentSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Main header') as ComponentSetNode;
-  component = componentSet.defaultVariant;
-  const mainHeader = component.createInstance();
-  mainHeader.x = 0;
-  mainHeader.y = - toolbar.height - mainHeader.height - spacer;
-  figma.currentPage.appendChild(mainHeader);
+    componentSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Main header') as ComponentSetNode;
+    component = componentSet.defaultVariant;
+    const mainHeader = component.createInstance();
+    mainHeader.x = 0;
+    mainHeader.y = -toolbar.height - mainHeader.height - spacer;
+    figma.currentPage.appendChild(mainHeader);
 
-  component = figma.root.findOne(node => node.type === 'COMPONENT' && node.name === 'Left menu/Default') as ComponentNode;
-  const leftMenu = component.createInstance();
-  leftMenu.x = -leftMenu.width - spacer / 2;
-  leftMenu.y = -toolbar.height - spacer;
-  figma.currentPage.appendChild(leftMenu);
+    component = figma.root.findOne(node => node.type === 'COMPONENT' && node.name === 'Left menu/Default') as ComponentNode;
+    const leftMenu = component.createInstance();
+    leftMenu.x = -leftMenu.width - spacer / 2;
+    leftMenu.y = -toolbar.height - spacer;
+    figma.currentPage.appendChild(leftMenu);
 
-  mainHeader.x = - leftMenu.width - spacer / 2;
+    mainHeader.x = -leftMenu.width - spacer / 2;
+
+    frame.x = mainHeader.x;
+    frame.y = mainHeader.y;
 }
 
 function generateRoot() {
-  
-  const qpField1: QPField = {Type: AcuElementType.Field, Label: 'Turn on', ElementType: QPFieldElementType.CheckBox, Value: 'true'};
-  const qpField2: QPField = {Type: AcuElementType.Field, Label: 'Currency', ElementType: QPFieldElementType.Currency, Value: 'EUR'};
-  const qpField3: QPField = {Type: AcuElementType.Field, Label: 'Date To', ElementType: QPFieldElementType.DatetimeEdit, Value: '06/07/2024'};
-  const qpField4: QPField = {Type: AcuElementType.Field, Label: 'Total Amount', ElementType: QPFieldElementType.NumberEditor, Value: '1256.50'};
-  const qpField5: QPField = {Type: AcuElementType.Field, Label: 'Project', ElementType: QPFieldElementType.Selector, Value: 'X'};
-  const qpField6: QPField = {Type: AcuElementType.Field, Label: 'Description', ElementType: QPFieldElementType.TextEditor, Value: 'Here would be very very very very long string. Or not.'};
-  const qpFieldSet1: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Class: 'highlights-section', Children: [
-      qpField1,
-      qpField2,
-      qpField3,
-      qpField4
-    ]};
-  const qpFieldSet2: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Class: '', Children: [
-      qpField5,
-      qpField6
-    ]};
-  const qpFieldSet3: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Class: '', Children: [
-      qpField4,
-      qpField5,
-      qpField1,
-      qpField2,
-      qpField3,
-      qpField6
-    ]};
-  const qpFieldSet4: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Class: '', Children: [
-      qpField2,
-      qpField4,
-      qpField1,
-      qpField3,
-      qpField5,
-      qpField6
-    ]};
-  const Slot1: FieldsetSlot = {Type: AcuElementType.FieldsetSlot, ID: "1", Children: [qpFieldSet1, qpFieldSet2]};
-  const Slot2: FieldsetSlot = {Type: AcuElementType.FieldsetSlot, ID: "2", Children: [qpFieldSet3]};
-  const Slot3: FieldsetSlot = {Type: AcuElementType.FieldsetSlot, ID: "1", Children: [qpFieldSet4]};
-  const Slot4: FieldsetSlot = {Type: AcuElementType.FieldsetSlot, ID: "2", Children: [qpFieldSet2, qpFieldSet1]};
-  const template1: Template = {Type: AcuElementType.Template, Name: '7-10-7', Children: [Slot1, Slot2]};
-  const template2: Template = {Type: AcuElementType.Template, Name: '7-10-7', Children: [Slot3, Slot4]};
-  const tab1: Tab = {Type:AcuElementType.Tab, Label : 'Details', IsActive: false};
-  const tab2: Tab = {Type:AcuElementType.Tab,Label: 'Bills', IsActive: true};
-  const tab3: Tab = {Type:AcuElementType.Tab,Label: 'Finance', IsActive: false};
-  const col1: GridColumn = {Label: 'Test 1', ColumnType: GridColumnType.Text, Cells: ['a', 'b']};
-  const grid: Grid = {Type: AcuElementType.Grid, Columns: [col1]};
-  //const tabBar: TabBar = {Type: AcuElementType.Tabbar, Tabs: [tab1, tab2, tab3], Children: [template2]};
 
-  const templateS: Template = {Type: AcuElementType.Template, Name: '7-10-7', Children: [qpFieldSet1, qpFieldSet2, qpFieldSet3]};
-  const tabBar: TabBar = {Type: AcuElementType.Tabbar, Tabs: [tab1, tab2, tab3], Children: [templateS]};
-  //const root: AcuContainer = {Type: AcuElementType.Root, Children: [templateS]};
-  const root: AcuContainer = {Type: AcuElementType.Root, Children: [tabBar]};
-  return root;
+    const qpField1: QPField = {
+        Type: AcuElementType.Field,
+        Label: 'Turn on',
+        ElementType: QPFieldElementType.CheckBox,
+        Value: 'true'
+    };
+    const qpField2: QPField = {
+        Type: AcuElementType.Field,
+        Label: 'Currency',
+        ElementType: QPFieldElementType.Currency,
+        Value: 'EUR'
+    };
+    const qpField3: QPField = {
+        Type: AcuElementType.Field,
+        Label: 'Date To',
+        ElementType: QPFieldElementType.DatetimeEdit,
+        Value: '06/07/2024'
+    };
+    const qpField4: QPField = {
+        Type: AcuElementType.Field,
+        Label: 'Total Amount',
+        ElementType: QPFieldElementType.NumberEditor,
+        Value: '1256.50'
+    };
+    const qpField5: QPField = {
+        Type: AcuElementType.Field,
+        Label: 'Project',
+        ElementType: QPFieldElementType.Selector,
+        Value: 'X'
+    };
+    const qpField6: QPField = {
+        Type: AcuElementType.Field,
+        Label: 'Description',
+        ElementType: QPFieldElementType.TextEditor,
+        Value: 'Here would be very very very very long string. Or not.'
+    };
+    const qpFieldSet1: QPFieldset = {
+        Label: 'Default values', Type: AcuElementType.FieldSet, Class: 'highlights-section', Children: [
+            qpField1,
+            qpField2,
+            qpField3,
+            qpField4
+        ]
+    };
+    const qpFieldSet2: QPFieldset = {
+        Label: 'Default values', Type: AcuElementType.FieldSet, Class: '', Children: [
+            qpField5,
+            qpField6
+        ]
+    };
+    const qpFieldSet3: QPFieldset = {
+        Label: 'Default values', Type: AcuElementType.FieldSet, Class: '', Children: [
+            qpField4,
+            qpField5,
+            qpField1,
+            qpField2,
+            qpField3,
+            qpField6
+        ]
+    };
+    const qpFieldSet4: QPFieldset = {
+        Label: 'Default values', Type: AcuElementType.FieldSet, Class: '', Children: [
+            qpField2,
+            qpField4,
+            qpField1,
+            qpField3,
+            qpField5,
+            qpField6
+        ]
+    };
+    const Slot1: FieldsetSlot = {Type: AcuElementType.FieldsetSlot, ID: "1", Children: [qpFieldSet1, qpFieldSet2]};
+    const Slot2: FieldsetSlot = {Type: AcuElementType.FieldsetSlot, ID: "2", Children: [qpFieldSet3]};
+    const Slot3: FieldsetSlot = {Type: AcuElementType.FieldsetSlot, ID: "1", Children: [qpFieldSet4]};
+    const Slot4: FieldsetSlot = {Type: AcuElementType.FieldsetSlot, ID: "2", Children: [qpFieldSet2, qpFieldSet1]};
+    const template1: Template = {Type: AcuElementType.Template, Name: '7-10-7', Children: [Slot1, Slot2]};
+    const template2: Template = {Type: AcuElementType.Template, Name: '7-10-7', Children: [Slot3, Slot4]};
+    const tab1: Tab = {Type: AcuElementType.Tab, Label: 'Details1', IsActive: false};
+    const tab2: Tab = {Type: AcuElementType.Tab, Label: 'Bills1', IsActive: true};
+    const tab3: Tab = {Type: AcuElementType.Tab, Label: 'Finance1', IsActive: false};
+    const col1: GridColumn = {Label: 'Test 1', ColumnType: GridColumnType.Text, Cells: ['a', 'b']};
+    const grid: Grid = {Type: AcuElementType.Grid, Columns: [col1]};
+    //const tabBar: TabBar = {Type: AcuElementType.Tabbar, Tabs: [tab1, tab2, tab3], Children: [template2]};
+
+    const templateS: Template = {
+        Type: AcuElementType.Template,
+        Name: '7-10-7',
+        Children: [qpFieldSet1, qpFieldSet2, qpFieldSet3]
+    };
+    const tabBar: TabBar = {Type: AcuElementType.Tabbar, Tabs: [tab1, tab2, tab3], Children: []};
+    //const root: AcuContainer = {Type: AcuElementType.Root, Children: [templateS]};
+    const root: AcuContainer = {Type: AcuElementType.Root, Children: [tabBar]};
+    return root;
 }
 
 function DrawFromHTML(input: string) {
     // const parser = new AcuPageParser();
     // const root = await parser.parse(msg.input);
     // console.log(JSON.stringify(root));
-    
+
+    const frame = figma.createFrame() as FrameNode;
+    frame.x = 0;
+    frame.y = 0;
+    frame.resize(1346, 903);
+
     let root = null;
     if (input === '')
-      root = generateRoot();
+        root = generateRoot();
     else
-      root = JSON.parse(input) as AcuContainer;
-
-    console.log(root);
+        root = JSON.parse(input) as AcuContainer;
 
     let y = 0;
 
     root.Children.forEach(fs => {
-      switch (fs.Type){
-        case AcuElementType.Template: {
-          y = DrawTemplate(fs as Template, y);
-          break;
+        switch (fs.Type) {
+            case AcuElementType.Template: {
+                y = DrawTemplate(fs as Template, y);
+                break;
+            }
+            case AcuElementType.Tabbar: {
+                y = DrawTabBar(fs as TabBar, y);
+                break;
+            }
+            case AcuElementType.Grid: {
+                DrawGrid((fs as unknown) as Grid);
+                break;
+            }
         }
-        case AcuElementType.Tabbar: {
-          y = DrawTabBar(fs as TabBar, y);
-          break;
-        }
-        case AcuElementType.Grid: {
-          DrawGrid((fs as unknown) as Grid);
-          break;
-        }
-      }
     });
 
-    //DrawHeader();
+    DrawHeader(frame);
 }
 
 // Calls to "parent.postMessage" from within the HTML page will trigger this
 // callback. The callback will be passed the "pluginMessage" property of the
 // posted message.
-figma.ui.onmessage = async(msg: {input: string, format: string}) => {
+figma.ui.onmessage = async (msg: { input: string, format: string }) => {
 
-  if (msg.format === '')
-  {
+    if (msg.format === '') {
+        figma.closePlugin();
+        return;
+    }
+
+    await figma.loadAllPagesAsync();
+
+    if (msg.format === 'html')
+        DrawFromHTML(msg.input);
+
     figma.closePlugin();
-    return;
-  }
-
-  await figma.loadAllPagesAsync();
-
-  if (msg.format === 'html')
-    DrawFromHTML(msg.input);
-
-  figma.closePlugin();
 };
