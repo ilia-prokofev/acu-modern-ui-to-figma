@@ -1,0 +1,40 @@
+{
+  "Type": "Root",
+  "Children": [
+    {
+      "Type": "QPFieldSet",
+      "Children": [
+        {
+          "Type": "QPField",
+          "ElementType": "TextEditor",
+          "Value": null,
+          "Label": " Subcontract Nbr. "
+        },
+        {
+          "Type": "QPField",
+          "ElementType": "TextEditor",
+          "Value": null,
+          "Label": " Status "
+        },
+        {
+          "Type": "QPField",
+          "ElementType": "TextEditor",
+          "Value": null,
+          "Label": " Date "
+        },
+        {
+          "Type": "QPField",
+          "ElementType": "TextEditor",
+          "Value": null,
+          "Label": " Start Date "
+        },
+        {
+          "Type": "QPField",
+          "ElementType": "TextEditor",
+          "Value": null,
+          "Label": " Vendor Ref. "
+        }
+      ]
+    }
+  ]
+}
