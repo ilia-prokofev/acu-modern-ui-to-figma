@@ -9,7 +9,7 @@
 // This shows the HTML page in "ui.html".
 import {AcuElement} from "./elements/acu-element";
 
-figma.showUI(__html__);
+figma.showUI(__html__, { width: 600, height: 350 });
 
 const spacer = 20;
 
