@@ -8,7 +8,7 @@
 import {QPField, QPFieldElementType} from "./elements/qp-field";
 import {Template} from "./elements/qp-template";
 import {QPFieldset} from "./elements/qp-fieldset";
-import {AcuElementType} from "./elements/acu-element";
+import {AcuElement, AcuElementType} from "./elements/acu-element";
 import {FieldsetSlot} from "./elements/qp-fieldset-slot";
 import {AcuContainer} from "./elements/acu-container";
 
@@ -336,14 +336,21 @@ function DrawFromHTML(input: string) {
     // const root = await parser.parse(msg.input);
     // console.log(JSON.stringify(root));
     
-    const root = generateRoot();
+    let root = null;
+    if (input === '')
+      root = generateRoot();
+    else
+      root = JSON.parse(input) as AcuContainer;
+
+    console.log(root);
+
     root.Children.forEach(fs => {
       switch (fs.Type){
         case AcuElementType.Template: {
           DrawTemplate(fs as Template);
           break;
         }
-        case AcuElementType.Template: {
+        case AcuElementType.FieldsetSlot: {
           DrawFieldset(fs as QPFieldset);
           break;
         }
