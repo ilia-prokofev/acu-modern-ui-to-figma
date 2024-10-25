@@ -65,4 +65,12 @@ package-lock.json
 *v8.log
 /lib/
 
+# Ignore all JavaScript files
+*.js
+/**/*.js
+
+# But do not ignore important configuration files
+!webpack.config.js
+!jest.config.js
+
 **/dist/

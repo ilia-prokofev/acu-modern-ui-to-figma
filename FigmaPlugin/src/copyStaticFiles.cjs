@@ -33,12 +33,7 @@ function doCopy(destDir, fileList) {
 
 // Files to copy to dist directory (popup, css, icons, manifest)
 const filesAndFoldersToCopyToDist = [
-    path.resolve(__dirname, 'popup.html'),
-    path.resolve(__dirname, 'popup.css'),
-    path.resolve(__dirname, 'manifest.json'),
-    path.resolve(__dirname, 'icon16.png'),
-    path.resolve(__dirname, 'icon48.png'),
-    path.resolve(__dirname, 'icon128.png')
+
 ];
 
 // The ExtLib folder is two levels above
