@@ -3,7 +3,7 @@ const { Config } = require('@jest/types');
 
 // Sync object
 const config = {
-  testEnvironment: "node",
+  testEnvironment: "jsdom",
   transform: {
     "^.+\\.tsx?$": "ts-jest"
   },

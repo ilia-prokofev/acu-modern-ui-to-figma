@@ -9,11 +9,11 @@ describe('AcuPageParser', () => {
         sut = new AcuPageParser();
     });
 
-    test('exmaple', async () => {
+    test('exmaple', () => {
         const inputHtml = fs.readFileSync('example.html', 'utf-8');
         const expectedJson = fs.readFileSync('example.json', 'utf-8');
 
-        const actual = await sut.parse(inputHtml);
+        const actual = sut.parse(inputHtml);
 
         const expected = JSON.parse(expectedJson) as AcuElement;
         expect(actual).toEqual(expected);

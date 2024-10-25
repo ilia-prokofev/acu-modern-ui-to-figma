@@ -1,12 +1,11 @@
 import {AcuContainer, AcuElement, AcuElementType, QPField, QPFieldElementType, QPFieldset} from "./elements";
-import {JSDOM} from "jsdom";
 
 interface ElementVisitor {
-    visit(htmlElement: Node, parent: AcuElement): boolean;
+    visit(htmlElement: ChildNode, parent: AcuElement): boolean;
 }
 
 class LabelVisitor implements ElementVisitor {
-    visit(htmlElement: Node, parent: AcuElement): boolean {
+    visit(htmlElement: ChildNode, parent: AcuElement): boolean {
         if (parent.Type !== AcuElementType.QPField) {
             return false;
         }
@@ -24,7 +23,7 @@ class LabelVisitor implements ElementVisitor {
 }
 
 class QPFieldVisitor implements ElementVisitor {
-    visit(htmlElement: Node, parent: AcuElement): boolean {
+    visit(htmlElement: ChildNode, parent: AcuElement): boolean {
         if (!(parent as AcuContainer)) {
             return false;
         }
@@ -48,7 +47,7 @@ class QPFieldVisitor implements ElementVisitor {
 }
 
 class QPFieldsetVisitor implements ElementVisitor {
-    visit(htmlElement: Node, parent: AcuElement): boolean {
+    visit(htmlElement: ChildNode, parent: AcuElement): boolean {
         if (!(parent as AcuContainer).Children) {
             return false;
         }
@@ -71,7 +70,7 @@ class QPFieldsetVisitor implements ElementVisitor {
 }
 
 class TextEditVisitor implements ElementVisitor {
-    visit(htmlElement: Node, parent: AcuElement): boolean {
+    visit(htmlElement: ChildNode, parent: AcuElement): boolean {
         if (parent.Type !== AcuElementType.QPField) {
             return false;
         }
@@ -89,7 +88,7 @@ class TextEditVisitor implements ElementVisitor {
     }
 }
 
-function Visit(htmlElement: Node, parent: AcuElement) {
+function Visit(htmlElement: ChildNode, parent: AcuElement) {
     for (const visitor of AllVisitors) {
         if (visitor.visit(htmlElement, parent)) {
             return;
@@ -98,7 +97,7 @@ function Visit(htmlElement: Node, parent: AcuElement) {
     VisitChildren(htmlElement, parent);
 }
 
-function VisitChildren(htmlElement: Node, parent: AcuElement) {
+function VisitChildren(htmlElement: ChildNode, parent: AcuElement) {
     htmlElement.childNodes.forEach(child => Visit(child as HTMLElement, parent));
 }
 
@@ -110,16 +109,20 @@ const AllVisitors: Array<ElementVisitor> = [
 ];
 
 export class AcuPageParser {
-    async parse(html: string): Promise<AcuElement | null> {
-        const dom = new JSDOM(html);
-        const document = dom.window.document;
+    parse(html: string): AcuElement | null {
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const node = doc.body.firstChild;
+
+        if(!node) {
+            return null;
+        }
 
         const root: AcuContainer = {
             Type: AcuElementType.Root,
             Children: [],
         }
 
-        VisitChildren(document.body, root);
+        Visit(node!, root);
         return root;
     }
 }
