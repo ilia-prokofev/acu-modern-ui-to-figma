@@ -7,6 +7,8 @@
 // full browser environment (See https://www.figma.com/plugin-docs/how-plugins-run).
 
 // This shows the HTML page in "ui.html".
+import {AcuElement} from "./elements";
+
 figma.showUI(__html__);
 
 const spacer = 20;
@@ -139,13 +141,12 @@ figma.ui.onmessage = async(msg: {input: string, format: string}) => {
     return;
   }
 
-  if (msg.input === '') {
-    msg.input = "[{\"fields\":[{\"label\":\"Subcontract Nbr.\",\"type\":\"selector\",\"value\":\"SC-000034\"},{\"label\":\"Status\",\"type\":\"selector\",\"value\":\"open\"},{\"label\":\"Date\",\"type\":\"datetime-edit\",\"value\":\"10/24/2024\"},{\"label\":\"Start Date\",\"type\":\"datetime-edit\",\"value\":\"10/24/2024\"}]},{\"fields\":[{\"label\":\"Vendor\",\"type\":\"selector\"},{\"label\":\"Location\",\"type\":\"selector\"},{\"label\":\"Owner\",\"type\":\"selector\",\"value\":\"Maxwell Baker\"},{\"label\":\"Currency\",\"type\":\"currency\",\"value\":\"USD\"},{\"label\":\"Description\",\"type\":\"expanded\"}]},{\"fields\":[{\"label\":\"Detail Total\",\"type\":\"number-editor\",\"value\":\"100.00\"},{\"label\":\"Tax Total\",\"type\":\"number-editor\",\"value\":\"0.00\"},{\"label\":\"Subcontract Total\",\"type\":\"number-editor\",\"value\":\"100.00\"}]}]";
-  }
-
   await figma.loadAllPagesAsync();
   
   //const schema: Container[] = JSON.parse(msg.input);
+  const element = JSON.parse(msg.input) as AcuElement;
+  console.log(JSON.stringify(element));
+
   const schema: Fieldset[] = JSON.parse(msg.input);
   console.log(schema);
 
