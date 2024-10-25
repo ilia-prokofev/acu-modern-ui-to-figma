@@ -5,6 +5,34 @@ import {QPFieldset} from "./elements/qp-fieldset";
 import {FieldsetSlot} from "./elements/qp-fieldset-slot";
 import {Template} from "./elements/qp-template";
 
+function findClasses(htmlElement: Element, ...classNames: string[]): boolean {
+    const classAttr = htmlElement.attributes.getNamedItem("class")?.value;
+    if (!classAttr) {
+        return false;
+    }
+
+    const classes = classAttr.split(" ");
+    for (const className of classNames) {
+        if (classes.find(c => c === className) === undefined) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function findElementByClassesUp(htmlElement: Element, ...classNames: string[]): Element | null {
+    if (findClasses(htmlElement, ...classNames)){
+        return htmlElement;
+    }
+
+    if (!htmlElement.parentElement) {
+        return null;
+    }
+
+    return findElementByClassesUp(htmlElement.parentElement, ...classNames);
+}
+
 interface ElementVisitor {
     visit(htmlElement: Element, parent: AcuElement): boolean;
 }
@@ -19,7 +47,7 @@ class LabelVisitor implements ElementVisitor {
             return false;
         }
 
-        (parent as QPField).Label = htmlElement.textContent;
+        (parent as QPField).Label = htmlElement.textContent?.trim() ?? null;
 
         VisitChildren(htmlElement, parent);
 
@@ -37,8 +65,30 @@ class TextEditVisitor implements ElementVisitor {
             return false;
         }
 
-        //(parent as QPField).Value = "some-edit-value";
-        (parent as QPField).ElementType = QPFieldElementType.TextEditor;
+        const elementTypeElement = findElementByClassesUp(htmlElement, 'au-target', 'main-field');
+        if (!elementTypeElement) {
+            return false;
+        }
+
+        let elementType: QPFieldElementType | null = null;
+        if (findClasses(elementTypeElement, 'qp-text-editor-control')) {
+            elementType = QPFieldElementType.TextEditor;
+        } else if (findClasses(elementTypeElement, 'qp-selector-control')) {
+            elementType = QPFieldElementType.Selector;
+        } else if (findClasses(elementTypeElement, 'qp-drop-down-control')) {
+            elementType = QPFieldElementType.DropDown;
+        } else if (findClasses(elementTypeElement, 'qp-check-box-control')) {
+            elementType = QPFieldElementType.CheckBox;
+        } else if (findClasses(elementTypeElement, 'qp-datetime-edit-control')) {
+            elementType = QPFieldElementType.DatetimeEdit;
+        } else if (findClasses(elementTypeElement, 'qp-currency-control')) {
+            elementType = QPFieldElementType.Currency;
+        } else if (findClasses(elementTypeElement, 'qp-number-editor-control')) {
+            elementType = QPFieldElementType.NumberEditor;
+        }
+
+        (parent as QPField).ElementType = elementType ?? QPFieldElementType.TextEditor;
+        (parent as QPField).Value = htmlElement.attributes.getNamedItem("value")?.value ?? null;
 
         VisitChildren(htmlElement, parent);
 

@@ -32,34 +32,34 @@
         {
           "Children": [
             {
-              "ElementType": "TextEditor",
-              "Label": "\n\t\t\tSubcontract Nbr.\n\t\t",
+              "ElementType": "Selector",
+              "Label": "Subcontract Nbr.",
               "Type": "Field",
-              "Value": null
+              "Value": "<NEW>"
+            },
+            {
+              "ElementType": "DropDown",
+              "Label": "Status",
+              "Type": "Field",
+              "Value": "On Hold"
+            },
+            {
+              "ElementType": "DatetimeEdit",
+              "Label": "Date",
+              "Type": "Field",
+              "Value": "10/24/2024"
+            },
+            {
+              "ElementType": "DatetimeEdit",
+              "Label": "Start Date",
+              "Type": "Field",
+              "Value": "10/24/2024"
             },
             {
               "ElementType": "TextEditor",
-              "Label": "\n\t\t\tStatus\n\t\t",
+              "Label": "Vendor Ref.",
               "Type": "Field",
-              "Value": null
-            },
-            {
-              "ElementType": "TextEditor",
-              "Label": "\n\t\t\tDate\n\t\t",
-              "Type": "Field",
-              "Value": null
-            },
-            {
-              "ElementType": "TextEditor",
-              "Label": "\n\t\t\tStart Date\n\t\t",
-              "Type": "Field",
-              "Value": null
-            },
-            {
-              "ElementType": "TextEditor",
-              "Label": "\n\t\t\tVendor Ref.\n\t\t",
-              "Type": "Field",
-              "Value": null
+              "Value": ""
             }
           ],
           "Label": null,
@@ -68,32 +68,32 @@
         {
           "Children": [
             {
-              "ElementType": "TextEditor",
-              "Label": "\n\t\t\tVendor\n\t\t",
+              "ElementType": "Selector",
+              "Label": "Vendor",
               "Type": "Field",
-              "Value": null
+              "Value": ""
             },
             {
-              "ElementType": "TextEditor",
-              "Label": "\n\t\t\tLocation\n\t\t",
+              "ElementType": "Selector",
+              "Label": "Location",
               "Type": "Field",
-              "Value": null
+              "Value": ""
             },
             {
-              "ElementType": "TextEditor",
-              "Label": "\n\t\t\tOwner\n\t\t",
+              "ElementType": "Selector",
+              "Label": "Owner",
               "Type": "Field",
-              "Value": null
+              "Value": "Maxwell Baker"
             },
             {
-              "ElementType": "TextEditor",
-              "Label": "\n\t\t\tCurrency\n\t\t",
+              "ElementType": "Currency",
+              "Label": "Currency",
               "Type": "Field",
-              "Value": null
+              "Value": "USD"
             },
             {
               "ElementType": null,
-              "Label": "\n\t\t\tDescription\n\t\t",
+              "Label": "Description",
               "Type": "Field",
               "Value": null
             }
@@ -104,22 +104,22 @@
         {
           "Children": [
             {
-              "ElementType": "TextEditor",
-              "Label": "\n\t\t\tDetail Total\n\t\t",
+              "ElementType": "NumberEditor",
+              "Label": "Detail Total",
               "Type": "Field",
-              "Value": null
+              "Value": "0.00"
             },
             {
-              "ElementType": "TextEditor",
-              "Label": "\n\t\t\tTax Total\n\t\t",
+              "ElementType": "NumberEditor",
+              "Label": "Tax Total",
               "Type": "Field",
-              "Value": null
+              "Value": "0.00"
             },
             {
-              "ElementType": "TextEditor",
-              "Label": "\n\t\t\tSubcontract Total\n\t\t",
+              "ElementType": "NumberEditor",
+              "Label": "Subcontract Total",
               "Type": "Field",
-              "Value": null
+              "Value": "0.00"
             }
           ],
           "Label": null,
@@ -136,10 +136,10 @@
             {
               "Children": [
                 {
-                  "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tVendor Tax Zone\n\t\t",
+                  "ElementType": "Selector",
+                  "Label": "Vendor Tax Zone",
                   "Type": "Field",
-                  "Value": null
+                  "Value": ""
                 }
               ],
               "Label": null,
@@ -148,22 +148,22 @@
             {
               "Children": [
                 {
-                  "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tTax Exempt Total\n\t\t",
+                  "ElementType": "NumberEditor",
+                  "Label": "Tax Exempt Total",
                   "Type": "Field",
-                  "Value": null
+                  "Value": "0.00"
                 },
                 {
-                  "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tTaxable Total\n\t\t",
+                  "ElementType": "NumberEditor",
+                  "Label": "Taxable Total",
                   "Type": "Field",
-                  "Value": null
+                  "Value": "0.00"
                 },
                 {
-                  "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tTax Total\n\t\t",
+                  "ElementType": "NumberEditor",
+                  "Label": "Tax Total",
                   "Type": "Field",
-                  "Value": null
+                  "Value": "0.00"
                 }
               ],
               "Label": null,
@@ -184,34 +184,34 @@
             {
               "Children": [
                 {
-                  "ElementType": "TextEditor",
+                  "ElementType": "CheckBox",
                   "Label": "Override",
                   "Type": "Field",
-                  "Value": null
+                  "Value": "on"
                 },
                 {
                   "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tAccount Name\n\t\t",
+                  "Label": "Account Name",
                   "Type": "Field",
-                  "Value": null
+                  "Value": ""
                 },
                 {
                   "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tJob Title\n\t\t",
+                  "Label": "Job Title",
                   "Type": "Field",
-                  "Value": null
+                  "Value": ""
                 },
                 {
                   "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tPhone 1\n\t\t",
+                  "Label": "Phone 1",
                   "Type": "Field",
-                  "Value": null
+                  "Value": ""
                 },
                 {
                   "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tEmail\n\t\t",
+                  "Label": "Email",
                   "Type": "Field",
-                  "Value": null
+                  "Value": ""
                 }
               ],
               "Label": null,
@@ -226,52 +226,52 @@
             {
               "Children": [
                 {
-                  "ElementType": "TextEditor",
+                  "ElementType": "CheckBox",
                   "Label": "Override",
                   "Type": "Field",
-                  "Value": null
+                  "Value": "on"
                 },
                 {
                   "ElementType": null,
-                  "Label": "\n\n\t\t",
+                  "Label": "",
                   "Type": "Field",
                   "Value": null
                 },
                 {
                   "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tAddress Line 1\n\t\t",
+                  "Label": "Address Line 1",
                   "Type": "Field",
-                  "Value": null
+                  "Value": ""
                 },
                 {
                   "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tAddress Line 2\n\t\t",
+                  "Label": "Address Line 2",
                   "Type": "Field",
-                  "Value": null
+                  "Value": ""
                 },
                 {
                   "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tCity\n\t\t",
+                  "Label": "City",
                   "Type": "Field",
-                  "Value": null
+                  "Value": ""
+                },
+                {
+                  "ElementType": "Selector",
+                  "Label": "Country",
+                  "Type": "Field",
+                  "Value": "US - United States of America"
+                },
+                {
+                  "ElementType": "Selector",
+                  "Label": "State",
+                  "Type": "Field",
+                  "Value": ""
                 },
                 {
                   "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tCountry\n\t\t",
+                  "Label": "Postal Code",
                   "Type": "Field",
-                  "Value": null
-                },
-                {
-                  "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tState\n\t\t",
-                  "Type": "Field",
-                  "Value": null
-                },
-                {
-                  "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tPostal Code\n\t\t",
-                  "Type": "Field",
-                  "Value": null
+                  "Value": ""
                 }
               ],
               "Label": null,
@@ -292,52 +292,52 @@
             {
               "Children": [
                 {
-                  "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tBranch\n\t\t",
+                  "ElementType": "Selector",
+                  "Label": "Branch",
                   "Type": "Field",
-                  "Value": null
+                  "Value": "PRODWHOLE - Products Wholesale"
+                },
+                {
+                  "ElementType": "Selector",
+                  "Label": "Terms",
+                  "Type": "Field",
+                  "Value": ""
                 },
                 {
                   "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tTerms\n\t\t",
+                  "Label": "Tax Exemption Number",
                   "Type": "Field",
-                  "Value": null
+                  "Value": ""
                 },
                 {
-                  "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tTax Exemption Number\n\t\t",
+                  "ElementType": "DropDown",
+                  "Label": "Tax Exemption Type",
                   "Type": "Field",
-                  "Value": null
+                  "Value": "Default"
                 },
                 {
-                  "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tTax Exemption Type\n\t\t",
+                  "ElementType": "Selector",
+                  "Label": "Pay-to Vendor",
                   "Type": "Field",
-                  "Value": null
+                  "Value": ""
                 },
                 {
-                  "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tPay-to Vendor\n\t\t",
+                  "ElementType": "Selector",
+                  "Label": "Workgroup ID",
                   "Type": "Field",
-                  "Value": null
+                  "Value": ""
                 },
                 {
-                  "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tWorkgroup ID\n\t\t",
-                  "Type": "Field",
-                  "Value": null
-                },
-                {
-                  "ElementType": "TextEditor",
+                  "ElementType": "CheckBox",
                   "Label": "Printed",
                   "Type": "Field",
-                  "Value": null
+                  "Value": "on"
                 },
                 {
-                  "ElementType": "TextEditor",
+                  "ElementType": "CheckBox",
                   "Label": "Emailed",
                   "Type": "Field",
-                  "Value": null
+                  "Value": "on"
                 }
               ],
               "Label": null,
@@ -352,16 +352,16 @@
             {
               "Children": [
                 {
-                  "ElementType": "TextEditor",
+                  "ElementType": "CheckBox",
                   "Label": "Apply Retainage",
                   "Type": "Field",
-                  "Value": null
+                  "Value": "on"
                 },
                 {
-                  "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tRetainage Percent\n\t\t",
+                  "ElementType": "NumberEditor",
+                  "Label": "Retainage Percent",
                   "Type": "Field",
-                  "Value": null
+                  "Value": ""
                 }
               ],
               "Label": null,
@@ -375,28 +375,28 @@
             {
               "Children": [
                 {
-                  "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tUnbilled Quantity\n\t\t",
+                  "ElementType": "NumberEditor",
+                  "Label": "Unbilled Quantity",
                   "Type": "Field",
-                  "Value": null
+                  "Value": "0.00"
                 },
                 {
-                  "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tUnbilled Amount\n\t\t",
+                  "ElementType": "NumberEditor",
+                  "Label": "Unbilled Amount",
                   "Type": "Field",
-                  "Value": null
+                  "Value": "0.00"
                 },
                 {
-                  "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tUnbilled Prepayment Total\n\t\t",
+                  "ElementType": "NumberEditor",
+                  "Label": "Unbilled Prepayment Total",
                   "Type": "Field",
-                  "Value": null
+                  "Value": "0.00"
                 },
                 {
-                  "ElementType": "TextEditor",
-                  "Label": "\n\t\t\tUnpaid Amount\n\t\t",
+                  "ElementType": "NumberEditor",
+                  "Label": "Unpaid Amount",
                   "Type": "Field",
-                  "Value": null
+                  "Value": "0.00"
                 }
               ],
               "Label": null,
