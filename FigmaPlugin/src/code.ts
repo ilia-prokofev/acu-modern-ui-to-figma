@@ -149,7 +149,7 @@ function DrawFieldset(fs: QPFieldset, x = 0, y = 0, w = 0)
   else
     SetProperty(header, 'Text Value', fs.Label??'');
 
-  if (fs.Class === 'highlights-section')
+  if (fs.Highlighted)
   {
     SetProperty(instance, 'Wrapping', 'Blue');
     //SetProperty(instance, 'Label Length', 'm');
@@ -247,17 +247,17 @@ function generateRoot() {
   const qpField4: QPField = {Type: AcuElementType.Field, Label: 'Total Amount', ElementType: QPFieldElementType.NumberEditor, Value: '1256.50'};
   const qpField5: QPField = {Type: AcuElementType.Field, Label: 'Project', ElementType: QPFieldElementType.Selector, Value: 'X'};
   const qpField6: QPField = {Type: AcuElementType.Field, Label: 'Description', ElementType: QPFieldElementType.TextEditor, Value: 'Here would be very very very very long string. Or not.'};
-  const qpFieldSet1: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Class: 'highlights-section', Children: [
+  const qpFieldSet1: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Highlighted: true, Children: [
       qpField1,
       qpField2,
       qpField3,
       qpField4
     ]};
-  const qpFieldSet2: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Class: '', Children: [
+  const qpFieldSet2: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Highlighted: false, Children: [
       qpField5,
       qpField6
     ]};
-  const qpFieldSet3: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Class: '', Children: [
+  const qpFieldSet3: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Highlighted: false, Children: [
       qpField4,
       qpField5,
       qpField1,
@@ -265,7 +265,7 @@ function generateRoot() {
       qpField3,
       qpField6
     ]};
-  const qpFieldSet4: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Class: '', Children: [
+  const qpFieldSet4: QPFieldset = {Label: 'Default values', Type: AcuElementType.FieldSet, Highlighted: false, Children: [
       qpField2,
       qpField4,
       qpField1,

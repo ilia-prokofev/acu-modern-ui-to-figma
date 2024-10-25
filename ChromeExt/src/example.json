@@ -1,4 +1,6 @@
 {
+  "Caption1": "Subcontracts",
+  "Caption2": "New Record",
   "Children": [
     {
       "Children": [
@@ -35,7 +37,7 @@
               "Value": ""
             }
           ],
-          "Class": "au-target qp-fieldset fieldset-titleless",
+          "Highlighted": false,
           "Label": null,
           "Type": "FieldSet"
         },
@@ -72,7 +74,7 @@
               "Value": null
             }
           ],
-          "Class": "au-target qp-fieldset fieldset-titleless",
+          "Highlighted": false,
           "Label": null,
           "Type": "FieldSet"
         },
@@ -97,7 +99,7 @@
               "Value": "0.00"
             }
           ],
-          "Class": "highlights-section au-target qp-fieldset fieldset-titleless",
+          "Highlighted": true,
           "Label": null,
           "Type": "FieldSet"
         }
