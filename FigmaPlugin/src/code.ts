@@ -7,7 +7,7 @@
 // full browser environment (See https://www.figma.com/plugin-docs/how-plugins-run).
 
 // This shows the HTML page in "ui.html".
-import {AcuElement} from "./elements";
+import {AcuElement} from "./elements/acu-element";
 
 figma.showUI(__html__);
 
