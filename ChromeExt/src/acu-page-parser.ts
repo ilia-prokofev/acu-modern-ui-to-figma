@@ -5,7 +5,7 @@ import {QPFieldset} from "./elements/qp-fieldset";
 import {FieldsetSlot} from "./elements/qp-fieldset-slot";
 import {Template} from "./elements/qp-template";
 import {Tab, TabBar} from "./elements/qp-tabbar";
-import {Grid} from "./elements/qp-grid";
+import {Grid, GridColumn, GridColumnType} from "./elements/qp-grid";
 
 function findClasses(htmlElement: Element, ...classNames: string[]): boolean {
     const classAttr = htmlElement.attributes.getNamedItem("class")?.value;
@@ -296,7 +296,45 @@ export class QPGridVisitor implements ElementVisitor {
     }
 }
 
-export
+export class QPGridColumnVisitor implements ElementVisitor {
+    visit(htmlElement: Element, parent: AcuElement): boolean {
+        if (!(parent as Grid)?.Columns) {
+            return false;
+        }
+
+        if (htmlElement.nodeName.toLowerCase() !== "th") {
+            return false;
+        }
+
+        const columnLabelElement = findElementByClassesDown(htmlElement, 'grid-header-text')
+
+        let columnType = GridColumnType.Text;
+        switch ((parent as Grid).Columns.length) {
+            case 0:
+                columnType = GridColumnType.Settings
+                break;
+            case 1:
+                columnType = GridColumnType.Files;
+                break;
+            case 2:
+                columnType = GridColumnType.Notes
+                break;
+        }
+
+        const child: GridColumn = {
+            Type: AcuElementType.GridColumn,
+            Label: columnLabelElement?.textContent?.trim() ?? '',
+            ColumnType: columnType,
+            Cells: [],
+        };
+
+        (parent as Grid).Columns.push(child);
+
+        VisitChildren(htmlElement, child);
+
+        return true;
+    }
+}
 
 function Visit(htmlElement: Element, parent: AcuElement) {
     for (const visitor of AllVisitors) {
@@ -322,6 +360,7 @@ const AllVisitors: Array<ElementVisitor> = [
     new TextEditVisitor(),
     new QPTabBarVisitor(),
     new QPGridVisitor(),
+    new QPGridColumnVisitor(),
 ];
 
 export class AcuPageParser {
