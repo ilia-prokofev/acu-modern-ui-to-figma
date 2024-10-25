@@ -14,7 +14,7 @@ import {Tab, TabBar} from "./elements/qp-tabbar";
 import {Grid, GridColumn, GridColumnType} from "./elements/qp-grid";
 import {FrameNode} from "@figma/plugin-typings/plugin-api-standalone";
 
-figma.showUI(__html__, {width: 600, height: 350});
+figma.showUI(__html__, {width: 650, height: 410});
 
 const spacer = 20;
 const pageWidth = 1200;
@@ -355,7 +355,7 @@ function generateRoot() {
     return root;
 }
 
-function DrawFromHTML(input: string) {
+async function DrawFromHTML(input: string) {
     // const parser = new AcuPageParser();
     // const root = await parser.parse(msg.input);
     // console.log(JSON.stringify(root));
@@ -373,22 +373,26 @@ function DrawFromHTML(input: string) {
 
     let y = 0;
 
-    root.Children.forEach(fs => {
-        switch (fs.Type) {
-            case AcuElementType.Template: {
+    let progress = 10;
+    figma.ui.postMessage({type: 'progress', progress});
+    await new Promise(resolve => setTimeout(resolve, 20))
+
+    for (const fs of root.Children) {
+      switch (fs.Type) {
+        case AcuElementType.Template:
                 y = DrawTemplate(fs as Template, y);
                 break;
-            }
-            case AcuElementType.Tabbar: {
+            case AcuElementType.Tabbar:
                 y = DrawTabBar(fs as TabBar, y);
                 break;
-            }
-            case AcuElementType.Grid: {
-                DrawGrid((fs as unknown) as Grid);
-                break;
-            }
-        }
-    });
+            case AcuElementType.Grid:
+          DrawGrid((fs as unknown) as Grid);
+          break;
+      }
+      progress += 25;
+      figma.ui.postMessage({type: 'progress', progress});
+      await new Promise(resolve => setTimeout(resolve, 20));
+    }
 
     DrawHeader(frame);
 }
@@ -406,7 +410,7 @@ figma.ui.onmessage = async (msg: { input: string, format: string }) => {
     await figma.loadAllPagesAsync();
 
     if (msg.format === 'html')
-        DrawFromHTML(msg.input);
+        await DrawFromHTML(msg.input);
 
     figma.closePlugin();
 };
