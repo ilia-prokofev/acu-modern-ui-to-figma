@@ -1,4 +1,31 @@
-import { AcuPageParser } from './acu-page-parser';
+import {AcuPageParser} from './acu-page-parser';
+
+// Function to remove elements with `display: none` from a cloned document
+function removeHiddenElementsFromClone(doc: HTMLElement) {
+    const elements = doc.querySelectorAll('*');
+    elements.forEach(element => {
+        const style = (element as HTMLElement).getAttribute('data-display');
+        if (style === 'none') {
+            element.remove();
+        }
+    });
+}
+
+// Function to create a deep clone of the document and mark elements with `display: none`
+function cloneDocumentWithDisplayMarking(doc: HTMLElement): HTMLElement {
+    const clonedDoc = doc.cloneNode(true) as HTMLElement;
+    const elements = doc.querySelectorAll<HTMLElement>('*');
+
+    elements.forEach((element, index) => {
+        const computedStyle = window.getComputedStyle(element);
+        if (computedStyle.display === 'none') {
+            const clonedElement = clonedDoc.querySelectorAll<HTMLElement>('*')[index];
+            clonedElement.setAttribute('data-display', 'none');
+        }
+    });
+
+    return clonedDoc;
+}
 
 document.getElementById('exportBtn')?.addEventListener('click', () => {
     const button = document.getElementById('exportBtn') as HTMLButtonElement;
@@ -14,7 +41,7 @@ document.getElementById('exportBtn')?.addEventListener('click', () => {
                 target: {tabId: tabs[0].id},
                 func: function () {
                     // Add value attributes to inputs, textareas, and selects inside the iframe
-                    function addValuesToUserInputs(iframeDoc: Document) {
+                    function addValuesToUserInputs(iframeDoc: HTMLElement) {
                         const inputs = iframeDoc.querySelectorAll('input');
                         inputs.forEach(input => {
                             if (input.type === 'text' || input.type === 'checkbox' || input.type === 'radio') {
@@ -45,13 +72,14 @@ document.getElementById('exportBtn')?.addEventListener('click', () => {
                     const iframe = document.getElementById('main') as HTMLIFrameElement;
                     if (iframe && iframe.contentDocument) {
                         const iframeDoc = iframe.contentDocument;
-                        addValuesToUserInputs(iframeDoc); // Update inputs inside iframe
 
                         const mainWs = iframeDoc.getElementById('mainWorkspace');
-                        const outerHtml = mainWs?.outerHTML;
-
-                        if (outerHtml) {
-                            return outerHtml;
+                        if (mainWs) {
+                            // Create a deep copy of the DOM to avoid modifying the live document
+                            const clonedDoc = cloneDocumentWithDisplayMarking(mainWs)
+                            removeHiddenElementsFromClone(clonedDoc);
+                            addValuesToUserInputs(clonedDoc); // Update inputs inside iframe
+                            return clonedDoc?.outerHTML || null;
                         } else {
                             console.error('Element with id "mainWorkspace" not found.');
                         }
