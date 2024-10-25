@@ -1,3 +1,5 @@
+import { AcuPageParser } from './acu-page-parser';
+
 document.getElementById('exportBtn')?.addEventListener('click', () => {
     const button = document.getElementById('exportBtn') as HTMLButtonElement;
 
@@ -6,11 +8,11 @@ document.getElementById('exportBtn')?.addEventListener('click', () => {
     button.innerText = 'Export for Figma';
     button.disabled = true;
 
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs: chrome.tabs.Tab[]) => {
+    chrome.tabs.query({active: true, currentWindow: true}, (tabs: chrome.tabs.Tab[]) => {
         if (tabs[0].id) {
             chrome.scripting.executeScript({
-                target: { tabId: tabs[0].id },
-                func: function() {
+                target: {tabId: tabs[0].id},
+                func: function () {
                     // Add value attributes to inputs, textareas, and selects inside the iframe
                     function addValuesToUserInputs(iframeDoc: Document) {
                         const inputs = iframeDoc.querySelectorAll('input');
@@ -63,9 +65,13 @@ document.getElementById('exportBtn')?.addEventListener('click', () => {
 
                 if (results && results[0] && results[0].result) {
                     const htmlContent = results[0].result;
-
+                    // Create instance of AcuPageParser and parse HTML content
+                    const parser = new AcuPageParser();
+                    const parsedStructure = parser.parse(htmlContent);
+                    // Process parsed data if needed, for example, copying JSON to clipboard
+                    const parsedDataJSON = JSON.stringify(parsedStructure, null, 2);
                     // Copy to clipboard
-                    navigator.clipboard.writeText(htmlContent).then(() => {
+                    navigator.clipboard.writeText(parsedDataJSON).then(() => {
                         button.style.backgroundColor = '#28a745';
                         button.innerText = 'Success!';
                     }).catch(err => {

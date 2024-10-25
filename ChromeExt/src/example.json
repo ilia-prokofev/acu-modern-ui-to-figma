@@ -1,0 +1,452 @@
+{
+  "Children": [
+    {
+      "Children": [],
+      "Label": null,
+      "Type": "FieldSet"
+    },
+    {
+      "Children": [],
+      "Label": null,
+      "Type": "FieldSet"
+    },
+    {
+      "Children": [],
+      "Label": null,
+      "Type": "FieldSet"
+    },
+    {
+      "Children": [
+        {
+          "ElementType": null,
+          "Label": null,
+          "Type": "Field",
+          "Value": null
+        }
+      ],
+      "Label": null,
+      "Type": "FieldSet"
+    },
+    {
+      "Children": [
+        {
+          "Children": [
+            {
+              "ElementType": "TextEditor",
+              "Label": "\n\t\t\tSubcontract Nbr.\n\t\t",
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "TextEditor",
+              "Label": "\n\t\t\tStatus\n\t\t",
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "TextEditor",
+              "Label": "\n\t\t\tDate\n\t\t",
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "TextEditor",
+              "Label": "\n\t\t\tStart Date\n\t\t",
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "TextEditor",
+              "Label": "\n\t\t\tVendor Ref.\n\t\t",
+              "Type": "Field",
+              "Value": null
+            }
+          ],
+          "Label": null,
+          "Type": "FieldSet"
+        },
+        {
+          "Children": [
+            {
+              "ElementType": "TextEditor",
+              "Label": "\n\t\t\tVendor\n\t\t",
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "TextEditor",
+              "Label": "\n\t\t\tLocation\n\t\t",
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "TextEditor",
+              "Label": "\n\t\t\tOwner\n\t\t",
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "TextEditor",
+              "Label": "\n\t\t\tCurrency\n\t\t",
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": null,
+              "Label": "\n\t\t\tDescription\n\t\t",
+              "Type": "Field",
+              "Value": null
+            }
+          ],
+          "Label": null,
+          "Type": "FieldSet"
+        },
+        {
+          "Children": [
+            {
+              "ElementType": "TextEditor",
+              "Label": "\n\t\t\tDetail Total\n\t\t",
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "TextEditor",
+              "Label": "\n\t\t\tTax Total\n\t\t",
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "TextEditor",
+              "Label": "\n\t\t\tSubcontract Total\n\t\t",
+              "Type": "Field",
+              "Value": null
+            }
+          ],
+          "Label": null,
+          "Type": "FieldSet"
+        }
+      ],
+      "Name": "7-10-7",
+      "Type": "Template"
+    },
+    {
+      "Children": [
+        {
+          "Children": [
+            {
+              "Children": [
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tVendor Tax Zone\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                }
+              ],
+              "Label": null,
+              "Type": "FieldSet"
+            },
+            {
+              "Children": [
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tTax Exempt Total\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tTaxable Total\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tTax Total\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                }
+              ],
+              "Label": null,
+              "Type": "FieldSet"
+            }
+          ],
+          "ID": "B",
+          "Type": "FieldsetSlot"
+        }
+      ],
+      "Name": "17-7",
+      "Type": "Template"
+    },
+    {
+      "Children": [
+        {
+          "Children": [
+            {
+              "Children": [
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "Override",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tAccount Name\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tJob Title\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tPhone 1\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tEmail\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                }
+              ],
+              "Label": null,
+              "Type": "FieldSet"
+            }
+          ],
+          "ID": "A",
+          "Type": "FieldsetSlot"
+        },
+        {
+          "Children": [
+            {
+              "Children": [
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "Override",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": null,
+                  "Label": "\n\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tAddress Line 1\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tAddress Line 2\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tCity\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tCountry\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tState\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tPostal Code\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                }
+              ],
+              "Label": null,
+              "Type": "FieldSet"
+            }
+          ],
+          "ID": "B",
+          "Type": "FieldsetSlot"
+        }
+      ],
+      "Name": "17-17-14",
+      "Type": "Template"
+    },
+    {
+      "Children": [
+        {
+          "Children": [
+            {
+              "Children": [
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tBranch\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tTerms\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tTax Exemption Number\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tTax Exemption Type\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tPay-to Vendor\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tWorkgroup ID\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "Printed",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "Emailed",
+                  "Type": "Field",
+                  "Value": null
+                }
+              ],
+              "Label": null,
+              "Type": "FieldSet"
+            }
+          ],
+          "ID": "A",
+          "Type": "FieldsetSlot"
+        },
+        {
+          "Children": [
+            {
+              "Children": [
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "Apply Retainage",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tRetainage Percent\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                }
+              ],
+              "Label": null,
+              "Type": "FieldSet"
+            },
+            {
+              "Children": [],
+              "Label": null,
+              "Type": "FieldSet"
+            },
+            {
+              "Children": [
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tUnbilled Quantity\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tUnbilled Amount\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tUnbilled Prepayment Total\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                },
+                {
+                  "ElementType": "TextEditor",
+                  "Label": "\n\t\t\tUnpaid Amount\n\t\t",
+                  "Type": "Field",
+                  "Value": null
+                }
+              ],
+              "Label": null,
+              "Type": "FieldSet"
+            }
+          ],
+          "ID": "B",
+          "Type": "FieldsetSlot"
+        }
+      ],
+      "Name": "17-17-14",
+      "Type": "Template"
+    },
+    {
+      "Children": [],
+      "Label": null,
+      "Type": "FieldSet"
+    },
+    {
+      "Children": [],
+      "Label": null,
+      "Type": "FieldSet"
+    },
+    {
+      "Children": [
+        {
+          "Children": [],
+          "Label": null,
+          "Type": "FieldSet"
+        }
+      ],
+      "Name": "17-17-14",
+      "Type": "Template"
+    },
+    {
+      "Children": [
+        {
+          "Children": [],
+          "Label": null,
+          "Type": "FieldSet"
+        },
+        {
+          "Children": [],
+          "Label": null,
+          "Type": "FieldSet"
+        }
+      ],
+      "Name": "17-17-14",
+      "Type": "Template"
+    }
+  ],
+  "Type": "Root"
+}

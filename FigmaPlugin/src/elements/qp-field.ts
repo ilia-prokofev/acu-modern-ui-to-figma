@@ -1,4 +1,4 @@
-import AcuElement, {AcuElementType} from "./acu-element";
+import {AcuElement, AcuElementType} from "./acu-element";
 
 export enum QPFieldElementType {
     TextEditor = 'TextEditor',
@@ -7,7 +7,7 @@ export enum QPFieldElementType {
 
 export interface QPField extends AcuElement {
     Type: AcuElementType.QPField;
-    Label: string;
-    ElementType: QPFieldElementType;
+    Label: string | null;
+    ElementType: QPFieldElementType | null;
     Value: string | null;
 }

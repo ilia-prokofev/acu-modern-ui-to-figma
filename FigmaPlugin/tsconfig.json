@@ -1,11 +1,16 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "types": ["@figma/plugin-typings", "jest"],
-    "esModuleInterop": true,
+    "lib": ["es6"],
     "strict": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@figma"
+    ],
+    "outDir": "./dist",
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "node"
   },
-  "exclude": ["node_modules", "node_modules/@types/node"]
+  "include": ["src/**/*.ts"]
 }

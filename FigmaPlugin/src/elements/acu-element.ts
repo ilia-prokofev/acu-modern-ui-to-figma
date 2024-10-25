@@ -1,9 +1,11 @@
 export enum AcuElementType {
+    QPTemplate = 'QPTemplate',
+    QPFieldSetSlot = 'QPFieldSetSlot',
     QPField = 'QPField',
     QPFieldSet = 'QPFieldSet',
     Root = 'Root',
 }
 
-export default interface AcuElement {
+export interface AcuElement {
     Type: AcuElementType;
 }
