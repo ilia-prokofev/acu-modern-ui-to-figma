@@ -8,6 +8,8 @@ export enum QPFieldElementType {
     CheckBox = 'CheckBox',
     DatetimeEdit = 'DatetimeEdit',
     NumberEditor = 'NumberEditor',
+    Button = 'Button',
+    RadioButton = 'RadioButton',
     Status = 'Status',
     Currency = 'Currency'
 }
@@ -16,5 +18,6 @@ export interface QPField extends AcuElement {
     Type: AcuElementType.Field;
     Label: string | null;
     ElementType: QPFieldElementType | null;
+	ReadOnly: boolean | null;
     Value: string | null;
 }

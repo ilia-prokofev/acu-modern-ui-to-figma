@@ -14,6 +14,7 @@ export interface GridColumn {
     Type: AcuElementType.GridColumn
     Label: string;
     ColumnType: GridColumnType;
+    Alignment: string | null;
     Cells: string[];
 }
 
