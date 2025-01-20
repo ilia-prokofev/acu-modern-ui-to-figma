@@ -1,0 +1,40 @@
+{
+  "Type": "Grid",
+  "Columns": [
+    {
+      "Alignment": null,
+      "Cells": [],
+      "ColumnType": "Settings",
+      "Label": "",
+      "Type": "GridColumn"
+    },
+    {
+      "Alignment": null,
+      "Cells": [],
+      "ColumnType": "Files",
+      "Label": "",
+      "Type": "GridColumn"
+    },
+    {
+      "Alignment": null,
+      "Cells": [],
+      "ColumnType": "Notes",
+      "Label": "",
+      "Type": "GridColumn"
+    },
+    {
+      "Alignment": null,
+      "Cells": ["PRODWHOLE1", "PRODWHOLE2"],
+      "ColumnType": "Text",
+      "Label": "Branch",
+      "Type": "GridColumn"
+    },
+    {
+      "Alignment": null,
+      "Cells": ["CSTRSUBCON1", "CSTRSUBCON2"],
+      "ColumnType": "Link",
+      "Label": "Inventory ID",
+      "Type": "GridColumn"
+    }
+  ]
+}

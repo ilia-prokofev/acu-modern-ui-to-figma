@@ -9,9 +9,9 @@ describe('AcuPageParser', () => {
         sut = new AcuPageParser();
     });
 
-    test('exmaple', () => {
-        const inputHtml = fs.readFileSync('example.html', 'utf-8');
-        const expectedJson = fs.readFileSync('example.json', 'utf-8');
+    test('AcuPageParser', () => {
+        const inputHtml = fs.readFileSync('acu-page-parser-input.html', 'utf-8');
+        const expectedJson = fs.readFileSync('acu-page-parser-output.json', 'utf-8');
 
         const actual = sut.parse(inputHtml);
 
