@@ -27,6 +27,51 @@ function cloneDocumentWithDisplayMarking(doc: HTMLElement): HTMLElement {
     return clonedDoc;
 }
 
+function addValuesToUserInputs(iframeDoc: HTMLElement) {
+    const inputs = iframeDoc.querySelectorAll('input');
+    inputs.forEach(input => {
+        if (input.type === 'text' || input.type === 'checkbox' || input.type === 'radio') {
+            input.setAttribute('value', input.value);
+            if (input.type === 'checkbox' || input.type === 'radio') {
+                input.checked
+                    ? input.setAttribute('checked', 'checked')
+                    : input.removeAttribute('checked');
+            }
+        }
+    });
+
+    const textAreas = iframeDoc.querySelectorAll('textarea');
+    textAreas.forEach(textarea => {
+        textarea.textContent = textarea.value;
+    });
+
+    const selects = iframeDoc.querySelectorAll('select');
+    selects.forEach(select => {
+        const selectedOption = select.options[select.selectedIndex];
+        if (selectedOption) {
+            select.setAttribute('value', selectedOption.value);
+        }
+    });
+}
+
+function readRootHTML() {
+    const iframe = document.getElementById('main') as HTMLIFrameElement;
+    if (!iframe || !iframe.contentDocument) {
+        throw new Error('Iframe with id "main" not found or not accessible.');
+    }
+
+    const iframeDoc = iframe.contentDocument;
+    const mainWs = iframeDoc.getElementById('mainWorkspace');
+    if (!mainWs) {
+        throw new Error('Element with id "mainWorkspace" not found. Make sure you are using Modern UI.');
+    }
+
+    const clonedDoc = cloneDocumentWithDisplayMarking(mainWs)
+    removeHiddenElementsFromClone(clonedDoc);
+    addValuesToUserInputs(clonedDoc); // Update inputs inside iframe
+    return clonedDoc?.outerHTML || null;
+}
+
 document.getElementById('exportBtn')?.addEventListener('click', () => {
     const button = document.getElementById('exportBtn') as HTMLButtonElement;
 
@@ -39,55 +84,7 @@ document.getElementById('exportBtn')?.addEventListener('click', () => {
         if (tabs[0].id) {
             chrome.scripting.executeScript({
                 target: {tabId: tabs[0].id},
-                func: function () {
-                    // Add value attributes to inputs, textareas, and selects inside the iframe
-                    function addValuesToUserInputs(iframeDoc: HTMLElement) {
-                        const inputs = iframeDoc.querySelectorAll('input');
-                        inputs.forEach(input => {
-                            if (input.type === 'text' || input.type === 'checkbox' || input.type === 'radio') {
-                                input.setAttribute('value', input.value);
-                                if (input.type === 'checkbox' || input.type === 'radio') {
-                                    input.checked
-                                        ? input.setAttribute('checked', 'checked')
-                                        : input.removeAttribute('checked');
-                                }
-                            }
-                        });
-
-                        const textareas = iframeDoc.querySelectorAll('textarea');
-                        textareas.forEach(textarea => {
-                            textarea.textContent = textarea.value;
-                        });
-
-                        const selects = iframeDoc.querySelectorAll('select');
-                        selects.forEach(select => {
-                            const selectedOption = select.options[select.selectedIndex];
-                            if (selectedOption) {
-                                select.setAttribute('value', selectedOption.value);
-                            }
-                        });
-                    }
-
-                    // Get the iframe and its document
-                    const iframe = document.getElementById('main') as HTMLIFrameElement;
-                    if (iframe && iframe.contentDocument) {
-                        const iframeDoc = iframe.contentDocument;
-
-                        const mainWs = iframeDoc.getElementById('mainWorkspace');
-                        if (mainWs) {
-                            // Create a deep copy of the DOM to avoid modifying the live document
-                            const clonedDoc = cloneDocumentWithDisplayMarking(mainWs)
-                            removeHiddenElementsFromClone(clonedDoc);
-                            addValuesToUserInputs(clonedDoc); // Update inputs inside iframe
-                            return clonedDoc?.outerHTML || null;
-                        } else {
-                            console.error('Element with id "mainWorkspace" not found.');
-                        }
-                    } else {
-                        console.error('Iframe with id "main" not found or not accessible.');
-                    }
-                    return null;
-                }
+                func: readRootHTML
             }, (results) => {
                 button.disabled = false;
 

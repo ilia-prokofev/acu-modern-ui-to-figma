@@ -1,0 +1,1610 @@
+{
+  "Caption1": "Subcontracts",
+  "Caption2": "SC-000001 - Cornerstone Concrete",
+  "Children": [
+    {
+      "Columns": [],
+      "Type": "Grid"
+    },
+    {
+      "Columns": [],
+      "Type": "Grid"
+    },
+    {
+      "Columns": [],
+      "Type": "Grid"
+    },
+    {
+      "Children": [],
+      "Highlighted": false,
+      "Label": null,
+      "Type": "FieldSet"
+    },
+    {
+      "Columns": [],
+      "Type": "Grid"
+    },
+    {
+      "Children": [],
+      "Highlighted": false,
+      "Label": null,
+      "Type": "FieldSet"
+    },
+    {
+      "Children": [],
+      "Highlighted": false,
+      "Label": null,
+      "Type": "FieldSet"
+    },
+    {
+      "Columns": [],
+      "Type": "Grid"
+    },
+    {
+      "Children": [
+        {
+          "ElementType": null,
+          "Label": null,
+          "ReadOnly": false,
+          "Type": "Field",
+          "Value": null
+        }
+      ],
+      "Highlighted": false,
+      "Label": null,
+      "Type": "FieldSet"
+    },
+    {
+      "Children": [
+        {
+          "Children": [
+            {
+              "ElementType": "Selector",
+              "Label": "Subcontract Nbr.",
+              "ReadOnly": false,
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "DropDown",
+              "Label": "Status",
+              "ReadOnly": false,
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "DatetimeEdit",
+              "Label": "Date",
+              "ReadOnly": false,
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "DatetimeEdit",
+              "Label": "Start Date",
+              "ReadOnly": false,
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "TextEditor",
+              "Label": "Vendor Ref.",
+              "ReadOnly": false,
+              "Type": "Field",
+              "Value": null
+            }
+          ],
+          "Highlighted": false,
+          "Label": null,
+          "Type": "FieldSet"
+        },
+        {
+          "Children": [
+            {
+              "ElementType": "Selector",
+              "Label": "Vendor",
+              "ReadOnly": false,
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "Selector",
+              "Label": "Location",
+              "ReadOnly": false,
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "Selector",
+              "Label": "Owner",
+              "ReadOnly": false,
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "Currency",
+              "Label": "Currency",
+              "ReadOnly": false,
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "MultilineTextEditor",
+              "Label": "Description",
+              "ReadOnly": false,
+              "Type": "Field",
+              "Value": ""
+            }
+          ],
+          "Highlighted": false,
+          "Label": null,
+          "Type": "FieldSet"
+        },
+        {
+          "Children": [
+            {
+              "ElementType": "NumberEditor",
+              "Label": "Detail Total",
+              "ReadOnly": false,
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "NumberEditor",
+              "Label": "Line Discounts",
+              "ReadOnly": false,
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "NumberEditor",
+              "Label": "Document Discounts",
+              "ReadOnly": false,
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "NumberEditor",
+              "Label": "Tax Total",
+              "ReadOnly": false,
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "NumberEditor",
+              "Label": "Subcontract Total",
+              "ReadOnly": false,
+              "Type": "Field",
+              "Value": null
+            },
+            {
+              "ElementType": "NumberEditor",
+              "Label": "Retainage Total",
+              "ReadOnly": false,
+              "Type": "Field",
+              "Value": null
+            }
+          ],
+          "Highlighted": true,
+          "Label": null,
+          "Type": "FieldSet"
+        }
+      ],
+      "Name": "7-10-7",
+      "Type": "Template"
+    },
+    {
+      "Children": [
+        {
+          "Columns": [
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Settings",
+              "Label": "",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Files",
+              "Label": "",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Notes",
+              "Label": "",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "PRODWHOLE",
+                "PRODWHOLE",
+                "PRODWHOLE"
+              ],
+              "ColumnType": "Text",
+              "Label": "Branch",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "CSTRSUBCON",
+                "CSTRSUBCON",
+                "CSTRSUBCON"
+              ],
+              "ColumnType": "Link",
+              "Label": "Inventory ID",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "CSTRHOTEL",
+                "CSTRHOTEL",
+                "CSTRHOTEL"
+              ],
+              "ColumnType": "Text",
+              "Label": "Project",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "03",
+                "03",
+                "03"
+              ],
+              "ColumnType": "Text",
+              "Label": "Project Task",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "CIP Stairs",
+                "CIP Slab",
+                "Materials & Methods"
+              ],
+              "ColumnType": "Text",
+              "Label": "Line Description",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "LS",
+                "LS",
+                "LS"
+              ],
+              "ColumnType": "Text",
+              "Label": "UOM",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "1.00",
+                "1.00",
+                "1.00"
+              ],
+              "ColumnType": "Text",
+              "Label": "Order Qty.",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "290,000.00",
+                "4,000,000.00",
+                "1,000,000.00"
+              ],
+              "ColumnType": "Text",
+              "Label": "Unit Cost",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "290,000.00",
+                "4,000,000.00",
+                "1,000,000.00"
+              ],
+              "ColumnType": "Text",
+              "Label": "Ext. Cost",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "0.000000",
+                "0.000000",
+                "0.000000"
+              ],
+              "ColumnType": "Text",
+              "Label": "Discount Percent",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "0.00",
+                "0.00",
+                "0.00"
+              ],
+              "ColumnType": "Text",
+              "Label": "Discount Amount",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Checkbox",
+              "Label": "Manual Discount",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Discount Code",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Discount Sequence",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "0.00",
+                "0.00",
+                "0.00"
+              ],
+              "ColumnType": "Text",
+              "Label": "Prepaid Qty.",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "0.00",
+                "0.00",
+                "0.00"
+              ],
+              "ColumnType": "Text",
+              "Label": "Prepaid Amount",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "5.000000",
+                "5.000000",
+                "5.000000"
+              ],
+              "ColumnType": "Text",
+              "Label": "Retainage Percent",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "14,500.00",
+                "200,000.00",
+                "50,000.00"
+              ],
+              "ColumnType": "Text",
+              "Label": "Retainage Amount",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "275,500.00",
+                "3,800,000.00",
+                "950,000.00"
+              ],
+              "ColumnType": "Text",
+              "Label": "Amount",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Alternate ID",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "EXEMPT",
+                "EXEMPT",
+                "EXEMPT"
+              ],
+              "ColumnType": "Text",
+              "Label": "Tax Category",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "51250",
+                "51250",
+                "51250"
+              ],
+              "ColumnType": "Text",
+              "Label": "Account",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "COGS - Subcontractors",
+                "COGS - Subcontractors",
+                "COGS - Subcontractors"
+              ],
+              "ColumnType": "Text",
+              "Label": "Description",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "000-000",
+                "000-000",
+                "000-000"
+              ],
+              "ColumnType": "Text",
+              "Label": "Sub.",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Checkbox",
+              "Label": "Closed",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "1.00",
+                "1.00",
+                "1.00"
+              ],
+              "ColumnType": "Text",
+              "Label": "Billed Qty.",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "290,000.00",
+                "4,000,000.00",
+                "1,000,000.00"
+              ],
+              "ColumnType": "Text",
+              "Label": "Billed Amount",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "0.00",
+                "0.00",
+                "0.00"
+              ],
+              "ColumnType": "Text",
+              "Label": "Unbilled Qty.",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "0.00",
+                "0.00",
+                "0.00"
+              ],
+              "ColumnType": "Text",
+              "Label": "Unbilled Amount",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "1.000000",
+                "1.000000",
+                "1.000000"
+              ],
+              "ColumnType": "Text",
+              "Label": "Base Order Qty.",
+              "Type": "GridColumn"
+            }
+          ],
+          "Type": "Grid"
+        },
+        {
+          "Children": [
+            {
+              "Columns": [
+                {
+                  "Alignment": null,
+                  "Cells": [],
+                  "ColumnType": "Settings",
+                  "Label": "",
+                  "Type": "GridColumn"
+                },
+                {
+                  "Alignment": null,
+                  "Cells": [],
+                  "ColumnType": "Text",
+                  "Label": "Tax ID",
+                  "Type": "GridColumn"
+                },
+                {
+                  "Alignment": null,
+                  "Cells": [],
+                  "ColumnType": "Text",
+                  "Label": "Tax Rate",
+                  "Type": "GridColumn"
+                },
+                {
+                  "Alignment": null,
+                  "Cells": [],
+                  "ColumnType": "Text",
+                  "Label": "Taxable Amount",
+                  "Type": "GridColumn"
+                },
+                {
+                  "Alignment": null,
+                  "Cells": [],
+                  "ColumnType": "Text",
+                  "Label": "Tax Amount",
+                  "Type": "GridColumn"
+                },
+                {
+                  "Alignment": null,
+                  "Cells": [],
+                  "ColumnType": "Text",
+                  "Label": "Retained Taxable",
+                  "Type": "GridColumn"
+                },
+                {
+                  "Alignment": null,
+                  "Cells": [],
+                  "ColumnType": "Text",
+                  "Label": "Retained Tax",
+                  "Type": "GridColumn"
+                }
+              ],
+              "Type": "Grid"
+            },
+            {
+              "Children": [
+                {
+                  "Children": [
+                    {
+                      "ElementType": "Selector",
+                      "Label": "Vendor Tax Zone",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    }
+                  ],
+                  "Highlighted": false,
+                  "Label": "Tax Info",
+                  "Type": "FieldSet"
+                },
+                {
+                  "Children": [
+                    {
+                      "ElementType": "NumberEditor",
+                      "Label": "Tax Exempt Total",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "NumberEditor",
+                      "Label": "Taxable Total",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "NumberEditor",
+                      "Label": "Tax Total",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    }
+                  ],
+                  "Highlighted": true,
+                  "Label": "Tax Totals",
+                  "Type": "FieldSet"
+                }
+              ],
+              "ID": "B",
+              "Type": "FieldsetSlot"
+            }
+          ],
+          "Name": "17-7",
+          "Type": "Template"
+        },
+        {
+          "Children": [
+            {
+              "Children": [
+                {
+                  "Children": [
+                    {
+                      "ElementType": "CheckBox",
+                      "Label": "Override",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "TextEditor",
+                      "Label": "Account Name",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "TextEditor",
+                      "Label": "Job Title",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "TextEditor",
+                      "Label": "Phone 1",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "TextEditor",
+                      "Label": "Email",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    }
+                  ],
+                  "Highlighted": false,
+                  "Label": "Vendor Contact",
+                  "Type": "FieldSet"
+                }
+              ],
+              "ID": "A",
+              "Type": "FieldsetSlot"
+            },
+            {
+              "Children": [
+                {
+                  "Children": [
+                    {
+                      "ElementType": "CheckBox",
+                      "Label": "Override",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": null,
+                      "Label": "",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "TextEditor",
+                      "Label": "Address Line 1",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "TextEditor",
+                      "Label": "Address Line 2",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "TextEditor",
+                      "Label": "City",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "Selector",
+                      "Label": "Country",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "Selector",
+                      "Label": "State",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "TextEditor",
+                      "Label": "Postal Code",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    }
+                  ],
+                  "Highlighted": false,
+                  "Label": "Vendor Address",
+                  "Type": "FieldSet"
+                }
+              ],
+              "ID": "B",
+              "Type": "FieldsetSlot"
+            }
+          ],
+          "Name": "17-17-14",
+          "Type": "Template"
+        },
+        {
+          "Columns": [
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Settings",
+              "Label": "",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Checkbox",
+              "Label": "Skip Discount",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Discount Code",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Sequence ID",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Type",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Checkbox",
+              "Label": "Manual Discount",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Discountable Amt.",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Discountable Qty.",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Discount Amt.",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Retained Discount",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Discount Percent",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "External Discount Code",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Description",
+              "Type": "GridColumn"
+            }
+          ],
+          "Type": "Grid"
+        },
+        {
+          "Columns": [
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Settings",
+              "Label": "",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "Bill"
+              ],
+              "ColumnType": "Text",
+              "Label": "Type",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "002410"
+              ],
+              "ColumnType": "Link",
+              "Label": "Reference Nbr.",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "9/25/2020"
+              ],
+              "ColumnType": "Text",
+              "Label": "Date",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "Open"
+              ],
+              "ColumnType": "Text",
+              "Label": "Status",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "3.00"
+              ],
+              "ColumnType": "Text",
+              "Label": "Billed Qty.",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "5,290,000.00"
+              ],
+              "ColumnType": "Text",
+              "Label": "Billed Amt.",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "0.00"
+              ],
+              "ColumnType": "Text",
+              "Label": "PPV Amt",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [
+                "USD"
+              ],
+              "ColumnType": "Text",
+              "Label": "Currency",
+              "Type": "GridColumn"
+            }
+          ],
+          "Type": "Grid"
+        },
+        {
+          "Columns": [
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Settings",
+              "Label": "",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Doc. Type",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Reference Nbr.",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Date",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Applied to Order",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Balance",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Status",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Currency",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Payment Ref.",
+              "Type": "GridColumn"
+            }
+          ],
+          "Type": "Grid"
+        },
+        {
+          "Columns": [
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Settings",
+              "Label": "",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Files",
+              "Label": "",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Notes",
+              "Label": "",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Reference Nbr.",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Class",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Revenue Change Nbr.",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Status",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Change Order Description",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Change Date",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Approval Date",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Contract Change (Days)",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Reverse Status",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Original CO Nbr.",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "External Ref. Nbr.",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Project",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Change Order Description",
+              "Type": "GridColumn"
+            }
+          ],
+          "Type": "Grid"
+        },
+        {
+          "Children": [
+            {
+              "Children": [
+                {
+                  "Children": [
+                    {
+                      "ElementType": "Selector",
+                      "Label": "Branch",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "Selector",
+                      "Label": "Terms",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "TextEditor",
+                      "Label": "Tax Exemption Number",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "DropDown",
+                      "Label": "Tax Exemption Type",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "Selector",
+                      "Label": "Pay-to Vendor",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "Selector",
+                      "Label": "Workgroup ID",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "CheckBox",
+                      "Label": "Printed",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "CheckBox",
+                      "Label": "Emailed",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    }
+                  ],
+                  "Highlighted": false,
+                  "Label": "Subcontract Info",
+                  "Type": "FieldSet"
+                }
+              ],
+              "ID": "A",
+              "Type": "FieldsetSlot"
+            },
+            {
+              "Children": [
+                {
+                  "Children": [
+                    {
+                      "ElementType": "CheckBox",
+                      "Label": "Apply Retainage",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "NumberEditor",
+                      "Label": "Retainage Percent",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    }
+                  ],
+                  "Highlighted": false,
+                  "Label": "Retainage Settings",
+                  "Type": "FieldSet"
+                },
+                {
+                  "Children": [
+                    {
+                      "ElementType": "NumberEditor",
+                      "Label": "Line Discounts",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "NumberEditor",
+                      "Label": "Document Discounts",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    }
+                  ],
+                  "Highlighted": false,
+                  "Label": "Discount Totals",
+                  "Type": "FieldSet"
+                },
+                {
+                  "Children": [
+                    {
+                      "ElementType": "NumberEditor",
+                      "Label": "Unbilled Quantity",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "NumberEditor",
+                      "Label": "Unbilled Amount",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "NumberEditor",
+                      "Label": "Unbilled Prepayment Total",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    },
+                    {
+                      "ElementType": "NumberEditor",
+                      "Label": "Unpaid Amount",
+                      "ReadOnly": false,
+                      "Type": "Field",
+                      "Value": null
+                    }
+                  ],
+                  "Highlighted": false,
+                  "Label": "Billing Info",
+                  "Type": "FieldSet"
+                }
+              ],
+              "ID": "B",
+              "Type": "FieldsetSlot"
+            }
+          ],
+          "Name": "17-17-14",
+          "Type": "Template"
+        },
+        {
+          "Columns": [
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Settings",
+              "Label": "",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Attribute",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Checkbox",
+              "Label": "Required",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Value",
+              "Type": "GridColumn"
+            }
+          ],
+          "Type": "Grid"
+        },
+        {
+          "Columns": [
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Settings",
+              "Label": "",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Files",
+              "Label": "",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Notes",
+              "Label": "",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Expiration Date",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Document Type",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Creation Date",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Status",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Checkbox",
+              "Label": "Required",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Checkbox",
+              "Label": "Received from Vendor",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Vendor Received Date",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Checkbox",
+              "Label": "Processed",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Checkbox",
+              "Label": "Voided",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Checkbox",
+              "Label": "Created Automatically",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Sent Date",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Project",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Cost Task",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Cost Code",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Vendor",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Vendor Name",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Subcontract",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Subcontract Line Item",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Text",
+              "Label": "Account",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": null,
+              "Cells": [],
+              "ColumnType": "Checkbox",
+              "Label": "Expired",
+              "Type": "GridColumn"
+            }
+          ],
+          "Type": "Grid"
+        }
+      ],
+      "Tabs": [
+        {
+          "IsActive": true,
+          "Label": "Details",
+          "Type": "Tab"
+        },
+        {
+          "IsActive": false,
+          "Label": "Taxes",
+          "Type": "Tab"
+        },
+        {
+          "IsActive": false,
+          "Label": "Addresses",
+          "Type": "Tab"
+        },
+        {
+          "IsActive": false,
+          "Label": "Discounts",
+          "Type": "Tab"
+        },
+        {
+          "IsActive": false,
+          "Label": "Billing",
+          "Type": "Tab"
+        },
+        {
+          "IsActive": false,
+          "Label": "Prepayments",
+          "Type": "Tab"
+        },
+        {
+          "IsActive": false,
+          "Label": "Change Orders",
+          "Type": "Tab"
+        },
+        {
+          "IsActive": false,
+          "Label": "Financial",
+          "Type": "Tab"
+        },
+        {
+          "IsActive": false,
+          "Label": "Attributes",
+          "Type": "Tab"
+        },
+        {
+          "IsActive": false,
+          "Label": "Compliance",
+          "Type": "Tab"
+        }
+      ],
+      "Type": "Tabbar"
+    },
+    {
+      "Children": [],
+      "Highlighted": false,
+      "Label": null,
+      "Type": "FieldSet"
+    },
+    {
+      "Columns": [],
+      "Type": "Grid"
+    },
+    {
+      "Columns": [],
+      "Type": "Grid"
+    },
+    {
+      "Columns": [],
+      "Type": "Grid"
+    },
+    {
+      "Columns": [],
+      "Type": "Grid"
+    },
+    {
+      "Children": [],
+      "Highlighted": false,
+      "Label": null,
+      "Type": "FieldSet"
+    },
+    {
+      "Children": [
+        {
+          "Children": [],
+          "Highlighted": false,
+          "Label": null,
+          "Type": "FieldSet"
+        }
+      ],
+      "Name": "17-17-14",
+      "Type": "Template"
+    },
+    {
+      "Columns": [],
+      "Type": "Grid"
+    },
+    {
+      "Children": [
+        {
+          "Children": [],
+          "Highlighted": false,
+          "Label": null,
+          "Type": "FieldSet"
+        },
+        {
+          "Children": [],
+          "Highlighted": false,
+          "Label": null,
+          "Type": "FieldSet"
+        }
+      ],
+      "Name": "17-17-14",
+      "Type": "Template"
+    },
+    {
+      "Columns": [],
+      "Type": "Grid"
+    }
+  ],
+  "Type": "Root"
+}
