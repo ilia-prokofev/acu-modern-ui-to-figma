@@ -1,0 +1,56 @@
+{
+  "Children": [],
+  "Tabs": [
+    {
+      "IsActive": true,
+      "Label": "Details",
+      "Type": "Tab"
+    },
+    {
+      "IsActive": false,
+      "Label": "Taxes",
+      "Type": "Tab"
+    },
+    {
+      "IsActive": false,
+      "Label": "Addresses",
+      "Type": "Tab"
+    },
+    {
+      "IsActive": false,
+      "Label": "Discounts",
+      "Type": "Tab"
+    },
+    {
+      "IsActive": false,
+      "Label": "Billing",
+      "Type": "Tab"
+    },
+    {
+      "IsActive": false,
+      "Label": "Prepayments",
+      "Type": "Tab"
+    },
+    {
+      "IsActive": false,
+      "Label": "Change Orders",
+      "Type": "Tab"
+    },
+    {
+      "IsActive": false,
+      "Label": "Financial",
+      "Type": "Tab"
+    },
+    {
+      "IsActive": false,
+      "Label": "Attributes",
+      "Type": "Tab"
+    },
+    {
+      "IsActive": false,
+      "Label": "Compliance",
+      "Type": "Tab"
+    }
+  ],
+  "Type": "Tabbar"
+}
