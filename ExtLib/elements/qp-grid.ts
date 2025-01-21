@@ -1,4 +1,4 @@
-import {AcuContainer} from "./acu-container";
+import { AcuAlighment } from "./acu-alignment";
 import {AcuElement, AcuElementType} from "./acu-element";
 
 export enum GridColumnType {
@@ -14,7 +14,7 @@ export interface GridColumn {
     Type: AcuElementType.GridColumn
     Label: string;
     ColumnType: GridColumnType;
-    Alignment: string | null;
+    Alignment: AcuAlighment;
     Cells: string[];
 }
 

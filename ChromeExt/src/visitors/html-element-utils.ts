@@ -1,3 +1,5 @@
+import {AcuAlighment} from "../elements/acu-alignment";
+
 export function findClasses(htmlElement: Element, ...classNames: string[]): boolean {
     const classAttr = htmlElement.attributes.getNamedItem("class")?.value;
     if (!classAttr) {
@@ -51,6 +53,35 @@ export function findElementByNodeNameDown(htmlElement: Element, nodeName: string
         if (child) {
             return child;
         }
+    }
+
+    return null;
+}
+
+export function innerTextContent(htmlElement: Element): string | null {
+    if (htmlElement.children.length === 0) {
+        return htmlElement.textContent;
+    }
+
+    return innerTextContent(htmlElement.children[0]);
+}
+
+export function getElementAlignment(htmlElement: Element): AcuAlighment | null {
+    const style = htmlElement.getAttribute("style")?.toLowerCase();
+    if (!style) {
+        return null;
+    }
+
+    if (style.includes("left")) {
+        return AcuAlighment.Left;
+    }
+
+    if (style.includes("right")) {
+        return AcuAlighment.Right;
+    }
+
+    if (style.includes("center")) {
+        return AcuAlighment.Center;
     }
 
     return null;

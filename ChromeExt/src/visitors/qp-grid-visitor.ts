@@ -3,7 +3,16 @@ import {AcuContainer} from "../elements/acu-container";
 import {Grid, GridColumn, GridColumnType} from "../elements/qp-grid";
 import ElementVisitor from "./qp-element-visitor";
 import ChildrenVisitor from "./children-visitors";
-import {findElementByClassesDown, findElementByNodeNameDown} from "./html-element-utils";
+import {
+    findElementByClassesDown,
+    findElementByNodeNameDown,
+    getElementAlignment,
+    innerTextContent
+} from "./html-element-utils";
+import {AcuAlighment} from "../elements/acu-alignment";
+
+const checkedClass = "control-GridCheck"
+const uncheckedClass = "control-GridUncheck"
 
 export default class QPGridVisitor implements ElementVisitor {
     visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean {
@@ -43,20 +52,24 @@ export default class QPGridVisitor implements ElementVisitor {
         const row = tHeadElement.children[0]; // Первый дочерний элемент
         for (let i = 0; i < row.children.length; i++) {
             const thElement = row.children[i];
-            let columnType = this.getIconColumnType(thElement);
-            if (!columnType) {
-                columnType = this.getColumnByCellValue(tBodyElement, i)
-            }
 
             const columnLabelElement = findElementByClassesDown(thElement, 'grid-header-text');
+            const label = columnLabelElement?.textContent?.trim() ?? '';
+
+            let columnType = this.getIconColumnType(thElement);
+            if (!columnType) {
+                columnType = this.getColumnTypeByCellValue(tBodyElement, i)
+            }
+
             const cellValues = this.getCellValues(tBodyElement, i);
+            const alignment = this.getColumnAlignmentByCellValue(tBodyElement, i);
 
             const child: GridColumn = {
                 Type: AcuElementType.GridColumn,
-                Label: columnLabelElement?.textContent?.trim() ?? '',
-                ColumnType: columnType ?? GridColumnType.Text,
+                Label: label,
+                ColumnType: columnType,
                 Cells: cellValues,
-                Alignment: null,
+                Alignment: alignment,
             };
 
             grid.Columns.push(child);
@@ -89,7 +102,7 @@ export default class QPGridVisitor implements ElementVisitor {
         return null;
     }
 
-    getColumnByCellValue(tBodyElement: Element, columnIndex: number): GridColumnType {
+    getColumnTypeByCellValue(tBodyElement: Element, columnIndex: number): GridColumnType {
         for (const trElement of tBodyElement.children) {
             if (trElement.children.length <= columnIndex) {
                 continue;
@@ -97,22 +110,33 @@ export default class QPGridVisitor implements ElementVisitor {
 
             const tdElement = trElement.children[columnIndex];
 
-            const cellContentElement = findElementByClassesDown(tdElement, "cell-content");
-            if (!cellContentElement || cellContentElement.children.length === 0) {
-                continue;
+            if (findElementByClassesDown(tdElement, checkedClass) ||
+                findElementByClassesDown(tdElement, uncheckedClass)) {
+                return GridColumnType.Checkbox;
             }
 
-            switch (cellContentElement.children[0].nodeName.toLowerCase()) {
-                case "a":
-                    return GridColumnType.Link;
-                case "i":
-                    return GridColumnType.Checkbox;
-                default:
-                    return GridColumnType.Text;
+            if (findElementByNodeNameDown(tdElement, "a")) {
+                return GridColumnType.Link;
             }
         }
 
         return GridColumnType.Text;
+    }
+
+    getColumnAlignmentByCellValue(tBodyElement: Element, columnIndex: number): AcuAlighment {
+        for (const trElement of tBodyElement.children) {
+            if (trElement.children.length <= columnIndex) {
+                continue;
+            }
+
+            const tdElement = trElement.children[columnIndex];
+            const alignment = getElementAlignment(tdElement);
+            if (alignment) {
+                return alignment;
+            }
+        }
+
+        return AcuAlighment.Left;
     }
 
     getCellValues(tBodyElement: Element, columnIndex: number): Array<string> {
@@ -125,16 +149,20 @@ export default class QPGridVisitor implements ElementVisitor {
 
             const tdElement = trElement.children[columnIndex];
 
-            const cellContentElement = findElementByClassesDown(tdElement, "cell-content");
-            if (!cellContentElement || cellContentElement.children.length < 1) {
+            const checked = findElementByClassesDown(tdElement, checkedClass)
+            if (checked) {
+                values.push("true");
                 continue;
             }
 
-            switch (cellContentElement.children[0].nodeName.toLowerCase()) {
-                case "a":
-                case "span":
-                    values.push(cellContentElement.children[0].textContent?.trim() ?? "");
+            const unchecked = findElementByClassesDown(tdElement, uncheckedClass);
+            if (unchecked) {
+                values.push("false");
+                continue;
             }
+
+            const textContent = innerTextContent(tdElement)?.trim() ?? "";
+            values.push(textContent);
         }
 
         return values;
