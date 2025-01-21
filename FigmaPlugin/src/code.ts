@@ -15,531 +15,567 @@ import {Root} from "./elements/qp-root";
 
 figma.showUI(__html__, {width: 650, height: 410});
 
-
-class Timer {
-    private measurements: Map<string, { count: number; totalTime: number }> = new Map();
-
-    // Начало замера
-    start(): number {
-        return Date.now(); // Возвращаем текущее время для начала замера
-    }
-
-    // Окончание замера
-    stop(operationName: string, startTime: number): void {
-        const endTime = Date.now();
-        const elapsedTime = endTime - startTime;
-
-        const record = this.measurements.get(operationName);
-        if (record) {
-            // Обновляем существующий замер
-            record.count++;
-            record.totalTime += elapsedTime;
-        } else {
-            // Создаем новый замер
-            this.measurements.set(operationName, { count: 1, totalTime: elapsedTime });
-        }
-    }
-
-    // Получить статистику по операции
-    getStats(operationName: string): { count: number; totalTime: number } | null {
-        return this.measurements.get(operationName) || null;
-    }
-
-    // Получить статистику для всех операций
-    getAllStats(): Map<string, { count: number; totalTime: number }> {
-        return this.measurements;
-    }
-}
-
-const timer = new Timer();
-
-const spacer = 20;
+const horizontalSpacing = 20;
+const verticalSpacing = 20;
 const pageWidth = 1536;
 const pageHeight = 864;
 const viewportWidth = pageWidth - 100;
 
-const fieldsetRows = new Map<string, string>();
+let childrenNumber = 0;
+let childrenProcessed = 0;
+let progress = 0;
 
-let csFieldset = undefined as unknown as ComponentSetNode;
-let csHeader = undefined as unknown as ComponentSetNode;
-let csMainHeader = undefined as unknown as ComponentSetNode;
-
-let cLeftMenu = undefined as unknown as ComponentNode;
-let csGrid = undefined as unknown as ComponentSetNode;
-let cTabbar = undefined as unknown as ComponentNode;
-
-function MapElementType(type: QPFieldElementType) {
-    switch (type) {
-        case QPFieldElementType.CheckBox :
-            return 'Checkbox';
-        case QPFieldElementType.Currency :
-            return 'Currency';
-        case QPFieldElementType.DatetimeEdit :
-            return 'Date';
-        case QPFieldElementType.DropDown :
-            return 'Label + Field';
-        // case QPFieldElementType.NumberEditor :
-        //     return 'Label + Number Field';
-        case QPFieldElementType.Selector :
-            return 'Label + Field';
-        case QPFieldElementType.Status :
-            return 'Label + Field';
-        case QPFieldElementType.TextEditor :
-            return 'Label + Field';
-        case QPFieldElementType.RadioButton :
-            return 'Radio Button';
-        case QPFieldElementType.MultilineTextEditor :
-            return 'Label + Text Area';
-        default:
-            return 'Label + Field';
-    }
-
-}
-
-function FindPropertyName(node: InstanceNode, property: string) {
-    let t: keyof ComponentProperties;
-    for (t in node.componentProperties) {
-        if (t.startsWith(property))
-            return t;
-    }
-    return '';
-}
-
-function SetProperty(node: InstanceNode, property: string, newVal: string|boolean|null|undefined) {
-
-    const startTime = timer.start();
-
-    if (newVal === undefined || newVal === null) return;
-    if (property === '') return;
-    try {
-        node.setProperties({[property]: newVal});
-    }
-    catch (e) {
-        console.error(node.name, e);
-    }
-
-    timer.stop("SetProperty", startTime);
-}
+let compFieldset = undefined as unknown as ComponentNode;
+let compHeader = undefined as unknown as ComponentNode;
+let compMainHeader = undefined as unknown as ComponentNode;
+let compLeftMenu = undefined as unknown as ComponentNode;
+let compGrid = undefined as unknown as ComponentNode;
+let compTabbar = undefined as unknown as ComponentNode;
 
 function SetProperties(node: InstanceNode, properties: any) {
-
-    const startTime = timer.start();
-
     try {
         node.setProperties(properties);
     }
     catch (e) {
         console.error(node.name, e);
     }
-
-    timer.stop("SetProperty", startTime);
 }
 
-function DrawSlot(parent: GroupNode, template: FieldsetSlot, x = 0, y = 0, w = 0) {
-    let x1 = 0;
-    const children: BaseNode[] = [];
-    template.Children.forEach(fs => {
-        switch (fs.Type) {
-            case AcuElementType.FieldSet: {
-                const {newX, newY, instance} = DrawFieldset(fs as QPFieldset, x, y, w);
-                children.push(instance);
-                x1 = newX;
-                y = Math.max(newY, y);
-                break;
-            }
-        }
-    });
-    const group = figma.group(children, parent);
-    group.name = 'Slot';
-    return {newX: x1, newY: y, instance: group};
-}
+type figmaFieldTypes = 'NEW INSTANCE' | 'EXISTING INSTANCE' | 'FRAME';
+type figmaLayoutMode = 'NONE' | 'HORIZONTAL' | 'VERTICAL'
 
-function DrawGrid(grid: Grid, instance : InstanceNode | undefined, x = 0, y = 0, w = 0) {
-    let displayedRows = 0;
-    const displayedColumns = 13;
-    const displayedRowsDefault = 5;
-    const displayedRowsMax = 10;
-    const displayedColumnsDefault = 10;
-
-    if (!instance) {
-        instance = csGrid.defaultVariant.createInstance() as InstanceNode;
-        instance.x = x;
-        instance.y = y;
-        instance.resize(w == 0 ? viewportWidth : w, pageHeight - y);
-        figma.currentPage.appendChild(instance);
+async function Draw(field: figmaField, parent: InstanceNode | PageNode | GroupNode | FrameNode) {
+    childrenProcessed++;
+    const newProgress = Math.floor(childrenProcessed * 95 / childrenNumber) + 5;
+    if (newProgress == 100 || newProgress - progress >= 10) {
+        progress = newProgress;
+        figma.ui.postMessage({type: 'progress', progress});
+        await new Promise(resolve => setTimeout(resolve, 20));
     }
 
-    const visibleColumns = Math.min(displayedColumns, grid.Columns.length);
-
-    for (let i = 1; i <= visibleColumns; i++) {
-        const column = grid.Columns[i-1];
-        displayedRows = Math.max(displayedRows, column.Cells.length);
-        if (displayedRows >= displayedRowsMax) {
-            displayedRows = displayedRowsMax;
+    let instance;
+    switch (field.type) {
+        case 'EXISTING INSTANCE':
+            if (field.childNumber >= 0)
+                instance = parent.children[field.childNumber] as InstanceNode;
+            else {
+                instance = parent.findOne(node => node.type === 'INSTANCE' && node.name === field.name) as InstanceNode;
+            }
+            if (!instance) {
+                console.warn(`${field.name} not found`);
+                return;
+            }
+            SetProperties(instance, field.properties);
+            if (field.visible != null)
+                instance.visible = field.visible;
             break;
-        }
+        case 'NEW INSTANCE':
+            instance = field.componentNode!.createInstance() as InstanceNode;
+            if (field.width > 0)
+                instance.resize(field.width, instance.height);
+            instance.name = field.name;
+            SetProperties(instance, field.properties);
+            parent.appendChild(instance);
+            break;
+        case 'FRAME':
+            instance = figma.createFrame() as FrameNode;
+            instance.layoutMode = field.layoutMode;
+            instance.primaryAxisSizingMode = 'AUTO';
+            instance.counterAxisSizingMode = 'AUTO';
+            instance.itemSpacing = field.layoutMode == 'VERTICAL' ? verticalSpacing : horizontalSpacing;
+            instance.name = field.name;
+            parent.appendChild(instance);
+            break;
     }
 
-    for (let i = 1; i <= visibleColumns; i++) {
-        console.log(i);
-        const column = grid.Columns[i-1];
-        const columnInstance = instance.findOne(node => node.type === 'INSTANCE' && node.name === `Grid Column ${i}`) as InstanceNode;
-        columnInstance.visible = true;
+    for (const child of field.children)
+        await Draw(child, instance);
+}
 
-        SetProperty(columnInstance, 'Type', column.ColumnType);
-        if (column.Alignment == 'Right')
-            SetProperty(columnInstance, 'Alignment', 'Right');
 
-        for (let j = displayedRows; j < displayedRowsDefault; j++) {
-            const cell = columnInstance.children[j + 1] as InstanceNode;
-            SetProperty(cell, 'Show Value#4709:42', false);
-        }
+class figmaField {
 
-        if (column.ColumnType != GridColumnType.Settings)
-            for (let j = displayedRowsDefault; j < displayedRows; j++) {
-                const cell = columnInstance.children[j + 1] as InstanceNode;
-                SetProperty(cell, 'Show Value#4709:42', true);
-            }
+    name: string;
+    height = 0;
+    width = 0;
+    properties: { [propertyName: string]: string | boolean; } = {};
+    children: figmaField[] = [];
+    type: figmaFieldTypes;
+    componentNode: ComponentNode | null = null;
+    layoutMode: figmaLayoutMode = 'VERTICAL';
+    visible: boolean | null = null;
+    childNumber: number = -1;
 
-        if (column.ColumnType != GridColumnType.Text) continue;
-
-        const header = columnInstance.children[0] as InstanceNode;
-        SetProperty(header, 'Value#6706:49', column.Label);
-
-        for (let j = 0; j < column.Cells.length; j++) {
-            const cell = columnInstance.children[j + 1] as InstanceNode;
-            SetProperty(cell, 'Value#6706:0', column.Cells[j]);
-        }
-
-        for (let j = column.Cells.length; j < displayedRows; j++) {
-            const cell = columnInstance.children[j + 1] as InstanceNode;
-            SetProperty(cell, 'Value#6706:0', '');
-        }
+    constructor(name: string, type: figmaFieldTypes = 'EXISTING INSTANCE', width = 0, height = 0) {
+        this.name = name;
+        this.type = type;
+        this.width = width;
+        this.height = height;
     }
-
-    for (let i = visibleColumns + 1; i <= displayedColumnsDefault; i++) {
-        console.log(i);
-        const columnInstance = instance.findOne(node => node.type === 'INSTANCE' && node.name === `Grid Column ${i}`) as InstanceNode;
-        columnInstance.visible = false;
-    }
-
-    const columnInstance = instance.findOne(node => node.type === 'INSTANCE' && node.name === `Grid Column 20`) as InstanceNode;
-    columnInstance.visible = false;
 
 }
 
-function DrawTabBar(parent:GroupNode, tb: TabBar, y = 0) {
-    const maxTabsCount = 13;
-    let x = 0;
-    let w = viewportWidth - (spacer * (tb.Children.length - 1)) / tb.Children.length;
+class figmaRow extends figmaField{
 
-    const instance = cTabbar.createInstance() as InstanceNode;
-    instance.x = 0;
-    instance.y = y;
+    typePropertyName = 'Type';
+    rowTypes = new Map<QPFieldElementType, string>([
+        [QPFieldElementType.Currency    , 'Currency'],
+        [QPFieldElementType.CheckBox    , 'Checkbox'],
+        [QPFieldElementType.DatetimeEdit, 'Label + Field'],
+        [QPFieldElementType.DropDown    , 'Label + Field'],
+        [QPFieldElementType.TextEditor  , 'Label + Field'],
+        [QPFieldElementType.Selector    , 'Label + Field'],
+        [QPFieldElementType.NumberEditor, 'Label + Field'],
+        [QPFieldElementType.Status      , 'Label + Field'],
+        [QPFieldElementType.Button      , 'Button'],
+        [QPFieldElementType.RadioButton , 'Radio Button'],
+        [QPFieldElementType.MultilineTextEditor, 'Label + Text Area']
+    ]);
 
-    for (let i = 0; i < maxTabsCount - 1; i++) {
-        const propertyName = `${i+1} tab#6936:${i}`;
-        SetProperty(instance, propertyName, i + 1 <= tb.Tabs.length);
-    }
+    constructor(field: QPField, name: string) {
+        super(name, 'EXISTING INSTANCE');
 
-    for (let i = 0; i < tb.Tabs.length; i++) {
-        const tab = (tb.Tabs[i] as unknown) as Tab;
-        const node = instance.findOne(node => node.type === 'INSTANCE' && node.name === 'Tab ' + (i + 1)) as InstanceNode;
-        if (node)
-            SetProperties(node, {
-                'State': 'Normal',
-                'Value ▶#3265:0': tab.Label,
-                'Selected': tab.IsActive ? 'True' : 'False'
-            });
-
-    }
-
-    figma.currentPage.appendChild(instance);
-    figma.group([instance], parent).name = 'Tabs';
-
-    y += instance.height + spacer;
-
-    tb.Children.forEach(fs => {
-        switch (fs.Type) {
-            case AcuElementType.Template: {
-                y = DrawTemplate(parent, fs as Template, y);
-                break;
-            }
-            case AcuElementType.Grid: {
-                DrawGrid((fs as unknown) as Grid, undefined, x, y);
-                break;
-            }
-        }
-    });
-    return y;
-}
-
-function DrawTemplate(parent: GroupNode, template: Template, y = 0) {
-    let x = 0;
-    let w = (viewportWidth - (spacer * (template.Children.length - 1))) / template.Children.length;
-    const parts = template.Name?.split('-').map(p => parseInt(p)) ?? [];
-    let sum = 0;
-
-    parts?.forEach((part, i) => {
-        sum += part;
-    })
-
-    let y1 = y;
-
-    const children: BaseNode[] = [];
-
-    template.Children.forEach((fs, i) => {
-        let curW = w;
-        if (sum > 0)
-            curW = (viewportWidth - (spacer * (template.Children.length - 1))) * parts[i] / sum;
-        switch (fs.Type) {
-            case AcuElementType.FieldSet: {
-                const {newX, newY, instance} = DrawFieldset(fs as QPFieldset, x, y, curW);
-                children.push(instance);
-                x = newX;
-                y1 = Math.max(newY, y1);
-                break;
-            }
-            case AcuElementType.FieldsetSlot: {
-                const {newX, newY, instance} = DrawSlot(parent, fs as FieldsetSlot, x, y, curW);
-                children.push(instance);
-                x = newX;
-                y1 = Math.max(newY, y1);
-                break;
-            }
-        }
-    });
-
-    figma.group(children, parent).name = 'Template';
-
-    return y1;
-}
-
-function DrawFieldset(fs: QPFieldset, x = 0, y = 0, w = 0) {
-    const startTime = timer.start();
-
-    //const component = csFieldset.findOne(node => node.type === 'COMPONENT' && node.name === 'Wrapping=Gray, Label Length=sm') as ComponentNode;
-    const component = csFieldset.defaultVariant;
-    timer.stop("DrawFieldset01", startTime);
-
-    const instance = component.createInstance() as InstanceNode;
-    timer.stop("DrawFieldset02", startTime);
-    instance.x = x;
-    instance.y = y;
-    if (w > 0)
-        instance.resize(w, instance.height);
-
-    timer.stop("DrawFieldset03", startTime);
-
-    const header = instance.findOne(node => node.type === 'INSTANCE' && node.name === 'Group Header') as InstanceNode;
-    timer.stop("DrawFieldset04", startTime);
-    if (fs.Label)
-        SetProperty(header, 'Text Value ▶#4494:3', fs.Label ?? '');
-    else
-        SetProperty(instance, 'Show Group Header#6619:0', false);
-
-    if (fs.Highlighted) {
-        SetProperty(instance, 'Wrapping', 'Blue');
-        //SetProperty(instance, 'Label Length', 'm');
-    }
-
-    const visibleRowsByDefault = 5;
-    for (let i = Math.min(visibleRowsByDefault, fs.Children.length); i <= Math.max(visibleRowsByDefault, fs.Children.length); i++) {
-        const propertyName = fieldsetRows.get(`Show Row ${i}`)??'';
-        SetProperty(instance, propertyName, i <= fs.Children.length);
-    }
-
-    timer.stop("DrawFieldset05", startTime);
-
-    for (let i = 0; i < fs.Children.length; i++) {
-        const child = fs.Children[i];
-        const field = child as QPField;
-
-        let startTime1 = timer.start();
-        const rowNode = instance.findOne(node => node.type === 'INSTANCE' && node.name === 'Row ' + (i + 1)) as InstanceNode;
-        timer.stop("findOne rowNode", startTime1);
-        timer.stop("findOne", startTime1);
-
-        if (!rowNode) continue;
-
-        if (child.Type == AcuElementType.Grid) {
-            SetProperty(instance, 'Show grid#5425:0', true);
-            const gridInstance = instance.findOne(node => node.type === 'INSTANCE' && node.name === 'Grid') as InstanceNode;
-            DrawGrid((child as unknown) as Grid, gridInstance, x, y, w);
-            const propertyName = fieldsetRows.get(`Show Row ${i}`)??'';
-            SetProperty(instance, propertyName, false);
-            console.log(`Grid`);
-            continue;
+        if (!field.ElementType) {
+            console.error(`Row type can not be null`);
+            return;
         }
 
-        SetProperty(rowNode, 'Type', MapElementType(field.ElementType!));
+        let elementType = field.ElementType;
 
-        if (field.ElementType == QPFieldElementType.RadioButton)
-            SetProperties(rowNode, {
-                ['Label Position']: 'Top',
-                ['Label Length']: 's',
-            });
+        if (!this.rowTypes.has(field.ElementType)) {
+            console.error(`${field.ElementType} row type is not supported`);
+            elementType = QPFieldElementType.TextEditor;
+        }
+        this.properties[this.typePropertyName] = this.rowTypes.get(elementType)!;
 
-        let propertyName = '';
-        let nodeName = '';
-        switch (field.ElementType) {
+        let child;
+
+        switch (elementType) {
             case QPFieldElementType.CheckBox:
-                nodeName = 'Checkbox';
-                propertyName = 'Value ▶#6695:0';
+                child = new figmaField('Checkbox');
+                child.properties['Value ▶#6695:0'] = field.Label??'';
+                child.properties['Selected'] = field.Value == 'on' ? 'True' : 'False';
+                if (field.ReadOnly)
+                    child.properties['State'] = 'Disabled';
+                this.children.push(child);
                 break;
             case QPFieldElementType.RadioButton:
-                nodeName = 'Radiobuttons';
-                propertyName = 'Name#8227:0';
+                child = new figmaField('Radiobuttons');
+                child.properties['Name#8227:0'] = field.Label??'';
+                child.properties['Checked'] = field.Value == 'on' ? 'True' : 'False';
+                if (field.ReadOnly)
+                    child.properties['State'] = 'Disabled';
+                this.children.push(child);
                 break;
-            default:
-                nodeName = 'Label';
-                propertyName = 'Label Value ▶#3141:62';
-                break;
-        }
-        const labelNode = rowNode.findOne(node => node.type === 'INSTANCE' && node.name === nodeName) as InstanceNode;
-        if (labelNode)
-            SetProperty(labelNode, propertyName, field.Label);
-
-        let value;
-        switch (field.ElementType) {
             case QPFieldElementType.MultilineTextEditor:
-                nodeName = 'Text Area';
-                propertyName = 'Text Value ▶#4221:3';
-                value = field.Value;
+                child = new figmaField('Label');
+                child.properties['Label Value ▶#3141:62'] = field.Label??'';
+                this.children.push(child);
+
+                child = new figmaField('Text Area');
+                child.properties['Text Value ▶#4221:3'] = field.Value??'';
+                if (field.ReadOnly)
+                    child.properties['State'] = 'Disabled';
+                this.children.push(child);
                 break;
-            case QPFieldElementType.RadioButton:
-                nodeName = 'Radiobuttons';
-                propertyName = 'Checked';
-                value = field.Value == 'on' ? 'True' : 'False';
-                break;
-            case QPFieldElementType.CheckBox:
-                nodeName = 'Checkbox';
-                propertyName = 'Selected';
-                value = field.Value == 'on' ? 'True' : 'False';
+            case QPFieldElementType.Status:
+                child = new figmaField('Label');
+                child.properties['Label Value ▶#3141:62'] = field.Label??'';
+                this.children.push(child);
+
+                child = new figmaField('Field');
+                child.properties['Type'] = 'Status';
+                if (field.ReadOnly)
+                    child.properties['State'] = 'Disabled';
+                this.children.push(child);
+
+                child = new figmaField('Status');
+                child.properties['Status'] = field.Value??'';
+                this.children.push(child);
                 break;
             default:
-                nodeName = 'Field';
-                propertyName = 'Text Value ▶#3161:0';
-                value = field.Value;
+                child = new figmaField('Label');
+                child.properties['Label Value ▶#3141:62'] = field.Label??'';
+                this.children.push(child);
+                child = new figmaField('Field');
+                child.properties['Text Value ▶#3161:0'] = field.Value??'';
+                if (field.ReadOnly)
+                    child.properties['State'] = 'Disabled';
+                this.children.push(child);
                 break;
-        }
-
-        const valueNode = rowNode.findOne(node => node.type === 'INSTANCE' && node.name === nodeName) as InstanceNode;
-        if (valueNode) {
-            SetProperty(valueNode, propertyName, value);
-            if (field.ReadOnly)
-                SetProperty(valueNode, 'State', 'Disabled');
-
-            if (field.ElementType == QPFieldElementType.Status) {
-                SetProperty(valueNode, 'Type', 'Status');
-                const status = valueNode.findOne(node => node.type === 'INSTANCE' && node.name === 'Status') as InstanceNode;
-                if (status)
-                    SetProperty(status, 'Status', value);
-            }
         }
     }
 
-    figma.currentPage.appendChild(instance);
-
-    x += instance.width + spacer;
-    y += instance.height + spacer;
-
-    timer.stop("DrawFieldset", startTime);
-
-    return {newX: x, newY: y, instance: instance};
 }
+
+class figmaGrid extends figmaField {
+
+    columnTypes = new Map<GridColumnType, string>([
+        [GridColumnType.Settings, 'Settings'],
+        [GridColumnType.Files   , 'Files'],
+        [GridColumnType.Notes   , 'Notes'],
+        [GridColumnType.Text    , 'Text'],
+        [GridColumnType.Link    , 'Link'],
+        [GridColumnType.Checkbox, 'Checkboxes with Text Header']
+    ]);
+
+    constructor(grid: Grid, name: string, newInstance: boolean) {
+        super(name, newInstance ? 'NEW INSTANCE' : 'EXISTING INSTANCE');
+        if (newInstance) {
+            this.componentNode = compGrid;
+            this.width = viewportWidth;
+            this.properties['👁 Header#6826:0'] = true;
+        }
+
+        let displayedRows = 0;
+        const displayedColumns = 13;
+        const displayedRowsDefault = 5;
+        const displayedRowsMax = 10;
+        const displayedColumnsDefault = 10;
+
+        const visibleColumns = Math.min(displayedColumns, grid.Columns.length);
+
+        for (let i = 1; i <= visibleColumns; i++) {
+            const column = grid.Columns[i-1];
+            displayedRows = Math.max(displayedRows, column.Cells.length);
+            if (displayedRows >= displayedRowsMax) {
+                displayedRows = displayedRowsMax;
+                break;
+            }
+        }
+
+        for (let i = 1; i <= visibleColumns; i++) {
+            const column = grid.Columns[i-1];
+            const columnInstance = new figmaField(`Grid Column ${i}`);
+            columnInstance.visible = true;
+
+            if (!this.columnTypes.has(column.ColumnType))
+                console.error(`${this.columnTypes} column type is not supported`);
+            else
+                columnInstance.properties['Type'] = this.columnTypes.get(column.ColumnType)!;
+
+            if (column.Alignment == 'Right')
+                columnInstance.properties['Alignment'] = 'Right';
+            this.children.push(columnInstance);
+
+            for (let j = displayedRows; j < displayedRowsDefault; j++) {
+                const cell = new figmaField(`Cell ${j+1}`, 'EXISTING INSTANCE');
+                cell.childNumber = j + 1;
+                cell.properties['Show Value#4709:42'] = false;
+                columnInstance.children.push(cell);
+            }
+
+            if (column.ColumnType != GridColumnType.Settings)
+                for (let j = displayedRowsDefault; j < displayedRows; j++) {
+                    const cell = new figmaField(`Cell ${j+1}`, 'EXISTING INSTANCE');
+                    cell.childNumber = j + 1;
+                    cell.properties['Show Value#4709:42'] = true;
+                    columnInstance.children.push(cell);
+                }
+
+            if (column.ColumnType == GridColumnType.Settings ||
+                column.ColumnType == GridColumnType.Files ||
+                column.ColumnType == GridColumnType.Notes) continue;
+
+            const header = new figmaField('Column Header', 'EXISTING INSTANCE');
+            header.childNumber = 0;
+            header.properties['Value#6706:49'] = column.Label;
+            columnInstance.children.push(header);
+
+            for (let j = 0; j < column.Cells.length; j++) {
+                const cell = new figmaField(`Cell ${j+1}`, 'EXISTING INSTANCE');
+                cell.childNumber = j + 1;
+                if (column.ColumnType == GridColumnType.Checkbox) {
+                    if (column.Cells[j] == 'true') {
+                        const checkbox = new figmaField(`Checkbox Indicator`, 'EXISTING INSTANCE');
+                        checkbox.properties['Selected'] = true;
+                        cell.children.push(checkbox);
+                    }
+                }
+                else
+                    cell.properties['Value#6706:0'] = column.Cells[j];
+                columnInstance.children.push(cell);
+            }
+
+            for (let j = column.Cells.length; j < displayedRows; j++) {
+                const cell = new figmaField(`Cell ${j+1}`, 'EXISTING INSTANCE');
+                cell.childNumber = j + 1;
+                cell.properties['Value#6706:0'] = '';
+                columnInstance.children.push(cell);
+            }
+        }
+
+        for (let i = visibleColumns + 1; i <= displayedColumnsDefault; i++) {
+            const gridColumn = new figmaField(`Grid Column ${i}`, 'EXISTING INSTANCE');
+            gridColumn.visible = false;
+            this.children.push(gridColumn);
+        }
+
+        const gridColumn = new figmaField(`Grid Column 20`, 'EXISTING INSTANCE');
+        gridColumn.visible = false;
+        this.children.push(gridColumn);
+    }
+}
+
+class figmaTabbar extends figmaField {
+    constructor(tabBar: TabBar) {
+        super('Tabbar', 'FRAME');
+
+        const tabs = new figmaField('Tabs', 'NEW INSTANCE');
+        tabs.componentNode = compTabbar;
+
+        const maxTabsCount = 13;
+
+        for (let i = 0; i < maxTabsCount - 1; i++) {
+            const propertyName = `${i+1} tab#6936:${i}`;
+            tabs.properties[propertyName] = i + 1 <= tabBar.Tabs.length;
+        }
+
+        for (let i = 0; i < tabBar.Tabs.length; i++) {
+            const tab = (tabBar.Tabs[i] as unknown) as Tab;
+            const figmaTab = new figmaField(`Tab ${i+1}`, 'EXISTING INSTANCE');
+            figmaTab.properties['State'] = 'Normal';
+            figmaTab.properties['Value ▶#3265:0'] = tab.Label;
+            figmaTab.properties['Selected'] = tab.IsActive ? 'True' : 'False';
+            tabs.children.push(figmaTab);
+        }
+
+        this.children.push(tabs);
+
+        tabBar.Children.forEach(fs => {
+            switch (fs.Type) {
+                case AcuElementType.Template: {
+                    this.children.push(new figmaTemplate(fs as Template));
+                    break;
+                }
+                case AcuElementType.Grid: {
+                    this.children.push(new figmaGrid((fs as unknown) as Grid, 'Grid', true));
+                    break;
+                }
+            }
+        });
+    }
+}
+
+class figmaTemplate extends figmaField {
+    constructor(template: Template) {
+        super('Template', 'FRAME');
+        this.layoutMode = 'HORIZONTAL';
+
+        let x = 0;
+        let w = (viewportWidth - (horizontalSpacing * (template.Children.length - 1))) / template.Children.length;
+        const parts = template.Name?.split('-').map(p => parseInt(p)) ?? [];
+        let sum = 0;
+
+        parts?.forEach((part, i) => {
+            sum += part;
+        })
+
+        template.Children.forEach((fs, i) => {
+            let curW = w;
+            if (sum > 0)
+                curW = (viewportWidth - (horizontalSpacing * (template.Children.length - 1))) * parts[i] / sum;
+            switch (fs.Type) {
+                case AcuElementType.FieldSet: {
+                    this.children.push(new figmaFieldSet(fs as QPFieldset, curW));
+                    break;
+                }
+                case AcuElementType.FieldsetSlot: {
+                    this.children.push(new figmaSlot(fs as FieldsetSlot, curW));
+                    break;
+                }
+            }
+        });
+    }
+}
+
+class figmaSlot extends figmaField {
+    constructor(slot: FieldsetSlot, width = 0) {
+        super('slot', 'FRAME', width);
+
+        slot.Children.forEach(fs => {
+            switch (fs.Type) {
+                case AcuElementType.FieldSet: {
+                    this.children.push(new figmaFieldSet(fs as QPFieldset, width));
+                    break;
+                }
+            }
+        });
+    }
+}
+
+class figmaRoot extends figmaField {
+    constructor(root: Root) {
+        super('root', 'FRAME');
+
+        for (const fs of root.Children) {
+            switch (fs.Type) {
+                case AcuElementType.Template:
+                    this.children.push(new figmaTemplate(fs as Template));
+                    break;
+                case AcuElementType.Tabbar:
+                    this.children.push(new figmaTabbar(fs as TabBar));
+                    break;
+                case AcuElementType.Grid:
+                    this.children.push(new figmaGrid(fs as Grid, 'Grid', true));
+                    break;
+            }
+        }
+    }
+}
+
+class figmaFieldSet extends figmaField{
+
+    static Wrappings = {
+        Gray: "Gray",
+        Blue: "Blue",
+        Default: "Default"
+    }
+
+    showHeaderPropName = 'Show Group Header#6619:0';
+    wrappingPropName =  'Wrapping';
+    showGridPropName = 'Show grid#5425:0';
+    showRowPropNames = [
+        'Show Row 1#5419:15',
+        'Show Row 2#5419:17',
+        'Show Row 3#5419:19',
+        'Show Row 4#5419:13',
+        'Show Row 5#5419:11',
+        'Show Row 6#5419:9',
+        'Show Row 7#5419:8',
+        'Show Row 8#5419:7',
+        'Show Row 9#5419:5',
+        'Show Row 10#5419:12',
+        'Show Row 11#5419:10',
+        'Show Row 12#5419:3',
+        'Show Row 13#5419:2',
+        'Show Row 14#5419:6',
+        'Show Row 15#5419:4',
+        'Show Row 16#5419:16',
+        'Show Row 17#5419:18',
+        'Show Row 18#5419:1',
+        'Show Row 19#5419:0',
+        'Show Row 20#5419:14'
+        ];
+
+    constructor(fs: QPFieldset, width = 0){
+        super('FieldSet', 'NEW INSTANCE', width);
+        this.componentNode = compFieldset;
+
+        const showHeader = (fs.Label != '' && fs.Label != null)
+        this.properties[this.showHeaderPropName] = showHeader;
+        if (showHeader) {
+            let child = new figmaField('Group Header');
+            child.properties['Text Value ▶#4494:3'] = fs.Label??'';
+            this.children.push(child);
+        }
+
+        if (fs.Highlighted)
+            this.properties[this.wrappingPropName] = figmaFieldSet.Wrappings.Blue;
+
+        let rowNumber = 0;
+        for (const child of fs.Children) {
+            if (child.Type == AcuElementType.Grid) {
+                this.properties[this.showGridPropName] = true;
+                this.children.push(new figmaGrid(child as unknown as Grid, 'Grid', false));
+            }
+            else
+                this.children.push(new figmaRow(child as QPField, `Row ${++rowNumber}`));
+        }
+
+        for (let i = 0; i < this.showRowPropNames.length; i++)
+            this.properties[this.showRowPropNames[i]] = (rowNumber > i);
+    }
+
+}
+
 
 function DrawHeader(frame: FrameNode, root: Root) {
-    //let componentSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Header') as ComponentSetNode;
-    let component = csHeader.defaultVariant;
-    const header = component.createInstance();
-    header.x = 0;
-    header.y = -header.height - spacer / 2;
+
+    const background = figma.createRectangle();
+    background.resize(pageWidth, pageHeight);
+    background.fills = [{
+        type: 'SOLID',
+        color: {r: 1, g: 1, b: 1}
+    }];
+
+    const header = compHeader.createInstance();
+    header.x = horizontalSpacing / 2;
+    header.y = -header.height - verticalSpacing / 2;
     header.resize(viewportWidth, header.height);
-    SetProperty(header, 'Link Value ▶#6711:0', root.Caption1);
-    SetProperty(header, 'Title Value ▶#6711:8', root.Caption2);
+    SetProperties(header, {
+        ['Link Value ▶#6711:0']: root.Caption1,
+        ['Title Value ▶#6711:8']: root.Caption2
+    });
     figma.currentPage.appendChild(header);
 
-    //componentSet = figma.root.findOne(node => node.type === 'COMPONENT_SET' && node.name === 'Main header') as ComponentSetNode;
-    component = csMainHeader.defaultVariant;
-    const mainHeader = component.createInstance();
-    mainHeader.x = 0;
-    mainHeader.y = -header.height - mainHeader.height - spacer;
+    const mainHeader = compMainHeader.createInstance();
+    mainHeader.y = -header.height - mainHeader.height - verticalSpacing;
     mainHeader.resize(pageWidth, mainHeader.height);
     figma.currentPage.appendChild(mainHeader);
 
-    //component = figma.root.findOne(node => node.type === 'COMPONENT' && node.name === 'Left menu/Default') as ComponentNode;
-    const leftMenu = cLeftMenu.createInstance();
-    leftMenu.x = -leftMenu.width - spacer / 2;
-    leftMenu.y = -header.height - spacer;
-    leftMenu.resize(leftMenu.width, frame.height - mainHeader.height);
+    const leftMenu = compLeftMenu.createInstance();
+    leftMenu.x = -leftMenu.width;
+    leftMenu.y = -header.height - verticalSpacing;
+    leftMenu.resize(leftMenu.width, background.height - mainHeader.height);
     figma.currentPage.appendChild(leftMenu);
 
-    mainHeader.x = -leftMenu.width - spacer / 2;
+    frame.resize(pageWidth - leftMenu.width, pageHeight + leftMenu.y);
 
-    frame.x = mainHeader.x;
-    frame.y = mainHeader.y;
+    mainHeader.x = -leftMenu.width;
 
-    return figma.group([frame, mainHeader, leftMenu, header], figma.currentPage);
+    background.x = mainHeader.x;
+    background.y = mainHeader.y;
+
+    return figma.group([background, mainHeader, leftMenu, header], figma.currentPage);
 }
 
 async function DrawFromHTML(input: string) {
-    // const parser = new AcuPageParser();
-    // const root = await parser.parse(msg.input);
-    // console.log(JSON.stringify(root));
 
-    const frame = figma.createFrame() as FrameNode;
-    frame.x = 0;
-    frame.y = 0;
-    frame.resize(pageWidth, pageHeight);
+    progress = 0;
+    figma.ui.postMessage({type: 'progress', progress});
+    await new Promise(resolve => setTimeout(resolve, 20));
 
     let root: Root;
     if (input === '')
         return;
     else
         root = JSON.parse(input) as Root;
+    const frame = figma.createFrame() as FrameNode;
+
+    frame.resize(pageWidth, pageHeight);
+    frame.layoutMode = "VERTICAL";
+    frame.itemSpacing = verticalSpacing;
+    frame.primaryAxisSizingMode = "AUTO";
+    frame.counterAxisSizingMode = "AUTO"
+    frame.paddingLeft = horizontalSpacing / 2;
     frame.name = 'Canvas';
 
-    let y = 0;
-
-    let progress = 5;
-    figma.ui.postMessage({type: 'progress', progress});
-    await new Promise(resolve => setTimeout(resolve, 20))
-
-    let startTime = timer.start();
     const headerGroup = DrawHeader(frame, root);
     headerGroup.name = 'Header';
     const mainGroup = figma.group([headerGroup], figma.currentPage);
+    mainGroup.insertChild(1, frame);
     mainGroup.name = root.Caption1??'Screen';
-    timer.stop("DrawHeader", startTime);
 
-    progress += 15;
+    const rootItem = new figmaRoot(root);
+    //console.log(rootItem);
+    childrenNumber = countChildren(rootItem);
+
+    progress = 5;
     figma.ui.postMessage({type: 'progress', progress});
-    await new Promise(resolve => setTimeout(resolve, 20))
+    await new Promise(resolve => setTimeout(resolve, 20));
 
-    for (const fs of root.Children) {
-        switch (fs.Type) {
-            case AcuElementType.Template:
-                startTime = timer.start();
-                y = DrawTemplate(mainGroup, fs as Template, y);
-                timer.stop("DrawTemplate", startTime);
-                break;
-            case AcuElementType.Tabbar:
-                startTime = timer.start();
-                y = DrawTabBar(mainGroup, fs as TabBar, y);
-                timer.stop("DrawTabBar", startTime);
-                break;
-            case AcuElementType.Grid:
-                startTime = timer.start();
-                DrawGrid((fs as unknown) as Grid, undefined);
-                timer.stop("DrawGrid", startTime);
-                break;
-        }
-        progress += 25;
-        figma.ui.postMessage({type: 'progress', progress});
-        await new Promise(resolve => setTimeout(resolve, 20));
+    await Draw(rootItem as figmaField, frame);
+    frame.primaryAxisSizingMode = "AUTO";
+
+}
+
+function countChildren(root: figmaRoot){
+    let count = 1;
+    for (const child of root.children) {
+        count += countChildren(child);
     }
-
+    return count;
 }
 
 // Calls to "parent.postMessage" from within the HTML page will trigger this
@@ -552,11 +588,7 @@ figma.ui.onmessage = async (msg: { input: string, format: string }) => {
         return;
     }
 
-    let startTime = timer.start();
     await figma.loadAllPagesAsync();
-    timer.stop("loadAllPagesAsync", startTime);
-
-    startTime = timer.start();
 
     // Test
     // csFieldset = await figma.importComponentSetByKeyAsync('65edf1d775107cc11081226f698821a462c6edc2');
@@ -567,42 +599,15 @@ figma.ui.onmessage = async (msg: { input: string, format: string }) => {
     // cTabbar = await figma.importComponentByKeyAsync('6908d5b76e824d2a677a35490265b9d64efb3606');
 
     // Prod
-    csFieldset = await figma.importComponentSetByKeyAsync('3738d3cfa01194fc3cfe855bf127daa66b21e39e');
-    csHeader = await figma.importComponentSetByKeyAsync('6bf3d7f22449e758cc2b697dd7d80ad7a2d3c21a');
-    csMainHeader = await figma.importComponentSetByKeyAsync('95717954e19e7929d19b33f7bcd03f16e8e1a51b');
-    csGrid = await figma.importComponentSetByKeyAsync('b6b4901b43589a4e2e738087122069e2df254b8f');
-    cLeftMenu = await figma.importComponentByKeyAsync('5b4ee7b5f881aa8f6e64f128f4cceef050357378');
-    cTabbar = await figma.importComponentByKeyAsync('e4b7a83b5e34cee8565ad8079b4932764b45dae4');
+    compFieldset    = (await figma.importComponentSetByKeyAsync('3738d3cfa01194fc3cfe855bf127daa66b21e39e')).defaultVariant;
+    compHeader      = (await figma.importComponentSetByKeyAsync('6bf3d7f22449e758cc2b697dd7d80ad7a2d3c21a')).defaultVariant;
+    compMainHeader  = (await figma.importComponentSetByKeyAsync('95717954e19e7929d19b33f7bcd03f16e8e1a51b')).defaultVariant;
+    compGrid        = (await figma.importComponentSetByKeyAsync('b6b4901b43589a4e2e738087122069e2df254b8f')).defaultVariant;
+    compLeftMenu    = await figma.importComponentByKeyAsync('5b4ee7b5f881aa8f6e64f128f4cceef050357378');
+    compTabbar      = await figma.importComponentByKeyAsync('e4b7a83b5e34cee8565ad8079b4932764b45dae4');
 
-    timer.stop("importComponents", startTime);
-
-    fieldsetRows.set("Show Row 1", "Show Row 1#5419:15");
-    fieldsetRows.set("Show Row 2", "Show Row 2#5419:17");
-    fieldsetRows.set("Show Row 3", "Show Row 3#5419:19");
-    fieldsetRows.set("Show Row 4", "Show Row 4#5419:13");
-    fieldsetRows.set("Show Row 5", "Show Row 5#5419:11");
-    fieldsetRows.set("Show Row 6", "Show Row 6#5419:9");
-    fieldsetRows.set("Show Row 7", "Show Row 7#5419:8");
-    fieldsetRows.set("Show Row 8", "Show Row 8#5419:7");
-    fieldsetRows.set("Show Row 9", "Show Row 9#5419:5");
-    fieldsetRows.set("Show Row 10", "Show Row 10#5419:12");
-    fieldsetRows.set("Show Row 11", "Show Row 11#5419:10");
-    fieldsetRows.set("Show Row 12", "Show Row 12#5419:3");
-    fieldsetRows.set("Show Row 13", "Show Row 13#5419:2");
-    fieldsetRows.set("Show Row 14", "Show Row 14#5419:6");
-    fieldsetRows.set("Show Row 15", "Show Row 15#5419:4");
-    fieldsetRows.set("Show Row 16", "Show Row 16#5419:16");
-    fieldsetRows.set("Show Row 17", "Show Row 17#5419:18");
-    fieldsetRows.set("Show Row 18", "Show Row 18#5419:1");
-    fieldsetRows.set("Show Row 19", "Show Row 19#5419:0");
-    fieldsetRows.set("Show Row 20", "Show Row 20#5419:14");
-
-    startTime = timer.start();
     if (msg.format === 'html')
         await DrawFromHTML(msg.input);
-    timer.stop("DrawFromHTML", startTime);
-
-    console.log("All Stats:", Array.from(timer.getAllStats()));
 
     figma.closePlugin();
 };
