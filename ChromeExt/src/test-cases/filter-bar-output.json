@@ -1,0 +1,33 @@
+{
+  "Items": [
+    {
+      "ItemType": "FilterCombo",
+      "Text": "All Records"
+    },
+    {
+      "ItemType": "Separator"
+    },
+    {
+      "ItemType": "FilterButton",
+      "Text": "Status"
+    },
+    {
+      "ItemType": "FilterButton",
+      "Text": "Template"
+    },
+    {
+      "ItemType": "FilterButton",
+      "Text": "Customer ID"
+    },
+    {
+      "ItemType": "AddFilterButton"
+    },
+    {
+      "ItemType": "MenuButton"
+    }
+  ],
+  "ShowRightAction": true,
+  "ShowSaveButton": false,
+  "ToolBarType": "FilterBar",
+  "Type": "ToolBar"
+}

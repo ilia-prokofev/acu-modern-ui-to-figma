@@ -103,6 +103,7 @@
       ],
       "ShowRightAction": false,
       "ShowSaveButton": false,
+      "ToolBarType": "List",
       "Type": "ToolBar"
     },
     {

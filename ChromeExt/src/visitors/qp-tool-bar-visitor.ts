@@ -7,7 +7,7 @@ import {
     QPToolBarItem, QPToolBarItemButton,
     QPToolBarItemIconButton,
     QPToolBarItemIconButtonType,
-    QPToolBarItemType
+    QPToolBarItemType, QPToolBarType
 } from "../elements/qp-toolbar";
 import {findClasses, findElementByClassesDown, findElementByNodeNameDown} from "./html-element-utils";
 
@@ -53,6 +53,7 @@ export default class QPToolBarVisitor implements ElementVisitor {
 
         const toolBar: QPToolBar = {
             Type: AcuElementType.ToolBar,
+            ToolBarType: QPToolBarType.List,
             Items: [],
             ShowRightAction: false,
             ShowSaveButton: false,

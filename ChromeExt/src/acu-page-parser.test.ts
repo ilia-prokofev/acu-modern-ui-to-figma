@@ -10,8 +10,8 @@ describe('acu-page-parser', () => {
     });
 
     test('acu-page-parser', () => {
-        const inputHtml = fs.readFileSync('acu-page-parser-input.html', 'utf-8');
-        const expectedJson = fs.readFileSync('acu-page-parser-output.json', 'utf-8');
+        const inputHtml = fs.readFileSync('./test-cases/sc-000001-input.html', 'utf-8');
+        const expectedJson = fs.readFileSync('./test-cases/sc-000001-output.json', 'utf-8');
 
         const actual = sut.parse(inputHtml);
 
