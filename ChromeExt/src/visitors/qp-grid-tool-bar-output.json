@@ -1,0 +1,39 @@
+{
+  "Items": [
+    {
+      "IconType": "Refresh",
+      "ItemType": "IconButton"
+    },
+    {
+      "ItemType": "Button",
+      "Text": "Add Project Items"
+    },
+    {
+      "IconType": "Import",
+      "ItemType": "IconButton"
+    },
+    {
+      "IconType": "Undo",
+      "ItemType": "IconButton"
+    },
+    {
+      "IconType": "Insert",
+      "ItemType": "IconButton"
+    },
+    {
+      "IconType": "Edit",
+      "ItemType": "IconButton"
+    },
+    {
+      "IconType": "AdjustColumns",
+      "ItemType": "IconButton"
+    },
+    {
+      "IconType": "ExportToExcel",
+      "ItemType": "IconButton"
+    }
+  ],
+  "ShowRightAction": true,
+  "ShowSaveButton": false,
+  "Type": "ToolBar"
+}
