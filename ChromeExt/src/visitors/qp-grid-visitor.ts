@@ -149,20 +149,21 @@ export default class QPGridVisitor implements ElementVisitor {
 
             const tdElement = trElement.children[columnIndex];
 
-            const checked = findElementByClassesDown(tdElement, checkedClass)
-            if (checked) {
-                values.push("true");
-                continue;
+            let textContent: string | null = null;
+            if (findElementByClassesDown(tdElement, checkedClass)) {
+                textContent = "true";
+            } else if (findElementByClassesDown(tdElement, uncheckedClass)) {
+                textContent = "false";
+            } else if (findElementByNodeNameDown(tdElement, "a")) {
+                textContent = innerTextContent(tdElement);
+            } else {
+                const textElement = findElementByClassesDown(tdElement, "text");
+                if (textElement) {
+                    textContent = innerTextContent(textElement);
+                }
             }
 
-            const unchecked = findElementByClassesDown(tdElement, uncheckedClass);
-            if (unchecked) {
-                values.push("false");
-                continue;
-            }
-
-            const textContent = innerTextContent(tdElement)?.trim() ?? "";
-            values.push(textContent);
+            values.push(textContent?.trim() ?? "");
         }
 
         return values;
