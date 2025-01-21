@@ -1,0 +1,900 @@
+<div class="grid-top-bar">
+  <div class="au-target grid-top-toolbar" au-target-id="1052">
+    <div
+      class="grid-left-toolbar-cont au-target"
+      ref="topBarCont"
+      au-target-id="1053"
+    >
+      <qp-tool-bar
+        config.bind="topBarConfig"
+        class="au-target"
+        au-target-id="1054"
+      >
+        <div
+          ref="toolbarElement"
+          class="au-target qp-tool-bar qp-tool-bar-no-menu"
+          au-target-id="480"
+          id="grid_topBar"
+        >
+          <ul
+            ref="fullULElement"
+            class="au-target items-list"
+            au-target-id="481"
+            id="grid_topBar_full_bar"
+            style=""
+          >
+            <li
+              click.capture="processClick(item.id, item.type, $event)"
+              mousedown.trigger="processDown(item.id, item.type, $event)"
+              mouseout.trigger="processOut(item.id, $event)"
+              class="au-target qp-tool-bar-item minor-button qp-connotation-default"
+              au-target-id="482"
+              data-cmd="refresh"
+              id="grid_topBarrefresh"
+            >
+              <div class="au-target qp-tool-bar-button" au-target-id="483">
+                <qp-hyper-icon
+                  images.bind="item.images"
+                  class="au-target"
+                  au-target-id="484"
+                >
+                  <div
+                    class="qp-hyper-icon au-target"
+                    mouseover.delegate="OnMouseOver()"
+                    mouseout.delegate="OnMouseOut()"
+                    mousedown.delegate="OnMouseDown()"
+                    click.delegate="OnClick()"
+                    au-target-id="24"
+                  >
+                    <!--anchor-->
+                    <div
+                      icon.bind="ImageName &amp; attr"
+                      class="au-target sprite-icon main-icon"
+                      au-target-id="27"
+                      icon="Refresh"
+                    >
+                      <div
+                        class="au-target main-icon-img main-Refresh"
+                        au-target-id="28"
+                      ></div>
+                      <!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <!--anchor-->
+                  </div> </qp-hyper-icon
+                ><!--anchor-->
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+
+              <qp-tooltip
+                exclude=".qp-menu-options"
+                class="au-target"
+                au-target-id="493"
+              >
+                <div
+                  ref="contentElement"
+                  glue-to="target.bind: glueTarget; options.bind: {ignoreTargetWidth:true, centerToTarget: centerToTarget, verticalDistanceFromTargetPX:8}"
+                  style="
+                    display: none;
+                    position: fixed;
+                    min-width: auto;
+                    --pointer-adjust: unset;
+                    left: 24px;
+                    top: 403px;
+                    transform: translateY(8px);
+                  "
+                  glued.delegate="afterGlued($event)"
+                  click.capture="stopPropagation($event)"
+                  class="au-target qp-tooltip-container"
+                  au-target-id="320"
+                >
+                  <div>Refresh</div>
+                  <!--slot-->
+                </div></qp-tooltip
+              ><!--anchor-->
+            </li>
+            <li
+              click.capture="processClick(item.id, item.type, $event)"
+              mousedown.trigger="processDown(item.id, item.type, $event)"
+              mouseout.trigger="processOut(item.id, $event)"
+              class="au-target qp-tool-bar-item qp-connotation-default"
+              au-target-id="482"
+              data-cmd="AddProjectItem"
+              id="grid_topBarAddProjectItem"
+            >
+              <div
+                class="au-target qp-tool-bar-button disabled"
+                au-target-id="483"
+              >
+                <!--anchor-->
+                <div class="qp-tool-bar-text">Add Project Items</div>
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+
+              <!--anchor-->
+            </li>
+            <li
+              click.capture="processClick(item.id, item.type, $event)"
+              mousedown.trigger="processDown(item.id, item.type, $event)"
+              mouseout.trigger="processOut(item.id, $event)"
+              class="au-target qp-tool-bar-item minor-button qp-connotation-default"
+              au-target-id="482"
+              data-cmd="import"
+              id="grid_topBarimport"
+            >
+              <div class="au-target qp-tool-bar-button" au-target-id="483">
+                <qp-hyper-icon
+                  images.bind="item.images"
+                  class="au-target"
+                  au-target-id="484"
+                >
+                  <div
+                    class="qp-hyper-icon au-target"
+                    mouseover.delegate="OnMouseOver()"
+                    mouseout.delegate="OnMouseOut()"
+                    mousedown.delegate="OnMouseDown()"
+                    click.delegate="OnClick()"
+                    au-target-id="24"
+                  >
+                    <!--anchor-->
+                    <div
+                      icon.bind="ImageName &amp; attr"
+                      class="au-target sprite-icon main-icon"
+                      au-target-id="27"
+                      icon="Upload"
+                    >
+                      <div
+                        class="au-target main-icon-img main-Upload"
+                        au-target-id="28"
+                      ></div>
+                      <!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <!--anchor-->
+                  </div> </qp-hyper-icon
+                ><!--anchor-->
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+
+              <qp-tooltip
+                exclude=".qp-menu-options"
+                class="au-target"
+                au-target-id="493"
+              >
+                <div
+                  ref="contentElement"
+                  glue-to="target.bind: glueTarget; options.bind: {ignoreTargetWidth:true, centerToTarget: centerToTarget, verticalDistanceFromTargetPX:8}"
+                  style="display: none"
+                  glued.delegate="afterGlued($event)"
+                  click.capture="stopPropagation($event)"
+                  class="au-target qp-tooltip-container"
+                  au-target-id="320"
+                >
+                  <div>Load Records from File</div>
+                  <!--slot-->
+                </div> </qp-tooltip
+              ><!--anchor-->
+            </li>
+            <li
+              click.capture="processClick(item.id, item.type, $event)"
+              mousedown.trigger="processDown(item.id, item.type, $event)"
+              mouseout.trigger="processOut(item.id, $event)"
+              class="au-target qp-tool-bar-item minor-button qp-connotation-default"
+              au-target-id="482"
+              data-cmd="Cancel"
+              id="MainToolbarts_Cancel"
+            >
+              <div class="au-target qp-tool-bar-button" au-target-id="483">
+                <qp-hyper-icon
+                  images.bind="item.images"
+                  class="au-target"
+                  au-target-id="484"
+                >
+                  <div
+                    class="qp-hyper-icon au-target"
+                    mouseover.delegate="OnMouseOver()"
+                    mouseout.delegate="OnMouseOut()"
+                    mousedown.delegate="OnMouseDown()"
+                    click.delegate="OnClick()"
+                    au-target-id="24"
+                  >
+                    <!--anchor-->
+                    <div
+                      icon.bind="ImageName &amp; attr"
+                      class="au-target sprite-icon main-icon"
+                      au-target-id="27"
+                      icon="Cancel"
+                    >
+                      <div
+                        class="au-target main-icon-img main-Cancel"
+                        au-target-id="28"
+                      ></div>
+                      <!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <!--anchor-->
+                  </div> </qp-hyper-icon
+                ><!--anchor-->
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+
+              <qp-tooltip
+                exclude=".qp-menu-options"
+                class="au-target"
+                au-target-id="493"
+              >
+                <div
+                  ref="contentElement"
+                  glue-to="target.bind: glueTarget; options.bind: {ignoreTargetWidth:true, centerToTarget: centerToTarget, verticalDistanceFromTargetPX:8}"
+                  style="display: none"
+                  glued.delegate="afterGlued($event)"
+                  click.capture="stopPropagation($event)"
+                  class="au-target qp-tooltip-container"
+                  au-target-id="320"
+                >
+                  <div>Cancel (Esc)</div>
+                  <!--slot-->
+                </div> </qp-tooltip
+              ><!--anchor-->
+            </li>
+            <li
+              click.capture="processClick(item.id, item.type, $event)"
+              mousedown.trigger="processDown(item.id, item.type, $event)"
+              mouseout.trigger="processOut(item.id, $event)"
+              class="au-target qp-tool-bar-item minor-button qp-connotation-default"
+              au-target-id="482"
+              data-cmd="insert"
+              id="MainToolbarts_insert"
+            >
+              <div class="au-target qp-tool-bar-button" au-target-id="483">
+                <qp-hyper-icon
+                  images.bind="item.images"
+                  class="au-target"
+                  au-target-id="484"
+                >
+                  <div
+                    class="qp-hyper-icon au-target"
+                    mouseover.delegate="OnMouseOver()"
+                    mouseout.delegate="OnMouseOut()"
+                    mousedown.delegate="OnMouseDown()"
+                    click.delegate="OnClick()"
+                    au-target-id="24"
+                  >
+                    <!--anchor-->
+                    <div
+                      icon.bind="ImageName &amp; attr"
+                      class="au-target sprite-icon main-icon"
+                      au-target-id="27"
+                      icon="AddNew"
+                    >
+                      <div
+                        class="au-target main-icon-img main-AddNew"
+                        au-target-id="28"
+                      ></div>
+                      <!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <!--anchor-->
+                  </div> </qp-hyper-icon
+                ><!--anchor-->
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+
+              <qp-tooltip
+                exclude=".qp-menu-options"
+                class="au-target"
+                au-target-id="493"
+              >
+                <div
+                  ref="contentElement"
+                  glue-to="target.bind: glueTarget; options.bind: {ignoreTargetWidth:true, centerToTarget: centerToTarget, verticalDistanceFromTargetPX:8}"
+                  style="display: none"
+                  glued.delegate="afterGlued($event)"
+                  click.capture="stopPropagation($event)"
+                  class="au-target qp-tooltip-container"
+                  au-target-id="320"
+                >
+                  <div>New Record</div>
+                  <!--slot-->
+                </div> </qp-tooltip
+              ><!--anchor-->
+            </li>
+            <li
+              click.capture="processClick(item.id, item.type, $event)"
+              mousedown.trigger="processDown(item.id, item.type, $event)"
+              mouseout.trigger="processOut(item.id, $event)"
+              class="au-target qp-tool-bar-item minor-button qp-connotation-default"
+              au-target-id="482"
+              data-cmd="editDetail"
+              id="MainToolbarts_editDetail"
+            >
+              <div class="au-target qp-tool-bar-button" au-target-id="483">
+                <qp-hyper-icon
+                  images.bind="item.images"
+                  class="au-target"
+                  au-target-id="484"
+                >
+                  <div
+                    class="qp-hyper-icon au-target"
+                    mouseover.delegate="OnMouseOver()"
+                    mouseout.delegate="OnMouseOut()"
+                    mousedown.delegate="OnMouseDown()"
+                    click.delegate="OnClick()"
+                    au-target-id="24"
+                  >
+                    <!--anchor-->
+                    <div
+                      icon.bind="ImageName &amp; attr"
+                      class="au-target sprite-icon main-icon"
+                      au-target-id="27"
+                      icon="RecordEdit"
+                    >
+                      <div
+                        class="au-target main-icon-img main-RecordEdit"
+                        au-target-id="28"
+                      ></div>
+                      <!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <!--anchor-->
+                  </div> </qp-hyper-icon
+                ><!--anchor-->
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+
+              <qp-tooltip
+                exclude=".qp-menu-options"
+                class="au-target"
+                au-target-id="493"
+              >
+                <div
+                  ref="contentElement"
+                  glue-to="target.bind: glueTarget; options.bind: {ignoreTargetWidth:true, centerToTarget: centerToTarget, verticalDistanceFromTargetPX:8}"
+                  style="display: none"
+                  glued.delegate="afterGlued($event)"
+                  click.capture="stopPropagation($event)"
+                  class="au-target qp-tooltip-container"
+                  au-target-id="320"
+                >
+                  <div>Edit Record</div>
+                  <!--slot-->
+                </div> </qp-tooltip
+              ><!--anchor-->
+            </li>
+            <li
+              click.capture="processClick(item.id, item.type, $event)"
+              mousedown.trigger="processDown(item.id, item.type, $event)"
+              mouseout.trigger="processOut(item.id, $event)"
+              class="au-target qp-tool-bar-item minor-button qp-connotation-default"
+              au-target-id="482"
+              data-cmd="adjust"
+              id="MainToolbaradjust"
+            >
+              <div class="au-target qp-tool-bar-button" au-target-id="483">
+                <qp-hyper-icon
+                  images.bind="item.images"
+                  class="au-target"
+                  au-target-id="484"
+                >
+                  <div
+                    class="qp-hyper-icon au-target"
+                    mouseover.delegate="OnMouseOver()"
+                    mouseout.delegate="OnMouseOut()"
+                    mousedown.delegate="OnMouseDown()"
+                    click.delegate="OnClick()"
+                    au-target-id="24"
+                  >
+                    <!--anchor-->
+                    <div
+                      icon.bind="ImageName &amp; attr"
+                      class="au-target sprite-icon main-icon"
+                      au-target-id="27"
+                      icon="Adjust"
+                    >
+                      <div
+                        class="au-target main-icon-img main-Adjust"
+                        au-target-id="28"
+                      ></div>
+                      <!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <!--anchor-->
+                  </div> </qp-hyper-icon
+                ><!--anchor-->
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+
+              <qp-tooltip
+                exclude=".qp-menu-options"
+                class="au-target"
+                au-target-id="493"
+              >
+                <div
+                  ref="contentElement"
+                  glue-to="target.bind: glueTarget; options.bind: {ignoreTargetWidth:true, centerToTarget: centerToTarget, verticalDistanceFromTargetPX:8}"
+                  style="display: none"
+                  glued.delegate="afterGlued($event)"
+                  click.capture="stopPropagation($event)"
+                  class="au-target qp-tooltip-container"
+                  au-target-id="320"
+                >
+                  <div>Fit to Screen</div>
+                  <!--slot-->
+                </div> </qp-tooltip
+              ><!--anchor-->
+            </li>
+            <li
+              click.capture="processClick(item.id, item.type, $event)"
+              mousedown.trigger="processDown(item.id, item.type, $event)"
+              mouseout.trigger="processOut(item.id, $event)"
+              class="au-target qp-tool-bar-item minor-button qp-connotation-default"
+              au-target-id="482"
+              data-cmd="exportToExcel"
+              id="MainToolbarexportToExcel"
+            >
+              <div class="au-target qp-tool-bar-button" au-target-id="483">
+                <qp-hyper-icon
+                  images.bind="item.images"
+                  class="au-target"
+                  au-target-id="484"
+                >
+                  <div
+                    class="qp-hyper-icon au-target"
+                    mouseover.delegate="OnMouseOver()"
+                    mouseout.delegate="OnMouseOut()"
+                    mousedown.delegate="OnMouseDown()"
+                    click.delegate="OnClick()"
+                    au-target-id="24"
+                  >
+                    <!--anchor-->
+                    <div
+                      icon.bind="ImageName &amp; attr"
+                      class="au-target sprite-icon main-icon"
+                      au-target-id="27"
+                      icon="Excel"
+                    >
+                      <div
+                        class="au-target main-icon-img main-Excel"
+                        au-target-id="28"
+                      ></div>
+                      <!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <!--anchor-->
+                  </div> </qp-hyper-icon
+                ><!--anchor-->
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+
+              <qp-tooltip
+                exclude=".qp-menu-options"
+                class="au-target"
+                au-target-id="493"
+              >
+                <div
+                  ref="contentElement"
+                  glue-to="target.bind: glueTarget; options.bind: {ignoreTargetWidth:true, centerToTarget: centerToTarget, verticalDistanceFromTargetPX:8}"
+                  style="display: none"
+                  glued.delegate="afterGlued($event)"
+                  click.capture="stopPropagation($event)"
+                  class="au-target qp-tooltip-container"
+                  au-target-id="320"
+                >
+                  <div>Export to Excel</div>
+                  <!--slot-->
+                </div> </qp-tooltip
+              ><!--anchor-->
+            </li>
+            <!--anchor-->
+          </ul>
+
+          <ul
+            show.bind="toolBarMode!=='toolbar only'"
+            class="au-target items-list aurelia-hide"
+            au-target-id="497"
+            id="grid_topBar_bar"
+          >
+            <!--view-->
+            <li
+              ref="itemElements[$index]"
+              click.capture="processClick(item.id, item.type, $event)"
+              mouseout.trigger="processOut(item.id, $event)"
+              mousedown.trigger="processDown(item.id, item.type, $event)"
+              class="au-target qp-tool-bar-item minor-button qp-connotation-default"
+              au-target-id="498"
+              data-cmd=""
+              id=""
+            >
+              <div class="au-target qp-tool-bar-button" au-target-id="499">
+                <qp-hyper-icon
+                  images.bind="item.images"
+                  class="au-target"
+                  au-target-id="500"
+                >
+                  <div
+                    class="qp-hyper-icon au-target"
+                    mouseover.delegate="OnMouseOver()"
+                    mouseout.delegate="OnMouseOut()"
+                    mousedown.delegate="OnMouseDown()"
+                    click.delegate="OnClick()"
+                    au-target-id="24"
+                  >
+                    <!--anchor-->
+                    <div
+                      icon.bind="ImageName &amp; attr"
+                      class="au-target sprite-icon main-icon"
+                      au-target-id="27"
+                      icon="Refresh"
+                    >
+                      <div
+                        class="au-target main-icon-img main-Refresh"
+                        au-target-id="28"
+                      ></div>
+                      <!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <!--anchor-->
+                  </div> </qp-hyper-icon
+                ><!--anchor-->
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+              <qp-tooltip
+                target.bind="itemElements[$index]"
+                exclude=".qp-menu-options"
+                class="au-target"
+                au-target-id="509"
+              >
+                <div
+                  ref="contentElement"
+                  glue-to="target.bind: glueTarget; options.bind: {ignoreTargetWidth:true, centerToTarget: centerToTarget, verticalDistanceFromTargetPX:8}"
+                  style="display: none"
+                  glued.delegate="afterGlued($event)"
+                  click.capture="stopPropagation($event)"
+                  class="au-target qp-tooltip-container"
+                  au-target-id="320"
+                >
+                  <div>Refresh</div>
+                  <!--slot-->
+                </div> </qp-tooltip
+              ><!--anchor-->
+            </li>
+            <!--anchor--><!--view-->
+            <li
+              ref="itemElements[$index]"
+              click.capture="processClick(item.id, item.type, $event)"
+              mouseout.trigger="processOut(item.id, $event)"
+              mousedown.trigger="processDown(item.id, item.type, $event)"
+              class="au-target qp-tool-bar-item qp-connotation-default"
+              au-target-id="498"
+              data-cmd=""
+              id=""
+            >
+              <div
+                class="au-target qp-tool-bar-button disabled"
+                au-target-id="499"
+              >
+                <!--anchor-->
+                <div class="qp-tool-bar-text">Add Project Items</div>
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+            </li>
+            <!--anchor--><!--view-->
+            <li
+              ref="itemElements[$index]"
+              click.capture="processClick(item.id, item.type, $event)"
+              mouseout.trigger="processOut(item.id, $event)"
+              mousedown.trigger="processDown(item.id, item.type, $event)"
+              class="au-target qp-tool-bar-item minor-button qp-connotation-default"
+              au-target-id="498"
+              data-cmd=""
+              id=""
+            >
+              <div class="au-target qp-tool-bar-button" au-target-id="499">
+                <qp-hyper-icon
+                  images.bind="item.images"
+                  class="au-target"
+                  au-target-id="500"
+                >
+                  <div
+                    class="qp-hyper-icon au-target"
+                    mouseover.delegate="OnMouseOver()"
+                    mouseout.delegate="OnMouseOut()"
+                    mousedown.delegate="OnMouseDown()"
+                    click.delegate="OnClick()"
+                    au-target-id="24"
+                  >
+                    <!--anchor-->
+                    <div
+                      icon.bind="ImageName &amp; attr"
+                      class="au-target sprite-icon main-icon"
+                      au-target-id="27"
+                      icon="Adjust"
+                    >
+                      <div
+                        class="au-target main-icon-img main-Adjust"
+                        au-target-id="28"
+                      ></div>
+                      <!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <!--anchor-->
+                  </div> </qp-hyper-icon
+                ><!--anchor-->
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+              <qp-tooltip
+                target.bind="itemElements[$index]"
+                exclude=".qp-menu-options"
+                class="au-target"
+                au-target-id="509"
+              >
+                <div
+                  ref="contentElement"
+                  glue-to="target.bind: glueTarget; options.bind: {ignoreTargetWidth:true, centerToTarget: centerToTarget, verticalDistanceFromTargetPX:8}"
+                  style="display: none"
+                  glued.delegate="afterGlued($event)"
+                  click.capture="stopPropagation($event)"
+                  class="au-target qp-tooltip-container"
+                  au-target-id="320"
+                >
+                  <div>Fit to Screen</div>
+                  <!--slot-->
+                </div> </qp-tooltip
+              ><!--anchor-->
+            </li>
+            <!--anchor--><!--view-->
+            <li
+              ref="itemElements[$index]"
+              click.capture="processClick(item.id, item.type, $event)"
+              mouseout.trigger="processOut(item.id, $event)"
+              mousedown.trigger="processDown(item.id, item.type, $event)"
+              class="au-target qp-tool-bar-item minor-button qp-connotation-default"
+              au-target-id="498"
+              data-cmd=""
+              id=""
+            >
+              <div class="au-target qp-tool-bar-button" au-target-id="499">
+                <qp-hyper-icon
+                  images.bind="item.images"
+                  class="au-target"
+                  au-target-id="500"
+                >
+                  <div
+                    class="qp-hyper-icon au-target"
+                    mouseover.delegate="OnMouseOver()"
+                    mouseout.delegate="OnMouseOut()"
+                    mousedown.delegate="OnMouseDown()"
+                    click.delegate="OnClick()"
+                    au-target-id="24"
+                  >
+                    <!--anchor-->
+                    <div
+                      icon.bind="ImageName &amp; attr"
+                      class="au-target sprite-icon main-icon"
+                      au-target-id="27"
+                      icon="Excel"
+                    >
+                      <div
+                        class="au-target main-icon-img main-Excel"
+                        au-target-id="28"
+                      ></div>
+                      <!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <!--anchor-->
+                  </div> </qp-hyper-icon
+                ><!--anchor-->
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+              <qp-tooltip
+                target.bind="itemElements[$index]"
+                exclude=".qp-menu-options"
+                class="au-target"
+                au-target-id="509"
+              >
+                <div
+                  ref="contentElement"
+                  glue-to="target.bind: glueTarget; options.bind: {ignoreTargetWidth:true, centerToTarget: centerToTarget, verticalDistanceFromTargetPX:8}"
+                  style="display: none"
+                  glued.delegate="afterGlued($event)"
+                  click.capture="stopPropagation($event)"
+                  class="au-target qp-tooltip-container"
+                  au-target-id="320"
+                >
+                  <div>Export to Excel</div>
+                  <!--slot-->
+                </div> </qp-tooltip
+              ><!--anchor-->
+            </li>
+            <!--anchor--><!--view-->
+            <li
+              ref="itemElements[$index]"
+              click.capture="processClick(item.id, item.type, $event)"
+              mouseout.trigger="processOut(item.id, $event)"
+              mousedown.trigger="processDown(item.id, item.type, $event)"
+              class="au-target qp-tool-bar-item minor-button qp-connotation-default"
+              au-target-id="498"
+              data-cmd=""
+              id=""
+            >
+              <div class="au-target qp-tool-bar-button" au-target-id="499">
+                <qp-hyper-icon
+                  images.bind="item.images"
+                  class="au-target"
+                  au-target-id="500"
+                >
+                  <div
+                    class="qp-hyper-icon au-target"
+                    mouseover.delegate="OnMouseOver()"
+                    mouseout.delegate="OnMouseOut()"
+                    mousedown.delegate="OnMouseDown()"
+                    click.delegate="OnClick()"
+                    au-target-id="24"
+                  >
+                    <!--anchor-->
+                    <div
+                      icon.bind="ImageName &amp; attr"
+                      class="au-target sprite-icon main-icon"
+                      au-target-id="27"
+                      icon="Upload"
+                    >
+                      <div
+                        class="au-target main-icon-img main-Upload"
+                        au-target-id="28"
+                      ></div>
+                      <!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <!--anchor-->
+                  </div> </qp-hyper-icon
+                ><!--anchor-->
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+              <qp-tooltip
+                target.bind="itemElements[$index]"
+                exclude=".qp-menu-options"
+                class="au-target"
+                au-target-id="509"
+              >
+                <div
+                  ref="contentElement"
+                  glue-to="target.bind: glueTarget; options.bind: {ignoreTargetWidth:true, centerToTarget: centerToTarget, verticalDistanceFromTargetPX:8}"
+                  style="display: none"
+                  glued.delegate="afterGlued($event)"
+                  click.capture="stopPropagation($event)"
+                  class="au-target qp-tooltip-container"
+                  au-target-id="320"
+                >
+                  <div>Load Records from File</div>
+                  <!--slot-->
+                </div> </qp-tooltip
+              ><!--anchor-->
+            </li>
+            <!--anchor--><!--anchor-->
+          </ul>
+
+          <div
+            show.bind="showMenuOpener &amp;&amp; toolBarMode!=='toolbar only'"
+            ref="menuOpener"
+            keydown.capture="onKeyDown($event)"
+            mousedown.capture="toggleMenu($event)"
+            tabindex="1"
+            class="au-target qp-tool-bar-opener aurelia-hide"
+            au-target-id="514"
+            id="grid_topBar_MenuOpener"
+          >
+            <qp-icon
+              imagesrc="svg:main@ellipsis"
+              class="au-target"
+              au-target-id="515"
+            >
+              <!--anchor-->
+              <!--anchor-->
+              <svg>
+                <use
+                  href.bind="imageName &amp; attr"
+                  class="au-target"
+                  au-target-id="398"
+                  href="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#ellipsis"
+                ></use></svg
+              ><!--anchor-->
+              <!--anchor-->
+            </qp-icon>
+          </div>
+        </div>
+
+        <!--anchor-->
+      </qp-tool-bar>
+    </div>
+    <div class="grid-right-toolbar-cont">
+      <!--anchor-->
+      <qp-filter-box
+        id="grid_fb"
+        filter.bind="fastFilter"
+        view-model.ref="topBarFastFilter"
+        on-filter.call="onFastFilter(filter)"
+        on-key-down.call="onFastFilterKeyDown(ev)"
+        class="au-target filter-box"
+        au-target-id="1058"
+      >
+        <div class="container">
+          <input
+            type="text"
+            class="text au-target"
+            value.bind="filter"
+            ref="elemText"
+            focus.trigger="processFocus($event)"
+            blur.trigger="processBlur($event)"
+            keydown.delegate="processKeyDown($event)"
+            input.delegate="applyFastFilterDebounce($event.target.value)"
+            au-target-id="612"
+            placeholder="Search"
+            id="grid_fb_text"
+          />
+          <qp-icon
+            imagesrc="svg:main@search"
+            class="au-target"
+            au-target-id="613"
+          >
+            <!--anchor-->
+            <!--anchor-->
+            <svg>
+              <use
+                href.bind="imageName &amp; attr"
+                class="au-target"
+                au-target-id="398"
+                href="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#search"
+              ></use></svg
+            ><!--anchor-->
+            <!--anchor-->
+          </qp-icon>
+        </div> </qp-filter-box
+      ><!--anchor-->
+    </div>
+    <!--portal--><!--anchor-->
+    <!--anchor-->
+  </div>
+  <!--anchor-->
+
+  <!--anchor-->
+</div>

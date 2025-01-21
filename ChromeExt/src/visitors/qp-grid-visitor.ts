@@ -49,7 +49,7 @@ export default class QPGridVisitor implements ElementVisitor {
             return;
         }
 
-        const row = tHeadElement.children[0]; // Первый дочерний элемент
+        const row = tHeadElement.children[0];
         for (let i = 0; i < row.children.length; i++) {
             const thElement = row.children[i];
 
