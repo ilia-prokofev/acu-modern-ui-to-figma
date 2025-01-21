@@ -9,7 +9,7 @@ import {
     getElementAlignment,
     innerTextContent
 } from "./html-element-utils";
-import {AcuAlighment} from "../elements/acu-alignment";
+import {AcuAlignment} from "../elements/acu-alignment";
 
 const checkedClass = "control-GridCheck"
 const uncheckedClass = "control-GridUncheck"
@@ -123,7 +123,7 @@ export default class QPGridVisitor implements ElementVisitor {
         return GridColumnType.Text;
     }
 
-    getColumnAlignmentByCellValue(tBodyElement: Element, columnIndex: number): AcuAlighment {
+    getColumnAlignmentByCellValue(tBodyElement: Element, columnIndex: number): AcuAlignment {
         for (const trElement of tBodyElement.children) {
             if (trElement.children.length <= columnIndex) {
                 continue;
@@ -136,7 +136,7 @@ export default class QPGridVisitor implements ElementVisitor {
             }
         }
 
-        return AcuAlighment.Left;
+        return AcuAlignment.Left;
     }
 
     getCellValues(tBodyElement: Element, columnIndex: number): Array<string> {
