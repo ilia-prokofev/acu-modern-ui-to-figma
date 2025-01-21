@@ -6,6 +6,7 @@ import QPGridVisitor from "./qp-grid-visitor";
 import QPTabBarVisitor from "./qp-tab-bar-visitor";
 import * as fs from "node:fs";
 import QPToolBarVisitor from "./qp-tool-bar-visitor";
+import QpFilterBarVisitor from "./qp-filter-bar-visitor";
 
 describe('visitor', () => {
     interface testCase {
@@ -19,26 +20,32 @@ describe('visitor', () => {
         {
             testName: "tool-bar",
             sut: new QPToolBarVisitor(),
-            incomingHTMLFileName: './visitors/qp-tool-bar-input.html',
-            expectedJSONFileFile: './visitors/qp-tool-bar-output.json',
+            incomingHTMLFileName: './test-cases/tool-bar-input.html',
+            expectedJSONFileFile: './test-cases/tool-bar-output.json',
         },
         {
             testName: "grid-tool-bar",
             sut: new QPToolBarVisitor(),
-            incomingHTMLFileName: './visitors/qp-grid-tool-bar-input.html',
-            expectedJSONFileFile: './visitors/qp-grid-tool-bar-output.json',
+            incomingHTMLFileName: './test-cases/grid-tool-bar-input.html',
+            expectedJSONFileFile: './test-cases/grid-tool-bar-output.json',
+        },
+        {
+            testName: "filter-bar",
+            sut: new QpFilterBarVisitor(),
+            incomingHTMLFileName: './test-cases/filter-bar-input.html',
+            expectedJSONFileFile: './test-cases/filter-bar-output.json',
         },
         {
             testName: "grid",
             sut: new QPGridVisitor(),
-            incomingHTMLFileName: './visitors/qp-grid-visitor-input.html',
-            expectedJSONFileFile: './visitors/qp-grid-visitor-output.json',
+            incomingHTMLFileName: './test-cases/grid-input.html',
+            expectedJSONFileFile: './test-cases/grid-output.json',
         },
         {
             testName: "tab-bar",
             sut: new QPTabBarVisitor(),
-            incomingHTMLFileName: './visitors/qp-tab-bar-visitor-input.html',
-            expectedJSONFileFile: './visitors/qp-tab-bar-visitor-output.json',
+            incomingHTMLFileName: './test-cases/tab-bar-input.html',
+            expectedJSONFileFile: './test-cases/tab-bar-output.json',
         },
     ]
 

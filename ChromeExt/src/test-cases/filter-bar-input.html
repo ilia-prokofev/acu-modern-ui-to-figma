@@ -1,0 +1,462 @@
+<qp-filter-bar
+  view-model.ref="filterBarVM"
+  drag-column.bind="dragHeadInfo.column"
+  fast-filter.bind="fastFilter"
+  filter-id.two-way="filterID"
+  filters.bind="filters"
+  filter-rows.bind="filterRows"
+  is-dirty-filter.two-way="isDirtyFilter"
+  config.bind="filterBarConfig"
+  on-sort-changed.call="onSortApplied(col, sort)"
+  on-filter-changed.call="onFilterApplied(filter, filterID)"
+  on-filter-save.call="onFilterSave(filter, createNew)"
+  on-filter-remove.call="onFilterRemove(filterID)"
+  on-filters-order-changed.call="onFilterOrderChanged()"
+  on-filter-favorite-changed.call="onFilterFavoriteChanged(filterID, isFavorite)"
+  on-filter-row-changed.call="onFilterRowApplied(col, filter)"
+  on-filter-row-removed.call="onFilterRowRemoved(col)"
+  on-rows-set-changed.call="onFilterRowsSetChanged(refresh)"
+  on-fast-filter-key-down.call="onFastFilterKeyDown(ev)"
+  class="au-target filter-bar"
+  au-target-id="1062"
+>
+  <qp-filter-setup-dialog
+    view-model.ref="filterSetupVM"
+    class="au-target"
+    au-target-id="982"
+  >
+    <qp-panel
+      caption.bind="config.saveAs ? msg.GridSaveFilterAs : msg.GridSaveFilter"
+      width="420px"
+      class="au-target"
+      au-target-id="862"
+      template="true"
+      id=""
+      style="display: none"
+    >
+      <div class="stack-vert" ref="elemContent">
+        <div class="label-group">
+          <label for.bind="txtNameConfig.id">${msg.GridName}</label>
+          <qp-text-editor
+            config.bind="txtNameConfig"
+            value.two-way="filter.filterName"
+            input.delegate="processNameInput($event)"
+          >
+          </qp-text-editor>
+        </div>
+        <div class="empty-label-group">
+          <qp-check-box
+            config.bind="chkSharedConfig"
+            value.two-way="filter.isShared"
+          >
+          </qp-check-box>
+        </div>
+        <div class="empty-label-group">
+          <qp-check-box
+            config.bind="chkDefaultConfig"
+            value.two-way="filter.isDefault"
+          >
+          </qp-check-box>
+        </div>
+      </div>
+
+      <footer>
+        <qp-button
+          click.trigger="currentDialog.ok(filter)"
+          config.bind="okConfig"
+          class="major-button"
+        ></qp-button>
+        <qp-button
+          click.trigger="currentDialog.cancel()"
+          config.bind="cancelConfig"
+        ></qp-button>
+      </footer>
+    </qp-panel>
+  </qp-filter-setup-dialog>
+  <qp-filter-editor-dialog
+    view-model.ref="filterEditorVM"
+    class="au-target"
+    au-target-id="983"
+  >
+    <qp-panel
+      caption.bind="msg.GridAdvFilter"
+      width="620px"
+      class="filter-editor-dialog au-target"
+      au-target-id="943"
+      template="true"
+      id=""
+      style="display: none"
+    >
+      <qp-filter-editor
+        filter-rows.bind="filterRows"
+        columns.bind="config.columns"
+        id="${config.id}_body"
+      >
+      </qp-filter-editor>
+
+      <footer>
+        <qp-button
+          click.trigger="currentDialog.ok(filterRows)"
+          config.bind="okConfig"
+          class="major-button"
+        ></qp-button>
+        <qp-button
+          click.trigger="currentDialog.cancel()"
+          config.bind="cancelConfig"
+        ></qp-button>
+      </footer>
+    </qp-panel>
+    <template> </template
+  ></qp-filter-editor-dialog>
+
+  <!--anchor-->
+
+  <div class="filters-strip-cont">
+    <div
+      class="filters-strip au-target"
+      ref="elemFiltersWrap"
+      dragleave.delegate="processDragLeave($event)"
+      drop.delegate="processDrop($event)"
+      dragover.delegate="processDragOverBar($event)"
+      au-target-id="990"
+    >
+      <qp-filter-combo
+        id="grid_fc"
+        filter-id.two-way="filterId"
+        filters.bind="filters"
+        on-favorite-changed.call="processFilterFavoriteChanged(filterID, isFavorite)"
+        on-filters-order-changed.call="onFiltersOrderChanged()"
+        class="au-target filter-combo"
+        au-target-id="991"
+      >
+        <qp-icon imagesrc="svg:main@list" class="au-target" au-target-id="941">
+          <!--anchor-->
+          <!--anchor-->
+          <svg>
+            <use
+              href.bind="imageName &amp; attr"
+              class="au-target"
+              au-target-id="398"
+              href="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#list"
+            ></use></svg
+          ><!--anchor-->
+          <!--anchor-->
+        </qp-icon>
+        <span class="text">All Records</span>
+        <i class="ac ac-keyboard_arrow_down"></i> </qp-filter-combo
+      ><!--anchor-->
+
+      <div class="filter-separator"></div>
+
+      <!--view--><qp-filter-button
+        config.bind="{filter: fr, id: config.id, column: getColumn(fr.field), showRemoveItem: true}"
+        on-filter.call="onFilterRowApplied(col, filter)"
+        on-sort.call="onSortApplied(col, sort)"
+        on-filter-remove.call="onFilterRowDeleted(col)"
+        draggable="true"
+        dragstart.delegate="processDragStart($event, fr)"
+        dragover.delegate="processDragOver($event, fr)"
+        class="au-target filter-button"
+        au-target-id="993"
+        data-cmd="PMProject_Status"
+      >
+        <div class="content au-target" au-target-id="934">
+          <span class="text au-target" ref="elemText" au-target-id="935">
+            Status
+          </span>
+          <i
+            click.delegate="processClearClick($event)"
+            class="au-target ac ac-keyboard_arrow_down"
+            au-target-id="937"
+          ></i>
+        </div>
+        <!--anchor--> </qp-filter-button
+      ><qp-filter-button
+        config.bind="{filter: fr, id: config.id, column: getColumn(fr.field), showRemoveItem: true}"
+        on-filter.call="onFilterRowApplied(col, filter)"
+        on-sort.call="onSortApplied(col, sort)"
+        on-filter-remove.call="onFilterRowDeleted(col)"
+        draggable="true"
+        dragstart.delegate="processDragStart($event, fr)"
+        dragover.delegate="processDragOver($event, fr)"
+        class="au-target filter-button"
+        au-target-id="993"
+        data-cmd="PMProject_TemplateID"
+      >
+        <div class="content au-target" au-target-id="934">
+          <span class="text au-target" ref="elemText" au-target-id="935">
+            Template
+          </span>
+          <i
+            click.delegate="processClearClick($event)"
+            class="au-target ac ac-keyboard_arrow_down"
+            au-target-id="937"
+          ></i>
+        </div>
+        <!--anchor--> </qp-filter-button
+      ><qp-filter-button
+        config.bind="{filter: fr, id: config.id, column: getColumn(fr.field), showRemoveItem: true}"
+        on-filter.call="onFilterRowApplied(col, filter)"
+        on-sort.call="onSortApplied(col, sort)"
+        on-filter-remove.call="onFilterRowDeleted(col)"
+        draggable="true"
+        dragstart.delegate="processDragStart($event, fr)"
+        dragover.delegate="processDragOver($event, fr)"
+        class="au-target filter-button"
+        au-target-id="993"
+        data-cmd="Customer_AcctCD"
+      >
+        <div class="content au-target" au-target-id="934">
+          <span class="text au-target" ref="elemText" au-target-id="935">
+            Customer ID
+          </span>
+          <i
+            click.delegate="processClearClick($event)"
+            class="au-target ac ac-keyboard_arrow_down"
+            au-target-id="937"
+          ></i>
+        </div>
+        <!--anchor--> </qp-filter-button
+      ><!--anchor--><!--anchor-->
+      <qp-button
+        ref="elemAddFilterBtn"
+        class="add-filter au-target"
+        config.bind="btnAddFilterConfig"
+        click.delegate="processAddFilterClick($event)"
+        au-target-id="996"
+      >
+        <button
+          type="button"
+          ref="buttonElement"
+          disabled.bind="config.enabled == false || config.disabled"
+          click.capture="processClick($event)"
+          mouseover.delegate="processMouseOver($event)"
+          mouseout.delegate="processMouseOut($event)"
+          pointerdown.delegate="processPointerDown($event)"
+          pointerup.delegate="processPointerUp($event)"
+          pointercancel.delegate="processPointerCancel($event)"
+          class="au-target qp-button"
+          au-target-id="774"
+          id="null_btn"
+          name=""
+          tabindex="-1"
+        >
+          <div class="btn-inner au-target" au-target-id="775" data-cmd="">
+            <qp-icon
+              imagesrc.bind="imageSrc"
+              class="au-target"
+              au-target-id="776"
+            >
+              <!--anchor-->
+              <div
+                icon.bind="imageName &amp; attr"
+                class="au-target sprite-icon ac-icon"
+                au-target-id="394"
+                icon="keyboard_arrow_down"
+              >
+                <div
+                  class="au-target ac-icon-img ac-keyboard_arrow_down"
+                  au-target-id="395"
+                ></div>
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor--> </qp-icon
+            ><!--anchor-->
+            <!--anchor-->
+            <!--anchor-->
+          </div>
+        </button>
+
+        <!--anchor-->
+
+        <!--anchor--> </qp-button
+      ><!--anchor-->
+      <!-- <div class="filter-drop-tip">
+          ${msg.GridDropColumnTip}
+      </div> -->
+
+      <!--anchor-->
+
+      <qp-button
+        config.bind="btnSaveConfig"
+        id="btnConfigSave"
+        click.delegate="processSaveFilter($event)"
+        class="au-target aurelia-hide"
+        au-target-id="1001"
+      >
+        <button
+          type="button"
+          ref="buttonElement"
+          disabled.bind="config.enabled == false || config.disabled"
+          click.capture="processClick($event)"
+          mouseover.delegate="processMouseOver($event)"
+          mouseout.delegate="processMouseOut($event)"
+          pointerdown.delegate="processPointerDown($event)"
+          pointerup.delegate="processPointerUp($event)"
+          pointercancel.delegate="processPointerCancel($event)"
+          class="au-target qp-button"
+          au-target-id="774"
+          id="btnConfigSave_btn"
+          name=""
+          tabindex="-1"
+        >
+          <div class="btn-inner au-target" au-target-id="775" data-cmd="">
+            <!--anchor-->
+            <span class="text">Save Filter</span
+            ><!--anchor-->
+            <!--anchor-->
+          </div>
+        </button>
+
+        <!--anchor-->
+
+        <!--anchor--> </qp-button
+      ><!--anchor-->
+
+      <qp-menu
+        config.bind="btnFilterSaveConfig"
+        class="save-menu au-target"
+        menuselected.delegate="processFilterMenu($event)"
+        au-target-id="1003"
+      >
+        <div
+          ref="menuElement"
+          mousedown.trigger="toggleMenu($event)"
+          class="au-target qp-menu qp-menu-no-options"
+          au-target-id="371"
+          id="_menu"
+        >
+          <button
+            mousedown.trigger="processButtonMousedown($event)"
+            click.capture="processButtonClick($event)"
+            class="au-target qp-menu-button"
+            au-target-id="372"
+            tabindex="-1"
+          >
+            <qp-hyper-icon
+              images.bind="config.images"
+              class="au-target"
+              au-target-id="373"
+            >
+              <div
+                class="qp-hyper-icon au-target"
+                mouseover.delegate="OnMouseOver()"
+                mouseout.delegate="OnMouseOut()"
+                mousedown.delegate="OnMouseDown()"
+                click.delegate="OnClick()"
+                au-target-id="24"
+              >
+                <!--anchor-->
+                <div
+                  icon.bind="ImageName &amp; attr"
+                  class="au-target sprite-icon main-icon"
+                  au-target-id="27"
+                  icon="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#dots"
+                >
+                  <!--anchor-->
+                  <svg>
+                    <use
+                      href.bind="SvgUrl &amp; attr"
+                      class="au-target"
+                      au-target-id="30"
+                      href="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#dots"
+                    ></use></svg
+                  ><!--anchor-->
+                </div>
+                <!--anchor-->
+              </div> </qp-hyper-icon
+            ><!--anchor-->
+            <!--anchor-->
+          </button>
+          <button
+            tabindex="-1"
+            click.capture="stopPropagation($event)"
+            class="au-target qp-menu-opener"
+            au-target-id="377"
+          >
+            <qp-icon
+              imagesrc="svg:main@treeArrowDown"
+              data-type="drop"
+              class="au-target"
+              au-target-id="378"
+            >
+              <!--anchor-->
+              <!--anchor-->
+              <svg>
+                <use
+                  href.bind="imageName &amp; attr"
+                  class="au-target"
+                  au-target-id="398"
+                  href="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#treeArrowDown"
+                ></use></svg
+              ><!--anchor-->
+              <!--anchor-->
+            </qp-icon></button
+          ><!--anchor-->
+        </div>
+
+        <!--anchor--> </qp-menu
+      ><!--anchor-->
+
+      <i
+        class="ac control-RedArrowDown arrow-down au-target aurelia-hide"
+        ref="elemArrowDown"
+        show.bind="showDragArrows"
+        au-target-id="1005"
+      ></i>
+      <i
+        class="ac control-RedArrowUp arrow-up au-target aurelia-hide"
+        ref="elemArrowUp"
+        show.bind="showDragArrows"
+        au-target-id="1006"
+      ></i>
+    </div>
+    <div class="filter-box-wrap">
+      <qp-filter-box
+        id="grid_fb"
+        filter.bind="fastFilter"
+        view-model.ref="fastFilterVM"
+        on-filter.call="processFastFilter(filter)"
+        on-key-down.call="processFastFilterKeyDown(ev)"
+        class="au-target filter-box"
+        au-target-id="1007"
+      >
+        <div class="container">
+          <input
+            type="text"
+            class="text au-target"
+            value.bind="filter"
+            ref="elemText"
+            focus.trigger="processFocus($event)"
+            blur.trigger="processBlur($event)"
+            keydown.delegate="processKeyDown($event)"
+            input.delegate="applyFastFilterDebounce($event.target.value)"
+            au-target-id="612"
+            placeholder="Search"
+            id="grid_fb_text"
+          />
+          <qp-icon
+            imagesrc="svg:main@search"
+            class="au-target"
+            au-target-id="613"
+          >
+            <!--anchor-->
+            <!--anchor-->
+            <svg>
+              <use
+                href.bind="imageName &amp; attr"
+                class="au-target"
+                au-target-id="398"
+                href="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#search"
+              ></use></svg
+            ><!--anchor-->
+            <!--anchor-->
+          </qp-icon>
+        </div>
+      </qp-filter-box>
+    </div>
+    <!--anchor-->
+  </div>
+</qp-filter-bar>

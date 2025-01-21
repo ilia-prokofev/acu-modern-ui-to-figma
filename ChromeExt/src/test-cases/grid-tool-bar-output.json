@@ -1,15 +1,15 @@
 {
   "Items": [
     {
-      "IconType": "Back",
+      "IconType": "Refresh",
       "ItemType": "IconButton"
     },
     {
-      "IconType": "SaveAndBack",
-      "ItemType": "IconButton"
+      "ItemType": "Button",
+      "Text": "Add Project Items"
     },
     {
-      "IconType": "Save",
+      "IconType": "Import",
       "ItemType": "IconButton"
     },
     {
@@ -21,31 +21,20 @@
       "ItemType": "IconButton"
     },
     {
-      "IconType": "Delete",
+      "IconType": "Edit",
       "ItemType": "IconButton"
     },
     {
-      "IconType": "Copy",
+      "IconType": "AdjustColumns",
       "ItemType": "IconButton"
     },
     {
-      "IconType": "First",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Previous",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Next",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Last",
+      "IconType": "ExportToExcel",
       "ItemType": "IconButton"
     }
   ],
-  "ShowRightAction": false,
+  "ShowRightAction": true,
   "ShowSaveButton": false,
+  "ToolBarType": "List",
   "Type": "ToolBar"
 }
