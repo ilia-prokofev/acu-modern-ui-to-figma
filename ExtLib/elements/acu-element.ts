@@ -6,9 +6,10 @@ export enum AcuElementType {
     Tabbar = 'Tabbar',
     Grid = 'Grid',
     GridColumn = 'GridColumn',
+    GridToolBar = 'GridToolBar',
     FieldsetSlot = 'FieldsetSlot',
-    Group = 'Group',
     Root = 'Root',
+    ToolBar = 'ToolBar',
 }
 
 export interface AcuElement {

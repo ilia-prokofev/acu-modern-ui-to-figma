@@ -49,7 +49,7 @@ export default class QPTabBarVisitor implements ElementVisitor {
             const tab: Tab = {
                 Type: AcuElementType.Tab,
                 Label: tabElement.textContent?.trim() ?? '',
-                IsActive: findClasses(tabHeaderContainer, 'qp-tabbar-tab--first'),
+                IsActive: findElementByClassesDown(tabHeaderContainer, 'qp-tabbar-active') !== null,
             };
 
             tabBar.Tabs.push(tab);
