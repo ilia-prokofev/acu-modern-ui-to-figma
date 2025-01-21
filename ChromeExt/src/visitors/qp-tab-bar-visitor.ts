@@ -2,7 +2,7 @@ import {AcuElement, AcuElementType} from "../elements/acu-element";
 import {AcuContainer} from "../elements/acu-container";
 import {Tab, TabBar} from "../elements/qp-tabbar";
 import ElementVisitor from "./qp-element-visitor";
-import {findClasses, findElementByClassesDown} from "./html-element-utils";
+import {findClasses, findElementByClassesDown, findElementByNodeNameDown} from "./html-element-utils";
 import ChildrenVisitor from "./children-visitors";
 
 export default class QPTabBarVisitor implements ElementVisitor {
@@ -19,7 +19,7 @@ export default class QPTabBarVisitor implements ElementVisitor {
             return false;
         }
 
-        const child: TabBar = {
+        const tabBar: TabBar = {
             Type: AcuElementType.Tabbar,
             Children: [],
             Tabs: [],
@@ -31,33 +31,33 @@ export default class QPTabBarVisitor implements ElementVisitor {
         }
 
         for (let i = 0; i < tabsContainer.children.length; i++) {
-            const tabElement = tabsContainer.children[i];
-            if (!findClasses(tabElement, 'tab-header-container')) {
+            const tabHeaderContainer = tabsContainer.children[i];
+            if (!findClasses(tabHeaderContainer, 'tab-header-container')) {
                 continue;
             }
 
-            if (tabElement.children.length === 0 ||
-                tabElement.children[0].children.length === 0) {
+            const tabHeaderContainerChild = findElementByNodeNameDown(tabHeaderContainer, "div");
+            if (!tabHeaderContainerChild) {
                 continue;
             }
 
-            const tabLabelElement = tabElement.children[0].children[0];
-            if (!findClasses(tabLabelElement, 'au-target')) {
+            const tabElement = findElementByNodeNameDown(tabHeaderContainerChild, "div")
+            if (!tabElement) {
                 continue;
             }
 
             const tab: Tab = {
                 Type: AcuElementType.Tab,
-                Label: tabLabelElement.textContent?.trim() ?? '',
-                IsActive: findClasses(tabElement, 'qp-tabbar-tab--first'),
+                Label: tabElement.textContent?.trim() ?? '',
+                IsActive: findClasses(tabHeaderContainer, 'qp-tabbar-tab--first'),
             };
 
-            child.Tabs.push(tab);
+            tabBar.Tabs.push(tab);
         }
 
-        (parent as AcuContainer).Children.push(child);
+        (parent as AcuContainer).Children.push(tabBar);
 
-        allVisitor.visitChildren(htmlElement, child);
+        allVisitor.visitChildren(htmlElement, tabBar);
 
         return true;
     }
