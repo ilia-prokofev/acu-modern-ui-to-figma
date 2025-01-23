@@ -95,9 +95,29 @@ export function findLeafTextContent(htmlElement: Element): string | null {
     return findLeafTextContent(htmlElement.children[0]);
 }
 
+export function findAttributeValueDown(htmlElement: Element, attributeName: string): string | null {
+    const value = htmlElement.getAttribute(attributeName);
+    if (value) {
+        return value;
+    }
+
+    for (const child of htmlElement.children) {
+        const childValue = findAttributeValueDown(child, attributeName);
+        if (childValue) {
+            return childValue;
+        }
+    }
+
+    return null;
+}
+
 export function concatElementID(otherId: string, htmlElement: Element): string {
     let id = htmlElement.getAttribute("au-target-id") ??
         htmlElement.getAttribute("id") ??
         htmlElement.nodeName.toLowerCase();
     return `${otherId}-${id}`
+}
+
+export function isElementEnabled(element: Element): boolean {
+    return !findClasses(element, "disabled");
 }

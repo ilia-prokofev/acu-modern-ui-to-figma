@@ -10,16 +10,16 @@ describe('acu-page-parser', () => {
     }
 
     const testCases: testCase[] = [
-        {
-            testName: "pm-3010pl",
-            incomingHTMLFileName: './test-cases/pm-3010pl-input.html',
-            expectedJSONFile: './test-cases/pm-3010pl-output.json',
-        },
         // {
-        //     testName: "sc-000001",
-        //     incomingHTMLFileName: './test-cases/sc-000001-input.html',
-        //     expectedJSONFile: './test-cases/sc-000001-output.json',
+        //     testName: "pm-3010pl",
+        //     incomingHTMLFileName: './test-cases/pm-3010pl-input.html',
+        //     expectedJSONFile: './test-cases/pm-3010pl-output.json',
         // },
+        {
+            testName: "sc-000001",
+            incomingHTMLFileName: './test-cases/sc-000001-input.html',
+            expectedJSONFile: './test-cases/sc-000001-output.json',
+        },
     ]
 
     it.each(testCases)(

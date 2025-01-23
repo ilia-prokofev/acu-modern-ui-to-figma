@@ -5,10 +5,8 @@ import {
     isQPToolbarContainer,
     QPToolBar, QPToolbarContainer,
     QPToolBarItem,
-    QPToolBarItemAddFilterButton,
     QPToolBarItemFilterButton,
     QPToolBarItemFilterCombo,
-    QPToolBarItemMenuButton,
     QPToolBarItemSeparator,
     QPToolBarItemType,
     QPToolBarType
@@ -89,23 +87,21 @@ export default class QPFilterBarVisitor implements ElementVisitor {
             }
 
             case "qp-button": {
-                if (findClasses(itemElement, "aurelia-hide")) {
-                    return null;
-                }
-
-                if (findClasses(itemElement, "add-filter")) {
-                    return {
-                        ItemType: QPToolBarItemType.AddFilterButton,
-                    } as QPToolBarItemAddFilterButton
-                }
+                // if (findClasses(itemElement, "add-filter")) {
+                //     return {
+                //         ItemType: QPToolBarItemType.AddFilterButton,
+                //     } as QPToolBarItemAddFilterButton
+                // }
 
                 return null;
             }
 
             case "qp-menu": {
-                return {
-                    ItemType: QPToolBarItemType.MenuButton,
-                } as QPToolBarItemMenuButton;
+                // return {
+                //     ItemType: QPToolBarItemType.MenuButton,
+                // } as QPToolBarItemMenuButton;
+
+                return null;
             }
         }
 

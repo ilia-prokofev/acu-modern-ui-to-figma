@@ -40,7 +40,7 @@
                 class="usrCaption au-target"
                 ref="captionElement"
                 au-target-id="541"
-                >SC-000001 - Cornerstone Concrete</span
+                >SC-000036 - CB Sitework, Inc.</span
               >
             </div>
           </div>
@@ -216,7 +216,7 @@
                     ><!--anchor-->
                     <!--anchor--> </qp-icon
                   ><!--anchor-->
-                  <span class="text">Files (1)</span
+                  <span class="text">Files</span
                   ><!--anchor-->
                   <!--anchor-->
                 </div>
@@ -369,7 +369,19 @@
     >
       <!--anchor-->
     </qp-translation-validation>
-    <div id="InfoBannerContainer"><!--view--><!--anchor--><!--portal--></div>
+    <div id="InfoBannerContainer">
+      <!--view-->
+      <div class="au-target search-hint-box yellow" au-target-id="543">
+        <div class="au-target icon yellow" au-target-id="544">
+          <i class="ac ac-warning"></i>
+        </div>
+        <div class="message">
+          The project budget is exceeded. For details, check warnings in the
+          document lines.
+        </div>
+      </div>
+      <!--anchor--><!--portal-->
+    </div>
     <!--anchor-->
     <!--view-->
 
@@ -1042,6 +1054,26 @@
               </qp-tooltip
               ><!--anchor-->
             </li>
+            <li
+              click.capture="processClick(item.id, item.type, $event)"
+              mousedown.trigger="processDown(item.id, item.type, $event)"
+              mouseout.trigger="processOut(item.id, $event)"
+              class="au-target qp-tool-bar-item qp-connotation-Success"
+              au-target-id="482"
+              data-cmd=""
+              id=""
+            >
+              <div class="au-target qp-tool-bar-button" au-target-id="483">
+                <!--anchor-->
+                <div class="qp-tool-bar-text">Remove Hold</div>
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+
+              <!--anchor-->
+            </li>
             <!--anchor-->
           </ul>
 
@@ -1674,6 +1706,7 @@
               au-target-id="498"
               data-cmd="Last"
               id="MainToolbarts_Last"
+              style=""
             >
               <div class="au-target qp-tool-bar-button" au-target-id="499">
                 <qp-hyper-icon
@@ -1719,6 +1752,27 @@
               >
               </qp-tooltip
               ><!--anchor-->
+            </li>
+            <!--anchor--><!--view-->
+            <li
+              ref="itemElements[$index]"
+              click.capture="processClick(item.id, item.type, $event)"
+              mouseout.trigger="processOut(item.id, $event)"
+              mousedown.trigger="processDown(item.id, item.type, $event)"
+              class="au-target qp-tool-bar-item qp-connotation-Success"
+              au-target-id="498"
+              data-cmd="ReleaseFromHold"
+              id="MainToolbarts_ReleaseFromHold"
+            >
+              <div class="au-target qp-tool-bar-button" au-target-id="499">
+                <!--anchor-->
+                <div class="qp-tool-bar-text">Remove Hold</div>
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
             </li>
             <!--anchor--><!--anchor-->
           </ul>
@@ -1971,9 +2025,9 @@
                                 </qp-icon>
 
                                 <!-- <div class="buttonsCont sprite-icon control-icon" icon="SelectorN" type="sel">
-				<div class="control-icon-img control-SelectorN">
-				</div>
-			</div> --></button
+<div class="control-icon-img control-SelectorN">
+</div>
+</div> --></button
                               ><!--anchor-->
                             </div>
 
@@ -2113,9 +2167,9 @@
                                     valuetextattr.bind="valueText &amp; attr"
                                     class="au-target drop-down__text ReadOnly"
                                     au-target-id="283"
-                                    valuetextattr="Closed"
-                                    valueattr="C"
-                                    ><!--anchor-->Closed</span
+                                    valuetextattr="On Hold"
+                                    valueattr="H"
+                                    ><!--anchor-->On Hold</span
                                   >
                                 </div>
                               </div>
@@ -2142,10 +2196,10 @@
                                   <!--anchor-->
                                 </qp-icon>
                                 <!-- <div class="sprite-icon control-icon" icon="DropDownN" type="sel"
-			css="${ROMode ? 'display: none;' : ''}">
-				<div class="control-icon-img control-DropDownN">
-				</div>
-			</div> -->
+css="${ROMode ? 'display: none;' : ''}">
+<div class="control-icon-img control-DropDownN">
+</div>
+</div> -->
                               </div>
                             </div>
                             <!--anchor--> </enhanced-compose
@@ -2177,7 +2231,7 @@
                     pinned.one-way="getFieldPinned(df)"
                     tab-index.one-way="getFieldTabIndex(df)"
                     name="OrderDate"
-                    class="au-target qp-field qp-field-expanded qp-field-disabled"
+                    class="au-target qp-field qp-field-expanded"
                     au-target-id="1526"
                   >
                     <!--anchor-->
@@ -2243,10 +2297,10 @@
                             <div
                               buttons.bind="ROMode ? '0' : '' &amp; attr"
                               ref="editorDiv"
-                              class="au-target qp-datetime__editor dropDown ReadOnly"
+                              class="au-target qp-datetime__editor dropDown"
                               au-target-id="267"
                               id="edDocument-OrderDate"
-                              buttons="0"
+                              buttons=""
                               style="display: block"
                             >
                               <div class="editorCont">
@@ -2267,19 +2321,17 @@
                                     focus.bind="focused"
                                     enabled.bind="config.enabled === false ? false : null &amp; attr"
                                     disabled.bind="ROMode"
-                                    class="au-target editor ReadOnly"
+                                    class="au-target editor"
                                     au-target-id="268"
                                     id="edDocument-OrderDate_text"
                                     name="$text"
-                                    tabindex="-1"
-                                    disabled=""
-                                    enabled="false"
+                                    tabindex="0"
                                     value=""
                                   />
                                 </div>
                               </div>
                               <div
-                                class="buttonsCont qp-calendar-opener au-target aurelia-hide"
+                                class="buttonsCont qp-calendar-opener au-target"
                                 mousedown.capture="toggleCalendar($event)"
                                 show.bind="!ROMode"
                                 au-target-id="269"
@@ -2304,10 +2356,10 @@
                                   <!--anchor-->
                                 </qp-icon>
                                 <!-- <div class="sprite-icon control-icon" icon="DropDownN" type="sel"
-			css="${ROMode ? 'display: none;' : ''}">
-				<div class="control-icon-img control-DropDownN">
-				</div>
-			</div> -->
+css="${ROMode ? 'display: none;' : ''}">
+<div class="control-icon-img control-DropDownN">
+</div>
+</div> -->
                               </div>
                             </div>
                             <!--anchor--> </enhanced-compose
@@ -2331,7 +2383,7 @@
                     pinned.one-way="getFieldPinned(df)"
                     tab-index.one-way="getFieldTabIndex(df)"
                     name="ExpectedDate"
-                    class="au-target qp-field qp-field-disabled qp-field-expanded"
+                    class="au-target qp-field qp-field-expanded"
                     au-target-id="1528"
                   >
                     <!--anchor-->
@@ -2397,10 +2449,10 @@
                             <div
                               buttons.bind="ROMode ? '0' : '' &amp; attr"
                               ref="editorDiv"
-                              class="au-target qp-datetime__editor dropDown ReadOnly"
+                              class="au-target qp-datetime__editor dropDown"
                               au-target-id="267"
                               id="edDocument-ExpectedDate"
-                              buttons="0"
+                              buttons=""
                               style="display: block"
                             >
                               <div class="editorCont">
@@ -2421,19 +2473,17 @@
                                     focus.bind="focused"
                                     enabled.bind="config.enabled === false ? false : null &amp; attr"
                                     disabled.bind="ROMode"
-                                    class="au-target editor ReadOnly"
+                                    class="au-target editor"
                                     au-target-id="268"
                                     id="edDocument-ExpectedDate_text"
                                     name="$text"
-                                    tabindex="-1"
-                                    disabled=""
-                                    enabled="false"
+                                    tabindex="0"
                                     value=""
                                   />
                                 </div>
                               </div>
                               <div
-                                class="buttonsCont qp-calendar-opener au-target aurelia-hide"
+                                class="buttonsCont qp-calendar-opener au-target"
                                 mousedown.capture="toggleCalendar($event)"
                                 show.bind="!ROMode"
                                 au-target-id="269"
@@ -2458,10 +2508,10 @@
                                   <!--anchor-->
                                 </qp-icon>
                                 <!-- <div class="sprite-icon control-icon" icon="DropDownN" type="sel"
-			css="${ROMode ? 'display: none;' : ''}">
-				<div class="control-icon-img control-DropDownN">
-				</div>
-			</div> -->
+css="${ROMode ? 'display: none;' : ''}">
+<div class="control-icon-img control-DropDownN">
+</div>
+</div> -->
                               </div>
                             </div>
                             <!--anchor--> </enhanced-compose
@@ -2489,7 +2539,7 @@
                     pinned.one-way="getFieldPinned(df)"
                     tab-index.one-way="getFieldTabIndex(df)"
                     name="VendorRefNbr"
-                    class="au-target qp-field qp-field-disabled qp-field-expanded"
+                    class="au-target qp-field qp-field-expanded"
                     au-target-id="1532"
                   >
                     <!--anchor-->
@@ -2578,8 +2628,6 @@
                               id="edDocument-VendorRefNbr"
                               name=""
                               tabindex="0"
-                              enabled="false"
-                              readonly=""
                               maxlength="40"
                               value=""
                             /><!--anchor-->
@@ -2630,7 +2678,7 @@
                     tab-index.one-way="getFieldTabIndex(df)"
                     name="VendorID"
                     config-allow-edit.bind="true"
-                    class="au-target qp-field qp-field-expanded qp-field-disabled"
+                    class="au-target qp-field qp-field-expanded"
                     au-target-id="1506"
                   >
                     <!--anchor-->
@@ -2696,7 +2744,7 @@
                             <div
                               ref="editorDiv"
                               tabindex="-1"
-                              class="au-target editor qp-selector qp-selector-readonly qp-selector-allow-edit"
+                              class="au-target editor qp-selector qp-selector-allow-edit"
                               au-target-id="878"
                               id="edDocument-VendorID"
                             >
@@ -2752,22 +2800,52 @@
                                 focus-elem=""
                                 focus.trigger="onSpanFocus($event)"
                                 au-target-id="887"
-                                tabindex="-1"
+                                tabindex="0"
                               >
                                 <span class="qp-selector-link">
                                   <span
                                     class="qp-selector-link-text au-target"
                                     mousedown.trigger="openEditor($event)"
                                     au-target-id="888"
-                                    >CORNERCONC</span
+                                    >CBSITEWORK</span
                                   >
                                   <span class="qp-selector-link-desc"
-                                    >&nbsp;- Cornerstone Concrete</span
+                                    >&nbsp;- CB Sitework, Inc.</span
                                   >
                                 </span> </span
                               ><!--anchor-->
 
-                              <!--anchor-->
+                              <button
+                                type="button"
+                                mousedown.capture="openSelector($event)"
+                                class="qp-field-editor__button au-target"
+                                tabindex="-1"
+                                au-target-id="892"
+                              >
+                                <qp-icon
+                                  imagesrc="svg:main@search"
+                                  class="buttonsCont au-target"
+                                  type="sel"
+                                  au-target-id="893"
+                                >
+                                  <!--anchor-->
+                                  <!--anchor-->
+                                  <svg>
+                                    <use
+                                      href.bind="imageName &amp; attr"
+                                      class="au-target"
+                                      au-target-id="398"
+                                      href="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#search"
+                                    ></use></svg
+                                  ><!--anchor-->
+                                  <!--anchor-->
+                                </qp-icon>
+
+                                <!-- <div class="buttonsCont sprite-icon control-icon" icon="SelectorN" type="sel">
+<div class="control-icon-img control-SelectorN">
+</div>
+</div> --></button
+                              ><!--anchor-->
                             </div>
 
                             <qp-suggester
@@ -2802,7 +2880,7 @@
                     pinned.one-way="getFieldPinned(df)"
                     tab-index.one-way="getFieldTabIndex(df)"
                     name="VendorLocationID"
-                    class="au-target qp-field qp-field-expanded qp-field-disabled"
+                    class="au-target qp-field qp-field-expanded"
                     au-target-id="1508"
                   >
                     <!--anchor-->
@@ -2868,7 +2946,7 @@
                             <div
                               ref="editorDiv"
                               tabindex="-1"
-                              class="au-target editor qp-selector qp-selector-readonly"
+                              class="au-target editor qp-selector"
                               au-target-id="878"
                               id="edDocument-VendorLocationID"
                             >
@@ -2909,9 +2987,7 @@
                                   type="text"
                                   id="edDocument-VendorLocationID_text"
                                   name=""
-                                  tabindex="-1"
-                                  enabled="false"
-                                  readonly=""
+                                  tabindex="0"
                                   value=""
                                 /><!--anchor-->
                                 <!--anchor-->
@@ -2921,7 +2997,37 @@
                               </enhanced-compose>
                               <!--anchor-->
 
-                              <!--anchor-->
+                              <button
+                                type="button"
+                                mousedown.capture="openSelector($event)"
+                                class="qp-field-editor__button au-target"
+                                tabindex="-1"
+                                au-target-id="892"
+                              >
+                                <qp-icon
+                                  imagesrc="svg:main@search"
+                                  class="buttonsCont au-target"
+                                  type="sel"
+                                  au-target-id="893"
+                                >
+                                  <!--anchor-->
+                                  <!--anchor-->
+                                  <svg>
+                                    <use
+                                      href.bind="imageName &amp; attr"
+                                      class="au-target"
+                                      au-target-id="398"
+                                      href="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#search"
+                                    ></use></svg
+                                  ><!--anchor-->
+                                  <!--anchor-->
+                                </qp-icon>
+
+                                <!-- <div class="buttonsCont sprite-icon control-icon" icon="SelectorN" type="sel">
+<div class="control-icon-img control-SelectorN">
+</div>
+</div> --></button
+                              ><!--anchor-->
                             </div>
 
                             <qp-suggester
@@ -2956,7 +3062,7 @@
                     pinned.one-way="getFieldPinned(df)"
                     tab-index.one-way="getFieldTabIndex(df)"
                     name="OwnerID"
-                    class="au-target qp-field qp-field-disabled qp-field-expanded"
+                    class="au-target qp-field qp-field-expanded"
                     au-target-id="1510"
                   >
                     <!--anchor-->
@@ -3022,7 +3128,7 @@
                             <div
                               ref="editorDiv"
                               tabindex="-1"
-                              class="au-target editor qp-selector qp-selector-readonly"
+                              class="au-target editor qp-selector"
                               au-target-id="878"
                               id="edDocument-OwnerID"
                             >
@@ -3063,9 +3169,7 @@
                                   type="text"
                                   id="edDocument-OwnerID_text"
                                   name=""
-                                  tabindex="-1"
-                                  enabled="false"
-                                  readonly=""
+                                  tabindex="0"
                                   value=""
                                 /><!--anchor-->
                                 <!--anchor-->
@@ -3075,7 +3179,37 @@
                               </enhanced-compose>
                               <!--anchor-->
 
-                              <!--anchor-->
+                              <button
+                                type="button"
+                                mousedown.capture="openSelector($event)"
+                                class="qp-field-editor__button au-target"
+                                tabindex="-1"
+                                au-target-id="892"
+                              >
+                                <qp-icon
+                                  imagesrc="svg:main@search"
+                                  class="buttonsCont au-target"
+                                  type="sel"
+                                  au-target-id="893"
+                                >
+                                  <!--anchor-->
+                                  <!--anchor-->
+                                  <svg>
+                                    <use
+                                      href.bind="imageName &amp; attr"
+                                      class="au-target"
+                                      au-target-id="398"
+                                      href="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#search"
+                                    ></use></svg
+                                  ><!--anchor-->
+                                  <!--anchor-->
+                                </qp-icon>
+
+                                <!-- <div class="buttonsCont sprite-icon control-icon" icon="SelectorN" type="sel">
+<div class="control-icon-img control-SelectorN">
+</div>
+</div> --></button
+                              ><!--anchor-->
                             </div>
 
                             <qp-suggester
@@ -3116,7 +3250,7 @@
                     name="CuryID"
                     control-type="qp-currency"
                     view.bind="CurrencyInfo"
-                    class="au-target qp-field qp-field-expanded qp-field-disabled"
+                    class="au-target qp-field qp-field-expanded"
                     au-target-id="1514"
                   >
                     <!--anchor-->
@@ -3193,7 +3327,7 @@
                                   <div
                                     ref="editorDiv"
                                     tabindex="-1"
-                                    class="au-target editor qp-selector qp-selector-readonly"
+                                    class="au-target editor qp-selector"
                                     au-target-id="878"
                                     id="edDocument-CuryID_currencySelector"
                                   >
@@ -3234,9 +3368,7 @@
                                         type="text"
                                         id="edDocument-CuryID_currencySelector_text"
                                         name=""
-                                        tabindex="-1"
-                                        enabled="false"
-                                        readonly=""
+                                        tabindex="0"
                                         value=""
                                       /><!--anchor-->
                                       <!--anchor-->
@@ -3246,7 +3378,37 @@
                                     </enhanced-compose>
                                     <!--anchor-->
 
-                                    <!--anchor-->
+                                    <button
+                                      type="button"
+                                      mousedown.capture="openSelector($event)"
+                                      class="qp-field-editor__button au-target"
+                                      tabindex="-1"
+                                      au-target-id="892"
+                                    >
+                                      <qp-icon
+                                        imagesrc="svg:main@search"
+                                        class="buttonsCont au-target"
+                                        type="sel"
+                                        au-target-id="893"
+                                      >
+                                        <!--anchor-->
+                                        <!--anchor-->
+                                        <svg>
+                                          <use
+                                            href.bind="imageName &amp; attr"
+                                            class="au-target"
+                                            au-target-id="398"
+                                            href="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#search"
+                                          ></use></svg
+                                        ><!--anchor-->
+                                        <!--anchor-->
+                                      </qp-icon>
+
+                                      <!-- <div class="buttonsCont sprite-icon control-icon" icon="SelectorN" type="sel">
+<div class="control-icon-img control-SelectorN">
+</div>
+</div> --></button
+                                    ><!--anchor-->
                                   </div>
 
                                   <qp-suggester
@@ -3376,7 +3538,7 @@
                     tab-index.one-way="getFieldTabIndex(df)"
                     name="OrderDesc"
                     config-rows.bind="3"
-                    class="au-target qp-field qp-field-disabled qp-field-expanded"
+                    class="au-target qp-field qp-field-expanded"
                     au-target-id="1516"
                   >
                     <!--anchor-->
@@ -3463,8 +3625,6 @@
                               name=""
                               tabindex="0"
                               maxlength="60"
-                              enabled="false"
-                              readonly=""
                               rows="3"
                             >
                             </textarea
@@ -3997,17 +4157,25 @@
                   class="au-target qp-field qp-field-expanded qp-field-disabled"
                   au-target-id="1500"
                 >
-                  <!--anchor-->
+                  <qp-tooltip
+                    rule.bind="'div[data-tooltip]'"
+                    exclude.bind="'enhanced-compose.main-control'"
+                    class="au-target"
+                    au-target-id="216"
+                  >
+                  </qp-tooltip
+                  ><!--anchor-->
 
                   <div
                     show.bind="controlState.visible === undefined || controlState.visible !== false"
                     data-tooltip.bind="errorMessage"
                     data-error-level.bind="errorLevel"
                     data-id.bind="effectiveId"
-                    class="au-target wrapper"
+                    class="au-target wrapper war-l"
                     au-target-id="218"
-                    data-error-level="0"
+                    data-error-level="3"
                     data-id="edDocument-CuryOrderTotal"
+                    data-tooltip="The project budget is exceeded. For details, check warnings in the document lines."
                   >
                     <span
                       class="label-wrapper no-label au-target"
@@ -4242,140 +4410,140 @@
         id="CurrentDocument_tab"
         wg-container=""
         data-original-content='
-		<qp-tab id="DetailsTab" caption.bind="localizationService.localize(&amp;quot;SC301000.DetailsTab.caption&amp;quot;, &amp;quot;Details&amp;quot;)" caption.original-value="Details">
-			<qp-grid id="grid" view.bind="Transactions"></qp-grid>
-		</qp-tab>
-		<qp-tab id="TaxesTab" caption.bind="localizationService.localize(&amp;quot;SC301000.TaxesTab.caption&amp;quot;, &amp;quot;Taxes&amp;quot;)" caption.original-value="Taxes">
-			<qp-template name="17-7" id="TaxesForm" class="stretch">
-				<qp-grid slot="A" id="gridTaxes" view.bind="Taxes" class="framed-section"></qp-grid>
-				<div slot="B">
-					<qp-fieldset id="TaxesInfo" view.bind="CurrentDocument" caption.bind="localizationService.localize(&amp;quot;SC301000.TaxesInfo.caption&amp;quot;, &amp;quot;Tax Info&amp;quot;)" caption.original-value="Tax Info">
-						<field name="TaxZoneID"></field>
-					</qp-fieldset>
-					<qp-fieldset id="TaxesTotals" view.bind="CurrentDocument" class="highlights-section" caption.bind="localizationService.localize(&amp;quot;SC301000.TaxesTotals.caption&amp;quot;, &amp;quot;Tax Totals&amp;quot;)" caption.original-value="Tax Totals">
-						<field name="CuryVatExemptTotal"></field>
-						<field name="CuryVatTaxableTotal"></field>
-						<field name="CuryTaxTotal"></field>
-					</qp-fieldset>
-				</div>
-			</qp-template>
-		</qp-tab>
-		<qp-tab id="AddressesTab" caption.bind="localizationService.localize(&amp;quot;SC301000.AddressesTab.caption&amp;quot;, &amp;quot;Addresses&amp;quot;)" caption.original-value="Addresses">
-			<qp-template name="17-17-14" id="AddressesForm">
-				<div slot="A">
-					<qp-fieldset id="formVC" view.bind="Remit_Contact" caption.bind="localizationService.localize(&amp;quot;SC301000.formVC.caption&amp;quot;, &amp;quot;Vendor Contact&amp;quot;)" caption.original-value="Vendor Contact">
-						<field name="OverrideContact"></field>
-						<field name="FullName"></field>
-						<field name="Salutation"></field>
-						<field name="Phone1"></field>
-						<field name="Email"></field>
-					</qp-fieldset>
-				</div>
-				<div slot="B">
-					<qp-fieldset id="formVA" view.bind="Remit_Address" wg-container="" caption.bind="localizationService.localize(&amp;quot;SC301000.formVA.caption&amp;quot;, &amp;quot;Vendor Address&amp;quot;)" caption.original-value="Vendor Address">
+<qp-tab id="DetailsTab" caption.bind="localizationService.localize(&amp;quot;SC301000.DetailsTab.caption&amp;quot;, &amp;quot;Details&amp;quot;)" caption.original-value="Details">
+<qp-grid id="grid" view.bind="Transactions"></qp-grid>
+</qp-tab>
+<qp-tab id="TaxesTab" caption.bind="localizationService.localize(&amp;quot;SC301000.TaxesTab.caption&amp;quot;, &amp;quot;Taxes&amp;quot;)" caption.original-value="Taxes">
+<qp-template name="17-7" id="TaxesForm" class="stretch">
+<qp-grid slot="A" id="gridTaxes" view.bind="Taxes" class="framed-section"></qp-grid>
+<div slot="B">
+<qp-fieldset id="TaxesInfo" view.bind="CurrentDocument" caption.bind="localizationService.localize(&amp;quot;SC301000.TaxesInfo.caption&amp;quot;, &amp;quot;Tax Info&amp;quot;)" caption.original-value="Tax Info">
+<field name="TaxZoneID"></field>
+</qp-fieldset>
+<qp-fieldset id="TaxesTotals" view.bind="CurrentDocument" class="highlights-section" caption.bind="localizationService.localize(&amp;quot;SC301000.TaxesTotals.caption&amp;quot;, &amp;quot;Tax Totals&amp;quot;)" caption.original-value="Tax Totals">
+<field name="CuryVatExemptTotal"></field>
+<field name="CuryVatTaxableTotal"></field>
+<field name="CuryTaxTotal"></field>
+</qp-fieldset>
+</div>
+</qp-template>
+</qp-tab>
+<qp-tab id="AddressesTab" caption.bind="localizationService.localize(&amp;quot;SC301000.AddressesTab.caption&amp;quot;, &amp;quot;Addresses&amp;quot;)" caption.original-value="Addresses">
+<qp-template name="17-17-14" id="AddressesForm">
+<div slot="A">
+<qp-fieldset id="formVC" view.bind="Remit_Contact" caption.bind="localizationService.localize(&amp;quot;SC301000.formVC.caption&amp;quot;, &amp;quot;Vendor Contact&amp;quot;)" caption.original-value="Vendor Contact">
+<field name="OverrideContact"></field>
+<field name="FullName"></field>
+<field name="Salutation"></field>
+<field name="Phone1"></field>
+<field name="Email"></field>
+</qp-fieldset>
+</div>
+<div slot="B">
+<qp-fieldset id="formVA" view.bind="Remit_Address" wg-container="" caption.bind="localizationService.localize(&amp;quot;SC301000.formVA.caption&amp;quot;, &amp;quot;Vendor Address&amp;quot;)" caption.original-value="Vendor Address">
 
-		<field name="OverrideAddress"></field>
+<field name="OverrideAddress"></field>
 
-		<field name="FakeField" unbound="">
-			<qp-address-lookup id="formVA_btn" class="col-12" view.bind="Remit_Address"></qp-address-lookup>
-		</field>
-		<field name="AddressLine1"></field>
-		<field name="AddressLine2"></field>
-		<field name="City"></field>
-		<field name="CountryID"></field>
-		<field name="State"></field>
-		<field name="PostalCode"></field>
+<field name="FakeField" unbound="">
+<qp-address-lookup id="formVA_btn" class="col-12" view.bind="Remit_Address"></qp-address-lookup>
+</field>
+<field name="AddressLine1"></field>
+<field name="AddressLine2"></field>
+<field name="City"></field>
+<field name="CountryID"></field>
+<field name="State"></field>
+<field name="PostalCode"></field>
 
 
-		<field name="IsValidated"></field>
+<field name="IsValidated"></field>
 
-	</qp-fieldset>
-				</div>
-			</qp-template>
-		</qp-tab>
-		<qp-tab id="ApprovalsTab" if.bind="Document.RequestApproval.value == true" caption.bind="localizationService.localize(&amp;quot;SC301000.ApprovalsTab.caption&amp;quot;, &amp;quot;Approvals&amp;quot;)" caption.original-value="Approvals">
-			<qp-grid id="gridApproval" view.bind="Approval"></qp-grid><qp-panel id="ReasonApproveRejectParams" auto-repaint="true" wg-container="ReasonApproveRejectParams_PXFormViewPanelReason" caption.bind="localizationService.localize(&amp;quot;SC301000.ReasonApproveRejectParams.caption&amp;quot;, &amp;quot;Enter Reason&amp;quot;)" caption.original-value="Enter Reason">
-		<qp-fieldset id="PXFormViewPanelReason" view.bind="ReasonApproveRejectParams">
-			<field name="Reason"></field>
-		</qp-fieldset>
+</qp-fieldset>
+</div>
+</qp-template>
+</qp-tab>
+<qp-tab id="ApprovalsTab" if.bind="Document.RequestApproval.value == true" caption.bind="localizationService.localize(&amp;quot;SC301000.ApprovalsTab.caption&amp;quot;, &amp;quot;Approvals&amp;quot;)" caption.original-value="Approvals">
+<qp-grid id="gridApproval" view.bind="Approval"></qp-grid><qp-panel id="ReasonApproveRejectParams" auto-repaint="true" wg-container="ReasonApproveRejectParams_PXFormViewPanelReason" caption.bind="localizationService.localize(&amp;quot;SC301000.ReasonApproveRejectParams.caption&amp;quot;, &amp;quot;Enter Reason&amp;quot;)" caption.original-value="Enter Reason">
+<qp-fieldset id="PXFormViewPanelReason" view.bind="ReasonApproveRejectParams">
+<field name="Reason"></field>
+</qp-fieldset>
 
-		<footer>
-			<qp-button id="btnReasonOk" dialog-result="Yes" config.bind="{validateInput: true}" caption.bind="localizationService.localize(&amp;quot;SC301000.btnReasonOk.caption&amp;quot;, &amp;quot;OK&amp;quot;)" caption.original-value="OK"></qp-button>
-			<qp-button id="btnReasonCancel" dialog-result="No" caption.bind="localizationService.localize(&amp;quot;SC301000.btnReasonCancel.caption&amp;quot;, &amp;quot;Cancel&amp;quot;)" caption.original-value="Cancel"></qp-button>
-		</footer>
-	</qp-panel><qp-panel id="ReassignApprovalFilter" auto-repaint="true" wg-container="ReassignApprovalFilter_formReassignApproval" caption.bind="localizationService.localize(&amp;quot;SC301000.ReassignApprovalFilter.caption&amp;quot;, &amp;quot;Reassign Approval&amp;quot;)" caption.original-value="Reassign Approval">
-		<qp-fieldset id="formReassignApproval" view.bind="ReassignApprovalFilter">
-			<field name="NewApprover"></field>
-			<field name="IgnoreApproversDelegations"></field>
-		</qp-fieldset>
+<footer>
+<qp-button id="btnReasonOk" dialog-result="Yes" config.bind="{validateInput: true}" caption.bind="localizationService.localize(&amp;quot;SC301000.btnReasonOk.caption&amp;quot;, &amp;quot;OK&amp;quot;)" caption.original-value="OK"></qp-button>
+<qp-button id="btnReasonCancel" dialog-result="No" caption.bind="localizationService.localize(&amp;quot;SC301000.btnReasonCancel.caption&amp;quot;, &amp;quot;Cancel&amp;quot;)" caption.original-value="Cancel"></qp-button>
+</footer>
+</qp-panel><qp-panel id="ReassignApprovalFilter" auto-repaint="true" wg-container="ReassignApprovalFilter_formReassignApproval" caption.bind="localizationService.localize(&amp;quot;SC301000.ReassignApprovalFilter.caption&amp;quot;, &amp;quot;Reassign Approval&amp;quot;)" caption.original-value="Reassign Approval">
+<qp-fieldset id="formReassignApproval" view.bind="ReassignApprovalFilter">
+<field name="NewApprover"></field>
+<field name="IgnoreApproversDelegations"></field>
+</qp-fieldset>
 
-		<footer>
-			<qp-button id="btnReassignApprovalOK" dialog-result="OK" caption.bind="localizationService.localize(&amp;quot;SC301000.btnReassignApprovalOK.caption&amp;quot;, &amp;quot;Reassign&amp;quot;)" caption.original-value="Reassign"></qp-button>
-			<qp-button id="btnReassignApprovalCancel" dialog-result="Cancel"></qp-button>
-		</footer>
-	</qp-panel>
-		</qp-tab>
-		<qp-tab id="DiscountsTab" caption.bind="localizationService.localize(&amp;quot;SC301000.DiscountsTab.caption&amp;quot;, &amp;quot;Discounts&amp;quot;)" caption.original-value="Discounts">
-			<qp-grid id="formDiscountDetail" view.bind="DiscountDetails"></qp-grid>
-		</qp-tab>
-		<qp-tab id="BillingTab" caption.bind="localizationService.localize(&amp;quot;SC301000.BillingTab.caption&amp;quot;, &amp;quot;Billing&amp;quot;)" caption.original-value="Billing">
-			<qp-grid id="formAPDocs" view.bind="APDocs"></qp-grid>
-		</qp-tab>
-		<qp-tab id="PrepaymentsTab" caption.bind="localizationService.localize(&amp;quot;SC301000.PrepaymentsTab.caption&amp;quot;, &amp;quot;Prepayments&amp;quot;)" caption.original-value="Prepayments">
-			<qp-grid id="PrepaymentGrid" view.bind="PrepaymentDocuments"></qp-grid>
-		</qp-tab>
-		<qp-tab id="ChangeOrdersTab" caption.bind="localizationService.localize(&amp;quot;SC301000.ChangeOrdersTab.caption&amp;quot;, &amp;quot;Change Orders&amp;quot;)" caption.original-value="Change Orders">
-			<qp-grid id="ChangeOrders_ChangeOrdersGrid" view.bind="ChangeOrders"></qp-grid>
-		</qp-tab>
-		<qp-tab id="FinancialTab" caption.bind="localizationService.localize(&amp;quot;SC301000.FinancialTab.caption&amp;quot;, &amp;quot;Financial&amp;quot;)" caption.original-value="Financial">
-			<qp-template name="17-17-14" id="FinancialForm">
-				<div slot="A">
-					<qp-fieldset id="formSlotA01" view.bind="CurrentDocument" caption.bind="localizationService.localize(&amp;quot;SC301000.formSlotA01.caption&amp;quot;, &amp;quot;Subcontract Info&amp;quot;)" caption.original-value="Subcontract Info">
-						<field name="BranchID"></field>
-						<field name="TermsID"></field>
-						<field name="ExternalTaxExemptionNumber"></field>
-						<field name="EntityUsageType"></field>
-						<field name="PayToVendorID" config-allow-edit.bind="true"></field>
-						<field name="OwnerWorkgroupID"></field>
-						<field name="PrintingAndEmailingSettingsRow01" unbound="">
-							<qp-field control-state.bind="CurrentDocument.DontPrint" class="col-6">
-							</qp-field>
-							<qp-field control-state.bind="CurrentDocument.Printed" class="col-6">
-							</qp-field>
-						</field>
-						<field name="PrintingAndEmailingSettingsRow02" unbound="">
-							<qp-field control-state.bind="CurrentDocument.DontEmail" class="col-6">
-							</qp-field>
-							<qp-field control-state.bind="CurrentDocument.Emailed" class="col-6">
-							</qp-field>
-						</field>
-					</qp-fieldset>
-				</div>
-				<div slot="B">
-					<qp-fieldset id="formSlotA02" view.bind="CurrentDocument" caption.bind="localizationService.localize(&amp;quot;SC301000.formSlotA02.caption&amp;quot;, &amp;quot;Retainage Settings&amp;quot;)" caption.original-value="Retainage Settings">
-						<field name="RetainageApply"></field>
-						<field name="DefRetainagePct"></field>
-					</qp-fieldset>
-					<qp-fieldset id="formSlotB01" view.bind="CurrentDocument" caption.bind="localizationService.localize(&amp;quot;SC301000.formSlotB01.caption&amp;quot;, &amp;quot;Discount Totals&amp;quot;)" caption.original-value="Discount Totals">
-						<field name="CuryLineDiscTotal"></field>
-						<field name="CuryDiscTot"></field>
-					</qp-fieldset>
-					<qp-fieldset id="formSlotB02" view.bind="CurrentDocument" caption.bind="localizationService.localize(&amp;quot;SC301000.formSlotB02.caption&amp;quot;, &amp;quot;Billing Info&amp;quot;)" caption.original-value="Billing Info">
-						<field name="UnbilledOrderQty"></field>
-						<field name="CuryUnbilledOrderTotal"></field>
-						<field name="CuryPrepaidTotal"></field>
-						<field name="CuryUnprepaidTotal"></field>
-					</qp-fieldset>
-				</div>
-			</qp-template>
-		</qp-tab>
-		<qp-tab id="AttributesTab" caption.bind="localizationService.localize(&amp;quot;SC301000.AttributesTab.caption&amp;quot;, &amp;quot;Attributes&amp;quot;)" caption.original-value="Attributes">
-			<qp-grid id="PXGridAnswers" view.bind="Answers"></qp-grid>
-		</qp-tab>
-		<qp-tab id="ComplianceTab" caption.bind="localizationService.localize(&amp;quot;SC301000.ComplianceTab.caption&amp;quot;, &amp;quot;Compliance&amp;quot;)" caption.original-value="Compliance">
-			<qp-grid id="grdComplianceDocuments" view.bind="ComplianceDocuments"></qp-grid>
-		</qp-tab>
-	'
+<footer>
+<qp-button id="btnReassignApprovalOK" dialog-result="OK" caption.bind="localizationService.localize(&amp;quot;SC301000.btnReassignApprovalOK.caption&amp;quot;, &amp;quot;Reassign&amp;quot;)" caption.original-value="Reassign"></qp-button>
+<qp-button id="btnReassignApprovalCancel" dialog-result="Cancel"></qp-button>
+</footer>
+</qp-panel>
+</qp-tab>
+<qp-tab id="DiscountsTab" caption.bind="localizationService.localize(&amp;quot;SC301000.DiscountsTab.caption&amp;quot;, &amp;quot;Discounts&amp;quot;)" caption.original-value="Discounts">
+<qp-grid id="formDiscountDetail" view.bind="DiscountDetails"></qp-grid>
+</qp-tab>
+<qp-tab id="BillingTab" caption.bind="localizationService.localize(&amp;quot;SC301000.BillingTab.caption&amp;quot;, &amp;quot;Billing&amp;quot;)" caption.original-value="Billing">
+<qp-grid id="formAPDocs" view.bind="APDocs"></qp-grid>
+</qp-tab>
+<qp-tab id="PrepaymentsTab" caption.bind="localizationService.localize(&amp;quot;SC301000.PrepaymentsTab.caption&amp;quot;, &amp;quot;Prepayments&amp;quot;)" caption.original-value="Prepayments">
+<qp-grid id="PrepaymentGrid" view.bind="PrepaymentDocuments"></qp-grid>
+</qp-tab>
+<qp-tab id="ChangeOrdersTab" caption.bind="localizationService.localize(&amp;quot;SC301000.ChangeOrdersTab.caption&amp;quot;, &amp;quot;Change Orders&amp;quot;)" caption.original-value="Change Orders">
+<qp-grid id="ChangeOrders_ChangeOrdersGrid" view.bind="ChangeOrders"></qp-grid>
+</qp-tab>
+<qp-tab id="FinancialTab" caption.bind="localizationService.localize(&amp;quot;SC301000.FinancialTab.caption&amp;quot;, &amp;quot;Financial&amp;quot;)" caption.original-value="Financial">
+<qp-template name="17-17-14" id="FinancialForm">
+<div slot="A">
+<qp-fieldset id="formSlotA01" view.bind="CurrentDocument" caption.bind="localizationService.localize(&amp;quot;SC301000.formSlotA01.caption&amp;quot;, &amp;quot;Subcontract Info&amp;quot;)" caption.original-value="Subcontract Info">
+<field name="BranchID"></field>
+<field name="TermsID"></field>
+<field name="ExternalTaxExemptionNumber"></field>
+<field name="EntityUsageType"></field>
+<field name="PayToVendorID" config-allow-edit.bind="true"></field>
+<field name="OwnerWorkgroupID"></field>
+<field name="PrintingAndEmailingSettingsRow01" unbound="">
+<qp-field control-state.bind="CurrentDocument.DontPrint" class="col-6">
+</qp-field>
+<qp-field control-state.bind="CurrentDocument.Printed" class="col-6">
+</qp-field>
+</field>
+<field name="PrintingAndEmailingSettingsRow02" unbound="">
+<qp-field control-state.bind="CurrentDocument.DontEmail" class="col-6">
+</qp-field>
+<qp-field control-state.bind="CurrentDocument.Emailed" class="col-6">
+</qp-field>
+</field>
+</qp-fieldset>
+</div>
+<div slot="B">
+<qp-fieldset id="formSlotA02" view.bind="CurrentDocument" caption.bind="localizationService.localize(&amp;quot;SC301000.formSlotA02.caption&amp;quot;, &amp;quot;Retainage Settings&amp;quot;)" caption.original-value="Retainage Settings">
+<field name="RetainageApply"></field>
+<field name="DefRetainagePct"></field>
+</qp-fieldset>
+<qp-fieldset id="formSlotB01" view.bind="CurrentDocument" caption.bind="localizationService.localize(&amp;quot;SC301000.formSlotB01.caption&amp;quot;, &amp;quot;Discount Totals&amp;quot;)" caption.original-value="Discount Totals">
+<field name="CuryLineDiscTotal"></field>
+<field name="CuryDiscTot"></field>
+</qp-fieldset>
+<qp-fieldset id="formSlotB02" view.bind="CurrentDocument" caption.bind="localizationService.localize(&amp;quot;SC301000.formSlotB02.caption&amp;quot;, &amp;quot;Billing Info&amp;quot;)" caption.original-value="Billing Info">
+<field name="UnbilledOrderQty"></field>
+<field name="CuryUnbilledOrderTotal"></field>
+<field name="CuryPrepaidTotal"></field>
+<field name="CuryUnprepaidTotal"></field>
+</qp-fieldset>
+</div>
+</qp-template>
+</qp-tab>
+<qp-tab id="AttributesTab" caption.bind="localizationService.localize(&amp;quot;SC301000.AttributesTab.caption&amp;quot;, &amp;quot;Attributes&amp;quot;)" caption.original-value="Attributes">
+<qp-grid id="PXGridAnswers" view.bind="Answers"></qp-grid>
+</qp-tab>
+<qp-tab id="ComplianceTab" caption.bind="localizationService.localize(&amp;quot;SC301000.ComplianceTab.caption&amp;quot;, &amp;quot;Compliance&amp;quot;)" caption.original-value="Compliance">
+<qp-grid id="grdComplianceDocuments" view.bind="ComplianceDocuments"></qp-grid>
+</qp-tab>
+'
         class="au-target"
         au-target-id="1315"
       >
@@ -4402,14 +4570,45 @@
                   pointerenter.trigger="onPointerEnter(tab.id)"
                   pointerleave.trigger="onPointerLeave(tab.id)"
                   pointerdown.delegate="onPointerDown($event, tab)"
-                  class="au-target qp-tabbar-tab qp-tabbar-active"
+                  class="au-target qp-tabbar-tab qp-tabbar-active tab-header--warning"
                   au-target-id="409"
                   id="CurrentDocument_tab_DetailsTab_tabbar"
                   tabid="DetailsTab"
                 >
-                  <!--anchor-->
-                  <!--anchor-->
-                  <div class="au-target" au-target-id="414">Details</div>
+                  <qp-icon
+                    imagesrc="svg:${getErrorIcon(tab.errorInfo)}"
+                    data-tooltip.bind="tab.errorInfo.message"
+                    data-error-level.bind="tab.errorInfo.level"
+                    class="tab-header--icon tab-header--icon-left au-target"
+                    au-target-id="410"
+                    data-tooltip="No budget is found. Budgeted: 0.00, Document: 45000.00, Remaining: -45000.00"
+                    data-error-level="2"
+                  >
+                    <!--anchor-->
+                    <!--anchor-->
+                    <svg>
+                      <use
+                        href.bind="imageName &amp; attr"
+                        class="au-target"
+                        au-target-id="398"
+                        href="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#warningExclamation"
+                      ></use></svg
+                    ><!--anchor-->
+                    <!--anchor--> </qp-icon
+                  ><!--anchor-->
+                  <qp-tooltip
+                    rule.bind="'.tab-header--icon-left'"
+                    class="au-target"
+                    au-target-id="412"
+                  >
+                  </qp-tooltip
+                  ><!--anchor-->
+                  <div
+                    class="au-target tab-header--with-error"
+                    au-target-id="414"
+                  >
+                    Details
+                  </div>
                 </div>
               </div>
               <div class="au-target tab-header-container" au-target-id="404">
@@ -4595,7 +4794,7 @@
               class="right-tab-part au-target"
               ref="rightTabPart"
               au-target-id="419"
-              style="margin-left: 1050.52px"
+              style="margin-left: 1128.91px"
             >
               <!--anchor-->
               <div
@@ -4753,13 +4952,127 @@
                               click.capture="processClick(item.id, item.type, $event)"
                               mousedown.trigger="processDown(item.id, item.type, $event)"
                               mouseout.trigger="processOut(item.id, $event)"
+                              class="au-target qp-tool-bar-item minor-button qp-connotation-default"
+                              au-target-id="482"
+                              data-cmd="insert"
+                              id="grid_topBarinsert"
+                            >
+                              <div
+                                class="au-target qp-tool-bar-button"
+                                au-target-id="483"
+                              >
+                                <qp-hyper-icon
+                                  images.bind="item.images"
+                                  class="au-target"
+                                  au-target-id="484"
+                                >
+                                  <div
+                                    class="qp-hyper-icon au-target"
+                                    mouseover.delegate="OnMouseOver()"
+                                    mouseout.delegate="OnMouseOut()"
+                                    mousedown.delegate="OnMouseDown()"
+                                    click.delegate="OnClick()"
+                                    au-target-id="24"
+                                  >
+                                    <!--anchor-->
+                                    <div
+                                      icon.bind="ImageName &amp; attr"
+                                      class="au-target sprite-icon main-icon"
+                                      au-target-id="27"
+                                      icon="RecordAdd"
+                                    >
+                                      <div
+                                        class="au-target main-icon-img main-RecordAdd"
+                                        au-target-id="28"
+                                      ></div>
+                                      <!--anchor-->
+                                      <!--anchor-->
+                                    </div>
+                                    <!--anchor-->
+                                  </div> </qp-hyper-icon
+                                ><!--anchor-->
+                                <!--anchor-->
+                              </div>
+                              <!--anchor-->
+                              <!--anchor-->
+                              <!--anchor-->
+
+                              <qp-tooltip
+                                exclude=".qp-menu-options"
+                                class="au-target"
+                                au-target-id="493"
+                              >
+                              </qp-tooltip
+                              ><!--anchor-->
+                            </li>
+                            <li
+                              click.capture="processClick(item.id, item.type, $event)"
+                              mousedown.trigger="processDown(item.id, item.type, $event)"
+                              mouseout.trigger="processOut(item.id, $event)"
+                              class="au-target qp-tool-bar-item minor-button qp-connotation-default"
+                              au-target-id="482"
+                              data-cmd="delete"
+                              id="grid_topBardelete"
+                            >
+                              <div
+                                class="au-target qp-tool-bar-button"
+                                au-target-id="483"
+                              >
+                                <qp-hyper-icon
+                                  images.bind="item.images"
+                                  class="au-target"
+                                  au-target-id="484"
+                                >
+                                  <div
+                                    class="qp-hyper-icon au-target"
+                                    mouseover.delegate="OnMouseOver()"
+                                    mouseout.delegate="OnMouseOut()"
+                                    mousedown.delegate="OnMouseDown()"
+                                    click.delegate="OnClick()"
+                                    au-target-id="24"
+                                  >
+                                    <!--anchor-->
+                                    <div
+                                      icon.bind="ImageName &amp; attr"
+                                      class="au-target sprite-icon main-icon"
+                                      au-target-id="27"
+                                      icon="RecordDel"
+                                    >
+                                      <div
+                                        class="au-target main-icon-img main-RecordDel"
+                                        au-target-id="28"
+                                      ></div>
+                                      <!--anchor-->
+                                      <!--anchor-->
+                                    </div>
+                                    <!--anchor-->
+                                  </div> </qp-hyper-icon
+                                ><!--anchor-->
+                                <!--anchor-->
+                              </div>
+                              <!--anchor-->
+                              <!--anchor-->
+                              <!--anchor-->
+
+                              <qp-tooltip
+                                exclude=".qp-menu-options"
+                                class="au-target"
+                                au-target-id="493"
+                              >
+                              </qp-tooltip
+                              ><!--anchor-->
+                            </li>
+                            <li
+                              click.capture="processClick(item.id, item.type, $event)"
+                              mousedown.trigger="processDown(item.id, item.type, $event)"
+                              mouseout.trigger="processOut(item.id, $event)"
                               class="au-target qp-tool-bar-item qp-connotation-default"
                               au-target-id="482"
                               data-cmd="AddProjectItem"
                               id="grid_topBarAddProjectItem"
                             >
                               <div
-                                class="au-target qp-tool-bar-button disabled"
+                                class="au-target qp-tool-bar-button"
                                 au-target-id="483"
                               >
                                 <!--anchor-->
@@ -4782,7 +5095,6 @@
                               au-target-id="482"
                               data-cmd="adjust"
                               id="grid_topBaradjust"
-                              style=""
                             >
                               <div
                                 class="au-target qp-tool-bar-button"
@@ -5020,13 +5332,131 @@
                               click.capture="processClick(item.id, item.type, $event)"
                               mouseout.trigger="processOut(item.id, $event)"
                               mousedown.trigger="processDown(item.id, item.type, $event)"
+                              class="au-target qp-tool-bar-item minor-button qp-connotation-default"
+                              au-target-id="498"
+                              data-cmd=""
+                              id=""
+                            >
+                              <div
+                                class="au-target qp-tool-bar-button"
+                                au-target-id="499"
+                              >
+                                <qp-hyper-icon
+                                  images.bind="item.images"
+                                  class="au-target"
+                                  au-target-id="500"
+                                >
+                                  <div
+                                    class="qp-hyper-icon au-target"
+                                    mouseover.delegate="OnMouseOver()"
+                                    mouseout.delegate="OnMouseOut()"
+                                    mousedown.delegate="OnMouseDown()"
+                                    click.delegate="OnClick()"
+                                    au-target-id="24"
+                                  >
+                                    <!--anchor-->
+                                    <div
+                                      icon.bind="ImageName &amp; attr"
+                                      class="au-target sprite-icon main-icon"
+                                      au-target-id="27"
+                                      icon="RecordAdd"
+                                    >
+                                      <div
+                                        class="au-target main-icon-img main-RecordAdd"
+                                        au-target-id="28"
+                                      ></div>
+                                      <!--anchor-->
+                                      <!--anchor-->
+                                    </div>
+                                    <!--anchor-->
+                                  </div> </qp-hyper-icon
+                                ><!--anchor-->
+                                <!--anchor-->
+                              </div>
+                              <!--anchor-->
+                              <!--anchor-->
+                              <!--anchor-->
+                              <qp-tooltip
+                                target.bind="itemElements[$index]"
+                                exclude=".qp-menu-options"
+                                class="au-target"
+                                au-target-id="509"
+                              >
+                              </qp-tooltip
+                              ><!--anchor-->
+                            </li>
+                            <!--anchor--><!--view-->
+                            <li
+                              ref="itemElements[$index]"
+                              click.capture="processClick(item.id, item.type, $event)"
+                              mouseout.trigger="processOut(item.id, $event)"
+                              mousedown.trigger="processDown(item.id, item.type, $event)"
+                              class="au-target qp-tool-bar-item minor-button qp-connotation-default"
+                              au-target-id="498"
+                              data-cmd=""
+                              id=""
+                            >
+                              <div
+                                class="au-target qp-tool-bar-button"
+                                au-target-id="499"
+                              >
+                                <qp-hyper-icon
+                                  images.bind="item.images"
+                                  class="au-target"
+                                  au-target-id="500"
+                                >
+                                  <div
+                                    class="qp-hyper-icon au-target"
+                                    mouseover.delegate="OnMouseOver()"
+                                    mouseout.delegate="OnMouseOut()"
+                                    mousedown.delegate="OnMouseDown()"
+                                    click.delegate="OnClick()"
+                                    au-target-id="24"
+                                  >
+                                    <!--anchor-->
+                                    <div
+                                      icon.bind="ImageName &amp; attr"
+                                      class="au-target sprite-icon main-icon"
+                                      au-target-id="27"
+                                      icon="RecordDel"
+                                    >
+                                      <div
+                                        class="au-target main-icon-img main-RecordDel"
+                                        au-target-id="28"
+                                      ></div>
+                                      <!--anchor-->
+                                      <!--anchor-->
+                                    </div>
+                                    <!--anchor-->
+                                  </div> </qp-hyper-icon
+                                ><!--anchor-->
+                                <!--anchor-->
+                              </div>
+                              <!--anchor-->
+                              <!--anchor-->
+                              <!--anchor-->
+                              <qp-tooltip
+                                target.bind="itemElements[$index]"
+                                exclude=".qp-menu-options"
+                                class="au-target"
+                                au-target-id="509"
+                              >
+                              </qp-tooltip
+                              ><!--anchor-->
+                            </li>
+                            <!--anchor--><!--view-->
+                            <li
+                              ref="itemElements[$index]"
+                              click.capture="processClick(item.id, item.type, $event)"
+                              mouseout.trigger="processOut(item.id, $event)"
+                              mousedown.trigger="processDown(item.id, item.type, $event)"
                               class="au-target qp-tool-bar-item qp-connotation-default"
                               au-target-id="498"
                               data-cmd=""
                               id=""
                             >
                               <div
-                                class="au-target qp-tool-bar-button disabled"
+                                class="au-target qp-tool-bar-button"
                                 au-target-id="499"
                               >
                                 <!--anchor-->
@@ -5626,7 +6056,7 @@
                             dragover.delegate="processHeadDragOver($event, col)"
                             drop.delegate="processHeadDrop($event, col)"
                             dragleave.delegate="processHeadDragLeave($event)"
-                            class="au-target col-header"
+                            class="au-target col-header required"
                             au-target-id="1075"
                             key="BranchID"
                           >
@@ -5676,7 +6106,7 @@
                             dragover.delegate="processHeadDragOver($event, col)"
                             drop.delegate="processHeadDrop($event, col)"
                             dragleave.delegate="processHeadDragLeave($event)"
-                            class="au-target col-header"
+                            class="au-target col-header required"
                             au-target-id="1075"
                             key="ProjectID"
                           >
@@ -6645,8 +7075,19 @@
                             data-tooltip.bind="r.error"
                             data-error-level.bind="r.errorLevel"
                             au-target-id="1098"
+                            data-tooltip="No budget is found. Budgeted: 0.00, Document: 75000.00, Remaining: -75000.00"
+                            data-error-level="2"
                           >
-                            <!--anchor-->
+                            <span
+                              class="cell-error-info au-target"
+                              data-tooltip.bind="getRowErrorText(r.error, r.errorLevel, true)"
+                              data-error-level.bind="getRowErrorLevel(r.error, r.errorLevel, true)"
+                              au-target-id="1099"
+                              data-tooltip="No budget is found. Budgeted: 0.00, Document: 75000.00, Remaining: -75000.00"
+                              data-error-level="2"
+                            >
+                            </span
+                            ><!--anchor-->
 
                             <!--anchor-->
                             &nbsp;<!--anchor-->
@@ -6750,7 +7191,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                           >
                             <!--anchor-->
@@ -6786,48 +7227,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
-                            au-target-id="1105"
-                          >
-                            <!--anchor-->
-
-                            <span
-                              class="cell-content au-target"
-                              data-tooltip.bind="cell.error"
-                              data-error-level.bind="cell.errorLevel"
-                              au-target-id="1109"
-                            >
-                              <!--anchor-->
-
-                              <!--anchor-->
-
-                              <!--anchor-->
-
-                              <a
-                                href.bind="cell.href || 'javascript:void 0'"
-                                target.bind="cell.hrefTarget &amp; attr"
-                                tabindex="-1"
-                                class="ellipsis au-target"
-                                au-target-id="1121"
-                                href="javascript:void 0"
-                              >
-                                <!--anchor-->
-
-                                CSTRSUBCON<!--anchor-->
-                                <!--anchor-->
-                                <!--anchor-->
-                              </a>
-                              <!--anchor-->
-
-                              <!--anchor-->
-                            </span>
-                          </td>
-                          <td
-                            id.bind="($parent.r.isActive ? config.id+'_'+getColumnKey(col)+'_cell' : undefined) &amp; attr"
-                            draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
-                            click.delegate="processCellClick($event, $index, $parent.r)"
-                            dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                           >
                             <!--anchor-->
@@ -6846,14 +7246,9 @@
 
                               <!--anchor-->
 
-                              <span class="text ellipsis">
-                                <!--anchor-->
-
-                                CSTRHOTEL<!--anchor-->
-                                <!--anchor-->
-                                <!--anchor-->
-                              </span>
                               <!--anchor-->
+
+                              &nbsp;
                               <!--anchor-->
                               <!--anchor-->
                             </span>
@@ -6863,7 +7258,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                           >
                             <!--anchor-->
@@ -6885,7 +7280,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                03<!--anchor-->
+                                CSTRCONCRT<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -6899,7 +7294,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                           >
                             <!--anchor-->
@@ -6921,7 +7316,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                CIP Stairs<!--anchor-->
+                                02<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -6935,7 +7330,43 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
+                            au-target-id="1105"
+                          >
+                            <!--anchor-->
+
+                            <span
+                              class="cell-content au-target"
+                              data-tooltip.bind="cell.error"
+                              data-error-level.bind="cell.errorLevel"
+                              au-target-id="1109"
+                            >
+                              <!--anchor-->
+
+                              <!--anchor-->
+
+                              <!--anchor-->
+
+                              <!--anchor-->
+
+                              <span class="text ellipsis">
+                                <!--anchor-->
+
+                                Site Remidiation<!--anchor-->
+                                <!--anchor-->
+                                <!--anchor-->
+                              </span>
+                              <!--anchor-->
+                              <!--anchor-->
+                              <!--anchor-->
+                            </span>
+                          </td>
+                          <td
+                            id.bind="($parent.r.isActive ? config.id+'_'+getColumnKey(col)+'_cell' : undefined) &amp; attr"
+                            draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
+                            click.delegate="processCellClick($event, $index, $parent.r)"
+                            dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                           >
                             <!--anchor-->
@@ -6971,7 +7402,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right"
                             au-target-id="1105"
                             style="text-align: right"
                           >
@@ -7008,7 +7439,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right"
                             au-target-id="1105"
                             style="text-align: right"
                           >
@@ -7031,7 +7462,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                290,000.00<!--anchor-->
+                                75,000.00<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -7045,7 +7476,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-center read-only"
+                            class="au-target qp-align-center"
                             au-target-id="1105"
                             style="text-align: center"
                           >
@@ -7077,7 +7508,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right warning"
                             au-target-id="1105"
                             style="text-align: right"
                             data-tooltip="290,000.00"
@@ -7089,8 +7520,18 @@
                               data-tooltip.bind="cell.error"
                               data-error-level.bind="cell.errorLevel"
                               au-target-id="1109"
+                              data-tooltip="No budget is found. Budgeted: 0.00, Document: 75000.00, Remaining: -75000.00"
+                              data-error-level="2"
                             >
-                              <!--anchor-->
+                              <i
+                                err-icon=""
+                                align-left.bind="col.textAlign == 3 ? '' : null &amp; attr"
+                                class="au-target ac control-Warning align-left"
+                                au-target-id="1110"
+                                alignleft=""
+                              >
+                              </i
+                              ><!--anchor-->
 
                               <!--anchor-->
 
@@ -7101,7 +7542,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                290,000.00<!--anchor-->
+                                75,000.00<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -7115,7 +7556,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right"
                             au-target-id="1105"
                             style="text-align: right"
                           >
@@ -7152,7 +7593,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right"
                             au-target-id="1105"
                             style="text-align: right"
                           >
@@ -7189,7 +7630,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                           >
                             <!--anchor-->
@@ -7220,7 +7661,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                           >
                             <!--anchor-->
@@ -7325,7 +7766,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right"
                             au-target-id="1105"
                             style="text-align: right"
                           >
@@ -7362,7 +7803,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right"
                             au-target-id="1105"
                             style="text-align: right"
                           >
@@ -7385,7 +7826,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                14,500.00<!--anchor-->
+                                3,750.00<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -7422,7 +7863,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                275,500.00<!--anchor-->
+                                71,250.00<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -7436,7 +7877,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                           >
                             <!--anchor-->
@@ -7467,7 +7908,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                           >
                             <!--anchor-->
@@ -7486,14 +7927,9 @@
 
                               <!--anchor-->
 
-                              <span class="text ellipsis">
-                                <!--anchor-->
-
-                                EXEMPT<!--anchor-->
-                                <!--anchor-->
-                                <!--anchor-->
-                              </span>
                               <!--anchor-->
+
+                              &nbsp;
                               <!--anchor-->
                               <!--anchor-->
                             </span>
@@ -7503,7 +7939,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                           >
                             <!--anchor-->
@@ -7575,7 +8011,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                           >
                             <!--anchor-->
@@ -7611,7 +8047,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-center read-only"
+                            class="au-target qp-align-center"
                             au-target-id="1105"
                             style="text-align: center"
                           >
@@ -7626,7 +8062,7 @@
                               <!--anchor-->
 
                               <i
-                                class="au-target ac control-GridCheck"
+                                class="au-target ac control-GridUncheck"
                                 au-target-id="1114"
                               ></i>
                               <!--anchor-->
@@ -7635,6 +8071,80 @@
 
                               <!--anchor-->
 
+                              <!--anchor-->
+                            </span>
+                          </td>
+                          <td
+                            id.bind="($parent.r.isActive ? config.id+'_'+getColumnKey(col)+'_cell' : undefined) &amp; attr"
+                            draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
+                            click.delegate="processCellClick($event, $index, $parent.r)"
+                            dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
+                            class="au-target qp-align-right read-only"
+                            au-target-id="1105"
+                            style="text-align: right"
+                          >
+                            <!--anchor-->
+
+                            <span
+                              class="cell-content au-target"
+                              data-tooltip.bind="cell.error"
+                              data-error-level.bind="cell.errorLevel"
+                              au-target-id="1109"
+                            >
+                              <!--anchor-->
+
+                              <!--anchor-->
+
+                              <!--anchor-->
+
+                              <!--anchor-->
+
+                              <span class="text ellipsis">
+                                <!--anchor-->
+
+                                0.00<!--anchor-->
+                                <!--anchor-->
+                                <!--anchor-->
+                              </span>
+                              <!--anchor-->
+                              <!--anchor-->
+                              <!--anchor-->
+                            </span>
+                          </td>
+                          <td
+                            id.bind="($parent.r.isActive ? config.id+'_'+getColumnKey(col)+'_cell' : undefined) &amp; attr"
+                            draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
+                            click.delegate="processCellClick($event, $index, $parent.r)"
+                            dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
+                            class="au-target qp-align-right read-only"
+                            au-target-id="1105"
+                            style="text-align: right"
+                          >
+                            <!--anchor-->
+
+                            <span
+                              class="cell-content au-target"
+                              data-tooltip.bind="cell.error"
+                              data-error-level.bind="cell.errorLevel"
+                              au-target-id="1109"
+                            >
+                              <!--anchor-->
+
+                              <!--anchor-->
+
+                              <!--anchor-->
+
+                              <!--anchor-->
+
+                              <span class="text ellipsis">
+                                <!--anchor-->
+
+                                0.00<!--anchor-->
+                                <!--anchor-->
+                                <!--anchor-->
+                              </span>
+                              <!--anchor-->
+                              <!--anchor-->
                               <!--anchor-->
                             </span>
                           </td>
@@ -7703,81 +8213,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                290,000.00<!--anchor-->
-                                <!--anchor-->
-                                <!--anchor-->
-                              </span>
-                              <!--anchor-->
-                              <!--anchor-->
-                              <!--anchor-->
-                            </span>
-                          </td>
-                          <td
-                            id.bind="($parent.r.isActive ? config.id+'_'+getColumnKey(col)+'_cell' : undefined) &amp; attr"
-                            draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
-                            click.delegate="processCellClick($event, $index, $parent.r)"
-                            dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
-                            au-target-id="1105"
-                            style="text-align: right"
-                          >
-                            <!--anchor-->
-
-                            <span
-                              class="cell-content au-target"
-                              data-tooltip.bind="cell.error"
-                              data-error-level.bind="cell.errorLevel"
-                              au-target-id="1109"
-                            >
-                              <!--anchor-->
-
-                              <!--anchor-->
-
-                              <!--anchor-->
-
-                              <!--anchor-->
-
-                              <span class="text ellipsis">
-                                <!--anchor-->
-
-                                0.00<!--anchor-->
-                                <!--anchor-->
-                                <!--anchor-->
-                              </span>
-                              <!--anchor-->
-                              <!--anchor-->
-                              <!--anchor-->
-                            </span>
-                          </td>
-                          <td
-                            id.bind="($parent.r.isActive ? config.id+'_'+getColumnKey(col)+'_cell' : undefined) &amp; attr"
-                            draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
-                            click.delegate="processCellClick($event, $index, $parent.r)"
-                            dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
-                            au-target-id="1105"
-                            style="text-align: right"
-                          >
-                            <!--anchor-->
-
-                            <span
-                              class="cell-content au-target"
-                              data-tooltip.bind="cell.error"
-                              data-error-level.bind="cell.errorLevel"
-                              au-target-id="1109"
-                            >
-                              <!--anchor-->
-
-                              <!--anchor-->
-
-                              <!--anchor-->
-
-                              <!--anchor-->
-
-                              <span class="text ellipsis">
-                                <!--anchor-->
-
-                                0.00<!--anchor-->
+                                75,000.00<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -7832,7 +8268,7 @@
                           dragenter.delegate="processRowDragOver($event, r)"
                           dragover.delegate="processRowDragOver($event, r)"
                           dragleave.delegate="processRowDragLeave($event, r)"
-                          class="au-target alt-row edit"
+                          class="au-target alt-row active"
                           au-target-id="1097"
                           data-index="1"
                         >
@@ -7842,8 +8278,19 @@
                             data-tooltip.bind="r.error"
                             data-error-level.bind="r.errorLevel"
                             au-target-id="1098"
+                            data-tooltip="No budget is found. Budgeted: 0.00, Document: 50000.00, Remaining: -50000.00"
+                            data-error-level="2"
                           >
-                            <!--anchor-->
+                            <span
+                              class="cell-error-info au-target"
+                              data-tooltip.bind="getRowErrorText(r.error, r.errorLevel, true)"
+                              data-error-level.bind="getRowErrorLevel(r.error, r.errorLevel, true)"
+                              au-target-id="1099"
+                              data-tooltip="No budget is found. Budgeted: 0.00, Document: 50000.00, Remaining: -50000.00"
+                              data-error-level="2"
+                            >
+                            </span
+                            ><!--anchor-->
 
                             <i
                               class="au-target ac control-CurrentRow"
@@ -7953,7 +8400,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                             id="grid_BranchID_cell"
                           >
@@ -7990,7 +8437,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                             id="grid_InventoryID_cell"
                           >
@@ -8008,22 +8455,12 @@
 
                               <!--anchor-->
 
-                              <a
-                                href.bind="cell.href || 'javascript:void 0'"
-                                target.bind="cell.hrefTarget &amp; attr"
-                                tabindex="-1"
-                                class="ellipsis au-target"
-                                au-target-id="1121"
-                                href="javascript:void 0"
-                              >
-                                <!--anchor-->
-
-                                CSTRSUBCON<!--anchor-->
-                                <!--anchor-->
-                                <!--anchor-->
-                              </a>
                               <!--anchor-->
 
+                              <!--anchor-->
+
+                              &nbsp;
+                              <!--anchor-->
                               <!--anchor-->
                             </span>
                           </td>
@@ -8032,9 +8469,10 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                             id="grid_ProjectID_cell"
+                            data-tooltip="CSTRCONCRT"
                           >
                             <!--anchor-->
 
@@ -8055,7 +8493,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                CSTRHOTEL<!--anchor-->
+                                CSTRCONCRT<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -8069,7 +8507,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                             id="grid_TaskID_cell"
                           >
@@ -8092,7 +8530,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                03<!--anchor-->
+                                02<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -8106,7 +8544,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                             id="grid_TranDesc_cell"
                           >
@@ -8129,7 +8567,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                CIP Slab<!--anchor-->
+                                Site Prep<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -8143,7 +8581,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                             id="grid_UOM_cell"
                           >
@@ -8180,7 +8618,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right"
                             au-target-id="1105"
                             style="text-align: right"
                             id="grid_OrderQty_cell"
@@ -8218,7 +8656,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right"
                             au-target-id="1105"
                             style="text-align: right"
                             id="grid_CuryUnitCost_cell"
@@ -8242,7 +8680,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                4,000,000.00<!--anchor-->
+                                50,000.00<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -8256,36 +8694,11 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-center read-only edit"
+                            class="au-target qp-align-center active"
                             au-target-id="1105"
                             style="text-align: center"
                             id="grid_ManualDisc_cell"
                           >
-                            <qp-inline-field
-                              view-model.ref="inlineEditorVM"
-                              control-state.bind="setActiveCellState(cell, col, updateEditorState)"
-                              control-type.bind="getCellEditorType(col)"
-                              control-config.bind="getCellEditorConfig(col)"
-                              class="inline-editor au-target qp-inline-field marker"
-                              update-value.bind="updateEditorValue"
-                              control-id="${config.id}_${col.field}_editor"
-                              keydown.delegate="processEditKeyDown($event)"
-                              value-selected.delegate="processDropDownSelected($event)"
-                              on-value-updated.call="commitActiveCellChanges(true)"
-                              au-target-id="1107"
-                            >
-                              <div
-                                class="focus-marker au-target"
-                                focus-elem=""
-                                tabindex="0"
-                                click.delegate="processCheckBoxClick($event)"
-                                keydown.delegate="processCheckBoxKeyDown($event)"
-                                au-target-id="237"
-                                unblock="1"
-                              ></div>
-                              <!--anchor-->
-                              <!--anchor-->
-                            </qp-inline-field>
                             <!--anchor-->
 
                             <span
@@ -8314,10 +8727,12 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right warning"
                             au-target-id="1105"
                             style="text-align: right"
                             id="grid_CuryLineAmt_cell"
+                            data-tooltip="No budget is found. Budgeted: 0.00, Document: 50000.00, Remaining: -50000.00"
+                            data-error-level="2"
                           >
                             <!--anchor-->
 
@@ -8326,8 +8741,18 @@
                               data-tooltip.bind="cell.error"
                               data-error-level.bind="cell.errorLevel"
                               au-target-id="1109"
+                              data-tooltip="No budget is found. Budgeted: 0.00, Document: 50000.00, Remaining: -50000.00"
+                              data-error-level="2"
                             >
-                              <!--anchor-->
+                              <i
+                                err-icon=""
+                                align-left.bind="col.textAlign == 3 ? '' : null &amp; attr"
+                                class="au-target ac control-Warning align-left"
+                                au-target-id="1110"
+                                alignleft=""
+                              >
+                              </i
+                              ><!--anchor-->
 
                               <!--anchor-->
 
@@ -8338,7 +8763,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                4,000,000.00<!--anchor-->
+                                50,000.00<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -8352,7 +8777,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right"
                             au-target-id="1105"
                             style="text-align: right"
                             id="grid_DiscPct_cell"
@@ -8390,7 +8815,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right"
                             au-target-id="1105"
                             style="text-align: right"
                             id="grid_CuryDiscAmt_cell"
@@ -8428,7 +8853,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                             id="grid_DiscountID_cell"
                           >
@@ -8460,7 +8885,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                             id="grid_DiscountSequenceID_cell"
                           >
@@ -8568,7 +8993,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right"
                             au-target-id="1105"
                             style="text-align: right"
                             id="grid_RetainagePct_cell"
@@ -8606,7 +9031,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right"
                             au-target-id="1105"
                             style="text-align: right"
                             id="grid_CuryRetainageAmt_cell"
@@ -8630,7 +9055,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                200,000.00<!--anchor-->
+                                2,500.00<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -8668,7 +9093,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                3,800,000.00<!--anchor-->
+                                47,500.00<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -8682,7 +9107,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                             id="grid_AlternateID_cell"
                           >
@@ -8714,7 +9139,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                             id="grid_TaxCategoryID_cell"
                           >
@@ -8734,14 +9159,9 @@
 
                               <!--anchor-->
 
-                              <span class="text ellipsis">
-                                <!--anchor-->
-
-                                EXEMPT<!--anchor-->
-                                <!--anchor-->
-                                <!--anchor-->
-                              </span>
                               <!--anchor-->
+
+                              &nbsp;
                               <!--anchor-->
                               <!--anchor-->
                             </span>
@@ -8751,7 +9171,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                             id="grid_ExpenseAcctID_cell"
                           >
@@ -8825,7 +9245,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                             id="grid_ExpenseSubID_cell"
                           >
@@ -8862,7 +9282,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-center read-only"
+                            class="au-target qp-align-center"
                             au-target-id="1105"
                             style="text-align: center"
                             id="grid_Closed_cell"
@@ -8878,7 +9298,7 @@
                               <!--anchor-->
 
                               <i
-                                class="au-target ac control-GridCheck"
+                                class="au-target ac control-GridUncheck"
                                 au-target-id="1114"
                               ></i>
                               <!--anchor-->
@@ -8919,7 +9339,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                1.00<!--anchor-->
+                                0.00<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -8957,7 +9377,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                4,000,000.00<!--anchor-->
+                                0.00<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -8995,7 +9415,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                0.00<!--anchor-->
+                                1.00<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -9033,7 +9453,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                0.00<!--anchor-->
+                                50,000.00<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -9099,8 +9519,19 @@
                             data-tooltip.bind="r.error"
                             data-error-level.bind="r.errorLevel"
                             au-target-id="1098"
+                            data-tooltip="No budget is found. Budgeted: 0.00, Document: 45000.00, Remaining: -45000.00"
+                            data-error-level="2"
                           >
-                            <!--anchor-->
+                            <span
+                              class="cell-error-info au-target"
+                              data-tooltip.bind="getRowErrorText(r.error, r.errorLevel, true)"
+                              data-error-level.bind="getRowErrorLevel(r.error, r.errorLevel, true)"
+                              au-target-id="1099"
+                              data-tooltip="No budget is found. Budgeted: 0.00, Document: 45000.00, Remaining: -45000.00"
+                              data-error-level="2"
+                            >
+                            </span
+                            ><!--anchor-->
 
                             <!--anchor-->
                             &nbsp;<!--anchor-->
@@ -9204,7 +9635,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                             data-tooltip="PRODWHOLE"
                           >
@@ -9241,7 +9672,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                             data-tooltip="CSTRSUBCON"
                           >
@@ -9259,22 +9690,12 @@
 
                               <!--anchor-->
 
-                              <a
-                                href.bind="cell.href || 'javascript:void 0'"
-                                target.bind="cell.hrefTarget &amp; attr"
-                                tabindex="-1"
-                                class="ellipsis au-target"
-                                au-target-id="1121"
-                                href="javascript:void 0"
-                              >
-                                <!--anchor-->
-
-                                CSTRSUBCON<!--anchor-->
-                                <!--anchor-->
-                                <!--anchor-->
-                              </a>
                               <!--anchor-->
 
+                              <!--anchor-->
+
+                              &nbsp;
+                              <!--anchor-->
                               <!--anchor-->
                             </span>
                           </td>
@@ -9283,7 +9704,44 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
+                            au-target-id="1105"
+                            data-tooltip="CSTRCONCRT"
+                          >
+                            <!--anchor-->
+
+                            <span
+                              class="cell-content au-target"
+                              data-tooltip.bind="cell.error"
+                              data-error-level.bind="cell.errorLevel"
+                              au-target-id="1109"
+                            >
+                              <!--anchor-->
+
+                              <!--anchor-->
+
+                              <!--anchor-->
+
+                              <!--anchor-->
+
+                              <span class="text ellipsis">
+                                <!--anchor-->
+
+                                CSTRCONCRT<!--anchor-->
+                                <!--anchor-->
+                                <!--anchor-->
+                              </span>
+                              <!--anchor-->
+                              <!--anchor-->
+                              <!--anchor-->
+                            </span>
+                          </td>
+                          <td
+                            id.bind="($parent.r.isActive ? config.id+'_'+getColumnKey(col)+'_cell' : undefined) &amp; attr"
+                            draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
+                            click.delegate="processCellClick($event, $index, $parent.r)"
+                            dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                           >
                             <!--anchor-->
@@ -9305,7 +9763,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                CSTRHOTEL<!--anchor-->
+                                02<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -9319,8 +9777,9 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
+                            data-tooltip="Earthwork- Clearing and Grubbing"
                           >
                             <!--anchor-->
 
@@ -9341,7 +9800,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                03<!--anchor-->
+                                Earthwork- Clearing and Grubbing<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -9355,43 +9814,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
-                            au-target-id="1105"
-                          >
-                            <!--anchor-->
-
-                            <span
-                              class="cell-content au-target"
-                              data-tooltip.bind="cell.error"
-                              data-error-level.bind="cell.errorLevel"
-                              au-target-id="1109"
-                            >
-                              <!--anchor-->
-
-                              <!--anchor-->
-
-                              <!--anchor-->
-
-                              <!--anchor-->
-
-                              <span class="text ellipsis">
-                                <!--anchor-->
-
-                                Materials &amp; Methods<!--anchor-->
-                                <!--anchor-->
-                                <!--anchor-->
-                              </span>
-                              <!--anchor-->
-                              <!--anchor-->
-                              <!--anchor-->
-                            </span>
-                          </td>
-                          <td
-                            id.bind="($parent.r.isActive ? config.id+'_'+getColumnKey(col)+'_cell' : undefined) &amp; attr"
-                            draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
-                            click.delegate="processCellClick($event, $index, $parent.r)"
-                            dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                           >
                             <!--anchor-->
@@ -9427,7 +9850,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right"
                             au-target-id="1105"
                             style="text-align: right"
                           >
@@ -9464,7 +9887,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right"
                             au-target-id="1105"
                             style="text-align: right"
                           >
@@ -9487,7 +9910,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                1,000,000.00<!--anchor-->
+                                45,000.00<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -9501,7 +9924,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-center read-only"
+                            class="au-target qp-align-center"
                             au-target-id="1105"
                             style="text-align: center"
                           >
@@ -9533,7 +9956,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right warning"
                             au-target-id="1105"
                             style="text-align: right"
                           >
@@ -9544,8 +9967,18 @@
                               data-tooltip.bind="cell.error"
                               data-error-level.bind="cell.errorLevel"
                               au-target-id="1109"
+                              data-tooltip="No budget is found. Budgeted: 0.00, Document: 45000.00, Remaining: -45000.00"
+                              data-error-level="2"
                             >
-                              <!--anchor-->
+                              <i
+                                err-icon=""
+                                align-left.bind="col.textAlign == 3 ? '' : null &amp; attr"
+                                class="au-target ac control-Warning align-left"
+                                au-target-id="1110"
+                                alignleft=""
+                              >
+                              </i
+                              ><!--anchor-->
 
                               <!--anchor-->
 
@@ -9556,7 +9989,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                1,000,000.00<!--anchor-->
+                                45,000.00<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -9570,7 +10003,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right"
                             au-target-id="1105"
                             style="text-align: right"
                           >
@@ -9607,7 +10040,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right"
                             au-target-id="1105"
                             style="text-align: right"
                           >
@@ -9644,7 +10077,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                           >
                             <!--anchor-->
@@ -9675,7 +10108,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                           >
                             <!--anchor-->
@@ -9780,7 +10213,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right"
                             au-target-id="1105"
                             style="text-align: right"
                           >
@@ -9817,7 +10250,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
+                            class="au-target qp-align-right"
                             au-target-id="1105"
                             style="text-align: right"
                           >
@@ -9840,7 +10273,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                50,000.00<!--anchor-->
+                                2,250.00<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -9877,7 +10310,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                950,000.00<!--anchor-->
+                                42,750.00<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
@@ -9891,7 +10324,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                           >
                             <!--anchor-->
@@ -9922,7 +10355,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                           >
                             <!--anchor-->
@@ -9941,14 +10374,9 @@
 
                               <!--anchor-->
 
-                              <span class="text ellipsis">
-                                <!--anchor-->
-
-                                EXEMPT<!--anchor-->
-                                <!--anchor-->
-                                <!--anchor-->
-                              </span>
                               <!--anchor-->
+
+                              &nbsp;
                               <!--anchor-->
                               <!--anchor-->
                             </span>
@@ -9958,7 +10386,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                           >
                             <!--anchor-->
@@ -10030,7 +10458,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-left read-only"
+                            class="au-target qp-align-left"
                             au-target-id="1105"
                           >
                             <!--anchor-->
@@ -10066,7 +10494,7 @@
                             draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
                             click.delegate="processCellClick($event, $index, $parent.r)"
                             dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-center read-only"
+                            class="au-target qp-align-center"
                             au-target-id="1105"
                             style="text-align: center"
                           >
@@ -10081,7 +10509,7 @@
                               <!--anchor-->
 
                               <i
-                                class="au-target ac control-GridCheck"
+                                class="au-target ac control-GridUncheck"
                                 au-target-id="1114"
                               ></i>
                               <!--anchor-->
@@ -10090,6 +10518,80 @@
 
                               <!--anchor-->
 
+                              <!--anchor-->
+                            </span>
+                          </td>
+                          <td
+                            id.bind="($parent.r.isActive ? config.id+'_'+getColumnKey(col)+'_cell' : undefined) &amp; attr"
+                            draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
+                            click.delegate="processCellClick($event, $index, $parent.r)"
+                            dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
+                            class="au-target qp-align-right read-only"
+                            au-target-id="1105"
+                            style="text-align: right"
+                          >
+                            <!--anchor-->
+
+                            <span
+                              class="cell-content au-target"
+                              data-tooltip.bind="cell.error"
+                              data-error-level.bind="cell.errorLevel"
+                              au-target-id="1109"
+                            >
+                              <!--anchor-->
+
+                              <!--anchor-->
+
+                              <!--anchor-->
+
+                              <!--anchor-->
+
+                              <span class="text ellipsis">
+                                <!--anchor-->
+
+                                0.00<!--anchor-->
+                                <!--anchor-->
+                                <!--anchor-->
+                              </span>
+                              <!--anchor-->
+                              <!--anchor-->
+                              <!--anchor-->
+                            </span>
+                          </td>
+                          <td
+                            id.bind="($parent.r.isActive ? config.id+'_'+getColumnKey(col)+'_cell' : undefined) &amp; attr"
+                            draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
+                            click.delegate="processCellClick($event, $index, $parent.r)"
+                            dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
+                            class="au-target qp-align-right read-only"
+                            au-target-id="1105"
+                            style="text-align: right"
+                          >
+                            <!--anchor-->
+
+                            <span
+                              class="cell-content au-target"
+                              data-tooltip.bind="cell.error"
+                              data-error-level.bind="cell.errorLevel"
+                              au-target-id="1109"
+                            >
+                              <!--anchor-->
+
+                              <!--anchor-->
+
+                              <!--anchor-->
+
+                              <!--anchor-->
+
+                              <span class="text ellipsis">
+                                <!--anchor-->
+
+                                0.00<!--anchor-->
+                                <!--anchor-->
+                                <!--anchor-->
+                              </span>
+                              <!--anchor-->
+                              <!--anchor-->
                               <!--anchor-->
                             </span>
                           </td>
@@ -10158,81 +10660,7 @@
                               <span class="text ellipsis">
                                 <!--anchor-->
 
-                                1,000,000.00<!--anchor-->
-                                <!--anchor-->
-                                <!--anchor-->
-                              </span>
-                              <!--anchor-->
-                              <!--anchor-->
-                              <!--anchor-->
-                            </span>
-                          </td>
-                          <td
-                            id.bind="($parent.r.isActive ? config.id+'_'+getColumnKey(col)+'_cell' : undefined) &amp; attr"
-                            draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
-                            click.delegate="processCellClick($event, $index, $parent.r)"
-                            dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
-                            au-target-id="1105"
-                            style="text-align: right"
-                          >
-                            <!--anchor-->
-
-                            <span
-                              class="cell-content au-target"
-                              data-tooltip.bind="cell.error"
-                              data-error-level.bind="cell.errorLevel"
-                              au-target-id="1109"
-                            >
-                              <!--anchor-->
-
-                              <!--anchor-->
-
-                              <!--anchor-->
-
-                              <!--anchor-->
-
-                              <span class="text ellipsis">
-                                <!--anchor-->
-
-                                0.00<!--anchor-->
-                                <!--anchor-->
-                                <!--anchor-->
-                              </span>
-                              <!--anchor-->
-                              <!--anchor-->
-                              <!--anchor-->
-                            </span>
-                          </td>
-                          <td
-                            id.bind="($parent.r.isActive ? config.id+'_'+getColumnKey(col)+'_cell' : undefined) &amp; attr"
-                            draggable.bind="(col.allowDragDrop || config.allowDragRows) ? true: null &amp; attr"
-                            click.delegate="processCellClick($event, $index, $parent.r)"
-                            dblclick.delegate="processCellDblClick($event, $index, $parent.r)"
-                            class="au-target qp-align-right read-only"
-                            au-target-id="1105"
-                            style="text-align: right"
-                          >
-                            <!--anchor-->
-
-                            <span
-                              class="cell-content au-target"
-                              data-tooltip.bind="cell.error"
-                              data-error-level.bind="cell.errorLevel"
-                              au-target-id="1109"
-                            >
-                              <!--anchor-->
-
-                              <!--anchor-->
-
-                              <!--anchor-->
-
-                              <!--anchor-->
-
-                              <span class="text ellipsis">
-                                <!--anchor-->
-
-                                0.00<!--anchor-->
+                                45,000.00<!--anchor-->
                                 <!--anchor-->
                                 <!--anchor-->
                               </span>
