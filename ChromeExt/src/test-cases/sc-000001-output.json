@@ -753,7 +753,7 @@
     ],
     "ShowRightAction": false,
     "ShowSaveButton": false,
-    "ToolBarType": "List",
+    "ToolBarType": "Record",
     "Type": "ToolBar"
   },
   "Type": "Root"

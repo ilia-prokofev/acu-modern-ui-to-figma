@@ -11,14 +11,16 @@ import {
     QPToolBarType
 } from "../elements/qp-toolbar";
 import {
-    concatElementID, findClasses,
+    concatElementID,
+    findClasses,
     findElementByClassesDown,
     findElementByNodeNameDown,
-    isElementEnabled, isHiddenElement
+    isElementEnabled,
+    isHiddenElement
 } from "./html-element-utils";
-import {ButtonStyle} from "../elements/button";
 import {getIconType} from "./icon-utils";
 import {getButtonStyle} from "./button-utils";
+import {IconType} from "../elements/icon";
 
 export default class QPToolBarVisitor implements ElementVisitor {
     visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean {
@@ -48,6 +50,14 @@ export default class QPToolBarVisitor implements ElementVisitor {
         this.visitToolBar(htmlElement, toolBar);
         if (toolBar.Items.length === 0) {
             return false;
+        }
+
+        for (const item of toolBar.Items) {
+            if (item.ItemType === QPToolBarItemType.Button
+                && (item as QPToolBarItemButton).Icon == IconType.First) {
+                toolBar.ToolBarType = QPToolBarType.Record;
+                break;
+            }
         }
 
         toolBarContainer.ToolBar = toolBar;
