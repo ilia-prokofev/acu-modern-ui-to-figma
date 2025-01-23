@@ -15,10 +15,9 @@ import {Root} from "./elements/qp-root";
 import {
     QPToolBar,
     QPToolBarItemButton,
-    QPToolBarItemIconButton,
-    QPToolBarItemIconButtonType,
     QPToolBarItemType
 } from "./elements/qp-toolbar";
+import {IconType} from "./elements/icon";
 
 figma.showUI(__html__, {width: 650, height: 410});
 
@@ -42,26 +41,26 @@ let compLeftMenu = undefined as unknown as ComponentNode;
 let compGrid = undefined as unknown as ComponentNode;
 let compTabbar = undefined as unknown as ComponentNode;
 
-const buttonIcons = new Map<QPToolBarItemIconButtonType, string>([
-    [QPToolBarItemIconButtonType.Refresh        , 'c49868efe2dfa88095d9db037824cdd7721ad06e'],
-    [QPToolBarItemIconButtonType.Undo           , '6229695a70dcf7ded45f99f84288ae92b03c7c56'],
-    [QPToolBarItemIconButtonType.Insert         , 'de700daf8268fce0d3acff9011f4a936bf77f714'],
-    [QPToolBarItemIconButtonType.Edit           , 'b9257482b69a7be89190abee18ad34b6d42a9184'],
-    [QPToolBarItemIconButtonType.AdjustColumns  , '83ed0e23748392291c66e9de42c2f6c42a4c634f'],
-    [QPToolBarItemIconButtonType.ExportToExcel  , '54921de81540be32af6fc0af318f2b4937ad32ee'],
-    [QPToolBarItemIconButtonType.Copy           , '7a292951e78c1b33bb1214a62617efaf264cb18e'],
-    [QPToolBarItemIconButtonType.Delete         , '3768bac5ab85ab45fe6abc62eacf515cddddee11'],
-    [QPToolBarItemIconButtonType.First          , '339e24e29430577c293d9826f77fabc48053d077'],
-    [QPToolBarItemIconButtonType.Last           , '7c9aa4dd8f3449ddbdee384b8d348676ed5c2142'],
-    [QPToolBarItemIconButtonType.Back           , 'ff33972c40f4435a4020c8ce300c305f68ac0a84'],
-    [QPToolBarItemIconButtonType.Previous       , 'defe6a35b414086383ab7b4dd627a757e9349b01'],
-    [QPToolBarItemIconButtonType.Next           , 'ac17253deb51f88a538228224f12f5b2bec0b64e'],
-    [QPToolBarItemIconButtonType.Save           , '55688f66ef69a0bf4abc6ac8e48b561f4c08fc4f'],
-    [QPToolBarItemIconButtonType.SaveAndBack    , '7693000f6771b4135a00ad062e3b9b4b718b6ceb'],
-    [QPToolBarItemIconButtonType.Import         , '9bbe97f874029e4de44a1f28f9fa76cd39bfef29'],
-    [QPToolBarItemIconButtonType.MenuOpener     , '19be5dec53338a1bd35ff1f7e409da34d5f1e287'],
+const buttonIcons = new Map<IconType, string>([
+    [IconType.Refresh        , 'c49868efe2dfa88095d9db037824cdd7721ad06e'],
+    [IconType.Undo           , '6229695a70dcf7ded45f99f84288ae92b03c7c56'],
+    [IconType.Insert         , 'de700daf8268fce0d3acff9011f4a936bf77f714'],
+    [IconType.Edit           , 'b9257482b69a7be89190abee18ad34b6d42a9184'],
+    [IconType.AdjustColumns  , '83ed0e23748392291c66e9de42c2f6c42a4c634f'],
+    [IconType.ExportToExcel  , '54921de81540be32af6fc0af318f2b4937ad32ee'],
+    [IconType.Copy           , '7a292951e78c1b33bb1214a62617efaf264cb18e'],
+    [IconType.Delete         , '3768bac5ab85ab45fe6abc62eacf515cddddee11'],
+    [IconType.First          , '339e24e29430577c293d9826f77fabc48053d077'],
+    [IconType.Last           , '7c9aa4dd8f3449ddbdee384b8d348676ed5c2142'],
+    [IconType.Back           , 'ff33972c40f4435a4020c8ce300c305f68ac0a84'],
+    [IconType.Previous       , 'defe6a35b414086383ab7b4dd627a757e9349b01'],
+    [IconType.Next           , 'ac17253deb51f88a538228224f12f5b2bec0b64e'],
+    [IconType.Save           , '55688f66ef69a0bf4abc6ac8e48b561f4c08fc4f'],
+    [IconType.SaveAndBack    , '7693000f6771b4135a00ad062e3b9b4b718b6ceb'],
+    [IconType.Import         , '9bbe97f874029e4de44a1f28f9fa76cd39bfef29'],
+    [IconType.Ellipsis       , '19be5dec53338a1bd35ff1f7e409da34d5f1e287'],
 ]);
-let buttonIconIDs = new Map<QPToolBarItemIconButtonType, string>();
+let buttonIconIDs = new Map<IconType, string>();
 
 function SetProperties(node: InstanceNode, properties: any) {
     try {
@@ -401,6 +400,7 @@ class figmaToolbar extends figmaField {
         super('Toolbar');
         this.acuElement = toolbar;
 
+        const displayedButtonsMax = toolbar.ToolBarType == 'Record' ? 15 : 11;
         this.componentProperties['Type'] = toolbar.ToolBarType;
         this.componentProperties['Show Right Actions#6826:45'] = toolbar.ShowRightAction;
 
@@ -408,35 +408,38 @@ class figmaToolbar extends figmaField {
         buttons.childIndex = 0;
         this.children.push(buttons);
 
-        const displayedButtonsMax = 11;
         for (let i = 0; i < displayedButtonsMax; i++) {
             const button = new figmaField('Button');
             button.childIndex = i;
             buttons.children.push(button);
 
-            if (i > toolbar.Items.length) {
+            if (i >= toolbar.Items.length) {
                 button.properties['visible'] = false;
             }
             else {
                 const item = toolbar.Items[i];
                 button.properties['visible'] = true;
-                switch (item.ItemType) {
-                    case QPToolBarItemType.IconButton:
-                        button.componentProperties['Show Icon Left#3133:110'] = true;
-                        button.componentProperties['Show Label#3133:443'] = false;
-                        //button.componentProperties['Show Icon Right#3133:221'] = false;
-                        const iconType = (item as QPToolBarItemIconButton).IconType;
-                        if (!buttonIconIDs.has(iconType))
-                            console.warn(`${iconType} icon type is not supported`);
-                        else
-                            button.componentProperties['Icon Left#3131:0'] = buttonIconIDs.get(iconType)!;
-                        break;
-                    case QPToolBarItemType.Button:
-                        button.componentProperties['Show Icon Left#3133:110'] = false;
-                        button.componentProperties['Show Label#3133:443'] = true;
-                        button.componentProperties['Value ▶#3133:332'] = (item as QPToolBarItemButton).Text;
-                        break;
+                if (item.ItemType != QPToolBarItemType.Button) continue;
+                const buttonItem = item as QPToolBarItemButton;
+
+                console.log(buttonItem);
+
+                button.componentProperties['Type'] = buttonItem.Style;
+                button.componentProperties['State'] = buttonItem.Enabled ? 'Default' : 'Disabled';
+
+                const icon = buttonItem.Icon;
+                button.componentProperties['Show Icon Left#3133:110'] = icon != null;
+                if (icon) {
+                    if (!buttonIconIDs.has(icon))
+                        console.warn(`${icon} icon is not supported`);
+                    else
+                        button.componentProperties['Icon Left#3131:0'] = buttonIconIDs.get(icon)!;
                 }
+                const text = buttonItem.Text;
+                button.componentProperties['Show Label#3133:443'] = text != null;
+                if (text)
+                    button.componentProperties['Value ▶#3133:332'] = text;
+                //button.componentProperties['Show Icon Right#3133:221'] = false;
             }
 
         }
@@ -517,6 +520,7 @@ class figmaTemplate extends figmaField {
                     break;
                 case AcuElementType.Grid:
                     const fsGrid = {
+                        Id: 'fsGrid2',
                         Type: AcuElementType.FieldSet,
                         Label: 'Grid',
                         Highlighted: false,
@@ -542,6 +546,7 @@ class figmaSlot extends figmaField {
                     break;
                 case AcuElementType.Grid:
                     const fsGrid = {
+                        Id: 'fsGrid1',
                         Type: AcuElementType.FieldSet,
                         Label: 'Grid',
                         Highlighted: false,
@@ -559,6 +564,9 @@ class figmaRoot extends figmaField {
         super('Canvas', 'FRAME');
         this.tryToFind = false;
         this.acuElement = root;
+
+        if (root.ToolBar)
+            this.children.push(new figmaToolbar(root.ToolBar));
 
         for (const fs of root.Children) {
             switch (fs.Type) {
@@ -655,7 +663,7 @@ async function DrawFromJSON(input: string) {
 
     const root = JSON.parse(input) as Root;
     const rootItem = new figmaRoot(root);
-    //console.log(rootItem);
+    console.log(rootItem);
     childrenNumber = countChildren(rootItem);
 
     let screenName = root.Caption1??'Screen';
@@ -665,8 +673,8 @@ async function DrawFromJSON(input: string) {
 
     if (root.Caption1 &&
         rootItem.children.length >= 2 &&
-        rootItem.children[0].acuElement?.Type == AcuElementType.Template &&
-        rootItem.children[1].acuElement?.Type == AcuElementType.Tabbar)
+        rootItem.children[rootItem.children.length - 2].acuElement?.Type == AcuElementType.Template &&
+        rootItem.children[rootItem.children.length - 1].acuElement?.Type == AcuElementType.Tabbar)
     {
         const libPageName = 'Component Library';
         let libPage = figma.root.children.find(p => p.name === libPageName);
@@ -686,7 +694,7 @@ async function DrawFromJSON(input: string) {
         compSummary = libPage.children.find(n => n.type === 'COMPONENT' &&  n.name === componentName) as ComponentNode;
 
         if (!compSummary) {
-            summary = rootItem.children[0];
+            summary = rootItem.children[rootItem.children.length - 2];
             await figma.setCurrentPageAsync(libPage);
             const componentGap = 100;
             let componentY = 0;
@@ -708,7 +716,7 @@ async function DrawFromJSON(input: string) {
         }
 
         let tabName = 'undefined';
-        const tabBar = rootItem.children[1].acuElement as TabBar;
+        const tabBar = rootItem.children[rootItem.children.length - 1].acuElement as TabBar;
         tabBar.Tabs.forEach((tab) => {
             if (tab.IsActive)
                 tabName = tab.Label;
@@ -722,7 +730,7 @@ async function DrawFromJSON(input: string) {
         summaryNode.tryToFind = false;
         summaryNode.componentNode = compSummary;
 
-        rootItem.children[0] = summaryNode;
+        rootItem.children[rootItem.children.length - 2] = summaryNode;
     }
 
     progress = 10;
