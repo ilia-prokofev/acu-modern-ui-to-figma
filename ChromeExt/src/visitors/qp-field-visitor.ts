@@ -3,6 +3,7 @@ import {AcuContainer} from "../elements/acu-container";
 import {QPField} from "../elements/qp-field";
 import ElementVisitor from "./qp-element-visitor";
 import ChildrenVisitor from "./children-visitors";
+import {concatElementID} from "./html-element-utils";
 
 export default class QPFieldVisitor implements ElementVisitor {
     visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean {
@@ -16,15 +17,18 @@ export default class QPFieldVisitor implements ElementVisitor {
 
         const child: QPField = {
             Type: AcuElementType.Field,
+            Id: concatElementID(parent.Id, htmlElement),
             ElementType: null,
             Value: null,
             Label: null,
             ReadOnly: false,
         };
-        (parent as AcuContainer).Children.push(child);
-
         allVisitor.visitChildren(htmlElement, child);
+        if (!child.ElementType) {
+            return false;
+        }
 
+        (parent as AcuContainer).Children.push(child);
         return true;
     }
 }

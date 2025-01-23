@@ -1,52 +1,60 @@
 {
-  "Items": [
-    {
-      "IconType": "Back",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "SaveAndBack",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Save",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Undo",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Insert",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Delete",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Copy",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "First",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Previous",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Next",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Last",
-      "ItemType": "IconButton"
-    }
-  ],
-  "ShowRightAction": false,
-  "ShowSaveButton": false,
-  "ToolBarType": "List",
-  "Type": "ToolBar"
+  "Caption1": null,
+  "Caption2": null,
+  "Children": [],
+  "Id": "Root",
+  "ToolBar": {
+    "Id": "Root-22",
+    "Items": [
+      {
+        "IconType": "Back",
+        "ItemType": "IconButton"
+      },
+      {
+        "IconType": "SaveAndBack",
+        "ItemType": "IconButton"
+      },
+      {
+        "IconType": "Save",
+        "ItemType": "IconButton"
+      },
+      {
+        "IconType": "Undo",
+        "ItemType": "IconButton"
+      },
+      {
+        "IconType": "Insert",
+        "ItemType": "IconButton"
+      },
+      {
+        "IconType": "Delete",
+        "ItemType": "IconButton"
+      },
+      {
+        "IconType": "Copy",
+        "ItemType": "IconButton"
+      },
+      {
+        "IconType": "First",
+        "ItemType": "IconButton"
+      },
+      {
+        "IconType": "Previous",
+        "ItemType": "IconButton"
+      },
+      {
+        "IconType": "Next",
+        "ItemType": "IconButton"
+      },
+      {
+        "IconType": "Last",
+        "ItemType": "IconButton"
+      }
+    ],
+    "ShowRightAction": false,
+    "ShowSaveButton": false,
+    "ToolBarType": "List",
+    "Type": "ToolBar"
+  },
+  "Type": "Root"
 }

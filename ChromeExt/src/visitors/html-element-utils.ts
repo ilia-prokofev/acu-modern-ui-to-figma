@@ -86,3 +86,18 @@ export function getElementAlignment(htmlElement: Element): AcuAlignment | null {
 
     return null;
 }
+
+export function findLeafTextContent(htmlElement: Element): string | null {
+    if (htmlElement.children.length === 0) {
+        return htmlElement.textContent;
+    }
+
+    return findLeafTextContent(htmlElement.children[0]);
+}
+
+export function concatElementID(otherId: string, htmlElement: Element): string {
+    let id = htmlElement.getAttribute("au-target-id") ??
+        htmlElement.getAttribute("id") ??
+        htmlElement.nodeName.toLowerCase();
+    return `${otherId}-${id}`
+}

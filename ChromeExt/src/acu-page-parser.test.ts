@@ -3,19 +3,37 @@ import * as fs from "node:fs";
 import {AcuElement} from "./elements/acu-element";
 
 describe('acu-page-parser', () => {
-    let sut: AcuPageParser;
+    interface testCase {
+        testName: string;
+        incomingHTMLFileName: string;
+        expectedJSONFile: string;
+    }
 
-    beforeEach(() => {
-        sut = new AcuPageParser();
-    });
+    const testCases: testCase[] = [
+        {
+            testName: "pm-3010pl",
+            incomingHTMLFileName: './test-cases/pm-3010pl-input.html',
+            expectedJSONFile: './test-cases/pm-3010pl-output.json',
+        },
+        // {
+        //     testName: "sc-000001",
+        //     incomingHTMLFileName: './test-cases/sc-000001-input.html',
+        //     expectedJSONFile: './test-cases/sc-000001-output.json',
+        // },
+    ]
 
-    test('acu-page-parser', () => {
-        const inputHtml = fs.readFileSync('./test-cases/sc-000001-input.html', 'utf-8');
-        const expectedJson = fs.readFileSync('./test-cases/sc-000001-output.json', 'utf-8');
+    it.each(testCases)(
+        '$testName',
+        async ({incomingHTMLFileName, expectedJSONFile}) => {
+            const incomingHTML = fs.readFileSync(incomingHTMLFileName, 'utf8');
+            const expectedJSON = fs.readFileSync(expectedJSONFile, 'utf8');
 
-        const actual = sut.parse(inputHtml);
+            const sut = new AcuPageParser();
 
-        const expected = JSON.parse(expectedJson) as AcuElement;
-        expect(actual).toEqual(expected);
-    });
+            const actual = sut.parse(incomingHTML);
+
+            const expected = JSON.parse(expectedJSON) as AcuElement;
+            expect(actual).toEqual(expected);
+        }
+    );
 });

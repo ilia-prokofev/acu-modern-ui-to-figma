@@ -1,63 +1,55 @@
 import ElementVisitor from "./qp-element-visitor";
 import {AcuElement, AcuElementType} from "../elements/acu-element";
 import ChildrenVisitor from "./children-visitors";
-import {AcuContainer} from "../elements/acu-container";
 import {
-    QPToolBar,
+    isQPToolbarContainer,
+    QPToolBar, QPToolbarContainer,
     QPToolBarItem, QPToolBarItemButton,
     QPToolBarItemIconButton,
     QPToolBarItemIconButtonType,
     QPToolBarItemType, QPToolBarType
 } from "../elements/qp-toolbar";
-import {findClasses, findElementByClassesDown, findElementByNodeNameDown} from "./html-element-utils";
+import {concatElementID, findClasses, findElementByClassesDown, findElementByNodeNameDown} from "./html-element-utils";
 
 export default class QPToolBarVisitor implements ElementVisitor {
     visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean {
-        if (!(parent as AcuContainer)?.Children) {
+        if (!isQPToolbarContainer(parent)) {
             return false;
         }
 
-        const gridToolBar = findClasses(htmlElement, "grid-top-bar");
-        if (!gridToolBar && htmlElement.nodeName.toLowerCase() !== "qp-tool-bar") {
+        if (htmlElement.nodeName.toLowerCase() !== "qp-tool-bar") {
             return false;
         }
 
-        let qpToolBarElement = htmlElement;
-        if (gridToolBar) {
-            const maybeQPToolBarElement = findElementByNodeNameDown(htmlElement, "qp-tool-bar");
-            if (!maybeQPToolBarElement) {
-                return false;
-            }
-            qpToolBarElement = maybeQPToolBarElement;
-        }
-
-        const toolBar = this.visitToolBar(qpToolBarElement);
-        if (!toolBar) {
+        const toolBarContainer = (parent as QPToolbarContainer);
+        if (toolBarContainer.ToolBar) {
+            // already exists. Just ignore it (carefully)
             return false;
-        }
-
-        this.visitToolBarSearch(htmlElement, toolBar);
-
-        (parent as AcuContainer).Children.push(toolBar);
-
-        allVisitor.visitChildren(htmlElement, parent);
-
-        return true;
-    }
-
-    visitToolBar(htmlElement: Element): QPToolBar | null {
-        const divElement = findElementByNodeNameDown(htmlElement, "div");
-        if (!divElement) {
-            return null;
         }
 
         const toolBar: QPToolBar = {
             Type: AcuElementType.ToolBar,
+            Id: concatElementID(parent.Id, htmlElement),
             ToolBarType: QPToolBarType.List,
             Items: [],
             ShowRightAction: false,
             ShowSaveButton: false,
         };
+
+        this.visitToolBar(htmlElement, toolBar);
+        if (toolBar.Items.length === 0) {
+            return false;
+        }
+
+        toolBarContainer.ToolBar = toolBar;
+        return true;
+    }
+
+    visitToolBar(htmlElement: Element, toolBar: QPToolBar) {
+        const divElement = findElementByNodeNameDown(htmlElement, "div");
+        if (!divElement) {
+            return;
+        }
 
         for (const toolBarElement of divElement.children) {
             if (toolBarElement) {
@@ -80,14 +72,6 @@ export default class QPToolBarVisitor implements ElementVisitor {
                     }
                 }
             }
-        }
-
-        return toolBar;
-    }
-
-    visitToolBarSearch(htmlElement: Element, toolBar: QPToolBar) {
-        if (findElementByNodeNameDown(htmlElement, "qp-filter-box")) {
-            toolBar.ShowRightAction = true;
         }
     }
 

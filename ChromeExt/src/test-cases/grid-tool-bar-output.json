@@ -1,40 +1,48 @@
 {
-  "Items": [
-    {
-      "IconType": "Refresh",
-      "ItemType": "IconButton"
-    },
-    {
-      "ItemType": "Button",
-      "Text": "Add Project Items"
-    },
-    {
-      "IconType": "Import",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Undo",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Insert",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Edit",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "AdjustColumns",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "ExportToExcel",
-      "ItemType": "IconButton"
-    }
-  ],
-  "ShowRightAction": true,
-  "ShowSaveButton": false,
-  "ToolBarType": "List",
-  "Type": "ToolBar"
+  "Caption1": null,
+  "Caption2": null,
+  "Children": [],
+  "Id": "Root",
+  "ToolBar": {
+    "Id": "Root-1054",
+    "Items": [
+      {
+        "IconType": "Refresh",
+        "ItemType": "IconButton"
+      },
+      {
+        "ItemType": "Button",
+        "Text": "Add Project Items"
+      },
+      {
+        "IconType": "Import",
+        "ItemType": "IconButton"
+      },
+      {
+        "IconType": "Undo",
+        "ItemType": "IconButton"
+      },
+      {
+        "IconType": "Insert",
+        "ItemType": "IconButton"
+      },
+      {
+        "IconType": "Edit",
+        "ItemType": "IconButton"
+      },
+      {
+        "IconType": "AdjustColumns",
+        "ItemType": "IconButton"
+      },
+      {
+        "IconType": "ExportToExcel",
+        "ItemType": "IconButton"
+      }
+    ],
+    "ShowRightAction": true,
+    "ShowSaveButton": false,
+    "ToolBarType": "List",
+    "Type": "ToolBar"
+  },
+  "Type": "Root"
 }

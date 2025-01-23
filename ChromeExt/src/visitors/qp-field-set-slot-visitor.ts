@@ -3,6 +3,7 @@ import {AcuContainer} from "../elements/acu-container";
 import {FieldsetSlot} from "../elements/qp-fieldset-slot";
 import ElementVisitor from "./qp-element-visitor";
 import ChildrenVisitor from "./children-visitors";
+import {concatElementID} from "./html-element-utils";
 
 export default class QPFieldSetSlotVisitor implements ElementVisitor {
     visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean {
@@ -21,6 +22,7 @@ export default class QPFieldSetSlotVisitor implements ElementVisitor {
 
         const child: FieldsetSlot = {
             Type: AcuElementType.FieldsetSlot,
+            Id: concatElementID(parent.Id, htmlElement),
             Children: [],
             ID: slotAttr.value,
         };

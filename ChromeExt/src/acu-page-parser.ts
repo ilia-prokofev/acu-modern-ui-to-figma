@@ -13,7 +13,8 @@ import QPFieldSetSlotVisitor from "./visitors/qp-field-set-slot-visitor";
 import QPTemplateVisitor from "./visitors/qp-template-visitor";
 import QPRootVisitor from "./visitors/qp-root-visitor";
 import QPToolBarVisitor from "./visitors/qp-tool-bar-visitor";
-import QpFilterBarVisitor from "./visitors/qp-filter-bar-visitor";
+import QPFilterBarVisitor from "./visitors/qp-filter-bar-visitor";
+import QPGridToolBarVisitor from "./visitors/qp-grid-tool-bar-visitor";
 
 export class AcuPageParser {
     parse(html: string): AcuElement | null {
@@ -31,7 +32,8 @@ export class AcuPageParser {
             new QPTabBarVisitor(),
             new QPGridVisitor(),
             new QPToolBarVisitor(),
-            new QpFilterBarVisitor(),
+            new QPFilterBarVisitor(),
+            new QPGridToolBarVisitor(),
         ];
         const allVisitor = new ChildrenVisitor(allVisitors);
 
@@ -40,6 +42,8 @@ export class AcuPageParser {
             Children: [],
             Caption1: null,
             Caption2: null,
+            ToolBar: null,
+            Id: "Root"
         }
 
         allVisitor.visitChildren(doc.body, root);
