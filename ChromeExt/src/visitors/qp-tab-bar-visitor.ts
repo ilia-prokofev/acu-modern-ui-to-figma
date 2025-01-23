@@ -6,7 +6,7 @@ import {
     concatElementID,
     findClasses,
     findElementByClassesDown, findElementByNodeNameDown,
-    findLeafTextContent
+    findFirstLeafTextContent
 } from "./html-element-utils";
 import ChildrenVisitor from "./children-visitors";
 
@@ -45,7 +45,7 @@ export default class QPTabBarVisitor implements ElementVisitor {
             const tab: Tab = {
                 Type: AcuElementType.Tab,
                 Id: concatElementID(parent.Id, htmlElement),
-                Label: findLeafTextContent(tabHeader)?.trim() ?? '',
+                Label: findFirstLeafTextContent(tabHeader) ?? '',
                 IsActive: findElementByClassesDown(tabHeader, 'qp-tabbar-active') !== null,
             };
 

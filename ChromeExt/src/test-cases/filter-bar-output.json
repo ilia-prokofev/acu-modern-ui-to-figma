@@ -26,10 +26,16 @@
         "Text": "Customer ID"
       },
       {
-        "ItemType": "AddFilterButton"
+        "Enabled": true,
+        "Icon": "ArrowDown",
+        "ItemType": "Button",
+        "Style": "Secondary"
       },
       {
-        "ItemType": "MenuButton"
+        "Enabled": true,
+        "Icon": "Ellipsis",
+        "ItemType": "Button",
+        "Style": "Tertiary"
       }
     ],
     "ShowRightAction": true,

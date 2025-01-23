@@ -14,7 +14,7 @@ import {
     concatElementID, findClasses,
     findElementByClassesDown,
     findElementByNodeNameDown,
-    isElementEnabled
+    isElementEnabled, isHiddenElement
 } from "./html-element-utils";
 import {ButtonStyle} from "../elements/button";
 import {getIconType} from "./icon-utils";
@@ -61,8 +61,8 @@ export default class QPToolBarVisitor implements ElementVisitor {
         }
 
         for (const toolBarElement of divElement.children) {
-            if (findClasses(toolBarElement, "aurelia-hide")) {
-                continue;
+            if (isHiddenElement(toolBarElement)) {
+                continue
             }
 
             switch (toolBarElement.nodeName.toLowerCase()) {
@@ -95,7 +95,6 @@ export default class QPToolBarVisitor implements ElementVisitor {
         }
 
         const enabled = isElementEnabled(buttonElement);
-
         const buttonStyle = getButtonStyle(buttonElement);
 
         return {

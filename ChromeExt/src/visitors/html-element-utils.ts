@@ -87,12 +87,19 @@ export function getElementAlignment(htmlElement: Element): AcuAlignment | null {
     return null;
 }
 
-export function findLeafTextContent(htmlElement: Element): string | null {
+export function findFirstLeafTextContent(htmlElement: Element): string | null {
     if (htmlElement.children.length === 0) {
-        return htmlElement.textContent;
+        return htmlElement.textContent?.trim() ?? null;
     }
 
-    return findLeafTextContent(htmlElement.children[0]);
+    for (const child of htmlElement.children) {
+        const textContent = findFirstLeafTextContent(child);
+        if (textContent && textContent.length > 0) {
+            return textContent;
+        }
+    }
+
+    return null;
 }
 
 export function findAttributeValueDown(htmlElement: Element, attributeName: string): string | null {
@@ -120,4 +127,18 @@ export function concatElementID(otherId: string, htmlElement: Element): string {
 
 export function isElementEnabled(element: Element): boolean {
     return !findClasses(element, "disabled");
+}
+
+export function isHiddenElement(element: Element): boolean {
+    if (findClasses(element, "aurelia-hide")) {
+        return true;
+    }
+
+    const style = element.getAttribute("style");
+    if (!style) {
+        return false;
+    }
+
+    const negativePositionRegex = /top:\s*-\d+px/;
+    return negativePositionRegex.test(style);
 }

@@ -341,10 +341,16 @@
             "Text": "Customer ID"
           },
           {
-            "ItemType": "AddFilterButton"
+            "Enabled": true,
+            "Icon": "ArrowDown",
+            "ItemType": "Button",
+            "Style": "Secondary"
           },
           {
-            "ItemType": "MenuButton"
+            "Enabled": true,
+            "Icon": "Ellipsis",
+            "ItemType": "Button",
+            "Style": "Tertiary"
           }
         ],
         "ShowRightAction": true,
@@ -360,28 +366,46 @@
     "Id": "Root-22",
     "Items": [
       {
-        "IconType": "Refresh",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "Refresh",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "Undo",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "Undo",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "Insert",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "Insert",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "Edit",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "Edit",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "AdjustColumns",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "AdjustColumns",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "ExportToExcel",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "ExportToExcel",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       }
     ],
     "ShowRightAction": false,

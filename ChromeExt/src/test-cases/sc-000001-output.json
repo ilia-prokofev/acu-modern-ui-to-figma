@@ -1,6 +1,6 @@
 {
   "Caption1": "Subcontracts",
-  "Caption2": "SC-000001 - Cornerstone Concrete",
+  "Caption2": "SC-000036 - CB Sitework, Inc.",
   "Children": [
     {
       "Children": [
@@ -204,20 +204,20 @@
             {
               "Alignment": "Left",
               "Cells": [
-                "CSTRSUBCON",
-                "CSTRSUBCON",
-                "CSTRSUBCON"
+                "",
+                "",
+                ""
               ],
-              "ColumnType": "Link",
+              "ColumnType": "Text",
               "Label": "Inventory ID",
               "Type": "GridColumn"
             },
             {
               "Alignment": "Left",
               "Cells": [
-                "CSTRHOTEL",
-                "CSTRHOTEL",
-                "CSTRHOTEL"
+                "CSTRCONCRT",
+                "CSTRCONCRT",
+                "CSTRCONCRT"
               ],
               "ColumnType": "Text",
               "Label": "Project",
@@ -226,9 +226,9 @@
             {
               "Alignment": "Left",
               "Cells": [
-                "03",
-                "03",
-                "03"
+                "02",
+                "02",
+                "02"
               ],
               "ColumnType": "Text",
               "Label": "Project Task",
@@ -237,9 +237,9 @@
             {
               "Alignment": "Left",
               "Cells": [
-                "CIP Stairs",
-                "CIP Slab",
-                "Materials & Methods"
+                "Site Remidiation",
+                "Site Prep",
+                "Earthwork- Clearing and Grubbing"
               ],
               "ColumnType": "Text",
               "Label": "Line Description",
@@ -270,9 +270,9 @@
             {
               "Alignment": "Right",
               "Cells": [
-                "290,000.00",
-                "4,000,000.00",
-                "1,000,000.00"
+                "75,000.00",
+                "50,000.00",
+                "45,000.00"
               ],
               "ColumnType": "Text",
               "Label": "Unit Cost",
@@ -292,9 +292,9 @@
             {
               "Alignment": "Right",
               "Cells": [
-                "290,000.00",
-                "4,000,000.00",
-                "1,000,000.00"
+                "75,000.00",
+                "50,000.00",
+                "45,000.00"
               ],
               "ColumnType": "Text",
               "Label": "Ext. Cost",
@@ -380,9 +380,9 @@
             {
               "Alignment": "Right",
               "Cells": [
-                "14,500.00",
-                "200,000.00",
-                "50,000.00"
+                "3,750.00",
+                "2,500.00",
+                "2,250.00"
               ],
               "ColumnType": "Text",
               "Label": "Retainage Amount",
@@ -391,9 +391,9 @@
             {
               "Alignment": "Right",
               "Cells": [
-                "275,500.00",
-                "3,800,000.00",
-                "950,000.00"
+                "71,250.00",
+                "47,500.00",
+                "42,750.00"
               ],
               "ColumnType": "Text",
               "Label": "Amount",
@@ -413,9 +413,9 @@
             {
               "Alignment": "Left",
               "Cells": [
-                "EXEMPT",
-                "EXEMPT",
-                "EXEMPT"
+                "",
+                "",
+                ""
               ],
               "ColumnType": "Text",
               "Label": "Tax Category",
@@ -457,12 +457,34 @@
             {
               "Alignment": "Center",
               "Cells": [
-                "true",
-                "true",
-                "true"
+                "false",
+                "false",
+                "false"
               ],
               "ColumnType": "Checkbox",
               "Label": "Closed",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": "Right",
+              "Cells": [
+                "0.00",
+                "0.00",
+                "0.00"
+              ],
+              "ColumnType": "Text",
+              "Label": "Billed Qty.",
+              "Type": "GridColumn"
+            },
+            {
+              "Alignment": "Right",
+              "Cells": [
+                "0.00",
+                "0.00",
+                "0.00"
+              ],
+              "ColumnType": "Text",
+              "Label": "Billed Amount",
               "Type": "GridColumn"
             },
             {
@@ -473,37 +495,15 @@
                 "1.00"
               ],
               "ColumnType": "Text",
-              "Label": "Billed Qty.",
-              "Type": "GridColumn"
-            },
-            {
-              "Alignment": "Right",
-              "Cells": [
-                "290,000.00",
-                "4,000,000.00",
-                "1,000,000.00"
-              ],
-              "ColumnType": "Text",
-              "Label": "Billed Amount",
-              "Type": "GridColumn"
-            },
-            {
-              "Alignment": "Right",
-              "Cells": [
-                "0.00",
-                "0.00",
-                "0.00"
-              ],
-              "ColumnType": "Text",
               "Label": "Unbilled Qty.",
               "Type": "GridColumn"
             },
             {
               "Alignment": "Right",
               "Cells": [
-                "0.00",
-                "0.00",
-                "0.00"
+                "75,000.00",
+                "50,000.00",
+                "45,000.00"
               ],
               "ColumnType": "Text",
               "Label": "Unbilled Amount",
@@ -526,24 +526,53 @@
             "Id": "Root-402-1317-1054",
             "Items": [
               {
-                "IconType": "Refresh",
-                "ItemType": "IconButton"
+                "Enabled": true,
+                "Icon": "Refresh",
+                "ItemType": "Button",
+                "Style": "Tertiary",
+                "Text": null
               },
               {
+                "Enabled": true,
+                "Icon": "AddRow",
                 "ItemType": "Button",
+                "Style": "Tertiary",
+                "Text": null
+              },
+              {
+                "Enabled": true,
+                "Icon": "DeleteRow",
+                "ItemType": "Button",
+                "Style": "Tertiary",
+                "Text": null
+              },
+              {
+                "Enabled": true,
+                "Icon": null,
+                "ItemType": "Button",
+                "Style": "Tertiary",
                 "Text": "Add Project Items"
               },
               {
-                "IconType": "AdjustColumns",
-                "ItemType": "IconButton"
+                "Enabled": true,
+                "Icon": "AdjustColumns",
+                "ItemType": "Button",
+                "Style": "Tertiary",
+                "Text": null
               },
               {
-                "IconType": "ExportToExcel",
-                "ItemType": "IconButton"
+                "Enabled": true,
+                "Icon": "ExportToExcel",
+                "ItemType": "Button",
+                "Style": "Tertiary",
+                "Text": null
               },
               {
-                "IconType": "Import",
-                "ItemType": "IconButton"
+                "Enabled": true,
+                "Icon": "Import",
+                "ItemType": "Button",
+                "Style": "Tertiary",
+                "Text": null
               }
             ],
             "ShowRightAction": true,
@@ -631,48 +660,95 @@
     "Id": "Root-22",
     "Items": [
       {
-        "IconType": "Back",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "Back",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "SaveAndBack",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "SaveAndBack",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "Save",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "Save",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "Undo",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "Undo",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "Insert",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "Insert",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "Delete",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "Delete",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "Copy",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "Copy",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "First",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "First",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "Previous",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "Previous",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "Next",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "Next",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "Last",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "Last",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": null,
+        "ItemType": "Button",
+        "Style": "Special",
+        "Text": "Remove Hold"
+      },
+      {
+        "Enabled": true,
+        "Icon": "Ellipsis",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       }
     ],
     "ShowRightAction": false,

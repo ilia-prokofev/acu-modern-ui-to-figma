@@ -7,36 +7,60 @@
     "Id": "Root-1054",
     "Items": [
       {
-        "IconType": "Refresh",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "Refresh",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
+        "Enabled": true,
+        "Icon": null,
         "ItemType": "Button",
+        "Style": "Tertiary",
         "Text": "Add Project Items"
       },
       {
-        "IconType": "Import",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "Import",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "Undo",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "Undo",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "Insert",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "Insert",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "Edit",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "Edit",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "AdjustColumns",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "AdjustColumns",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       },
       {
-        "IconType": "ExportToExcel",
-        "ItemType": "IconButton"
+        "Enabled": true,
+        "Icon": "ExportToExcel",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
       }
     ],
     "ShowRightAction": true,

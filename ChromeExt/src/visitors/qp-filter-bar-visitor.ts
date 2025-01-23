@@ -3,15 +3,25 @@ import ChildrenVisitor from "./children-visitors";
 import ElementVisitor from "./qp-element-visitor";
 import {
     isQPToolbarContainer,
-    QPToolBar, QPToolbarContainer,
+    QPToolBar,
+    QPToolbarContainer,
     QPToolBarItem,
+    QPToolBarItemButton,
     QPToolBarItemFilterButton,
     QPToolBarItemFilterCombo,
     QPToolBarItemSeparator,
     QPToolBarItemType,
     QPToolBarType
 } from "../elements/qp-toolbar";
-import {concatElementID, findClasses, findElementByClassesDown} from "./html-element-utils";
+import {
+    concatElementID,
+    findClasses,
+    findElementByClassesDown,
+    isElementEnabled,
+    isHiddenElement
+} from "./html-element-utils";
+import {getIconType} from "./icon-utils";
+import {ButtonStyle} from "../elements/button";
 
 export default class QPFilterBarVisitor implements ElementVisitor {
     visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean {
@@ -55,6 +65,9 @@ export default class QPFilterBarVisitor implements ElementVisitor {
 
     visitItems(itemsElement: Element, toolBar: QPToolBar) {
         for (const itemElement of itemsElement.children) {
+            if (isHiddenElement(itemElement)) {
+                continue
+            }
             const toolBarItem = this.createItem(itemElement);
             if (toolBarItem) {
                 toolBar.Items.push(toolBarItem);
@@ -87,21 +100,27 @@ export default class QPFilterBarVisitor implements ElementVisitor {
             }
 
             case "qp-button": {
-                // if (findClasses(itemElement, "add-filter")) {
-                //     return {
-                //         ItemType: QPToolBarItemType.AddFilterButton,
-                //     } as QPToolBarItemAddFilterButton
-                // }
+                const iconType = getIconType(itemElement);
+                const enabled = isElementEnabled(itemElement);
 
-                return null;
+                return {
+                    ItemType: QPToolBarItemType.Button,
+                    Icon: iconType,
+                    Enabled: enabled,
+                    Style: ButtonStyle.Secondary,
+                } as QPToolBarItemButton;
             }
 
             case "qp-menu": {
-                // return {
-                //     ItemType: QPToolBarItemType.MenuButton,
-                // } as QPToolBarItemMenuButton;
+                const iconType = getIconType(itemElement);
+                const enabled = isElementEnabled(itemElement);
 
-                return null;
+                return {
+                    ItemType: QPToolBarItemType.Button,
+                    Icon: iconType,
+                    Enabled: enabled,
+                    Style: ButtonStyle.Tertiary,
+                } as QPToolBarItemButton;
             }
         }
 
