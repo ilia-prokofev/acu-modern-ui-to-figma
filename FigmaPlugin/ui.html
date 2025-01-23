@@ -138,7 +138,7 @@
     document.getElementById('json').onclick = () => {
         const textbox = document.getElementById('inputText');
         const inputText = textbox.value;
-        parent.postMessage({pluginMessage: {input: inputText, format: 'html'}}, '*');
+        parent.postMessage({pluginMessage: {input: inputText, format: 'json'}}, '*');
     };
 
     document.getElementById('cancel').onclick = () => {
