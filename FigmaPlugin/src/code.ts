@@ -7,19 +7,29 @@
 import {QPField, QPFieldElementType} from "./elements/qp-field";
 import {Template} from "./elements/qp-template";
 import {QPFieldset} from "./elements/qp-fieldset";
-import {AcuElementType} from "./elements/acu-element";
+import {AcuElement, AcuElementType} from "./elements/acu-element";
 import {FieldsetSlot} from "./elements/qp-fieldset-slot";
 import {Tab, TabBar} from "./elements/qp-tabbar";
 import {Grid, GridColumnType} from "./elements/qp-grid";
 import {Root} from "./elements/qp-root";
+import {
+    QPToolBar,
+    QPToolBarItemButton,
+    QPToolBarItemIconButton,
+    QPToolBarItemIconButtonType,
+    QPToolBarItemType
+} from "./elements/qp-toolbar";
 
 figma.showUI(__html__, {width: 650, height: 410});
 
-const horizontalSpacing = 20;
-const verticalSpacing = 20;
-const pageWidth = 1536;
-const pageHeight = 864;
-const viewportWidth = pageWidth - 100;
+const horizontalSpacing = 12;
+const verticalSpacing = 12;
+const padding = 24;
+const screenSpacing = 50
+const pageWidth = 1364;//1600;
+const pageHeight = 900;
+const viewportWidth = pageWidth - 80 - padding * 2;
+const viewportHeight = pageHeight - 50;
 
 let childrenNumber = 0;
 let childrenProcessed = 0;
@@ -32,87 +42,122 @@ let compLeftMenu = undefined as unknown as ComponentNode;
 let compGrid = undefined as unknown as ComponentNode;
 let compTabbar = undefined as unknown as ComponentNode;
 
+const buttonIcons = new Map<QPToolBarItemIconButtonType, string>([
+    [QPToolBarItemIconButtonType.Refresh        , 'c49868efe2dfa88095d9db037824cdd7721ad06e'],
+    [QPToolBarItemIconButtonType.Undo           , '6229695a70dcf7ded45f99f84288ae92b03c7c56'],
+    [QPToolBarItemIconButtonType.Insert         , 'de700daf8268fce0d3acff9011f4a936bf77f714'],
+    [QPToolBarItemIconButtonType.Edit           , 'b9257482b69a7be89190abee18ad34b6d42a9184'],
+    [QPToolBarItemIconButtonType.AdjustColumns  , '83ed0e23748392291c66e9de42c2f6c42a4c634f'],
+    [QPToolBarItemIconButtonType.ExportToExcel  , '54921de81540be32af6fc0af318f2b4937ad32ee'],
+    [QPToolBarItemIconButtonType.Copy           , '7a292951e78c1b33bb1214a62617efaf264cb18e'],
+    [QPToolBarItemIconButtonType.Delete         , '3768bac5ab85ab45fe6abc62eacf515cddddee11'],
+    [QPToolBarItemIconButtonType.First          , '339e24e29430577c293d9826f77fabc48053d077'],
+    [QPToolBarItemIconButtonType.Last           , '7c9aa4dd8f3449ddbdee384b8d348676ed5c2142'],
+    [QPToolBarItemIconButtonType.Back           , 'ff33972c40f4435a4020c8ce300c305f68ac0a84'],
+    [QPToolBarItemIconButtonType.Previous       , 'defe6a35b414086383ab7b4dd627a757e9349b01'],
+    [QPToolBarItemIconButtonType.Next           , 'ac17253deb51f88a538228224f12f5b2bec0b64e'],
+    [QPToolBarItemIconButtonType.Save           , '55688f66ef69a0bf4abc6ac8e48b561f4c08fc4f'],
+    [QPToolBarItemIconButtonType.SaveAndBack    , '7693000f6771b4135a00ad062e3b9b4b718b6ceb'],
+    [QPToolBarItemIconButtonType.Import         , '9bbe97f874029e4de44a1f28f9fa76cd39bfef29'],
+    [QPToolBarItemIconButtonType.MenuOpener     , '19be5dec53338a1bd35ff1f7e409da34d5f1e287'],
+]);
+let buttonIconIDs = new Map<QPToolBarItemIconButtonType, string>();
+
 function SetProperties(node: InstanceNode, properties: any) {
     try {
         node.setProperties(properties);
     }
     catch (e) {
-        console.error(node.name, e);
+        console.warn(node.name, e);
     }
 }
 
-type figmaFieldTypes = 'NEW INSTANCE' | 'EXISTING INSTANCE' | 'FRAME';
+type figmaFieldTypes = 'INSTANCE' | 'FRAME';
 type figmaLayoutMode = 'NONE' | 'HORIZONTAL' | 'VERTICAL'
 
-async function Draw(field: figmaField, parent: InstanceNode | PageNode | GroupNode | FrameNode) {
+class figmaField {
+
+    childIndex: number = -1; // to find this instance in the children list of parent instance by index
+    name: string; // to find this instance in nested items of the parent instance by name
+    tryToFind = true;
+    createIfNotFound = false;
+    acuElement: AcuElement | null = null;
+    height = 0;
+    width = 0;
+    componentProperties: { [propertyName: string]: string | boolean; } = {};
+    properties: { [propertyName: string]: any; } = {};
+    children: figmaField[] = [];
+    type: figmaFieldTypes;
+    componentNode: ComponentNode | null = null;
+    layoutMode: figmaLayoutMode = 'VERTICAL';
+    figmaObject: FrameNode | InstanceNode | null = null;
+
+    constructor(name: string, type: figmaFieldTypes = 'INSTANCE', width = 0, height = 0) {
+        this.name = name;
+        this.type = type;
+        this.width = width;
+        this.height = height;
+    }
+}
+
+async function Draw(field: figmaField, parent: InstanceNode | PageNode | GroupNode | FrameNode | ComponentNode) {
     childrenProcessed++;
-    const newProgress = Math.floor(childrenProcessed * 95 / childrenNumber) + 5;
+    //console.log(childrenProcessed, field);
+    const newProgress = Math.floor(childrenProcessed * 90 / childrenNumber) + 10;
     if (newProgress == 100 || newProgress - progress >= 10) {
         progress = newProgress;
         figma.ui.postMessage({type: 'progress', progress});
         await new Promise(resolve => setTimeout(resolve, 20));
     }
 
-    let instance;
-    switch (field.type) {
-        case 'EXISTING INSTANCE':
-            if (field.childNumber >= 0)
-                instance = parent.children[field.childNumber] as InstanceNode;
-            else {
-                instance = parent.findOne(node => node.type === 'INSTANCE' && node.name === field.name) as InstanceNode;
-            }
-            if (!instance) {
+    let instance = field.figmaObject;
+    if (!instance) {
+        if (field.tryToFind) {
+            if (field.childIndex >= 0)
+                instance = parent.children[field.childIndex] as InstanceNode;
+            else
+                instance = parent.findOne(node => node.type === field.type && node.name === field.name) as InstanceNode;
+
+            if (!instance && !field.createIfNotFound) {
                 console.warn(`${field.name} not found`);
                 return;
             }
-            SetProperties(instance, field.properties);
-            if (field.visible != null)
-                instance.visible = field.visible;
-            break;
-        case 'NEW INSTANCE':
-            instance = field.componentNode!.createInstance() as InstanceNode;
-            if (field.width > 0)
-                instance.resize(field.width, instance.height);
+        }
+
+        if (!instance) {
+            switch (field.type) {
+                case 'INSTANCE':
+                    instance = field.componentNode!.createInstance() as InstanceNode;
+                    break;
+                case 'FRAME':
+                    instance = figma.createFrame() as FrameNode;
+                    instance.layoutMode = field.layoutMode;
+                    if (!field.properties['primaryAxisSizingMode'])
+                        instance.primaryAxisSizingMode = 'AUTO';
+                    if (!field.properties['counterAxisSizingMode'])
+                        instance.counterAxisSizingMode = 'AUTO';
+                    instance.itemSpacing = field.layoutMode == 'VERTICAL' ? verticalSpacing : horizontalSpacing;
+                    break;
+            }
             instance.name = field.name;
-            SetProperties(instance, field.properties);
             parent.appendChild(instance);
-            break;
-        case 'FRAME':
-            instance = figma.createFrame() as FrameNode;
-            instance.layoutMode = field.layoutMode;
-            instance.primaryAxisSizingMode = 'AUTO';
-            instance.counterAxisSizingMode = 'AUTO';
-            instance.itemSpacing = field.layoutMode == 'VERTICAL' ? verticalSpacing : horizontalSpacing;
-            instance.name = field.name;
-            parent.appendChild(instance);
-            break;
+        }
     }
 
+    for (const property in field.properties) {
+        // @ts-ignore
+        instance[property] = field.properties[property];
+    }
+
+    if (instance.type === 'INSTANCE')
+        SetProperties(instance, field.componentProperties);
+
+    if (field.width > 0)
+        instance.resize(field.width, instance.height);
+
+    field.figmaObject = instance;
     for (const child of field.children)
         await Draw(child, instance);
-}
-
-
-class figmaField {
-
-    name: string;
-    height = 0;
-    width = 0;
-    properties: { [propertyName: string]: string | boolean; } = {};
-    children: figmaField[] = [];
-    type: figmaFieldTypes;
-    componentNode: ComponentNode | null = null;
-    layoutMode: figmaLayoutMode = 'VERTICAL';
-    visible: boolean | null = null;
-    childNumber: number = -1;
-
-    constructor(name: string, type: figmaFieldTypes = 'EXISTING INSTANCE', width = 0, height = 0) {
-        this.name = name;
-        this.type = type;
-        this.width = width;
-        this.height = height;
-    }
-
 }
 
 class figmaRow extends figmaField{
@@ -133,74 +178,75 @@ class figmaRow extends figmaField{
     ]);
 
     constructor(field: QPField, name: string) {
-        super(name, 'EXISTING INSTANCE');
+        super(name, 'INSTANCE');
+        this.acuElement = field;
 
         if (!field.ElementType) {
-            console.error(`Row type can not be null`);
+            console.warn(`Row type can not be null`, field);
             return;
         }
 
         let elementType = field.ElementType;
 
         if (!this.rowTypes.has(field.ElementType)) {
-            console.error(`${field.ElementType} row type is not supported`);
+            console.warn(`${field.ElementType} row type is not supported`);
             elementType = QPFieldElementType.TextEditor;
         }
-        this.properties[this.typePropertyName] = this.rowTypes.get(elementType)!;
+        this.componentProperties[this.typePropertyName] = this.rowTypes.get(elementType)!;
 
         let child;
 
         switch (elementType) {
             case QPFieldElementType.CheckBox:
                 child = new figmaField('Checkbox');
-                child.properties['Value ▶#6695:0'] = field.Label??'';
-                child.properties['Selected'] = field.Value == 'on' ? 'True' : 'False';
+                child.componentProperties['Value ▶#6695:0'] = field.Label??'';
+                child.componentProperties['Selected'] = field.Value == 'on' ? 'True' : 'False';
                 if (field.ReadOnly)
-                    child.properties['State'] = 'Disabled';
+                    child.componentProperties['State'] = 'Disabled';
                 this.children.push(child);
                 break;
             case QPFieldElementType.RadioButton:
                 child = new figmaField('Radiobuttons');
-                child.properties['Name#8227:0'] = field.Label??'';
-                child.properties['Checked'] = field.Value == 'on' ? 'True' : 'False';
+                child.componentProperties['Name#8227:0'] = field.Label??'';
+                child.componentProperties['Checked'] = field.Value == 'on' ? 'True' : 'False';
                 if (field.ReadOnly)
-                    child.properties['State'] = 'Disabled';
+                    child.componentProperties['State'] = 'Disabled';
                 this.children.push(child);
                 break;
             case QPFieldElementType.MultilineTextEditor:
                 child = new figmaField('Label');
-                child.properties['Label Value ▶#3141:62'] = field.Label??'';
+                child.componentProperties['Label Value ▶#3141:62'] = field.Label??'';
                 this.children.push(child);
 
                 child = new figmaField('Text Area');
-                child.properties['Text Value ▶#4221:3'] = field.Value??'';
+                child.componentProperties['Text Value ▶#4221:3'] = field.Value??'';
                 if (field.ReadOnly)
-                    child.properties['State'] = 'Disabled';
+                    child.componentProperties['State'] = 'Disabled';
                 this.children.push(child);
                 break;
             case QPFieldElementType.Status:
                 child = new figmaField('Label');
-                child.properties['Label Value ▶#3141:62'] = field.Label??'';
+                child.componentProperties['Label Value ▶#3141:62'] = field.Label??'';
                 this.children.push(child);
 
                 child = new figmaField('Field');
-                child.properties['Type'] = 'Status';
+                child.componentProperties['Type'] = 'Status';
                 if (field.ReadOnly)
-                    child.properties['State'] = 'Disabled';
+                    child.componentProperties['State'] = 'Disabled';
                 this.children.push(child);
 
                 child = new figmaField('Status');
-                child.properties['Status'] = field.Value??'';
+                child.componentProperties['Status'] = field.Value??'';
                 this.children.push(child);
                 break;
             default:
                 child = new figmaField('Label');
-                child.properties['Label Value ▶#3141:62'] = field.Label??'';
+                child.componentProperties['Label Value ▶#3141:62'] = field.Label??'';
                 this.children.push(child);
                 child = new figmaField('Field');
-                child.properties['Text Value ▶#3161:0'] = field.Value??'';
+                child.componentProperties['Text Value ▶#3161:0'] = field.Value??'';
                 if (field.ReadOnly)
-                    child.properties['State'] = 'Disabled';
+                    child.componentProperties['State'] = 'Disabled';
                 this.children.push(child);
                 break;
         }
@@ -220,12 +266,15 @@ class figmaGrid extends figmaField {
     ]);
 
     constructor(grid: Grid, name: string, newInstance: boolean) {
-        super(name, newInstance ? 'NEW INSTANCE' : 'EXISTING INSTANCE');
+        super(name);
+        this.tryToFind = !newInstance;
+        this.acuElement = grid;
+
         if (newInstance) {
             this.componentNode = compGrid;
             this.width = viewportWidth;
-            this.properties['👁 Header#6826:0'] = true;
         }
+        this.componentProperties['👁 Header#6826:0'] = true;
 
         let displayedRows = 0;
         const displayedColumns = 13;
@@ -244,99 +293,179 @@ class figmaGrid extends figmaField {
             }
         }
 
+        if (grid.ToolBar)
+            this.children.push(new figmaToolbar(grid.ToolBar));
+
+        const columnSettings = new figmaField(`Grid Column 1`);
+        columnSettings.properties['visible'] = false;
+        this.children.push(columnSettings);
+
+        const columnNotes = new figmaField(`Grid Column 2`);
+        columnNotes.properties['visible'] = false;
+        this.children.push(columnNotes);
+
+        const columnFiles = new figmaField(`Grid Column 3`);
+        columnFiles.properties['visible'] = false;
+        this.children.push(columnFiles);
+
+        let columnNumber = 4;
+
         for (let i = 1; i <= visibleColumns; i++) {
             const column = grid.Columns[i-1];
-            const columnInstance = new figmaField(`Grid Column ${i}`);
-            columnInstance.visible = true;
+            let columnInstance;
+            switch (column.ColumnType) {
+                case GridColumnType.Settings:
+                    columnSettings.properties['visible'] = true;
+                    continue;
+                case GridColumnType.Files:
+                    columnInstance = columnFiles;
+                    break;
+                case GridColumnType.Notes:
+                    columnInstance = columnNotes;
+                    break;
+                default:
+                    columnInstance = new figmaField(`Grid Column ${columnNumber++}`);
+                    if (!this.columnTypes.has(column.ColumnType))
+                        console.warn(`${this.columnTypes} column type is not supported`);
+                    else
+                        columnInstance.componentProperties['Type'] = this.columnTypes.get(column.ColumnType)!;
+                    columnInstance.componentProperties['Alignment'] = (column.Alignment == 'Right' ? 'Right' : 'Left');
+                    this.children.push(columnInstance);
+                    break;
+            }
 
-            if (!this.columnTypes.has(column.ColumnType))
-                console.error(`${this.columnTypes} column type is not supported`);
-            else
-                columnInstance.properties['Type'] = this.columnTypes.get(column.ColumnType)!;
+            columnInstance.properties['visible'] = true;
 
-            if (column.Alignment == 'Right')
-                columnInstance.properties['Alignment'] = 'Right';
-            this.children.push(columnInstance);
-
-            for (let j = displayedRows; j < displayedRowsDefault; j++) {
-                const cell = new figmaField(`Cell ${j+1}`, 'EXISTING INSTANCE');
-                cell.childNumber = j + 1;
-                cell.properties['Show Value#4709:42'] = false;
+            for (let j = displayedRowsDefault; j < displayedRows; j++) {
+                const cell = new figmaField(`Cell ${j+1}`);
+                cell.childIndex = j + 1;
+                cell.componentProperties['Show Value#4709:42'] = true;
                 columnInstance.children.push(cell);
             }
 
-            if (column.ColumnType != GridColumnType.Settings)
-                for (let j = displayedRowsDefault; j < displayedRows; j++) {
-                    const cell = new figmaField(`Cell ${j+1}`, 'EXISTING INSTANCE');
-                    cell.childNumber = j + 1;
-                    cell.properties['Show Value#4709:42'] = true;
-                    columnInstance.children.push(cell);
-                }
+            for (let j = displayedRows; j < displayedRowsDefault; j++) {
+                const cell = new figmaField(`Cell ${j+1}`);
+                cell.childIndex = j + 1;
+                cell.componentProperties['Show Value#4709:42'] = false;
+                columnInstance.children.push(cell);
+            }
 
-            if (column.ColumnType == GridColumnType.Settings ||
-                column.ColumnType == GridColumnType.Files ||
-                column.ColumnType == GridColumnType.Notes) continue;
+            if (column.ColumnType == GridColumnType.Notes || column.ColumnType == GridColumnType.Files)
+                continue;
 
-            const header = new figmaField('Column Header', 'EXISTING INSTANCE');
-            header.childNumber = 0;
-            header.properties['Value#6706:49'] = column.Label;
+            const header = new figmaField('Column Header');
+            header.childIndex = 0;
+            header.componentProperties['Value#6706:49'] = column.Label;
             columnInstance.children.push(header);
 
             for (let j = 0; j < column.Cells.length; j++) {
-                const cell = new figmaField(`Cell ${j+1}`, 'EXISTING INSTANCE');
-                cell.childNumber = j + 1;
+                const cell = new figmaField(`Cell ${j+1}`);
+                cell.childIndex = j + 1;
                 if (column.ColumnType == GridColumnType.Checkbox) {
                     if (column.Cells[j] == 'true') {
-                        const checkbox = new figmaField(`Checkbox Indicator`, 'EXISTING INSTANCE');
-                        checkbox.properties['Selected'] = true;
+                        const checkbox = new figmaField(`Checkbox Indicator`);
+                        checkbox.componentProperties['Selected'] = true;
                         cell.children.push(checkbox);
                     }
                 }
                 else
-                    cell.properties['Value#6706:0'] = column.Cells[j];
+                    cell.componentProperties['Value#6706:0'] = column.Cells[j];
                 columnInstance.children.push(cell);
             }
 
             for (let j = column.Cells.length; j < displayedRows; j++) {
-                const cell = new figmaField(`Cell ${j+1}`, 'EXISTING INSTANCE');
-                cell.childNumber = j + 1;
-                cell.properties['Value#6706:0'] = '';
+                const cell = new figmaField(`Cell ${j+1}`);
+                cell.childIndex = j + 1;
+                cell.componentProperties['Value#6706:0'] = '';
                 columnInstance.children.push(cell);
             }
         }
 
-        for (let i = visibleColumns + 1; i <= displayedColumnsDefault; i++) {
-            const gridColumn = new figmaField(`Grid Column ${i}`, 'EXISTING INSTANCE');
-            gridColumn.visible = false;
+        for (let i = columnNumber; i <= displayedColumnsDefault; i++) {
+            const gridColumn = new figmaField(`Grid Column ${i}`);
+            gridColumn.properties['visible'] = false;
             this.children.push(gridColumn);
         }
 
-        const gridColumn = new figmaField(`Grid Column 20`, 'EXISTING INSTANCE');
-        gridColumn.visible = false;
-        this.children.push(gridColumn);
+        if (columnNumber > 10) {
+            const gridColumn = new figmaField(`Grid Column 20`);
+            gridColumn.properties['visible'] = false;
+            this.children.push(gridColumn);
+        }
+    }
+}
+
+class figmaToolbar extends figmaField {
+
+    constructor(toolbar: QPToolBar) {
+        super('Toolbar');
+        this.acuElement = toolbar;
+
+        this.componentProperties['Type'] = toolbar.ToolBarType;
+        this.componentProperties['Show Right Actions#6826:45'] = toolbar.ShowRightAction;
+
+        const buttons = new figmaField('Buttons');
+        buttons.childIndex = 0;
+        this.children.push(buttons);
+
+        const displayedButtonsMax = 11;
+        for (let i = 0; i < displayedButtonsMax; i++) {
+            const button = new figmaField('Button');
+            button.childIndex = i;
+            buttons.children.push(button);
+
+            if (i > toolbar.Items.length) {
+                button.properties['visible'] = false;
+            }
+            else {
+                const item = toolbar.Items[i];
+                button.properties['visible'] = true;
+                switch (item.ItemType) {
+                    case QPToolBarItemType.IconButton:
+                        button.componentProperties['Show Icon Left#3133:110'] = true;
+                        button.componentProperties['Show Label#3133:443'] = false;
+                        //button.componentProperties['Show Icon Right#3133:221'] = false;
+                        const iconType = (item as QPToolBarItemIconButton).IconType;
+                        if (!buttonIconIDs.has(iconType))
+                            console.warn(`${iconType} icon type is not supported`);
+                        else
+                            button.componentProperties['Icon Left#3131:0'] = buttonIconIDs.get(iconType)!;
+                        break;
+                    case QPToolBarItemType.Button:
+                        button.componentProperties['Show Icon Left#3133:110'] = false;
+                        button.componentProperties['Show Label#3133:443'] = true;
+                        button.componentProperties['Value ▶#3133:332'] = (item as QPToolBarItemButton).Text;
+                        break;
+                }
+            }
+
+        }
     }
 }
 
 class figmaTabbar extends figmaField {
     constructor(tabBar: TabBar) {
         super('Tabbar', 'FRAME');
+        this.tryToFind = false;
+        this.acuElement = tabBar;
 
-        const tabs = new figmaField('Tabs', 'NEW INSTANCE');
+        const tabs = new figmaField('Tabs');
+        tabs.tryToFind = false;
         tabs.componentNode = compTabbar;
 
         const maxTabsCount = 13;
 
         for (let i = 0; i < maxTabsCount - 1; i++) {
             const propertyName = `${i+1} tab#6936:${i}`;
-            tabs.properties[propertyName] = i + 1 <= tabBar.Tabs.length;
+            tabs.componentProperties[propertyName] = i + 1 <= tabBar.Tabs.length;
         }
 
         for (let i = 0; i < tabBar.Tabs.length; i++) {
             const tab = (tabBar.Tabs[i] as unknown) as Tab;
-            const figmaTab = new figmaField(`Tab ${i+1}`, 'EXISTING INSTANCE');
-            figmaTab.properties['State'] = 'Normal';
-            figmaTab.properties['Value ▶#3265:0'] = tab.Label;
-            figmaTab.properties['Selected'] = tab.IsActive ? 'True' : 'False';
+            const figmaTab = new figmaField(`Tab ${i+1}`);
+            figmaTab.componentProperties['State'] = 'Normal';
+            figmaTab.componentProperties['Value ▶#3265:0'] = tab.Label;
+            figmaTab.componentProperties['Selected'] = tab.IsActive ? 'True' : 'False';
             tabs.children.push(figmaTab);
         }
 
@@ -360,7 +489,11 @@ class figmaTabbar extends figmaField {
 class figmaTemplate extends figmaField {
     constructor(template: Template) {
         super('Template', 'FRAME');
+        this.tryToFind = false;
+        this.acuElement = template;
         this.layoutMode = 'HORIZONTAL';
+        if (template.Children.length == 0)
+            this.properties['visible'] = false;
 
         let x = 0;
         let w = (viewportWidth - (horizontalSpacing * (template.Children.length - 1))) / template.Children.length;
@@ -376,14 +509,21 @@ class figmaTemplate extends figmaField {
             if (sum > 0)
                 curW = (viewportWidth - (horizontalSpacing * (template.Children.length - 1))) * parts[i] / sum;
             switch (fs.Type) {
-                case AcuElementType.FieldSet: {
+                case AcuElementType.FieldSet:
                     this.children.push(new figmaFieldSet(fs as QPFieldset, curW));
                     break;
-                }
-                case AcuElementType.FieldsetSlot: {
+                case AcuElementType.FieldsetSlot:
                     this.children.push(new figmaSlot(fs as FieldsetSlot, curW));
                     break;
-                }
+                case AcuElementType.Grid:
+                    const fsGrid = {
+                        Type: AcuElementType.FieldSet,
+                        Label: 'Grid',
+                        Highlighted: false,
+                        Children: [fs as Grid]
+                    } as QPFieldset;
+                    this.children.push(new figmaFieldSet(fsGrid, curW));
+                    break;
             }
         });
     }
@@ -392,13 +532,23 @@ class figmaTemplate extends figmaField {
 class figmaSlot extends figmaField {
     constructor(slot: FieldsetSlot, width = 0) {
         super('slot', 'FRAME', width);
+        this.tryToFind = false;
+        this.acuElement = slot;
 
         slot.Children.forEach(fs => {
             switch (fs.Type) {
-                case AcuElementType.FieldSet: {
+                case AcuElementType.FieldSet:
                     this.children.push(new figmaFieldSet(fs as QPFieldset, width));
                     break;
-                }
+                case AcuElementType.Grid:
+                    const fsGrid = {
+                        Type: AcuElementType.FieldSet,
+                        Label: 'Grid',
+                        Highlighted: false,
+                        Children: [fs as Grid]
+                    } as QPFieldset;
+                    this.children.push(new figmaFieldSet(fsGrid, width));
+                    break;
             }
         });
     }
@@ -406,7 +556,9 @@ class figmaSlot extends figmaField {
 
 class figmaRoot extends figmaField {
     constructor(root: Root) {
-        super('root', 'FRAME');
+        super('Canvas', 'FRAME');
+        this.tryToFind = false;
+        this.acuElement = root;
 
         for (const fs of root.Children) {
             switch (fs.Type) {
@@ -459,24 +611,26 @@ class figmaFieldSet extends figmaField{
         ];
 
     constructor(fs: QPFieldset, width = 0){
-        super('FieldSet', 'NEW INSTANCE', width);
+        super('FieldSet', 'INSTANCE', width);
+        this.tryToFind = false;
         this.componentNode = compFieldset;
+        this.acuElement = fs;
 
         const showHeader = (fs.Label != '' && fs.Label != null)
-        this.properties[this.showHeaderPropName] = showHeader;
+        this.componentProperties[this.showHeaderPropName] = showHeader;
         if (showHeader) {
             let child = new figmaField('Group Header');
-            child.properties['Text Value ▶#4494:3'] = fs.Label??'';
+            child.componentProperties['Text Value ▶#4494:3'] = fs.Label??'';
             this.children.push(child);
         }
 
         if (fs.Highlighted)
-            this.properties[this.wrappingPropName] = figmaFieldSet.Wrappings.Blue;
+            this.componentProperties[this.wrappingPropName] = figmaFieldSet.Wrappings.Blue;
 
         let rowNumber = 0;
         for (const child of fs.Children) {
             if (child.Type == AcuElementType.Grid) {
-                this.properties[this.showGridPropName] = true;
+                this.componentProperties[this.showGridPropName] = true;
                 this.children.push(new figmaGrid(child as unknown as Grid, 'Grid', false));
             }
             else
@@ -484,90 +638,171 @@ class figmaFieldSet extends figmaField{
         }
 
         for (let i = 0; i < this.showRowPropNames.length; i++)
-            this.properties[this.showRowPropNames[i]] = (rowNumber > i);
+            this.componentProperties[this.showRowPropNames[i]] = (rowNumber > i);
     }
 
 }
 
 
-function DrawHeader(frame: FrameNode, root: Root) {
-
-    const background = figma.createRectangle();
-    background.resize(pageWidth, pageHeight);
-    background.fills = [{
-        type: 'SOLID',
-        color: {r: 1, g: 1, b: 1}
-    }];
-
-    const header = compHeader.createInstance();
-    header.x = horizontalSpacing / 2;
-    header.y = -header.height - verticalSpacing / 2;
-    header.resize(viewportWidth, header.height);
-    SetProperties(header, {
-        ['Link Value ▶#6711:0']: root.Caption1,
-        ['Title Value ▶#6711:8']: root.Caption2
-    });
-    figma.currentPage.appendChild(header);
-
-    const mainHeader = compMainHeader.createInstance();
-    mainHeader.y = -header.height - mainHeader.height - verticalSpacing;
-    mainHeader.resize(pageWidth, mainHeader.height);
-    figma.currentPage.appendChild(mainHeader);
-
-    const leftMenu = compLeftMenu.createInstance();
-    leftMenu.x = -leftMenu.width;
-    leftMenu.y = -header.height - verticalSpacing;
-    leftMenu.resize(leftMenu.width, background.height - mainHeader.height);
-    figma.currentPage.appendChild(leftMenu);
-
-    frame.resize(pageWidth - leftMenu.width, pageHeight + leftMenu.y);
-
-    mainHeader.x = -leftMenu.width;
-
-    background.x = mainHeader.x;
-    background.y = mainHeader.y;
-
-    return figma.group([background, mainHeader, leftMenu, header], figma.currentPage);
-}
-
-async function DrawFromHTML(input: string) {
-
-    progress = 0;
-    figma.ui.postMessage({type: 'progress', progress});
-    await new Promise(resolve => setTimeout(resolve, 20));
-
-    let root: Root;
-    if (input === '')
-        return;
-    else
-        root = JSON.parse(input) as Root;
-    const frame = figma.createFrame() as FrameNode;
-
-    frame.resize(pageWidth, pageHeight);
-    frame.layoutMode = "VERTICAL";
-    frame.itemSpacing = verticalSpacing;
-    frame.primaryAxisSizingMode = "AUTO";
-    frame.counterAxisSizingMode = "AUTO"
-    frame.paddingLeft = horizontalSpacing / 2;
-    frame.name = 'Canvas';
-
-    const headerGroup = DrawHeader(frame, root);
-    headerGroup.name = 'Header';
-    const mainGroup = figma.group([headerGroup], figma.currentPage);
-    mainGroup.insertChild(1, frame);
-    mainGroup.name = root.Caption1??'Screen';
-
-    const rootItem = new figmaRoot(root);
-    //console.log(rootItem);
-    childrenNumber = countChildren(rootItem);
+async function DrawFromJSON(input: string) {
 
     progress = 5;
     figma.ui.postMessage({type: 'progress', progress});
     await new Promise(resolve => setTimeout(resolve, 20));
 
-    await Draw(rootItem as figmaField, frame);
-    frame.primaryAxisSizingMode = "AUTO";
+    if (input === '')
+        return;
 
+    const root = JSON.parse(input) as Root;
+    const rootItem = new figmaRoot(root);
+    //console.log(rootItem);
+    childrenNumber = countChildren(rootItem);
+
+    let screenName = root.Caption1??'Screen';
+    let drawSummaryComponent = false;
+    let summary;
+    let compSummary;
+
+    if (root.Caption1 &&
+        rootItem.children.length >= 2 &&
+        rootItem.children[0].acuElement?.Type == AcuElementType.Template &&
+        rootItem.children[1].acuElement?.Type == AcuElementType.Tabbar)
+    {
+        const libPageName = 'Component Library';
+        let libPage = figma.root.children.find(p => p.name === libPageName);
+        if (!libPage) {
+            libPage = figma.createPage();
+            libPage.name = libPageName;
+        }
+
+        const workPageName = root.Caption1;
+        let workPage = figma.root.children.find(p => p.name === workPageName);
+        if (!workPage) {
+            workPage = figma.createPage();
+            workPage.name = workPageName;
+        }
+
+        const componentName = `${workPageName} Summary`;
+        compSummary = libPage.children.find(n => n.type === 'COMPONENT' &&  n.name === componentName) as ComponentNode;
+
+        if (!compSummary) {
+            summary = rootItem.children[0];
+            await figma.setCurrentPageAsync(libPage);
+            const componentGap = 100;
+            let componentY = 0;
+            for (const child of libPage.children) {
+                if (child.y + child.height + componentGap > componentY)
+                    componentY = child.y + child.height + componentGap;
+            }
+
+            compSummary = figma.createComponent();
+            compSummary.y = componentY;
+            compSummary.layoutMode = 'HORIZONTAL';
+            compSummary.primaryAxisSizingMode = 'AUTO';
+            compSummary.counterAxisSizingMode = 'AUTO';
+            compSummary.name = componentName;
+            summary.name = componentName;
+            setSummaryStretching(summary);
+
+            drawSummaryComponent = true;
+        }
+
+        let tabName = 'undefined';
+        const tabBar = rootItem.children[1].acuElement as TabBar;
+        tabBar.Tabs.forEach((tab) => {
+            if (tab.IsActive)
+                tabName = tab.Label;
+        })
+
+        //screenName = `${root.Caption1} - ${tabName}`;
+        screenName = tabName;
+
+        await figma.setCurrentPageAsync(workPage);
+        const summaryNode = new figmaField('Summary', 'INSTANCE')
+        summaryNode.tryToFind = false;
+        summaryNode.componentNode = compSummary;
+
+        rootItem.children[0] = summaryNode;
+    }
+
+    progress = 10;
+    figma.ui.postMessage({type: 'progress', progress});
+    await new Promise(resolve => setTimeout(resolve, 20));
+
+    const frameCanvas = await CreateCanvas(screenName, root.Caption1, root.Caption2);
+    if (!frameCanvas.figmaObject) return;
+
+    if (drawSummaryComponent)
+        await Draw(summary as figmaField, compSummary!);
+
+    rootItem.figmaObject = frameCanvas.figmaObject;
+    await Draw(rootItem as figmaField, frameCanvas.figmaObject);
+    frameCanvas.figmaObject.primaryAxisSizingMode = "AUTO";
+
+    const lastItem = getLastItem(rootItem);
+    if (lastItem.acuElement?.Type == AcuElementType.Grid &&
+        frameCanvas.figmaObject.height > viewportHeight) {
+        const grid = lastItem.figmaObject;
+        if (grid) {
+            let newGridHeight = Math.max(180, grid.height - frameCanvas.figmaObject.height + viewportHeight);
+            grid.resize(grid.width, newGridHeight);
+        }
+    }
+
+}
+
+async function CreateCanvas(screenName: string, screenTitle: string|null, backLink: string|null) {
+
+    const frameList = new figmaField('List', 'FRAME');
+    frameList.createIfNotFound = true;
+    frameList.properties['itemSpacing'] = screenSpacing;
+    frameList.properties['fills'] = [];
+
+    const frameScreenVertical  = new figmaField(screenName, 'FRAME');
+    frameScreenVertical.tryToFind = false;
+    frameScreenVertical.properties['itemSpacing'] = 0;
+    frameList.children.push(frameScreenVertical);
+
+    const fieldMainHeader = new figmaField('MainHeader', 'INSTANCE', pageWidth);
+    fieldMainHeader.tryToFind = false;
+    fieldMainHeader.componentNode = compMainHeader;
+    frameScreenVertical.children.push(fieldMainHeader);
+
+    const frameScreenHorizontal  = new figmaField('FrameH', 'FRAME', pageWidth);
+    frameScreenHorizontal.tryToFind = false;
+    frameScreenHorizontal.properties['primaryAxisSizingMode'] = 'FIXED';
+    frameScreenHorizontal.properties['layoutMode'] = 'HORIZONTAL';
+    frameScreenHorizontal.properties['itemSpacing'] = 0;
+    frameScreenVertical.children.push(frameScreenHorizontal);
+
+    const fieldLeftMenu = new figmaField('LeftMenu', 'INSTANCE');
+    fieldLeftMenu.tryToFind = false;
+    fieldLeftMenu.componentNode = compLeftMenu;
+    fieldLeftMenu.properties['layoutAlign'] = 'STRETCH';
+    frameScreenHorizontal.children.push(fieldLeftMenu);
+
+    const frameCanvas  = new figmaField('Canvas', 'FRAME', pageWidth - compLeftMenu.width);
+    frameCanvas.tryToFind = false;
+    frameCanvas.properties['counterAxisSizingMode'] = 'FIXED';
+    frameCanvas.properties['itemSpacing'] = verticalSpacing;
+    frameCanvas.properties['paddingLeft'] = padding;
+    frameCanvas.properties['paddingRight'] = padding;
+    frameCanvas.properties['paddingBottom'] = padding;
+    frameScreenHorizontal.children.push(frameCanvas);
+
+    const fieldHeader = new figmaField('Header', 'INSTANCE', viewportWidth);
+    fieldHeader.tryToFind = false;
+    fieldHeader.componentNode = compHeader;
+    fieldHeader.componentProperties['Show Back Link#3139:0'] = backLink != null;
+    fieldHeader.componentProperties['Link Value ▶#6711:0'] = backLink??'';
+    fieldHeader.componentProperties['Title Value ▶#6711:8'] = screenTitle??'';
+    frameCanvas.children.push(fieldHeader);
+
+    childrenNumber += countChildren(frameList);
+
+    await Draw(frameList, figma.currentPage);
+
+    return frameCanvas;
 }
 
 function countChildren(root: figmaRoot){
@@ -576,6 +811,27 @@ function countChildren(root: figmaRoot){
         count += countChildren(child);
     }
     return count;
+}
+
+function setSummaryStretching(root: figmaField){
+    if (root.acuElement?.Type == AcuElementType.FieldSet) {
+        root.properties['primaryAxisSizingMode'] = 'FIXED';
+        root.properties['layoutAlign'] = 'STRETCH';
+    }
+    for (const child of root.children) {
+        setSummaryStretching(child);
+    }
+}
+
+function getLastItem(root: figmaRoot){
+    if (root.children.length == 0)
+        return root;
+    else {
+        const lastChild = root.children[root.children.length - 1];
+        if (!lastChild.acuElement)
+            return root;
+        return getLastItem(lastChild);
+    }
 }
 
 // Calls to "parent.postMessage" from within the HTML page will trigger this
@@ -587,6 +843,8 @@ figma.ui.onmessage = async (msg: { input: string, format: string }) => {
         figma.closePlugin();
         return;
     }
+
+    const startTime = Date.now();
 
     await figma.loadAllPagesAsync();
 
@@ -606,8 +864,16 @@ figma.ui.onmessage = async (msg: { input: string, format: string }) => {
     compLeftMenu    = await figma.importComponentByKeyAsync('5b4ee7b5f881aa8f6e64f128f4cceef050357378');
     compTabbar      = await figma.importComponentByKeyAsync('e4b7a83b5e34cee8565ad8079b4932764b45dae4');
 
-    if (msg.format === 'html')
-        await DrawFromHTML(msg.input);
+    for (const [iconType, componentKey] of buttonIcons) {
+        const icon = await figma.importComponentByKeyAsync(componentKey);
+        buttonIconIDs.set(iconType, icon.id);
+    }
+
+    if (msg.format === 'json')
+        await DrawFromJSON(msg.input);
+
+    const endTime = Date.now();
+    console.log(`Completed in ${Math.floor((endTime - startTime) / 1000)}s`);
 
     figma.closePlugin();
 };
