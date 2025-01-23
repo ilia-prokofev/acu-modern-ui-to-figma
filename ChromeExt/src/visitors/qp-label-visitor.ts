@@ -13,7 +13,8 @@ export default class QPLabelVisitor implements ElementVisitor {
             return false;
         }
 
-        (parent as QPField).Label = htmlElement.textContent?.trim() ?? null;
+        const label = (parent as QPField);
+        label.Label = htmlElement.textContent?.trim() ?? null;
 
         allVisitor.visitChildren(htmlElement, parent);
 
