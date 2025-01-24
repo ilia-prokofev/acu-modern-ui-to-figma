@@ -7,12 +7,12 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0 20px 0 20px;
+            margin: 10px 20px 0 20px;
             padding-top: 10px;
             background-color: #f4f4f4;
             color: #333;
             min-width: 610px;
-            min-height: 530px;
+            min-height: 520px;
         }
 
         .plugin-container {
@@ -119,6 +119,10 @@
         button:hover {
             opacity: 0.9;
         }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
@@ -150,24 +154,35 @@
 </div>
 
 <script>
+    let isProcessing = false;
+
     document.getElementById('import').onclick = () => {
-        const textbox = document.getElementById('inputText');
-        const inputText = textbox.value;
+        if (isProcessing) return;
+        isProcessing = true;
+        document.getElementById('import').disabled = true;
+        const inputText = document.getElementById('inputText').value;
         const reuseSummary = document.getElementById('reuseSummary').checked;
-        parent.postMessage({ pluginMessage: { input: inputText, reuseSummary: reuseSummary, format: 'json' }}, '*');
+        parent.postMessage(
+            { pluginMessage: { input: inputText, reuseSummary: reuseSummary, format: 'json' }},
+            '*'
+        );
     };
 
     document.getElementById('cancel').onclick = () => {
-        parent.postMessage({ pluginMessage: { input: '', reuseSummary: false, format: '' }}, '*');
+        parent.postMessage({ pluginMessage: { format: 'cancel' }}, '*');
     };
 
     window.onmessage = (event) => {
-        const message = event.data.pluginMessage;
-        if (message.type === 'progress') {
+        const msg = event.data.pluginMessage;
+
+        if (msg.type === 'progress') {
             const progressBar = document.getElementById('render-progress');
             const progressText = document.getElementById('progress-text');
-            progressBar.value = message.progress;
-            progressText.textContent = `${Math.round(message.progress)}%`;
+            progressBar.value = msg.progress;
+            progressText.textContent = `${Math.round(msg.progress)}%`;
+        } else if (msg?.type === 'unlock') {
+            isProcessing = false;
+            document.getElementById('import').disabled = false;
         }
     };
 </script>
