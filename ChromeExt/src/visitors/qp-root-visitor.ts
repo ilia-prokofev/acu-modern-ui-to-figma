@@ -20,12 +20,12 @@ export default class QPRootVisitor implements ElementVisitor {
 
         const captionLineElement = findElementByClassesDown(htmlElement, 'captionLine');
         if (captionLineElement && captionLineElement.children.length > 0) {
-            (parent as Root).Caption1 = captionLineElement.children[0].textContent?.trim() ?? null;
+            (parent as Root).Title = captionLineElement.children[0].textContent?.trim() ?? null;
         }
 
         const userCaptionElement = findElementByClassesDown(htmlElement, 'usrCaption', 'au-target');
         if (userCaptionElement) {
-            (parent as Root).Caption2 = userCaptionElement.textContent?.trim() ?? null;
+            (parent as Root).Caption = userCaptionElement.textContent?.trim() ?? null;
         }
 
         allVisitor.visitChildren(htmlElement, parent);

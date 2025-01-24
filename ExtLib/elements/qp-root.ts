@@ -4,7 +4,7 @@ import {QPToolBar, QPToolbarContainer} from "./qp-toolbar";
 
 export interface Root extends AcuContainer, QPToolbarContainer {
     Type: AcuElementType.Root;
-    Caption1: string | null;
-    Caption2: string | null;
+    Title: string | null;
+    Caption: string | null;
     ToolBar: QPToolBar | null;
 }
