@@ -8,6 +8,7 @@ import QPToolBarVisitor from "./qp-tool-bar-visitor";
 import QPFilterBarVisitor from "./qp-filter-bar-visitor";
 import {Root} from "../elements/qp-root";
 import QPGridToolBarVisitor from "./qp-grid-tool-bar-visitor";
+import QPFieldVisitor from "./qp-field-visitor";
 
 describe('visitor', () => {
     interface testCase {
@@ -53,6 +54,20 @@ describe('visitor', () => {
             childrenVisitor: new ChildrenVisitor([]),
             incomingHTMLFileName: './test-cases/tab-bar-input.html',
             expectedJSONFile: './test-cases/tab-bar-output.json',
+        },
+        {
+            testName: "checkbox-checked",
+            sut: new QPFieldVisitor(),
+            childrenVisitor: new ChildrenVisitor([]),
+            incomingHTMLFileName: './test-cases/checkbox-checked-input.html',
+            expectedJSONFile: './test-cases/checkbox-checked-output.json',
+        },
+        {
+            testName: "checkbox-unchecked",
+            sut: new QPFieldVisitor(),
+            childrenVisitor: new ChildrenVisitor([]),
+            incomingHTMLFileName: './test-cases/checkbox-unchecked-input.html',
+            expectedJSONFile: './test-cases/checkbox-unchecked-output.json',
         },
     ]
 
