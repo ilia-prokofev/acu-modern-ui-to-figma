@@ -25,7 +25,7 @@ const pageWidth = 1364;//1600;
 const pageHeight = 900;
 const viewportWidth = pageWidth - 80 - padding * 2;
 const viewportHeight = pageHeight - 50;
-const devMode = !false;
+const devMode = false;
 
 let childrenNumber = 0;
 let childrenProcessed = 0;
