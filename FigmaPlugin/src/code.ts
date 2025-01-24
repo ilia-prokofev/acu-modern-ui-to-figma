@@ -12,11 +12,7 @@ import {FieldsetSlot} from "./elements/qp-fieldset-slot";
 import {Tab, TabBar} from "./elements/qp-tabbar";
 import {Grid, GridColumnType} from "./elements/qp-grid";
 import {Root} from "./elements/qp-root";
-import {
-    QPToolBar,
-    QPToolBarItemButton,
-    QPToolBarItemType
-} from "./elements/qp-toolbar";
+import {QPToolBar, QPToolBarItemButton, QPToolBarItemType, QPToolBarType} from "./elements/qp-toolbar";
 import {IconType} from "./elements/icon";
 
 figma.showUI(__html__, {width: 650, height: 410});
@@ -29,6 +25,7 @@ const pageWidth = 1364;//1600;
 const pageHeight = 900;
 const viewportWidth = pageWidth - 80 - padding * 2;
 const viewportHeight = pageHeight - 50;
+const devMode = false;
 
 let childrenNumber = 0;
 let childrenProcessed = 0;
@@ -59,6 +56,8 @@ const buttonIcons = new Map<IconType, string>([
     [IconType.SaveAndBack    , '7693000f6771b4135a00ad062e3b9b4b718b6ceb'],
     [IconType.Import         , '9bbe97f874029e4de44a1f28f9fa76cd39bfef29'],
     [IconType.Ellipsis       , '19be5dec53338a1bd35ff1f7e409da34d5f1e287'],
+    [IconType.AddRow         , 'de700daf8268fce0d3acff9011f4a936bf77f714'],
+    [IconType.DeleteRow      , '4eb380b404d2d81e5c704961928388fd224c3964'],
 ]);
 let buttonIconIDs = new Map<IconType, string>();
 
@@ -67,7 +66,7 @@ function SetProperties(node: InstanceNode, properties: any) {
         node.setProperties(properties);
     }
     catch (e) {
-        console.warn(node.name, e);
+        console.warn(node.name, properties, e);
     }
 }
 
@@ -396,13 +395,40 @@ class figmaGrid extends figmaField {
 
 class figmaToolbar extends figmaField {
 
+    toolBarTypes = new Map<QPToolBarType, string>([
+        [QPToolBarType.List     , 'List'],
+        [QPToolBarType.Record   , 'Record'],
+        [QPToolBarType.FilterBar, 'Filter bar']
+    ]);
+
+    filterBarMapping = new Map<string, number>([
+        ['FilterCombo1' , 0],
+        ['Separator1'   , 1],
+        ['FilterButton1', 2],
+        ['FilterButton2', 3],
+        ['FilterButton3', 4],
+        ['Button1'      , 5],
+        ['Button2'      , 6],
+        ['Button3'      , 7]
+    ])
+
     constructor(toolbar: QPToolBar) {
         super('Toolbar');
         this.acuElement = toolbar;
 
         const displayedButtonsMax = toolbar.ToolBarType == 'Record' ? 15 : 11;
-        this.componentProperties['Type'] = toolbar.ToolBarType;
+        if (this.toolBarTypes.has(toolbar.ToolBarType))
+            this.componentProperties['Type'] = this.toolBarTypes.get(toolbar.ToolBarType)!;
         this.componentProperties['Show Right Actions#6826:45'] = toolbar.ShowRightAction;
+
+        if (toolbar.ToolBarType == QPToolBarType.FilterBar) {
+            // console.log(111);
+            // for (const toolbarItem of toolbar.Items) {
+            //     console.log(toolbarItem.ItemType, this.filterBarMapping.get(toolbarItem.ItemType + 1));
+            // }
+            // console.log(222);
+            return;
+        }
 
         const buttons = new figmaField('Buttons');
         buttons.childIndex = 0;
@@ -421,8 +447,6 @@ class figmaToolbar extends figmaField {
                 button.properties['visible'] = true;
                 if (item.ItemType != QPToolBarItemType.Button) continue;
                 const buttonItem = item as QPToolBarItemButton;
-
-                console.log(buttonItem);
 
                 button.componentProperties['Type'] = buttonItem.Style;
                 button.componentProperties['State'] = buttonItem.Enabled ? 'Default' : 'Disabled';
@@ -652,18 +676,14 @@ class figmaFieldSet extends figmaField{
 }
 
 
-async function DrawFromJSON(input: string) {
-
-    progress = 5;
-    figma.ui.postMessage({type: 'progress', progress});
-    await new Promise(resolve => setTimeout(resolve, 20));
+async function DrawFromJSON(input: string, reuseSummary: boolean) {
 
     if (input === '')
         return;
 
     const root = JSON.parse(input) as Root;
     const rootItem = new figmaRoot(root);
-    console.log(rootItem);
+    //console.log(rootItem);
     childrenNumber = countChildren(rootItem);
 
     let screenName = root.Caption1??'Screen';
@@ -671,66 +691,72 @@ async function DrawFromJSON(input: string) {
     let summary;
     let compSummary;
 
-    if (root.Caption1 &&
-        rootItem.children.length >= 2 &&
+    if (rootItem.children.length >= 2 &&
         rootItem.children[rootItem.children.length - 2].acuElement?.Type == AcuElementType.Template &&
         rootItem.children[rootItem.children.length - 1].acuElement?.Type == AcuElementType.Tabbar)
     {
-        const libPageName = 'Component Library';
-        let libPage = figma.root.children.find(p => p.name === libPageName);
-        if (!libPage) {
-            libPage = figma.createPage();
-            libPage.name = libPageName;
-        }
+        summary = rootItem.children[rootItem.children.length - 2];
+        setSummaryStretching(summary);
 
-        const workPageName = root.Caption1;
-        let workPage = figma.root.children.find(p => p.name === workPageName);
-        if (!workPage) {
-            workPage = figma.createPage();
-            workPage.name = workPageName;
-        }
+        if (reuseSummary) {
 
-        const componentName = `${workPageName} Summary`;
-        compSummary = libPage.children.find(n => n.type === 'COMPONENT' &&  n.name === componentName) as ComponentNode;
+            let workPage;
+            if (devMode) {
+                workPage = figma.root.children.find(p => p.name === screenName);
+                if (!workPage) {
+                    workPage = figma.createPage();
+                    workPage.name = screenName;
+                }
+            }
+            else
+                workPage = figma.currentPage;
 
-        if (!compSummary) {
-            summary = rootItem.children[rootItem.children.length - 2];
-            await figma.setCurrentPageAsync(libPage);
-            const componentGap = 100;
-            let componentY = 0;
-            for (const child of libPage.children) {
-                if (child.y + child.height + componentGap > componentY)
-                    componentY = child.y + child.height + componentGap;
+            const libPageName = 'Component Library';
+            let libPage = figma.root.children.find(p => p.name === libPageName);
+            if (!libPage) {
+                libPage = figma.createPage();
+                libPage.name = libPageName;
             }
 
-            compSummary = figma.createComponent();
-            compSummary.y = componentY;
-            compSummary.layoutMode = 'HORIZONTAL';
-            compSummary.primaryAxisSizingMode = 'AUTO';
-            compSummary.counterAxisSizingMode = 'AUTO';
-            compSummary.name = componentName;
-            summary.name = componentName;
-            setSummaryStretching(summary);
+            const componentName = `${screenName} Summary`;
+            compSummary = libPage.children.find(n => n.type === 'COMPONENT' &&  n.name === componentName) as ComponentNode;
 
-            drawSummaryComponent = true;
+            if (!compSummary) {
+                await figma.setCurrentPageAsync(libPage);
+                const componentGap = 100;
+                let componentY = 0;
+                for (const child of libPage.children) {
+                    if (child.y + child.height + componentGap > componentY)
+                        componentY = child.y + child.height + componentGap;
+                }
+
+                compSummary = figma.createComponent();
+                compSummary.y = componentY;
+                compSummary.layoutMode = 'HORIZONTAL';
+                compSummary.primaryAxisSizingMode = 'AUTO';
+                compSummary.counterAxisSizingMode = 'AUTO';
+                compSummary.name = componentName;
+                summary.name = componentName;
+
+                drawSummaryComponent = true;
+            }
+
+            let tabName = 'undefined';
+            const tabBar = rootItem.children[rootItem.children.length - 1].acuElement as TabBar;
+            tabBar.Tabs.forEach((tab) => {
+                if (tab.IsActive)
+                    tabName = tab.Label;
+            })
+
+            screenName = `${screenName} - ${tabName}`;
+
+            await figma.setCurrentPageAsync(workPage);
+            const summaryNode = new figmaField('Summary', 'INSTANCE')
+            summaryNode.tryToFind = false;
+            summaryNode.componentNode = compSummary;
+
+            rootItem.children[rootItem.children.length - 2] = summaryNode;
         }
-
-        let tabName = 'undefined';
-        const tabBar = rootItem.children[rootItem.children.length - 1].acuElement as TabBar;
-        tabBar.Tabs.forEach((tab) => {
-            if (tab.IsActive)
-                tabName = tab.Label;
-        })
-
-        //screenName = `${root.Caption1} - ${tabName}`;
-        screenName = tabName;
-
-        await figma.setCurrentPageAsync(workPage);
-        const summaryNode = new figmaField('Summary', 'INSTANCE')
-        summaryNode.tryToFind = false;
-        summaryNode.componentNode = compSummary;
-
-        rootItem.children[rootItem.children.length - 2] = summaryNode;
     }
 
     progress = 10;
@@ -761,15 +787,29 @@ async function DrawFromJSON(input: string) {
 
 async function CreateCanvas(screenName: string, screenTitle: string|null, backLink: string|null) {
 
-    const frameList = new figmaField('List', 'FRAME');
-    frameList.createIfNotFound = true;
-    frameList.properties['itemSpacing'] = screenSpacing;
-    frameList.properties['fills'] = [];
-
     const frameScreenVertical  = new figmaField(screenName, 'FRAME');
     frameScreenVertical.tryToFind = false;
     frameScreenVertical.properties['itemSpacing'] = 0;
-    frameList.children.push(frameScreenVertical);
+
+    let rootItem;
+    if (devMode){
+        const frameList = new figmaField('List', 'FRAME');
+        frameList.createIfNotFound = true;
+        frameList.properties['itemSpacing'] = screenSpacing;
+        frameList.properties['fills'] = [];
+        rootItem = frameList;
+        rootItem.children.push(frameScreenVertical);
+    }
+    else {
+        rootItem = frameScreenVertical;
+        const gap = 100;
+        let newScreenY = 0;
+        for (const child of figma.currentPage.children) {
+            if (child.y + child.height + gap > newScreenY)
+                newScreenY = child.y + child.height + gap;
+        }
+        frameScreenVertical.properties['y'] = newScreenY;
+    }
 
     const fieldMainHeader = new figmaField('MainHeader', 'INSTANCE', pageWidth);
     fieldMainHeader.tryToFind = false;
@@ -806,9 +846,9 @@ async function CreateCanvas(screenName: string, screenTitle: string|null, backLi
     fieldHeader.componentProperties['Title Value ▶#6711:8'] = screenTitle??'';
     frameCanvas.children.push(fieldHeader);
 
-    childrenNumber += countChildren(frameList);
+    childrenNumber += countChildren(rootItem);
 
-    await Draw(frameList, figma.currentPage);
+    await Draw(rootItem, figma.currentPage);
 
     return frameCanvas;
 }
@@ -845,7 +885,7 @@ function getLastItem(root: figmaRoot){
 // Calls to "parent.postMessage" from within the HTML page will trigger this
 // callback. The callback will be passed the "pluginMessage" property of the
 // posted message.
-figma.ui.onmessage = async (msg: { input: string, format: string }) => {
+figma.ui.onmessage = async (msg: { input: string, reuseSummary: boolean, format: string }) => {
 
     if (msg.format === '') {
         figma.closePlugin();
@@ -853,6 +893,9 @@ figma.ui.onmessage = async (msg: { input: string, format: string }) => {
     }
 
     const startTime = Date.now();
+    progress = 5;
+    figma.ui.postMessage({type: 'progress', progress});
+    await new Promise(resolve => setTimeout(resolve, 20));
 
     await figma.loadAllPagesAsync();
 
@@ -878,7 +921,7 @@ figma.ui.onmessage = async (msg: { input: string, format: string }) => {
     }
 
     if (msg.format === 'json')
-        await DrawFromJSON(msg.input);
+        await DrawFromJSON(msg.input, msg.reuseSummary);
 
     const endTime = Date.now();
     console.log(`Completed in ${Math.floor((endTime - startTime) / 1000)}s`);
