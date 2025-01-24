@@ -15,7 +15,7 @@ import {
     findClasses,
     findElementByClassesDown,
     findElementByNodeNameDown,
-    isElementEnabled,
+    isElementDisabled,
     isHiddenElement
 } from "./html-element-utils";
 import {getIconType} from "./icon-utils";
@@ -104,7 +104,7 @@ export default class QPToolBarVisitor implements ElementVisitor {
             text = textElement.textContent?.trim() ?? null;
         }
 
-        const enabled = isElementEnabled(buttonElement);
+        const enabled = !isElementDisabled(buttonElement);
         const buttonStyle = getButtonStyle(buttonElement);
 
         return {

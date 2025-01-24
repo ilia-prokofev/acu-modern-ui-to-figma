@@ -3,7 +3,7 @@ import {AcuContainer} from "../elements/acu-container";
 import {QPField} from "../elements/qp-field";
 import ElementVisitor from "./qp-element-visitor";
 import ChildrenVisitor from "./children-visitors";
-import {concatElementID} from "./html-element-utils";
+import {concatElementID, findClasses} from "./html-element-utils";
 
 export default class QPFieldVisitor implements ElementVisitor {
     visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean {
@@ -23,10 +23,13 @@ export default class QPFieldVisitor implements ElementVisitor {
             Label: null,
             ReadOnly: false,
         };
+
         allVisitor.visitChildren(htmlElement, child);
         if (!child.ElementType) {
             return false;
         }
+
+        child.ReadOnly = findClasses(htmlElement, "qp-field-disabled");
 
         (parent as AcuContainer).Children.push(child);
         return true;

@@ -6,7 +6,7 @@ import {
     findElementByClassesDown,
     findElementByClassesUp,
     findElementByNodeNameDown,
-    findFirstLeafTextContent
+    findFirstLeafTextContent, isElementDisabled
 } from "./html-element-utils";
 import ChildrenVisitor from "./children-visitors";
 

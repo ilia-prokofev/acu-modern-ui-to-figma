@@ -17,7 +17,7 @@ import {
     concatElementID,
     findClasses,
     findElementByClassesDown,
-    isElementEnabled,
+    isElementDisabled,
     isHiddenElement
 } from "./html-element-utils";
 import {getIconType} from "./icon-utils";
@@ -101,7 +101,7 @@ export default class QPFilterBarVisitor implements ElementVisitor {
 
             case "qp-button": {
                 const iconType = getIconType(itemElement);
-                const enabled = isElementEnabled(itemElement);
+                const enabled = !isElementDisabled(itemElement);
 
                 return {
                     ItemType: QPToolBarItemType.Button,
@@ -113,7 +113,7 @@ export default class QPFilterBarVisitor implements ElementVisitor {
 
             case "qp-menu": {
                 const iconType = getIconType(itemElement);
-                const enabled = isElementEnabled(itemElement);
+                const enabled = !isElementDisabled(itemElement);
 
                 return {
                     ItemType: QPToolBarItemType.Button,

@@ -20,6 +20,11 @@ describe('acu-page-parser', () => {
             incomingHTMLFileName: './test-cases/sc-000001-input.html',
             expectedJSONFile: './test-cases/sc-000001-output.json',
         },
+        {
+            testName: "sc-000001-disabled",
+            incomingHTMLFileName: './test-cases/sc-000001-disabled-fields-input.html',
+            expectedJSONFile: './test-cases/sc-000001-disabled-fields-output.json',
+        },
     ]
 
     it.each(testCases)(

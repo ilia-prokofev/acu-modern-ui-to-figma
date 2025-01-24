@@ -125,8 +125,9 @@ export function concatElementID(otherId: string, htmlElement: Element): string {
     return `${otherId}-${id}`
 }
 
-export function isElementEnabled(element: Element): boolean {
-    return !findClasses(element, "disabled");
+export function isElementDisabled(element: Element): boolean {
+    return findClasses(element, "disabled")
+        || element.getAttribute("enabled")?.toLowerCase() === "false";
 }
 
 export function isHiddenElement(element: Element): boolean {
