@@ -34,8 +34,8 @@ export class AcuPageParser {
         const root: Root = {
             Type: AcuElementType.Root,
             Children: [],
-            Caption1: null,
-            Caption2: null,
+            Title: null,
+            Caption: null,
             ToolBar: null,
             Id: "Root"
         }
