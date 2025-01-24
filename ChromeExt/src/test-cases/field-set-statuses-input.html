@@ -1,0 +1,150 @@
+<qp-fieldset
+        slot="A"
+        id="form01"
+        view.bind="Document"
+        class="au-target qp-fieldset fieldset-titleless"
+        au-target-id="1312"
+>
+    <fieldset class="au-target" au-target-id="1170" id="form01">
+        <qp-field
+                control-id="edDocument-Status"
+                control-type.bind="df.controlType"
+                no-label.bind="df.noLabel == null ? noLabel : df.noLabel"
+                caption.bind="df.caption"
+                control-state.bind="state"
+                context.bind="$this"
+                collapsed.bind="collapsed"
+                pinned.one-way="getFieldPinned(df)"
+                tab-index.one-way="getFieldTabIndex(df)"
+                name="Status"
+                class="au-target qp-field qp-field-expanded qp-field-disabled"
+                au-target-id="1545"
+        >
+            <!--anchor-->
+
+            <div
+                    show.bind="controlState.visible === undefined || controlState.visible !== false"
+                    data-tooltip.bind="errorMessage"
+                    data-error-level.bind="errorLevel"
+                    data-id.bind="effectiveId"
+                    class="au-target wrapper"
+                    au-target-id="218"
+                    data-error-level="0"
+                    data-id="edDocument-Status"
+            >
+                      <span
+                              class="label-wrapper no-label au-target"
+                              show.bind="!noLabel"
+                              au-target-id="219"
+                      >
+                        <!--view-->
+
+                        <div class="label-container">
+                          <label
+                                  for.bind="controlId"
+                                  click.delegate="processClick()"
+                                  ref="element"
+                                  class="au-target clickable"
+                                  au-target-id="590"
+                                  for="edDocument-Status"
+                          >
+                            Status
+                          </label>
+                          <qp-tooltip
+                                  get-visible.call="showTooltip()"
+                                  class="au-target"
+                                  au-target-id="592"
+                          >
+                          </qp-tooltip
+                          ><!--anchor-->
+                        </div>
+                          <!--anchor--><!--anchor-->
+                          <!--slot-->
+                      </span>
+
+                <div class="control-container no-label size-default">
+                    <div
+                            class="au-target main-field qp-drop-down-control"
+                            au-target-id="223"
+                    >
+                        <div class="icon-container"></div>
+                        <!--anchor-->
+                        <enhanced-compose
+                                view-model.bind="controlType || defaultControlType"
+                                config.bind="controlConfig"
+                                state.bind="controlState"
+                                value.two-way="controlState.value"
+                                control-id.bind="effectiveId"
+                                context.bind="context"
+                                proxy-expressions.bind="proxyExpressions"
+                                class="main-control au-target"
+                                au-target-id="225"
+                        >
+                            <div
+                                    tabindex="-1"
+                                    ref="editorWrap"
+                                    mousedown.trigger="toggleSelector($event)"
+                                    buttons.bind="ROMode ? '0' : '' &amp; attr"
+                                    class="au-target drop-down__editor size- ReadOnly"
+                                    au-target-id="279"
+                                    id="edDocument-Status"
+                                    buttons="0"
+                                    style="display: block"
+                            >
+                                <div class="editorCont">
+                                    <div class="editorWrap" title="">
+                                        <!--anchor-->
+                                        <input
+                                                type="text"
+                                                autocomplete="off"
+                                                autocorrect="off"
+                                                ref="inputElement"
+                                                value.bind="valueText"
+                                                keydown.capture="onKeyDown($event)"
+                                                keypress.delegate="onKeyPress($event)"
+                                                input.delegate="onInput($event)"
+                                                focus.bind="hasFocus"
+                                                focus.capture="onFocus()"
+                                                blur.capture="onBlur()"
+                                                paste.delegate="onPaste($event)"
+                                                readonly.bind="ROMode ? 'readonly' : null &amp; attr"
+                                                class="au-target drop-down__display-text drop-down__invisible ReadOnly"
+                                                au-target-id="282"
+                                                name="$text"
+                                                id="edDocument-Status_text"
+                                                tabindex="-1"
+                                                readonly="readonly"
+                                                value="Open"
+                                        /><span class="center"></span
+                                    ><span
+                                            valueattr.bind="value &amp; attr"
+                                            valuetextattr.bind="valueText &amp; attr"
+                                            class="au-target drop-down__text ReadOnly"
+                                            au-target-id="283"
+                                            valuetextattr="Open"
+                                            valueattr="N"
+                                    ><!--anchor-->Open</span
+                                    >
+                                    </div>
+                                </div>
+                                <div class="buttonsCont">
+                                    <span class="center"></span>
+                                    <!--anchor-->
+
+                                    <!-- <div class="sprite-icon control-icon" icon="DropDownN" type="sel"
+    css="${ROMode ? 'display: none;' : ''}">
+    <div class="control-icon-img control-DropDownN">
+    </div>
+    </div> -->
+                                </div>
+                            </div>
+                            <!--anchor--> </enhanced-compose
+                        ><!--anchor-->
+                    </div>
+                    <!--slot-->
+                </div>
+            </div>
+        </qp-field
+        >
+    </fieldset>
+</qp-fieldset>

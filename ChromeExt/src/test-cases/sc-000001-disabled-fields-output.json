@@ -15,7 +15,7 @@
               "Value": "SC-000036"
             },
             {
-              "ElementType": "DropDown",
+              "ElementType": "Status",
               "Id": "Root-1311-1312-1545",
               "Label": "Status",
               "ReadOnly": true,

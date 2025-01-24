@@ -1,0 +1,25 @@
+{
+  "Caption": null,
+  "Children": [
+    {
+      "Children": [
+        {
+          "ElementType": "Status",
+          "Id": "Root-1312-1545",
+          "Label": "Status",
+          "ReadOnly": true,
+          "Type": "Field",
+          "Value": "Open"
+        }
+      ],
+      "Highlighted": false,
+      "Id": "Root-1312",
+      "Label": null,
+      "Type": "FieldSet"
+    }
+  ],
+  "Id": "Root",
+  "Title": null,
+  "ToolBar": null,
+  "Type": "Root"
+}

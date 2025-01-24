@@ -18,6 +18,6 @@ export interface QPField extends AcuElement {
     Type: AcuElementType.Field;
     Label: string | null;
     ElementType: QPFieldElementType | null;
-	ReadOnly: boolean | null;
+    ReadOnly: boolean | null;
     Value: string | null;
 }
