@@ -15,7 +15,7 @@ import {Root} from "./elements/qp-root";
 import {QPToolBar, QPToolBarItemButton, QPToolBarItemType, QPToolBarType} from "./elements/qp-toolbar";
 import {IconType} from "./elements/icon";
 
-figma.showUI(__html__, {width: 650, height: 410});
+figma.showUI(__html__, {width: 650, height: 550});
 
 const horizontalSpacing = 12;
 const verticalSpacing = 12;
