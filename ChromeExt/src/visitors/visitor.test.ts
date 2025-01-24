@@ -84,6 +84,13 @@ describe('visitor', () => {
             incomingHTMLFileName: './test-cases/field-set-statuses-input.html',
             expectedJSONFile: './test-cases/field-set-statuses-output.json',
         },
+        {
+            testName: "field-set-radio",
+            sut: new QPFieldsetVisitor(),
+            childrenVisitor: new ChildrenVisitor([new QPFieldVisitor()]),
+            incomingHTMLFileName: './test-cases/field-set-radio-input.html',
+            expectedJSONFile: './test-cases/field-set-radio-output.json',
+        },
     ]
 
     it.each(testCases)(

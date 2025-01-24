@@ -1,0 +1,33 @@
+{
+  "Caption": null,
+  "Children": [
+    {
+      "Children": [
+        {
+          "ElementType": "RadioButton",
+          "Id": "Root-1322-1640",
+          "Label": "Fixed Retainage",
+          "ReadOnly": false,
+          "Type": "Field",
+          "Value": "on"
+        },
+        {
+          "ElementType": "RadioButton",
+          "Id": "Root-1322-1640",
+          "Label": "Retainage with Steps",
+          "ReadOnly": false,
+          "Type": "Field",
+          "Value": "off"
+        }
+      ],
+      "Highlighted": false,
+      "Id": "Root-1322",
+      "Label": null,
+      "Type": "FieldSet"
+    }
+  ],
+  "Id": "Root",
+  "Title": null,
+  "ToolBar": null,
+  "Type": "Root"
+}

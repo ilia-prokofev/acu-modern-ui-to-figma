@@ -1,0 +1,133 @@
+<qp-fieldset
+  id="SummaryTabSlotB04"
+  view.bind="ProjectProperties"
+  caption.bind='localizationService.localize("PM301000.SummaryTabSlotB04.caption", "Retainage")'
+  caption.original-value="Retainage"
+  class="au-target qp-fieldset"
+  au-target-id="1322"
+>
+  <fieldset class="au-target" au-target-id="1170" id="SummaryTabSlotB04">
+    <qp-field
+      control-id="edProjectProperties-SteppedRetainageOption"
+      control-type.bind="df.controlType"
+      no-label.bind="df.noLabel == null ? noLabel : df.noLabel"
+      caption.bind="df.caption"
+      control-state.bind="state"
+      context.bind="$this"
+      collapsed.bind="collapsed"
+      pinned.one-way="getFieldPinned(df)"
+      tab-index.one-way="getFieldTabIndex(df)"
+      name="SteppedRetainageOption"
+      control-type="qp-radio"
+      config-class.bind="'vertical'"
+      class="no-label au-target vertical qp-field qp-field-expanded"
+      au-target-id="1640"
+    >
+      <!--anchor-->
+
+      <div
+        show.bind="controlState.visible === undefined || controlState.visible !== false"
+        data-tooltip.bind="errorMessage"
+        data-error-level.bind="errorLevel"
+        data-id.bind="effectiveId"
+        class="au-target wrapper"
+        au-target-id="218"
+        data-error-level="0"
+        data-id="edProjectProperties-SteppedRetainageOption"
+      >
+        <div class="control-container no-label size-default">
+          <div class="au-target main-field qp-radio-control" au-target-id="223">
+            <div class="icon-container"></div>
+            <!--anchor-->
+            <enhanced-compose
+              view-model.bind="controlType || defaultControlType"
+              config.bind="controlConfig"
+              state.bind="controlState"
+              value.two-way="controlState.value"
+              control-id.bind="effectiveId"
+              context.bind="context"
+              proxy-expressions.bind="proxyExpressions"
+              class="main-control au-target"
+              au-target-id="225"
+            >
+              <div
+                enabled.bind="!!config.enabled &amp; attr"
+                ref="radioGroup"
+                class="au-target qp-radio-group vertical"
+                au-target-id="259"
+                enabled="true"
+                id="edProjectProperties-SteppedRetainageOption"
+              >
+                <!--view--><!--anchor--><!--view--><!--anchor--><!--anchor-->
+                <!--portal--><!--portal--><!--portal--><!--portal--><!--portal--><!--portal-->
+                <div
+                  class="qp-radio-button au-target"
+                  au-target-id="260"
+                  id="edProjectProperties-SteppedRetainageOption-0"
+                >
+                  <span class="qp-radio-button__input-container">
+                    <input
+                      type="radio"
+                      model.bind="item.option.value"
+                      disabled.bind="item.option.enabled === false || config.enabled === false"
+                      checked.bind="value"
+                      matcher.bind="matchValue"
+                      class="qp-radio-button__input au-target"
+                      au-target-id="261"
+                      name="edProjectProperties-SteppedRetainageOption"
+                      data-text-value="Fixed Retainage"
+                      id="edProjectProperties-SteppedRetainageOption_0"
+                      value="on"
+                      checked="checked"
+                    />
+                  </span>
+                  <label
+                    class="qp-radio-button__label au-target"
+                    au-target-id="262"
+                    for="edProjectProperties-SteppedRetainageOption_0"
+                  >
+                    Fixed Retainage </label
+                  ><!--anchor-->
+                </div>
+                <!--portal-->
+                <div
+                  class="qp-radio-button au-target"
+                  au-target-id="260"
+                  id="edProjectProperties-SteppedRetainageOption-1"
+                >
+                  <span class="qp-radio-button__input-container">
+                    <input
+                      type="radio"
+                      model.bind="item.option.value"
+                      disabled.bind="item.option.enabled === false || config.enabled === false"
+                      checked.bind="value"
+                      matcher.bind="matchValue"
+                      class="qp-radio-button__input au-target"
+                      au-target-id="261"
+                      name="edProjectProperties-SteppedRetainageOption"
+                      data-text-value="Retainage with Steps"
+                      id="edProjectProperties-SteppedRetainageOption_1"
+                      value="on"
+                    />
+                  </span>
+                  <label
+                    class="qp-radio-button__label au-target"
+                    au-target-id="262"
+                    for="edProjectProperties-SteppedRetainageOption_1"
+                  >
+                    Retainage with Steps </label
+                  ><!--anchor-->
+                </div>
+                <!--portal-->
+              </div> </enhanced-compose
+            ><!--anchor-->
+          </div>
+          <!--slot-->
+        </div>
+      </div>
+    </qp-field>
+  </fieldset>
+  <!--anchor-->
+
+  <!--anchor-->
+</qp-fieldset>

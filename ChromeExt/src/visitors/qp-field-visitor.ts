@@ -5,7 +5,6 @@ import ElementVisitor from "./qp-element-visitor";
 import ChildrenVisitor from "./children-visitors";
 import {
     concatElementID,
-    findClasses,
     findElementByClassesDown,
     findElementByNodeNameDown,
     findFirstLeafTextContent,
@@ -23,23 +22,58 @@ export default class QPFieldVisitor implements ElementVisitor {
             return false;
         }
 
+        return this.visitRadioButton(htmlElement, parent as AcuContainer)
+            || this.visitSingleField(htmlElement, parent as AcuContainer);
+    }
+
+    private visitRadioButton(element: Element, parent: AcuContainer): boolean {
+        if (element.getAttribute("control-type") !== "qp-radio") {
+            return false;
+        }
+        const radioGroupElement = findElementByClassesDown(element, 'qp-radio-group');
+        if (!radioGroupElement) {
+            return true;
+        }
+
+        for (const radioElement of radioGroupElement.children) {
+            const inputElement = findElementByNodeNameDown(radioElement, "input");
+            if (!inputElement) {
+                continue;
+            }
+
+            const field: QPField = {
+                Type: AcuElementType.Field,
+                Id: concatElementID(parent.Id, element),
+                ElementType: QPFieldElementType.RadioButton,
+                Value: inputElement?.getAttribute("checked") === "checked" ? "on" : "off",
+                Label: null,
+                ReadOnly: isElementDisabled(element),
+            };
+
+            this.visitLabel(radioElement, field);
+            parent.Children.push(field);
+        }
+
+        return true;
+    }
+
+    visitSingleField(element: Element, parent: AcuContainer): boolean {
         const field: QPField = {
             Type: AcuElementType.Field,
-            Id: concatElementID(parent.Id, htmlElement),
+            Id: concatElementID(parent.Id, element),
             ElementType: QPFieldElementType.TextEditor,
             Value: null,
             Label: null,
             ReadOnly: true,
         };
 
-        this.visitLabel(htmlElement, field)
-        if (!this.visitEditor(htmlElement, field)) {
+        this.visitLabel(element, field)
+        if (!this.visitEditor(element, field)) {
             return false;
         }
 
-        field.ReadOnly = isElementDisabled(htmlElement);
-
-        (parent as AcuContainer).Children.push(field);
+        field.ReadOnly = isElementDisabled(element);
+        parent.Children.push(field);
         return true;
     }
 
@@ -54,12 +88,7 @@ export default class QPFieldVisitor implements ElementVisitor {
     }
 
     visitEditor(element: Element, field: QPField): boolean {
-        const textAreaElement = findElementByNodeNameDown(element, "textarea")
-        if (textAreaElement) {
-            field.Value = textAreaElement?.textContent?.trim() ?? null
-            field.ElementType = QPFieldElementType.MultilineTextEditor;
-            return true;
-        }
+
 
         if (element.getAttribute("name") === "Status") {
             const enhancedComposeElement = findElementByNodeNameDown(element, "enhanced-compose");
@@ -68,6 +97,13 @@ export default class QPFieldVisitor implements ElementVisitor {
                 field.ElementType = QPFieldElementType.Status;
                 return true;
             }
+        }
+
+        const textAreaElement = findElementByNodeNameDown(element, "textarea")
+        if (textAreaElement) {
+            field.Value = textAreaElement?.textContent?.trim() ?? null
+            field.ElementType = QPFieldElementType.MultilineTextEditor;
+            return true;
         }
 
         if (findElementByClassesDown(element, 'qp-text-editor-control')) {
@@ -91,7 +127,6 @@ export default class QPFieldVisitor implements ElementVisitor {
         }
 
         if (findElementByClassesDown(element, 'qp-check-box-control')) {
-            field.ElementType = QPFieldElementType.CheckBox;
             this.visitCheckBox(element, field);
 
             return true;
@@ -159,6 +194,8 @@ export default class QPFieldVisitor implements ElementVisitor {
     }
 
     private visitCheckBox(element: Element, field: QPField) {
+        field.ElementType = QPFieldElementType.CheckBox;
+
         const input = findElementByNodeNameDown(element, 'input');
         field.Value = input?.getAttribute("checked") === "checked" ? "on" : "off";
 
