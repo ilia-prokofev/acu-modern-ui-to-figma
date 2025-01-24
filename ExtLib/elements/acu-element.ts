@@ -13,4 +13,5 @@ export enum AcuElementType {
 
 export interface AcuElement {
     Type: AcuElementType;
+    Id: string;
 }

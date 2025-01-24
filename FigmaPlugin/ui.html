@@ -133,6 +133,12 @@
         </label>
         <textarea id="inputText" placeholder="Paste your JSON here..."></textarea>
     </div>
+    <div style="text-align: left;">
+        <label>
+            <input type="checkbox" id="reuseSummary" checked/>
+            Create reusable summary component
+        </label>
+    </div>
     <div class="progress-container">
         <progress id="render-progress" value="0" max="100"></progress>
         <p id="progress-text">0%</p>
@@ -147,11 +153,12 @@
     document.getElementById('import').onclick = () => {
         const textbox = document.getElementById('inputText');
         const inputText = textbox.value;
-        parent.postMessage({ pluginMessage: { input: inputText, format: 'json' }}, '*');
+        const reuseSummary = document.getElementById('reuseSummary').checked;
+        parent.postMessage({ pluginMessage: { input: inputText, reuseSummary: reuseSummary, format: 'json' }}, '*');
     };
 
     document.getElementById('cancel').onclick = () => {
-        parent.postMessage({ pluginMessage: { input: '', format: '' }}, '*');
+        parent.postMessage({ pluginMessage: { input: '', reuseSummary: false, format: '' }}, '*');
     };
 
     window.onmessage = (event) => {

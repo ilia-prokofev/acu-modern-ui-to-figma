@@ -1,52 +1,100 @@
 {
-  "Items": [
-    {
-      "IconType": "Back",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "SaveAndBack",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Save",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Undo",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Insert",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Delete",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Copy",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "First",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Previous",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Next",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Last",
-      "ItemType": "IconButton"
-    }
-  ],
-  "ShowRightAction": false,
-  "ShowSaveButton": false,
-  "ToolBarType": "List",
-  "Type": "ToolBar"
+  "Caption1": null,
+  "Caption2": null,
+  "Children": [],
+  "Id": "Root",
+  "ToolBar": {
+    "Id": "Root-22",
+    "Items": [
+      {
+        "Enabled": true,
+        "Icon": "Back",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": false,
+        "Icon": "SaveAndBack",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": false,
+        "Icon": "Save",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Undo",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Insert",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Delete",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Copy",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "First",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Previous",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Next",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Last",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Ellipsis",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      }
+    ],
+    "ShowRightAction": false,
+    "ShowSaveButton": false,
+    "ToolBarType": "Record",
+    "Type": "ToolBar"
+  },
+  "Type": "Root"
 }

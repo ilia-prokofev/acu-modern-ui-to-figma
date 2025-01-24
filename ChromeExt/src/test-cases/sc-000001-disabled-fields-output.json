@@ -20,13 +20,13 @@
               "Label": "Status",
               "ReadOnly": true,
               "Type": "Field",
-              "Value": "On Hold"
+              "Value": "Open"
             },
             {
               "ElementType": "DatetimeEdit",
               "Id": "Root-1311-1312-1551",
               "Label": "Date",
-              "ReadOnly": false,
+              "ReadOnly": true,
               "Type": "Field",
               "Value": "12/1/2022"
             },
@@ -34,7 +34,7 @@
               "ElementType": "DatetimeEdit",
               "Id": "Root-1311-1312-1553",
               "Label": "Start Date",
-              "ReadOnly": false,
+              "ReadOnly": true,
               "Type": "Field",
               "Value": "12/1/2022"
             },
@@ -42,7 +42,7 @@
               "ElementType": "TextEditor",
               "Id": "Root-1311-1312-1557",
               "Label": "Vendor Ref.",
-              "ReadOnly": false,
+              "ReadOnly": true,
               "Type": "Field",
               "Value": ""
             }
@@ -58,7 +58,7 @@
               "ElementType": "Selector",
               "Id": "Root-1311-1313-1559",
               "Label": "Vendor",
-              "ReadOnly": false,
+              "ReadOnly": true,
               "Type": "Field",
               "Value": "CBSITEWORK- CB Sitework, Inc."
             },
@@ -66,7 +66,7 @@
               "ElementType": "Selector",
               "Id": "Root-1311-1313-1561",
               "Label": "Location",
-              "ReadOnly": false,
+              "ReadOnly": true,
               "Type": "Field",
               "Value": "MAIN - Primary Location"
             },
@@ -74,7 +74,7 @@
               "ElementType": "Selector",
               "Id": "Root-1311-1313-1563",
               "Label": "Owner",
-              "ReadOnly": false,
+              "ReadOnly": true,
               "Type": "Field",
               "Value": "Maxwell Baker"
             },
@@ -82,7 +82,7 @@
               "ElementType": "Currency",
               "Id": "Root-1311-1313-1567",
               "Label": "Currency",
-              "ReadOnly": false,
+              "ReadOnly": true,
               "Type": "Field",
               "Value": "USD"
             },
@@ -90,7 +90,7 @@
               "ElementType": "MultilineTextEditor",
               "Id": "Root-1311-1313-1569",
               "Label": "Description",
-              "ReadOnly": false,
+              "ReadOnly": true,
               "Type": "Field",
               "Value": "SITE WORK"
             }
@@ -541,21 +541,7 @@
                 "Text": null
               },
               {
-                "Enabled": true,
-                "Icon": "AddRow",
-                "ItemType": "Button",
-                "Style": "Tertiary",
-                "Text": null
-              },
-              {
-                "Enabled": true,
-                "Icon": "DeleteRow",
-                "ItemType": "Button",
-                "Style": "Tertiary",
-                "Text": null
-              },
-              {
-                "Enabled": true,
+                "Enabled": false,
                 "Icon": null,
                 "ItemType": "Button",
                 "Style": "Tertiary",
@@ -743,7 +729,7 @@
         "Icon": null,
         "ItemType": "Button",
         "Style": "Special",
-        "Text": "Remove Hold"
+        "Text": "Enter AP Bill"
       },
       {
         "Enabled": true,

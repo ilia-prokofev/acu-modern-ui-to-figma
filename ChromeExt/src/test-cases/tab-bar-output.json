@@ -1,56 +1,82 @@
 {
-  "Children": [],
-  "Tabs": [
+  "Caption1": null,
+  "Caption2": null,
+  "Children": [
     {
-      "IsActive": true,
-      "Label": "Details",
-      "Type": "Tab"
-    },
-    {
-      "IsActive": false,
-      "Label": "Taxes",
-      "Type": "Tab"
-    },
-    {
-      "IsActive": false,
-      "Label": "Addresses",
-      "Type": "Tab"
-    },
-    {
-      "IsActive": false,
-      "Label": "Discounts",
-      "Type": "Tab"
-    },
-    {
-      "IsActive": false,
-      "Label": "Billing",
-      "Type": "Tab"
-    },
-    {
-      "IsActive": false,
-      "Label": "Prepayments",
-      "Type": "Tab"
-    },
-    {
-      "IsActive": false,
-      "Label": "Change Orders",
-      "Type": "Tab"
-    },
-    {
-      "IsActive": false,
-      "Label": "Financial",
-      "Type": "Tab"
-    },
-    {
-      "IsActive": false,
-      "Label": "Attributes",
-      "Type": "Tab"
-    },
-    {
-      "IsActive": false,
-      "Label": "Compliance",
-      "Type": "Tab"
+      "Children": [],
+      "Id": "Root-396",
+      "Tabs": [
+        {
+          "Id": "Root-396",
+          "IsActive": true,
+          "Label": "Details",
+          "Type": "Tab"
+        },
+        {
+          "Id": "Root-396",
+          "IsActive": false,
+          "Label": "Taxes",
+          "Type": "Tab"
+        },
+        {
+          "Id": "Root-396",
+          "IsActive": false,
+          "Label": "Addresses",
+          "Type": "Tab"
+        },
+        {
+          "Id": "Root-396",
+          "IsActive": false,
+          "Label": "Discounts",
+          "Type": "Tab"
+        },
+        {
+          "Id": "Root-396",
+          "IsActive": false,
+          "Label": "Billing",
+          "Type": "Tab"
+        },
+        {
+          "Id": "Root-396",
+          "IsActive": false,
+          "Label": "Prepayments",
+          "Type": "Tab"
+        },
+        {
+          "Id": "Root-396",
+          "IsActive": false,
+          "Label": "Change Orders",
+          "Type": "Tab"
+        },
+        {
+          "Id": "Root-396",
+          "IsActive": false,
+          "Label": "Financial",
+          "Type": "Tab"
+        },
+        {
+          "Id": "Root-396",
+          "IsActive": false,
+          "Label": "Attributes",
+          "Type": "Tab"
+        },
+        {
+          "Id": "Root-396",
+          "IsActive": false,
+          "Label": "Compliance",
+          "Type": "Tab"
+        },
+        {
+          "Id": "Root-396",
+          "IsActive": false,
+          "Label": "",
+          "Type": "Tab"
+        }
+      ],
+      "Type": "Tabbar"
     }
   ],
-  "Type": "Tabbar"
+  "Id": "Root",
+  "ToolBar": null,
+  "Type": "Root"
 }

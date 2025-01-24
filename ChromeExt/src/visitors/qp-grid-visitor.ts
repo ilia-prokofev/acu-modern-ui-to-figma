@@ -4,6 +4,7 @@ import {Grid, GridColumn, GridColumnType} from "../elements/qp-grid";
 import ElementVisitor from "./qp-element-visitor";
 import ChildrenVisitor from "./children-visitors";
 import {
+    concatElementID,
     findElementByClassesDown,
     findElementByNodeNameDown,
     getElementAlignment,
@@ -24,17 +25,21 @@ export default class QPGridVisitor implements ElementVisitor {
             return false;
         }
 
-        const child: Grid = {
+        const grid: Grid = {
             Type: AcuElementType.Grid,
+            Id: concatElementID(parent.Id, htmlElement),
+            ToolBar: null,
             Columns: [],
         };
 
-        (parent as AcuContainer).Children.push(child);
+        this.setupCells(grid, htmlElement);
 
-        this.setupCells(child, htmlElement);
+        if (grid.Columns.length === 0) {
+            return false;
+        }
 
-        allVisitor.visitChildren(htmlElement, child);
-
+        allVisitor.visitChildren(htmlElement, grid);
+        (parent as AcuContainer).Children.push(grid);
         return true;
     }
 

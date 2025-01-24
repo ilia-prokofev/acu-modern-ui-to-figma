@@ -2,7 +2,12 @@ import {AcuElement, AcuElementType} from "../elements/acu-element";
 import {AcuContainer} from "../elements/acu-container";
 import {Tab, TabBar} from "../elements/qp-tabbar";
 import ElementVisitor from "./qp-element-visitor";
-import {findClasses, findElementByClassesDown, findElementByNodeNameDown} from "./html-element-utils";
+import {
+    concatElementID,
+    findClasses,
+    findElementByClassesDown, findElementByNodeNameDown,
+    findFirstLeafTextContent
+} from "./html-element-utils";
 import ChildrenVisitor from "./children-visitors";
 
 export default class QPTabBarVisitor implements ElementVisitor {
@@ -21,8 +26,9 @@ export default class QPTabBarVisitor implements ElementVisitor {
 
         const tabBar: TabBar = {
             Type: AcuElementType.Tabbar,
-            Children: [],
+            Id: concatElementID(parent.Id, htmlElement),
             Tabs: [],
+            Children: [],
         };
 
         const tabsContainer = findElementByClassesDown(htmlElement, 'qp-tabbar-wrapper', 'au-target');
@@ -30,35 +36,31 @@ export default class QPTabBarVisitor implements ElementVisitor {
             return false;
         }
 
-        for (let i = 0; i < tabsContainer.children.length; i++) {
-            const tabHeaderContainer = tabsContainer.children[i];
-            if (!findClasses(tabHeaderContainer, 'tab-header-container')) {
-                continue;
-            }
+        const header = findElementByClassesDown(htmlElement, 'qp-tabbar-wrapper');
+        if (!header) {
+            return false;
+        }
 
-            const tabHeaderContainerChild = findElementByNodeNameDown(tabHeaderContainer, "div");
-            if (!tabHeaderContainerChild) {
-                continue;
-            }
-
-            const tabElement = findElementByNodeNameDown(tabHeaderContainerChild, "div")
-            if (!tabElement) {
-                continue;
-            }
-
+        for (const tabHeader of header.children) {
             const tab: Tab = {
                 Type: AcuElementType.Tab,
-                Label: tabElement.textContent?.trim() ?? '',
-                IsActive: findElementByClassesDown(tabHeaderContainer, 'qp-tabbar-active') !== null,
+                Id: concatElementID(parent.Id, htmlElement),
+                Label: findFirstLeafTextContent(tabHeader) ?? '',
+                IsActive: findElementByClassesDown(tabHeader, 'qp-tabbar-active') !== null,
             };
 
             tabBar.Tabs.push(tab);
+
+            if (tab.IsActive) {
+                // suppose there is the only tab (after preprocessing)
+                const tabElement = findElementByNodeNameDown(htmlElement, "qp-tab");
+                if (tabElement) {
+                    allVisitor.visitChildren(tabElement, tabBar);
+                }
+            }
         }
 
         (parent as AcuContainer).Children.push(tabBar);
-
-        allVisitor.visitChildren(htmlElement, tabBar);
-
         return true;
     }
 }

@@ -1,40 +1,72 @@
 {
-  "Items": [
-    {
-      "IconType": "Refresh",
-      "ItemType": "IconButton"
-    },
-    {
-      "ItemType": "Button",
-      "Text": "Add Project Items"
-    },
-    {
-      "IconType": "Import",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Undo",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Insert",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "Edit",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "AdjustColumns",
-      "ItemType": "IconButton"
-    },
-    {
-      "IconType": "ExportToExcel",
-      "ItemType": "IconButton"
-    }
-  ],
-  "ShowRightAction": true,
-  "ShowSaveButton": false,
-  "ToolBarType": "List",
-  "Type": "ToolBar"
+  "Caption1": null,
+  "Caption2": null,
+  "Children": [],
+  "Id": "Root",
+  "ToolBar": {
+    "Id": "Root-1054",
+    "Items": [
+      {
+        "Enabled": true,
+        "Icon": "Refresh",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": false,
+        "Icon": null,
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": "Add Project Items"
+      },
+      {
+        "Enabled": true,
+        "Icon": "Import",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Undo",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Insert",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Edit",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "AdjustColumns",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "ExportToExcel",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      }
+    ],
+    "ShowRightAction": true,
+    "ShowSaveButton": false,
+    "ToolBarType": "List",
+    "Type": "ToolBar"
+  },
+  "Type": "Root"
 }

@@ -86,3 +86,65 @@ export function getElementAlignment(htmlElement: Element): AcuAlignment | null {
 
     return null;
 }
+
+export function findFirstLeafTextContent(htmlElement: Element): string | null {
+    if (htmlElement.children.length === 0) {
+        return htmlElement.textContent?.trim() ?? null;
+    }
+
+    for (const child of htmlElement.children) {
+        const textContent = findFirstLeafTextContent(child);
+        if (textContent && textContent.length > 0) {
+            return textContent;
+        }
+    }
+
+    return null;
+}
+
+export function findAttributeValueDown(htmlElement: Element, attributeName: string): string | null {
+    const value = htmlElement.getAttribute(attributeName);
+    if (value) {
+        return value;
+    }
+
+    for (const child of htmlElement.children) {
+        const childValue = findAttributeValueDown(child, attributeName);
+        if (childValue) {
+            return childValue;
+        }
+    }
+
+    return null;
+}
+
+export function concatElementID(otherId: string, htmlElement: Element): string {
+    let id = htmlElement.getAttribute("au-target-id") ??
+        htmlElement.getAttribute("id") ??
+        htmlElement.nodeName.toLowerCase();
+    return `${otherId}-${id}`
+}
+
+export function isElementDisabled(element: Element): boolean {
+    const attr = element.getAttribute("enabled")?.toLowerCase();
+    if (attr === "false") {
+        return false;
+    }
+
+    return findElementByClassesDown(element, "disabled") !== null
+        || findElementByClassesDown(element, "qp-field-disabled") !== null;
+}
+
+export function isHiddenElement(element: Element): boolean {
+    if (findClasses(element, "aurelia-hide")) {
+        return true;
+    }
+
+    const style = element.getAttribute("style");
+    if (!style) {
+        return false;
+    }
+
+    const negativePositionRegex = /top:\s*-\d+px/;
+    return negativePositionRegex.test(style);
+}
