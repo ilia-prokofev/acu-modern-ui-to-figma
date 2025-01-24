@@ -1,0 +1,17 @@
+{
+  "Caption1": null,
+  "Caption2": null,
+  "Children": [
+    {
+      "ElementType": "CheckBox",
+      "Id": "Root-1474",
+      "Label": "Override",
+      "ReadOnly": false,
+      "Type": "Field",
+      "Value": "on"
+    }
+  ],
+  "Id": "Root",
+  "ToolBar": null,
+  "Type": "Root"
+}
