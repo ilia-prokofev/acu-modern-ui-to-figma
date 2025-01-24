@@ -1,5 +1,6 @@
 import {AcuAlignment} from "./acu-alignment";
-import {AcuElement, AcuElementType} from "./acu-element";
+import {AcuElementType} from "./acu-element";
+import {QPToolbarContainer} from "./qp-toolbar";
 
 export enum GridColumnType {
     Settings = "Settings",

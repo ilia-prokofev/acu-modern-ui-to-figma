@@ -11,6 +11,7 @@ import {
     findFirstLeafTextContent,
     isElementDisabled
 } from "./html-element-utils";
+import {parseButton} from "./button-utils";
 
 export default class QPFieldVisitor implements ElementVisitor {
     visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean {
@@ -31,9 +32,8 @@ export default class QPFieldVisitor implements ElementVisitor {
             ReadOnly: true,
         };
 
-        if (!this.visitLabel(htmlElement, field) ||
-            !this.visitEditor(htmlElement, field)
-        ) {
+        this.visitLabel(htmlElement, field)
+        if (!this.visitEditor(htmlElement, field)) {
             return false;
         }
 
@@ -43,51 +43,82 @@ export default class QPFieldVisitor implements ElementVisitor {
         return true;
     }
 
-    visitLabel(htmlElement: Element, field: QPField): boolean {
+    visitLabel(htmlElement: Element, field: QPField) {
         const labelElement = findElementByNodeNameDown(htmlElement, "label");
         if (!labelElement) {
-            return false;
+            return;
         }
 
         field.Label = labelElement.textContent?.trim() ?? null;
-        return true;
+        return;
     }
 
-    visitEditor(htmlElement: Element, field: QPField): boolean {
-        const mainFieldElement = findElementByClassesDown(htmlElement, 'au-target', 'main-field');
-        if (!mainFieldElement) {
-            return false;
-        }
-
-        const textAreaElement = findElementByNodeNameDown(mainFieldElement, "textarea")
+    visitEditor(element: Element, field: QPField): boolean {
+        const textAreaElement = findElementByNodeNameDown(element, "textarea")
         if (textAreaElement) {
             field.Value = textAreaElement?.textContent?.trim() ?? null
             field.ElementType = QPFieldElementType.MultilineTextEditor;
-        } else if (findClasses(mainFieldElement, 'qp-text-editor-control')) {
-            field.Value = this.getInputValue(mainFieldElement);
-            field.ElementType = QPFieldElementType.TextEditor;
-        } else if (findClasses(mainFieldElement, 'qp-selector-control')) {
-            field.ElementType = QPFieldElementType.Selector;
-            field.Value = this.getInputValue(mainFieldElement)
-                ?? this.getSelectorLink(mainFieldElement);
-        } else if (findClasses(mainFieldElement, 'qp-drop-down-control')) {
-            field.ElementType = QPFieldElementType.DropDown;
-            field.Value = this.getInputValue(mainFieldElement);
-        } else if (findClasses(mainFieldElement, 'qp-check-box-control')) {
-            field.ElementType = QPFieldElementType.CheckBox;
-            this.visitCheckBox(mainFieldElement, field);
-        } else if (findClasses(mainFieldElement, 'qp-datetime-edit-control')) {
-            field.ElementType = QPFieldElementType.DatetimeEdit;
-            field.Value = this.getInputValue(mainFieldElement);
-        } else if (findClasses(mainFieldElement, 'qp-currency-control')) {
-            field.ElementType = QPFieldElementType.Currency;
-            field.Value = this.getInputValue(mainFieldElement);
-        } else if (findClasses(mainFieldElement, 'qp-number-editor-control')) {
-            field.ElementType = QPFieldElementType.NumberEditor;
-            field.Value = this.getInputValue(mainFieldElement);
+            return true;
         }
 
-        return true;
+        if (findElementByClassesDown(element, 'qp-text-editor-control')) {
+            field.Value = this.getInputValue(element);
+            field.ElementType = QPFieldElementType.TextEditor;
+            return true;
+        }
+
+        if (findElementByClassesDown(element, 'qp-selector-control')) {
+            field.ElementType = QPFieldElementType.Selector;
+            field.Value = this.getInputValue(element)
+                ?? this.getSelectorLink(element);
+
+            return true;
+        }
+        if (findElementByClassesDown(element, 'qp-drop-down-control')) {
+            field.ElementType = QPFieldElementType.DropDown;
+            field.Value = this.getInputValue(element);
+
+            return true;
+        }
+
+        if (findElementByClassesDown(element, 'qp-check-box-control')) {
+            field.ElementType = QPFieldElementType.CheckBox;
+            this.visitCheckBox(element, field);
+
+            return true;
+        }
+
+        if (findElementByClassesDown(element, 'qp-datetime-edit-control')) {
+            field.ElementType = QPFieldElementType.DatetimeEdit;
+            field.Value = this.getInputValue(element);
+
+            return true;
+        }
+
+        if (findElementByClassesDown(element, 'qp-currency-control')) {
+            field.ElementType = QPFieldElementType.Currency;
+            field.Value = this.getInputValue(element);
+
+            return true;
+        }
+
+        if (findElementByClassesDown(element, 'qp-number-editor-control')) {
+            field.ElementType = QPFieldElementType.NumberEditor;
+            field.Value = this.getInputValue(element);
+
+            return true;
+        }
+
+        const buttonElement = findElementByNodeNameDown(element, "qp-button");
+        if (buttonElement) {
+            const button = parseButton(element);
+            field.ReadOnly = !button.Enabled;
+            field.Value = button.Text;
+            field.ElementType = QPFieldElementType.Button;
+            return true;
+        }
+
+        return false;
     }
 
     private getInputValue(element: Element): string | null {
@@ -121,6 +152,10 @@ export default class QPFieldVisitor implements ElementVisitor {
     private visitCheckBox(element: Element, field: QPField) {
         const input = findElementByNodeNameDown(element, 'input');
         field.Value = input?.getAttribute("checked") === "checked" ? "on" : "off";
-        field.Label = findElementByNodeNameDown(element, "label")?.textContent?.trim() ?? null;
+
+        const enhancedComposeElement = findElementByNodeNameDown(element, "enhanced-compose");
+        if (enhancedComposeElement) {
+            this.visitLabel(enhancedComposeElement, field);
+        }
     }
 }

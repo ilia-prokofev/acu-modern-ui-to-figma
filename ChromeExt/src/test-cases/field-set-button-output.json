@@ -1,0 +1,17 @@
+{
+  "Caption": null,
+  "Children": [
+    {
+      "ElementType": "Button",
+      "Id": "Root-1422",
+      "Label": "",
+      "ReadOnly": true,
+      "Type": "Field",
+      "Value": "Address Lookup"
+    }
+  ],
+  "Id": "Root",
+  "Title": null,
+  "ToolBar": null,
+  "Type": "Root"
+}

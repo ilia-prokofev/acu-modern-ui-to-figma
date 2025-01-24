@@ -11,17 +11,16 @@ import {
     QPToolBarItemFilterCombo,
     QPToolBarItemSeparator,
     QPToolBarItemType,
-    QPToolBarType
+    QPToolBarType,
 } from "../elements/qp-toolbar";
 import {
     concatElementID,
     findClasses,
     findElementByClassesDown,
-    isElementDisabled,
     isHiddenElement
 } from "./html-element-utils";
-import {getIconType} from "./icon-utils";
-import {ButtonStyle} from "../elements/button";
+import {ButtonStyle} from "../elements/qp-button";
+import {parseButton} from "./button-utils";
 
 export default class QPFilterBarVisitor implements ElementVisitor {
     visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean {
@@ -100,26 +99,24 @@ export default class QPFilterBarVisitor implements ElementVisitor {
             }
 
             case "qp-button": {
-                const iconType = getIconType(itemElement);
-                const enabled = !isElementDisabled(itemElement);
-
+                const button = parseButton(itemElement);
                 return {
                     ItemType: QPToolBarItemType.Button,
-                    Icon: iconType,
-                    Enabled: enabled,
                     Style: ButtonStyle.Secondary,
+                    Enabled: button.Enabled,
+                    Text: button.Text,
+                    Icon: button.Icon,
                 } as QPToolBarItemButton;
             }
 
             case "qp-menu": {
-                const iconType = getIconType(itemElement);
-                const enabled = !isElementDisabled(itemElement);
-
+                const button = parseButton(itemElement);
                 return {
                     ItemType: QPToolBarItemType.Button,
-                    Icon: iconType,
-                    Enabled: enabled,
                     Style: ButtonStyle.Tertiary,
+                    Enabled: button.Enabled,
+                    Text: button.Text,
+                    Icon: button.Icon,
                 } as QPToolBarItemButton;
             }
         }
