@@ -1,0 +1,85 @@
+<qp-field
+  class="main-control unbound-control au-target qp-field qp-field-expanded qp-field-disabled"
+  control-state.bind="Remit_Address.FakeField"
+  context.bind="$this"
+  au-target-id="1422"
+>
+  <!--anchor-->
+
+  <div
+    show.bind="controlState.visible === undefined || controlState.visible !== false"
+    data-tooltip.bind="errorMessage"
+    data-error-level.bind="errorLevel"
+    data-id.bind="effectiveId"
+    class="au-target wrapper qp-field-empty"
+    au-target-id="218"
+    data-id="edRemit_Address-FakeField"
+  >
+    <span
+      class="label-wrapper no-label au-target"
+      show.bind="!noLabel"
+      au-target-id="219"
+    >
+      <!--view-->
+
+      <div class="label-container">
+        <label
+          for.bind="controlId"
+          click.delegate="processClick()"
+          ref="element"
+          class="au-target clickable"
+          au-target-id="590"
+          for="edRemit_Address-FakeField"
+        >
+        </label>
+        <!--anchor-->
+      </div>
+      <!--anchor--><!--anchor-->
+      <!--slot-->
+    </span>
+
+    <div class="control-container no-label size-default">
+      <qp-address-lookup
+        id="formVA_btn"
+        class="col-12 au-target"
+        view.bind="Remit_Address"
+        au-target-id="1423"
+      >
+        <qp-button
+          config.bind="btnAddressLookupConfig"
+          class="btn-address-lookup au-target"
+          click.delegate="processAddressLookupClick($event)"
+          au-target-id="575"
+        >
+          <button
+            type="button"
+            ref="buttonElement"
+            disabled.bind="config.enabled == false || config.disabled"
+            click.capture="processClick($event)"
+            mouseover.delegate="processMouseOver($event)"
+            mouseout.delegate="processMouseOut($event)"
+            pointerdown.delegate="processPointerDown($event)"
+            pointerup.delegate="processPointerUp($event)"
+            pointercancel.delegate="processPointerCancel($event)"
+            class="au-target qp-button"
+            au-target-id="774"
+            id="formVA_btnAddressLookup"
+            name=""
+            tabindex="0"
+          >
+            <div class="btn-inner au-target" au-target-id="775" data-cmd="">
+              <!--anchor-->
+              <span class="text">Address Lookup</span
+              ><!--anchor-->
+              <!--anchor-->
+            </div>
+          </button>
+
+          <!--anchor-->
+
+          <!--anchor-->
+        </qp-button> </qp-address-lookup
+      ><!--slot-->
+    </div>
+  </div>
+</qp-field>

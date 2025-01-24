@@ -29,13 +29,15 @@
         "Enabled": true,
         "Icon": "ArrowDown",
         "ItemType": "Button",
-        "Style": "Secondary"
+        "Style": "Secondary",
+        "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Ellipsis",
         "ItemType": "Button",
-        "Style": "Tertiary"
+        "Style": "Tertiary",
+        "Text": null
       }
     ],
     "ShowRightAction": true,

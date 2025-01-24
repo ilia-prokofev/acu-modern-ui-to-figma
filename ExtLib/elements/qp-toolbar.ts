@@ -1,6 +1,6 @@
 import {AcuElement, AcuElementType} from "./acu-element";
 import {IconType} from "./icon";
-import {ButtonStyle} from "./button";
+import {ButtonStyle, QPButton} from "./qp-button";
 
 export interface QPToolbarContainer extends AcuElement {
     ToolBar: QPToolBar | null;
@@ -27,6 +27,16 @@ export interface QPToolBarItemButton {
     Enabled: boolean;
     Text: string | null;
     Icon: IconType | null;
+}
+
+export function toolBarButtonFromButton(button: QPButton): QPToolBarItemButton {
+    return {
+        ItemType: QPToolBarItemType.Button,
+        Style: button.Style,
+        Enabled: button.Enabled,
+        Text: button.Text,
+        Icon: button.Icon,
+    } as QPToolBarItemButton;
 }
 
 export interface QPToolBarItemFilterButton {

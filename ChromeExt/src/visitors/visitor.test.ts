@@ -69,6 +69,13 @@ describe('visitor', () => {
             incomingHTMLFileName: './test-cases/checkbox-unchecked-input.html',
             expectedJSONFile: './test-cases/checkbox-unchecked-output.json',
         },
+        {
+            testName: "field-set-button",
+            sut: new QPFieldVisitor(),
+            childrenVisitor: new ChildrenVisitor([]),
+            incomingHTMLFileName: './test-cases/field-set-button-input.html',
+            expectedJSONFile: './test-cases/field-set-button-output.json',
+        },
     ]
 
     it.each(testCases)(
