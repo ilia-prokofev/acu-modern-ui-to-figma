@@ -99,7 +99,7 @@ class figmaField {
     }
 }
 
-async function Draw(field: figmaField, parent: InstanceNode | PageNode | GroupNode | FrameNode | ComponentNode) {
+async function Draw(field: figmaField, parent: InstanceNode | PageNode | GroupNode | FrameNode | ComponentNode, setView = false) {
     if (isCancelled) { stopNow(); return; }
     childrenProcessed++;
     const newProgress = Math.floor(childrenProcessed * 90 / childrenNumber) + 10;
@@ -131,10 +131,6 @@ async function Draw(field: figmaField, parent: InstanceNode | PageNode | GroupNo
                 case 'FRAME':
                     instance = figma.createFrame() as FrameNode;
                     instance.layoutMode = field.layoutMode;
-                    if (!field.properties['primaryAxisSizingMode'])
-                        instance.primaryAxisSizingMode = 'AUTO';
-                    if (!field.properties['counterAxisSizingMode'])
-                        instance.counterAxisSizingMode = 'AUTO';
                     instance.itemSpacing = field.layoutMode == 'VERTICAL' ? verticalSpacing : horizontalSpacing;
                     break;
             }
@@ -142,6 +138,9 @@ async function Draw(field: figmaField, parent: InstanceNode | PageNode | GroupNo
             parent.appendChild(instance);
         }
     }
+
+    if (field.width > 0 || field.height > 0)
+        instance.resize(field.width > 0 ? field.width : instance.width, field.height > 0 ? field.height : instance.height);
 
     for (const property in field.properties) {
         // @ts-ignore
@@ -151,10 +150,11 @@ async function Draw(field: figmaField, parent: InstanceNode | PageNode | GroupNo
     if (instance.type === 'INSTANCE')
         SetProperties(instance, field.componentProperties);
 
-    if (field.width > 0 || field.height > 0)
-        instance.resize(field.width > 0 ? field.width : instance.width, field.height > 0 ? field.height : instance.height);
-
     field.figmaObject = instance;
+
+    if (setView)
+        figma.viewport.scrollAndZoomIntoView([instance]);
+
     for (const child of field.children)
         await Draw(child, instance);
 }
@@ -473,7 +473,7 @@ class figmaToolbar extends figmaField {
 
 class figmaTabbar extends figmaField {
     constructor(tabBar: TabBar) {
-        super('Tabbar', 'FRAME');
+        super('Tabbar', 'FRAME', viewportWidth);
         this.tryToFind = false;
         this.acuElement = tabBar;
 
@@ -520,10 +520,10 @@ class figmaTemplate extends figmaField {
         this.tryToFind = false;
         this.acuElement = template;
         this.layoutMode = 'HORIZONTAL';
+        this.properties['counterAxisSizingMode'] = 'AUTO';
         if (template.Children.length == 0)
             this.properties['visible'] = false;
 
-        let x = 0;
         let w = (viewportWidth - (horizontalSpacing * (template.Children.length - 1))) / template.Children.length;
         const parts = template.Name?.split('-').map(p => parseInt(p)) ?? [];
         let sum = 0;
@@ -533,32 +533,23 @@ class figmaTemplate extends figmaField {
         })
 
         template.Children.forEach((fs, i) => {
-            let curW = w;
+            let slotWidth = w;
             if (sum > 0)
-                curW = (viewportWidth - (horizontalSpacing * (template.Children.length - 1))) * parts[i] / sum;
+                slotWidth = (viewportWidth - (horizontalSpacing * (template.Children.length - 1))) * parts[i] / sum;
             switch (fs.Type) {
                 case AcuElementType.FieldSet:
-                    this.children.push(new figmaFieldSet(fs as QPFieldset, curW));
+                    this.children.push(new figmaFieldSet(fs as QPFieldset, slotWidth));
                     break;
                 case AcuElementType.FieldsetSlot:
-                    this.children.push(new figmaSlot(fs as FieldsetSlot, curW));
+                    this.children.push(new figmaSlot(fs as FieldsetSlot, slotWidth));
                     break;
                 case AcuElementType.Grid:
                     const grid = new figmaGrid(fs as Grid, 'Grid', true);
                     grid.componentProperties['Wrapped'] = 'Yes';
                     grid.properties['layoutAlign'] = 'STRETCH';
                     grid.height = 250;
-                    console.log(grid);
+                    grid.width = slotWidth;
                     this.children.push(grid);
-
-                    // const fsGrid = {
-                    //     Id: 'fsGrid2',
-                    //     Type: AcuElementType.FieldSet,
-                    //     Label: 'Grid',
-                    //     Highlighted: false,
-                    //     Children: [fs as Grid]
-                    // } as QPFieldset;
-                    // this.children.push(new figmaFieldSet(fsGrid, curW));
                     break;
             }
         });
@@ -775,7 +766,7 @@ async function DrawFromJSON(input: string, reuseSummary: boolean) {
     figma.ui.postMessage({type: 'progress', progress});
     await new Promise(resolve => setTimeout(resolve, 20));
 
-    const frameCanvas = await CreateCanvas(screenName, root.Title, root.Caption);
+    const frameCanvas = await CreateCanvas(screenName, root.Caption??root.Title, root.Caption == null ? null : root.Title);
     if (!frameCanvas.figmaObject) return;
 
     if (drawSummaryComponent)
@@ -799,9 +790,10 @@ async function DrawFromJSON(input: string, reuseSummary: boolean) {
 
 async function CreateCanvas(screenName: string, screenTitle: string|null, backLink: string|null) {
 
-    const frameScreenVertical  = new figmaField(screenName, 'FRAME');
+    const frameScreenVertical  = new figmaField(screenName, 'FRAME', pageWidth, pageHeight);
     frameScreenVertical.tryToFind = false;
     frameScreenVertical.properties['itemSpacing'] = 0;
+    frameScreenVertical.properties['primaryAxisSizingMode'] = 'AUTO';
 
     let rootItem;
     if (devMode) {
@@ -830,6 +822,7 @@ async function CreateCanvas(screenName: string, screenTitle: string|null, backLi
     const frameScreenHorizontal  = new figmaField('FrameH', 'FRAME', pageWidth);
     frameScreenHorizontal.tryToFind = false;
     frameScreenHorizontal.properties['primaryAxisSizingMode'] = 'FIXED';
+    frameScreenHorizontal.properties['counterAxisSizingMode'] = 'AUTO';
     frameScreenHorizontal.properties['layoutMode'] = 'HORIZONTAL';
     frameScreenHorizontal.properties['itemSpacing'] = 0;
     frameScreenVertical.children.push(frameScreenHorizontal);
@@ -859,7 +852,7 @@ async function CreateCanvas(screenName: string, screenTitle: string|null, backLi
 
     childrenNumber += countChildren(rootItem);
 
-    await Draw(rootItem, figma.currentPage);
+    await Draw(rootItem, figma.currentPage, true);
 
     return frameCanvas;
 }
