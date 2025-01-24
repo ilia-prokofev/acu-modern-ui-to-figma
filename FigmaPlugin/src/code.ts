@@ -25,7 +25,7 @@ const pageWidth = 1364;//1600;
 const pageHeight = 900;
 const viewportWidth = pageWidth - 80 - padding * 2;
 const viewportHeight = pageHeight - 50;
-const devMode = false;
+const devMode = !false;
 
 let childrenNumber = 0;
 let childrenProcessed = 0;
@@ -150,8 +150,8 @@ async function Draw(field: figmaField, parent: InstanceNode | PageNode | GroupNo
     if (instance.type === 'INSTANCE')
         SetProperties(instance, field.componentProperties);
 
-    if (field.width > 0)
-        instance.resize(field.width, instance.height);
+    if (field.width > 0 || field.height > 0)
+        instance.resize(field.width > 0 ? field.width : instance.width, field.height > 0 ? field.height : instance.height);
 
     field.figmaObject = instance;
     for (const child of field.children)
@@ -543,14 +543,21 @@ class figmaTemplate extends figmaField {
                     this.children.push(new figmaSlot(fs as FieldsetSlot, curW));
                     break;
                 case AcuElementType.Grid:
-                    const fsGrid = {
-                        Id: 'fsGrid2',
-                        Type: AcuElementType.FieldSet,
-                        Label: 'Grid',
-                        Highlighted: false,
-                        Children: [fs as Grid]
-                    } as QPFieldset;
-                    this.children.push(new figmaFieldSet(fsGrid, curW));
+                    const grid = new figmaGrid(fs as Grid, 'Grid', true);
+                    grid.componentProperties['Wrapped'] = 'Yes';
+                    grid.properties['layoutAlign'] = 'STRETCH';
+                    grid.height = 250;
+                    console.log(grid);
+                    this.children.push(grid);
+
+                    // const fsGrid = {
+                    //     Id: 'fsGrid2',
+                    //     Type: AcuElementType.FieldSet,
+                    //     Label: 'Grid',
+                    //     Highlighted: false,
+                    //     Children: [fs as Grid]
+                    // } as QPFieldset;
+                    // this.children.push(new figmaFieldSet(fsGrid, curW));
                     break;
             }
         });
@@ -569,14 +576,20 @@ class figmaSlot extends figmaField {
                     this.children.push(new figmaFieldSet(fs as QPFieldset, width));
                     break;
                 case AcuElementType.Grid:
-                    const fsGrid = {
-                        Id: 'fsGrid1',
-                        Type: AcuElementType.FieldSet,
-                        Label: 'Grid',
-                        Highlighted: false,
-                        Children: [fs as Grid]
-                    } as QPFieldset;
-                    this.children.push(new figmaFieldSet(fsGrid, width));
+                    const grid = new figmaGrid(fs as Grid, 'Grid', true);
+                    grid.componentProperties['Wrapped'] = 'Yes';
+                    grid.properties['layoutAlign'] = 'STRETCH';
+                    grid.height = 250;
+                    console.log(grid);
+                    this.children.push(grid);
+                    // const fsGrid = {
+                    //     Id: 'fsGrid1',
+                    //     Type: AcuElementType.FieldSet,
+                    //     Label: 'Grid',
+                    //     Highlighted: false,
+                    //     Children: [fs as Grid]
+                    // } as QPFieldset;
+                    // this.children.push(new figmaFieldSet(fsGrid, width));
                     break;
             }
         });
