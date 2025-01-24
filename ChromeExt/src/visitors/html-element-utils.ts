@@ -126,8 +126,13 @@ export function concatElementID(otherId: string, htmlElement: Element): string {
 }
 
 export function isElementDisabled(element: Element): boolean {
-    return findClasses(element, "disabled")
-        || element.getAttribute("enabled")?.toLowerCase() === "false";
+    const attr = element.getAttribute("enabled")?.toLowerCase();
+    if (attr === "false") {
+        return false;
+    }
+
+    return findElementByClassesDown(element, "disabled") !== null
+        || findElementByClassesDown(element, "qp-field-disabled") !== null;
 }
 
 export function isHiddenElement(element: Element): boolean {

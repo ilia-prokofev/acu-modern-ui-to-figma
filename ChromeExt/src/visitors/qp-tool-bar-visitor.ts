@@ -77,8 +77,8 @@ export default class QPToolBarVisitor implements ElementVisitor {
 
             switch (toolBarElement.nodeName.toLowerCase()) {
                 case "ul": {
-                    for (const ilElement of toolBarElement.children) {
-                        const toolBarItem = this.getToolBarItem(ilElement);
+                    for (const liElement of toolBarElement.children) {
+                        const toolBarItem = this.getToolBarItem(liElement);
                         if (toolBarItem) {
                             toolBar.Items.push(toolBarItem);
                         }

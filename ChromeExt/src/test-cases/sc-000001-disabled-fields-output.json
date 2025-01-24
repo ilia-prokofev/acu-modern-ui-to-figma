@@ -541,7 +541,7 @@
                 "Text": null
               },
               {
-                "Enabled": true,
+                "Enabled": false,
                 "Icon": null,
                 "ItemType": "Button",
                 "Style": "Tertiary",
@@ -655,14 +655,14 @@
         "Text": null
       },
       {
-        "Enabled": true,
+        "Enabled": false,
         "Icon": "SaveAndBack",
         "ItemType": "Button",
         "Style": "Tertiary",
         "Text": null
       },
       {
-        "Enabled": true,
+        "Enabled": false,
         "Icon": "Save",
         "ItemType": "Button",
         "Style": "Tertiary",
