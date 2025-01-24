@@ -699,7 +699,7 @@ async function DrawFromJSON(input: string, reuseSummary: boolean) {
     //console.log(rootItem);
     childrenNumber = countChildren(rootItem);
 
-    let screenName = root.Caption1??'Screen';
+    let screenName = root.Title??'Screen';
     let drawSummaryComponent = false;
     let summary;
     let compSummary;
@@ -776,7 +776,7 @@ async function DrawFromJSON(input: string, reuseSummary: boolean) {
     figma.ui.postMessage({type: 'progress', progress});
     await new Promise(resolve => setTimeout(resolve, 20));
 
-    const frameCanvas = await CreateCanvas(screenName, root.Caption1, root.Caption2);
+    const frameCanvas = await CreateCanvas(screenName, root.Title, root.Caption);
     if (!frameCanvas.figmaObject) return;
 
     if (drawSummaryComponent)

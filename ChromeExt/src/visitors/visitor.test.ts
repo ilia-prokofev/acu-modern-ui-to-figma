@@ -84,8 +84,8 @@ describe('visitor', () => {
                 Type: AcuElementType.Root,
                 Id: "Root",
                 Children: [],
-                Caption1: null,
-                Caption2: null,
+                Title: null,
+                Caption: null,
                 ToolBar: null,
             };
 
