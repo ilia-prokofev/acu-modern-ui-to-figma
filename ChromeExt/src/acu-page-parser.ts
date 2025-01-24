@@ -5,7 +5,6 @@ import ElementVisitor from "./visitors/qp-element-visitor";
 import QPGridVisitor from "./visitors/qp-grid-visitor";
 import QPTabBarVisitor from "./visitors/qp-tab-bar-visitor";
 import QPTextEditVisitor from "./visitors/qp-text-edit-visitor";
-import QPMultilineTextEditVisitor from "./visitors/qp-multiline-text-edit-visitor";
 import QPFieldVisitor from "./visitors/qp-field-visitor";
 import QPLabelVisitor from "./visitors/qp-label-visitor";
 import QPFieldsetVisitor from "./visitors/qp-field-set-visitor";
@@ -27,7 +26,6 @@ export class AcuPageParser {
             new QPFieldsetVisitor(),
             new QPFieldVisitor(),
             new QPLabelVisitor(),
-            new QPMultilineTextEditVisitor(),
             new QPTextEditVisitor(),
             new QPTabBarVisitor(),
             new QPGridVisitor(),

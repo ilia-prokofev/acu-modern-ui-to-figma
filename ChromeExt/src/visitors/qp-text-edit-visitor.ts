@@ -1,7 +1,13 @@
 import {AcuElement, AcuElementType} from "../elements/acu-element";
 import {QPField, QPFieldElementType} from "../elements/qp-field";
 import ElementVisitor from "./qp-element-visitor";
-import {findClasses, findElementByClassesUp} from "./html-element-utils";
+import {
+    findClasses,
+    findElementByClassesDown,
+    findElementByClassesUp,
+    findElementByNodeNameDown,
+    findFirstLeafTextContent
+} from "./html-element-utils";
 import ChildrenVisitor from "./children-visitors";
 
 export default class QPTextEditVisitor implements ElementVisitor {
@@ -10,37 +16,68 @@ export default class QPTextEditVisitor implements ElementVisitor {
             return false;
         }
 
-        if (htmlElement.nodeName.toLowerCase() !== "input") {
+        const mainFieldElement = findElementByClassesUp(htmlElement, 'au-target', 'main-field');
+        if (!mainFieldElement) {
             return false;
         }
 
-        const elementTypeElement = findElementByClassesUp(htmlElement, 'au-target', 'main-field');
-        if (!elementTypeElement) {
-            return false;
+        const field = parent as QPField;
+        const textAreaElement = findElementByNodeNameDown(mainFieldElement, "textarea")
+        if (textAreaElement) {
+            field.Value = textAreaElement?.textContent?.trim() ?? null
+            field.ElementType = QPFieldElementType.MultilineTextEditor;
+        } else if (findClasses(mainFieldElement, 'qp-text-editor-control')) {
+            field.Value = this.getInputValue(mainFieldElement);
+            field.ElementType = QPFieldElementType.TextEditor;
+        } else if (findClasses(mainFieldElement, 'qp-selector-control')) {
+            field.ElementType = QPFieldElementType.Selector;
+            field.Value = this.getInputValue(mainFieldElement)
+                ?? this.getSelectorLink(mainFieldElement);
+        } else if (findClasses(mainFieldElement, 'qp-drop-down-control')) {
+            field.ElementType = QPFieldElementType.DropDown;
+            field.Value = this.getInputValue(mainFieldElement);
+        } else if (findClasses(mainFieldElement, 'qp-check-box-control')) {
+            field.ElementType = QPFieldElementType.CheckBox;
+            field.Value = this.getInputValue(mainFieldElement);
+        } else if (findClasses(mainFieldElement, 'qp-datetime-edit-control')) {
+            field.ElementType = QPFieldElementType.DatetimeEdit;
+            field.Value = this.getInputValue(mainFieldElement);
+        } else if (findClasses(mainFieldElement, 'qp-currency-control')) {
+            field.ElementType = QPFieldElementType.Currency;
+            field.Value = this.getInputValue(mainFieldElement);
+        } else if (findClasses(mainFieldElement, 'qp-number-editor-control')) {
+            field.ElementType = QPFieldElementType.NumberEditor;
+            field.Value = this.getInputValue(mainFieldElement);
         }
-
-        let elementType: QPFieldElementType | null = null;
-        if (findClasses(elementTypeElement, 'qp-text-editor-control')) {
-            elementType = QPFieldElementType.TextEditor;
-        } else if (findClasses(elementTypeElement, 'qp-selector-control')) {
-            elementType = QPFieldElementType.Selector;
-        } else if (findClasses(elementTypeElement, 'qp-drop-down-control')) {
-            elementType = QPFieldElementType.DropDown;
-        } else if (findClasses(elementTypeElement, 'qp-check-box-control')) {
-            elementType = QPFieldElementType.CheckBox;
-        } else if (findClasses(elementTypeElement, 'qp-datetime-edit-control')) {
-            elementType = QPFieldElementType.DatetimeEdit;
-        } else if (findClasses(elementTypeElement, 'qp-currency-control')) {
-            elementType = QPFieldElementType.Currency;
-        } else if (findClasses(elementTypeElement, 'qp-number-editor-control')) {
-            elementType = QPFieldElementType.NumberEditor;
-        }
-
-        (parent as QPField).ElementType = elementType ?? QPFieldElementType.TextEditor;
-        (parent as QPField).Value = htmlElement.attributes.getNamedItem("value")?.value ?? null;
-
-        allVisitor.visitChildren(htmlElement, parent);
 
         return true;
+    }
+
+    private getInputValue(element: Element): string | null {
+        const input = findElementByNodeNameDown(element, 'input');
+        return input?.attributes.getNamedItem("value")?.value ?? null;
+    }
+
+    private getSelectorLink(element: Element): string | null {
+        const selectorLinkElement = findElementByClassesDown(element, 'qp-selector-link');
+        if (!selectorLinkElement) {
+            return null;
+        }
+
+        let text: string | null = null;
+        for (const child of selectorLinkElement.children) {
+            const textContent = findFirstLeafTextContent(child)
+            if (!textContent || textContent.length === 0) {
+                continue;
+            }
+
+            if (!text) {
+                text = '';
+            }
+
+            text += textContent;
+        }
+
+        return text;
     }
 }

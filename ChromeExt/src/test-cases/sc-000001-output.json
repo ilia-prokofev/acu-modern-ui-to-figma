@@ -8,39 +8,39 @@
           "Children": [
             {
               "ElementType": "Selector",
-              "Id": "Root-1311-1312-1518",
+              "Id": "Root-1311-1312-1543",
               "Label": "Subcontract Nbr.",
               "ReadOnly": false,
               "Type": "Field",
-              "Value": ""
+              "Value": "SC-000036"
             },
             {
               "ElementType": "DropDown",
-              "Id": "Root-1311-1312-1520",
+              "Id": "Root-1311-1312-1545",
               "Label": "Status",
               "ReadOnly": false,
               "Type": "Field",
-              "Value": ""
+              "Value": "On Hold"
             },
             {
               "ElementType": "DatetimeEdit",
-              "Id": "Root-1311-1312-1526",
+              "Id": "Root-1311-1312-1551",
               "Label": "Date",
               "ReadOnly": false,
               "Type": "Field",
-              "Value": ""
+              "Value": "12/1/2022"
             },
             {
               "ElementType": "DatetimeEdit",
-              "Id": "Root-1311-1312-1528",
+              "Id": "Root-1311-1312-1553",
               "Label": "Start Date",
               "ReadOnly": false,
               "Type": "Field",
-              "Value": ""
+              "Value": "12/1/2022"
             },
             {
               "ElementType": "TextEditor",
-              "Id": "Root-1311-1312-1532",
+              "Id": "Root-1311-1312-1557",
               "Label": "Vendor Ref.",
               "ReadOnly": false,
               "Type": "Field",
@@ -56,35 +56,43 @@
           "Children": [
             {
               "ElementType": "Selector",
-              "Id": "Root-1311-1313-1508",
-              "Label": "Location",
+              "Id": "Root-1311-1313-1559",
+              "Label": "Vendor",
               "ReadOnly": false,
               "Type": "Field",
-              "Value": ""
+              "Value": "CBSITEWORK- CB Sitework, Inc."
             },
             {
               "ElementType": "Selector",
-              "Id": "Root-1311-1313-1510",
+              "Id": "Root-1311-1313-1561",
+              "Label": "Location",
+              "ReadOnly": false,
+              "Type": "Field",
+              "Value": "MAIN - Primary Location"
+            },
+            {
+              "ElementType": "Selector",
+              "Id": "Root-1311-1313-1563",
               "Label": "Owner",
               "ReadOnly": false,
               "Type": "Field",
-              "Value": ""
+              "Value": "Maxwell Baker"
             },
             {
               "ElementType": "Currency",
-              "Id": "Root-1311-1313-1514",
+              "Id": "Root-1311-1313-1567",
               "Label": "Currency",
               "ReadOnly": false,
               "Type": "Field",
-              "Value": ""
+              "Value": "USD"
             },
             {
               "ElementType": "MultilineTextEditor",
-              "Id": "Root-1311-1313-1516",
+              "Id": "Root-1311-1313-1569",
               "Label": "Description",
               "ReadOnly": false,
               "Type": "Field",
-              "Value": ""
+              "Value": "SITE WORK"
             }
           ],
           "Highlighted": false,
@@ -96,51 +104,51 @@
           "Children": [
             {
               "ElementType": "NumberEditor",
-              "Id": "Root-1311-1314-1492",
+              "Id": "Root-1311-1314-1571",
               "Label": "Detail Total",
               "ReadOnly": false,
               "Type": "Field",
-              "Value": ""
+              "Value": "170,000.00"
             },
             {
               "ElementType": "NumberEditor",
-              "Id": "Root-1311-1314-1494",
+              "Id": "Root-1311-1314-1573",
               "Label": "Line Discounts",
               "ReadOnly": false,
               "Type": "Field",
-              "Value": ""
+              "Value": "0.00"
             },
             {
               "ElementType": "NumberEditor",
-              "Id": "Root-1311-1314-1496",
+              "Id": "Root-1311-1314-1575",
               "Label": "Document Discounts",
               "ReadOnly": false,
               "Type": "Field",
-              "Value": ""
+              "Value": "0.00"
             },
             {
               "ElementType": "NumberEditor",
-              "Id": "Root-1311-1314-1498",
+              "Id": "Root-1311-1314-1577",
               "Label": "Tax Total",
               "ReadOnly": false,
               "Type": "Field",
-              "Value": ""
+              "Value": "0.00"
             },
             {
               "ElementType": "NumberEditor",
-              "Id": "Root-1311-1314-1500",
+              "Id": "Root-1311-1314-1579",
               "Label": "Subcontract Total",
               "ReadOnly": false,
               "Type": "Field",
-              "Value": ""
+              "Value": "170,000.00"
             },
             {
               "ElementType": "NumberEditor",
-              "Id": "Root-1311-1314-1504",
+              "Id": "Root-1311-1314-1583",
               "Label": "Retainage Total",
               "ReadOnly": false,
               "Type": "Field",
-              "Value": ""
+              "Value": "8,500.00"
             }
           ],
           "Highlighted": true,
@@ -643,12 +651,6 @@
           "Id": "Root-402",
           "IsActive": false,
           "Label": "Compliance",
-          "Type": "Tab"
-        },
-        {
-          "Id": "Root-402",
-          "IsActive": false,
-          "Label": "",
           "Type": "Tab"
         }
       ],
