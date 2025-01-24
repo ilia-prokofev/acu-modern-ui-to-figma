@@ -1,324 +1,335 @@
 {
-  "Columns": [
+  "Caption1": null,
+  "Caption2": null,
+  "Children": [
     {
-      "Alignment": "Left",
-      "Cells": [
-        "",
-        "",
-        ""
+      "Columns": [
+        {
+          "Alignment": "Left",
+          "Cells": [
+            "",
+            "",
+            ""
+          ],
+          "ColumnType": "Settings",
+          "Label": "",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Center",
+          "Cells": [
+            "",
+            "",
+            ""
+          ],
+          "ColumnType": "Files",
+          "Label": "",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Center",
+          "Cells": [
+            "",
+            "",
+            ""
+          ],
+          "ColumnType": "Notes",
+          "Label": "",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Left",
+          "Cells": [
+            "PRODWHOLE",
+            "PRODWHOLE",
+            "PRODWHOLE"
+          ],
+          "ColumnType": "Text",
+          "Label": "Branch",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Left",
+          "Cells": [
+            "",
+            "CSTRSUBCON2",
+            ""
+          ],
+          "ColumnType": "Link",
+          "Label": "Inventory ID",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Left",
+          "Cells": [
+            "CSTRCONCRT",
+            "CSTRCONCRT",
+            "CSTRCONCRT"
+          ],
+          "ColumnType": "Text",
+          "Label": "Project",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Left",
+          "Cells": [
+            "02",
+            "02",
+            "02"
+          ],
+          "ColumnType": "Text",
+          "Label": "Project Task",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Left",
+          "Cells": [
+            "02-100",
+            "02-200",
+            "02-300"
+          ],
+          "ColumnType": "Text",
+          "Label": "Cost Code",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Left",
+          "Cells": [
+            "Site Remidiation",
+            "Site Prep",
+            "Earthwork- Clearing and Grubbing"
+          ],
+          "ColumnType": "Text",
+          "Label": "Line Description",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Center",
+          "Cells": [
+            "false",
+            "true",
+            "false"
+          ],
+          "ColumnType": "Checkbox",
+          "Label": "Closed",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Left",
+          "Cells": [
+            "LS",
+            "LS",
+            "LS"
+          ],
+          "ColumnType": "Text",
+          "Label": "UOM",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Right",
+          "Cells": [
+            "1.00",
+            "1.00",
+            "1.00"
+          ],
+          "ColumnType": "Text",
+          "Label": "Order Qty.",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Right",
+          "Cells": [
+            "75,000.00",
+            "50,000.00",
+            "45,000.00"
+          ],
+          "ColumnType": "Text",
+          "Label": "Unit Cost",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Right",
+          "Cells": [
+            "75,000.00",
+            "50,000.00",
+            "45,000.00"
+          ],
+          "ColumnType": "Text",
+          "Label": "Ext. Cost",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Right",
+          "Cells": [
+            "0.00",
+            "0.00",
+            "0.00"
+          ],
+          "ColumnType": "Text",
+          "Label": "Prepaid Qty.",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Right",
+          "Cells": [
+            "0.00",
+            "0.00",
+            "0.00"
+          ],
+          "ColumnType": "Text",
+          "Label": "Prepaid Amount",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Right",
+          "Cells": [
+            "5.000000",
+            "5.000000",
+            "5.000000"
+          ],
+          "ColumnType": "Text",
+          "Label": "Retainage Percent",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Right",
+          "Cells": [
+            "3,750.00",
+            "2,500.00",
+            "2,250.00"
+          ],
+          "ColumnType": "Text",
+          "Label": "Retainage Amount",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Right",
+          "Cells": [
+            "71,250.00",
+            "47,500.00",
+            "42,750.00"
+          ],
+          "ColumnType": "Text",
+          "Label": "Amount",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Left",
+          "Cells": [
+            "",
+            "",
+            ""
+          ],
+          "ColumnType": "Text",
+          "Label": "Alternate ID",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Left",
+          "Cells": [
+            "",
+            "",
+            ""
+          ],
+          "ColumnType": "Text",
+          "Label": "Tax Category",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Left",
+          "Cells": [
+            "51250",
+            "51250",
+            "51250"
+          ],
+          "ColumnType": "Text",
+          "Label": "Account",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Left",
+          "Cells": [
+            "COGS - Subcontractors",
+            "COGS - Subcontractors",
+            "COGS - Subcontractors"
+          ],
+          "ColumnType": "Text",
+          "Label": "Description",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Left",
+          "Cells": [
+            "000-000",
+            "000-000",
+            "000-000"
+          ],
+          "ColumnType": "Text",
+          "Label": "Sub.",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Right",
+          "Cells": [
+            "0.00",
+            "0.00",
+            "0.00"
+          ],
+          "ColumnType": "Text",
+          "Label": "Billed Qty.",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Right",
+          "Cells": [
+            "0.00",
+            "0.00",
+            "0.00"
+          ],
+          "ColumnType": "Text",
+          "Label": "Billed Amount",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Right",
+          "Cells": [
+            "1.00",
+            "0.00",
+            "1.00"
+          ],
+          "ColumnType": "Text",
+          "Label": "Unbilled Qty.",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Right",
+          "Cells": [
+            "75,000.00",
+            "0.00",
+            "45,000.00"
+          ],
+          "ColumnType": "Text",
+          "Label": "Unbilled Amount",
+          "Type": "GridColumn"
+        },
+        {
+          "Alignment": "Right",
+          "Cells": [
+            "1.000000",
+            "1.000000",
+            "1.000000"
+          ],
+          "ColumnType": "Text",
+          "Label": "Base Order Qty.",
+          "Type": "GridColumn"
+        }
       ],
-      "ColumnType": "Settings",
-      "Label": "",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Center",
-      "Cells": [
-        "",
-        "",
-        ""
-      ],
-      "ColumnType": "Files",
-      "Label": "",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Center",
-      "Cells": [
-        "",
-        "",
-        ""
-      ],
-      "ColumnType": "Notes",
-      "Label": "",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Left",
-      "Cells": [
-        "PRODWHOLE",
-        "PRODWHOLE",
-        "PRODWHOLE"
-      ],
-      "ColumnType": "Text",
-      "Label": "Branch",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Left",
-      "Cells": [
-        "",
-        "CSTRSUBCON2",
-        ""
-      ],
-      "ColumnType": "Link",
-      "Label": "Inventory ID",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Left",
-      "Cells": [
-        "CSTRCONCRT",
-        "CSTRCONCRT",
-        "CSTRCONCRT"
-      ],
-      "ColumnType": "Text",
-      "Label": "Project",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Left",
-      "Cells": [
-        "02",
-        "02",
-        "02"
-      ],
-      "ColumnType": "Text",
-      "Label": "Project Task",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Left",
-      "Cells": [
-        "02-100",
-        "02-200",
-        "02-300"
-      ],
-      "ColumnType": "Text",
-      "Label": "Cost Code",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Left",
-      "Cells": [
-        "Site Remidiation",
-        "Site Prep",
-        "Earthwork- Clearing and Grubbing"
-      ],
-      "ColumnType": "Text",
-      "Label": "Line Description",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Center",
-      "Cells": [
-        "false",
-        "true",
-        "false"
-      ],
-      "ColumnType": "Checkbox",
-      "Label": "Closed",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Left",
-      "Cells": [
-        "LS",
-        "LS",
-        "LS"
-      ],
-      "ColumnType": "Text",
-      "Label": "UOM",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Right",
-      "Cells": [
-        "1.00",
-        "1.00",
-        "1.00"
-      ],
-      "ColumnType": "Text",
-      "Label": "Order Qty.",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Right",
-      "Cells": [
-        "75,000.00",
-        "50,000.00",
-        "45,000.00"
-      ],
-      "ColumnType": "Text",
-      "Label": "Unit Cost",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Right",
-      "Cells": [
-        "75,000.00",
-        "50,000.00",
-        "45,000.00"
-      ],
-      "ColumnType": "Text",
-      "Label": "Ext. Cost",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Right",
-      "Cells": [
-        "0.00",
-        "0.00",
-        "0.00"
-      ],
-      "ColumnType": "Text",
-      "Label": "Prepaid Qty.",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Right",
-      "Cells": [
-        "0.00",
-        "0.00",
-        "0.00"
-      ],
-      "ColumnType": "Text",
-      "Label": "Prepaid Amount",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Right",
-      "Cells": [
-        "5.000000",
-        "5.000000",
-        "5.000000"
-      ],
-      "ColumnType": "Text",
-      "Label": "Retainage Percent",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Right",
-      "Cells": [
-        "3,750.00",
-        "2,500.00",
-        "2,250.00"
-      ],
-      "ColumnType": "Text",
-      "Label": "Retainage Amount",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Right",
-      "Cells": [
-        "71,250.00",
-        "47,500.00",
-        "42,750.00"
-      ],
-      "ColumnType": "Text",
-      "Label": "Amount",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Left",
-      "Cells": [
-        "",
-        "",
-        ""
-      ],
-      "ColumnType": "Text",
-      "Label": "Alternate ID",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Left",
-      "Cells": [
-        "",
-        "",
-        ""
-      ],
-      "ColumnType": "Text",
-      "Label": "Tax Category",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Left",
-      "Cells": [
-        "51250",
-        "51250",
-        "51250"
-      ],
-      "ColumnType": "Text",
-      "Label": "Account",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Left",
-      "Cells": [
-        "COGS - Subcontractors",
-        "COGS - Subcontractors",
-        "COGS - Subcontractors"
-      ],
-      "ColumnType": "Text",
-      "Label": "Description",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Left",
-      "Cells": [
-        "000-000",
-        "000-000",
-        "000-000"
-      ],
-      "ColumnType": "Text",
-      "Label": "Sub.",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Right",
-      "Cells": [
-        "0.00",
-        "0.00",
-        "0.00"
-      ],
-      "ColumnType": "Text",
-      "Label": "Billed Qty.",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Right",
-      "Cells": [
-        "0.00",
-        "0.00",
-        "0.00"
-      ],
-      "ColumnType": "Text",
-      "Label": "Billed Amount",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Right",
-      "Cells": [
-        "1.00",
-        "0.00",
-        "1.00"
-      ],
-      "ColumnType": "Text",
-      "Label": "Unbilled Qty.",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Right",
-      "Cells": [
-        "75,000.00",
-        "0.00",
-        "45,000.00"
-      ],
-      "ColumnType": "Text",
-      "Label": "Unbilled Amount",
-      "Type": "GridColumn"
-    },
-    {
-      "Alignment": "Right",
-      "Cells": [
-        "1.000000",
-        "1.000000",
-        "1.000000"
-      ],
-      "ColumnType": "Text",
-      "Label": "Base Order Qty.",
-      "Type": "GridColumn"
+      "Id": "Root-1633",
+      "ToolBar": null,
+      "Type": "Grid"
     }
   ],
-  "Type": "Grid"
+  "Id": "Root",
+  "ToolBar": null,
+  "Type": "Root"
 }

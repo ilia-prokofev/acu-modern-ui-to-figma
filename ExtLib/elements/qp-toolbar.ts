@@ -1,12 +1,19 @@
 import {AcuElement, AcuElementType} from "./acu-element";
+import {IconType} from "./icon";
+import {ButtonStyle} from "./button";
+
+export interface QPToolbarContainer extends AcuElement {
+    ToolBar: QPToolBar | null;
+}
+
+export function isQPToolbarContainer(obj: any): obj is QPToolbarContainer {
+    return obj && typeof obj.ToolBar !== 'undefined';
+}
 
 export enum QPToolBarItemType {
     Button = "Button",
-    IconButton = "IconButton",
     FilterButton = "FilterButton",
     FilterCombo = "FilterCombo",
-    AddFilterButton = "AddFilterButton",
-    MenuButton = "MenuButton",
     Separator = "Separator",
 }
 
@@ -16,7 +23,10 @@ export interface QPToolBarItem {
 
 export interface QPToolBarItemButton {
     ItemType: QPToolBarItemType.Button;
-    Text: string;
+    Style: ButtonStyle;
+    Enabled: boolean;
+    Text: string | null;
+    Icon: IconType | null;
 }
 
 export interface QPToolBarItemFilterButton {
@@ -26,44 +36,10 @@ export interface QPToolBarItemFilterButton {
 
 export interface QPToolBarItemFilterCombo {
     ItemType: QPToolBarItemType.FilterCombo;
-    Text: string;
-}
-
-export interface QPToolBarItemAddFilterButton {
-    ItemType: QPToolBarItemType.AddFilterButton;
-}
-
-export interface QPToolBarItemMenuButton {
-    ItemType: QPToolBarItemType.MenuButton;
 }
 
 export interface QPToolBarItemSeparator {
     ItemType: QPToolBarItemType.Separator;
-}
-
-export enum QPToolBarItemIconButtonType {
-    Refresh = "Refresh",
-    Back = "Back",
-    SaveAndBack = "SaveAndBack",
-    Save = "Save",
-    Undo = "Undo",
-    Insert = "Insert",
-    Edit = "Edit",
-    AdjustColumns = "AdjustColumns",
-    ExportToExcel = "ExportToExcel",
-    Import = "Import",
-    Delete = "Delete",
-    Copy = "Copy",
-    First = "First",
-    Previous = "Previous",
-    Next = "Next",
-    Last = "Last",
-    MenuOpener = "MenuOpener",
-}
-
-export interface QPToolBarItemIconButton {
-    ItemType: QPToolBarItemType.IconButton;
-    IconType: QPToolBarItemIconButtonType;
 }
 
 export enum QPToolBarType {

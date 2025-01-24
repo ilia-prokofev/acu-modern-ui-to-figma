@@ -12,13 +12,8 @@ import {FieldsetSlot} from "./elements/qp-fieldset-slot";
 import {Tab, TabBar} from "./elements/qp-tabbar";
 import {Grid, GridColumnType} from "./elements/qp-grid";
 import {Root} from "./elements/qp-root";
-import {
-    QPToolBar,
-    QPToolBarItemButton,
-    QPToolBarItemIconButton,
-    QPToolBarItemIconButtonType,
-    QPToolBarItemType
-} from "./elements/qp-toolbar";
+import {QPToolBar, QPToolBarItemButton, QPToolBarItemType, QPToolBarType} from "./elements/qp-toolbar";
+import {IconType} from "./elements/icon";
 
 figma.showUI(__html__, {width: 650, height: 410});
 
@@ -30,6 +25,7 @@ const pageWidth = 1364;//1600;
 const pageHeight = 900;
 const viewportWidth = pageWidth - 80 - padding * 2;
 const viewportHeight = pageHeight - 50;
+const devMode = !false;
 
 let childrenNumber = 0;
 let childrenProcessed = 0;
@@ -42,33 +38,35 @@ let compLeftMenu = undefined as unknown as ComponentNode;
 let compGrid = undefined as unknown as ComponentNode;
 let compTabbar = undefined as unknown as ComponentNode;
 
-const buttonIcons = new Map<QPToolBarItemIconButtonType, string>([
-    [QPToolBarItemIconButtonType.Refresh        , 'c49868efe2dfa88095d9db037824cdd7721ad06e'],
-    [QPToolBarItemIconButtonType.Undo           , '6229695a70dcf7ded45f99f84288ae92b03c7c56'],
-    [QPToolBarItemIconButtonType.Insert         , 'de700daf8268fce0d3acff9011f4a936bf77f714'],
-    [QPToolBarItemIconButtonType.Edit           , 'b9257482b69a7be89190abee18ad34b6d42a9184'],
-    [QPToolBarItemIconButtonType.AdjustColumns  , '83ed0e23748392291c66e9de42c2f6c42a4c634f'],
-    [QPToolBarItemIconButtonType.ExportToExcel  , '54921de81540be32af6fc0af318f2b4937ad32ee'],
-    [QPToolBarItemIconButtonType.Copy           , '7a292951e78c1b33bb1214a62617efaf264cb18e'],
-    [QPToolBarItemIconButtonType.Delete         , '3768bac5ab85ab45fe6abc62eacf515cddddee11'],
-    [QPToolBarItemIconButtonType.First          , '339e24e29430577c293d9826f77fabc48053d077'],
-    [QPToolBarItemIconButtonType.Last           , '7c9aa4dd8f3449ddbdee384b8d348676ed5c2142'],
-    [QPToolBarItemIconButtonType.Back           , 'ff33972c40f4435a4020c8ce300c305f68ac0a84'],
-    [QPToolBarItemIconButtonType.Previous       , 'defe6a35b414086383ab7b4dd627a757e9349b01'],
-    [QPToolBarItemIconButtonType.Next           , 'ac17253deb51f88a538228224f12f5b2bec0b64e'],
-    [QPToolBarItemIconButtonType.Save           , '55688f66ef69a0bf4abc6ac8e48b561f4c08fc4f'],
-    [QPToolBarItemIconButtonType.SaveAndBack    , '7693000f6771b4135a00ad062e3b9b4b718b6ceb'],
-    [QPToolBarItemIconButtonType.Import         , '9bbe97f874029e4de44a1f28f9fa76cd39bfef29'],
-    [QPToolBarItemIconButtonType.MenuOpener     , '19be5dec53338a1bd35ff1f7e409da34d5f1e287'],
+const buttonIcons = new Map<IconType, string>([
+    [IconType.Refresh        , 'c49868efe2dfa88095d9db037824cdd7721ad06e'],
+    [IconType.Undo           , '6229695a70dcf7ded45f99f84288ae92b03c7c56'],
+    [IconType.Insert         , 'de700daf8268fce0d3acff9011f4a936bf77f714'],
+    [IconType.Edit           , 'b9257482b69a7be89190abee18ad34b6d42a9184'],
+    [IconType.AdjustColumns  , '83ed0e23748392291c66e9de42c2f6c42a4c634f'],
+    [IconType.ExportToExcel  , '54921de81540be32af6fc0af318f2b4937ad32ee'],
+    [IconType.Copy           , '7a292951e78c1b33bb1214a62617efaf264cb18e'],
+    [IconType.Delete         , '3768bac5ab85ab45fe6abc62eacf515cddddee11'],
+    [IconType.First          , '339e24e29430577c293d9826f77fabc48053d077'],
+    [IconType.Last           , '7c9aa4dd8f3449ddbdee384b8d348676ed5c2142'],
+    [IconType.Back           , 'ff33972c40f4435a4020c8ce300c305f68ac0a84'],
+    [IconType.Previous       , 'defe6a35b414086383ab7b4dd627a757e9349b01'],
+    [IconType.Next           , 'ac17253deb51f88a538228224f12f5b2bec0b64e'],
+    [IconType.Save           , '55688f66ef69a0bf4abc6ac8e48b561f4c08fc4f'],
+    [IconType.SaveAndBack    , '7693000f6771b4135a00ad062e3b9b4b718b6ceb'],
+    [IconType.Import         , '9bbe97f874029e4de44a1f28f9fa76cd39bfef29'],
+    [IconType.Ellipsis       , '19be5dec53338a1bd35ff1f7e409da34d5f1e287'],
+    [IconType.AddRow         , 'de700daf8268fce0d3acff9011f4a936bf77f714'],
+    [IconType.DeleteRow      , '4eb380b404d2d81e5c704961928388fd224c3964'],
 ]);
-let buttonIconIDs = new Map<QPToolBarItemIconButtonType, string>();
+let buttonIconIDs = new Map<IconType, string>();
 
 function SetProperties(node: InstanceNode, properties: any) {
     try {
         node.setProperties(properties);
     }
     catch (e) {
-        console.warn(node.name, e);
+        console.warn(node.name, properties, e);
     }
 }
 
@@ -152,8 +150,8 @@ async function Draw(field: figmaField, parent: InstanceNode | PageNode | GroupNo
     if (instance.type === 'INSTANCE')
         SetProperties(instance, field.componentProperties);
 
-    if (field.width > 0)
-        instance.resize(field.width, instance.height);
+    if (field.width > 0 || field.height > 0)
+        instance.resize(field.width > 0 ? field.width : instance.width, field.height > 0 ? field.height : instance.height);
 
     field.figmaObject = instance;
     for (const child of field.children)
@@ -397,46 +395,75 @@ class figmaGrid extends figmaField {
 
 class figmaToolbar extends figmaField {
 
+    toolBarTypes = new Map<QPToolBarType, string>([
+        [QPToolBarType.List     , 'List'],
+        [QPToolBarType.Record   , 'Record'],
+        [QPToolBarType.FilterBar, 'Filter bar']
+    ]);
+
+    filterBarMapping = new Map<string, number>([
+        ['FilterCombo1' , 0],
+        ['Separator1'   , 1],
+        ['FilterButton1', 2],
+        ['FilterButton2', 3],
+        ['FilterButton3', 4],
+        ['Button1'      , 5],
+        ['Button2'      , 6],
+        ['Button3'      , 7]
+    ])
+
     constructor(toolbar: QPToolBar) {
         super('Toolbar');
         this.acuElement = toolbar;
 
-        this.componentProperties['Type'] = toolbar.ToolBarType;
+        const displayedButtonsMax = toolbar.ToolBarType == 'Record' ? 15 : 11;
+        if (this.toolBarTypes.has(toolbar.ToolBarType))
+            this.componentProperties['Type'] = this.toolBarTypes.get(toolbar.ToolBarType)!;
         this.componentProperties['Show Right Actions#6826:45'] = toolbar.ShowRightAction;
+
+        if (toolbar.ToolBarType == QPToolBarType.FilterBar) {
+            // console.log(111);
+            // for (const toolbarItem of toolbar.Items) {
+            //     console.log(toolbarItem.ItemType, this.filterBarMapping.get(toolbarItem.ItemType + 1));
+            // }
+            // console.log(222);
+            return;
+        }
 
         const buttons = new figmaField('Buttons');
         buttons.childIndex = 0;
         this.children.push(buttons);
 
-        const displayedButtonsMax = 11;
         for (let i = 0; i < displayedButtonsMax; i++) {
             const button = new figmaField('Button');
             button.childIndex = i;
             buttons.children.push(button);
 
-            if (i > toolbar.Items.length) {
+            if (i >= toolbar.Items.length) {
                 button.properties['visible'] = false;
             }
             else {
                 const item = toolbar.Items[i];
                 button.properties['visible'] = true;
-                switch (item.ItemType) {
-                    case QPToolBarItemType.IconButton:
-                        button.componentProperties['Show Icon Left#3133:110'] = true;
-                        button.componentProperties['Show Label#3133:443'] = false;
-                        //button.componentProperties['Show Icon Right#3133:221'] = false;
-                        const iconType = (item as QPToolBarItemIconButton).IconType;
-                        if (!buttonIconIDs.has(iconType))
-                            console.warn(`${iconType} icon type is not supported`);
-                        else
-                            button.componentProperties['Icon Left#3131:0'] = buttonIconIDs.get(iconType)!;
-                        break;
-                    case QPToolBarItemType.Button:
-                        button.componentProperties['Show Icon Left#3133:110'] = false;
-                        button.componentProperties['Show Label#3133:443'] = true;
-                        button.componentProperties['Value ▶#3133:332'] = (item as QPToolBarItemButton).Text;
-                        break;
+                if (item.ItemType != QPToolBarItemType.Button) continue;
+                const buttonItem = item as QPToolBarItemButton;
+
+                button.componentProperties['Type'] = buttonItem.Style;
+                button.componentProperties['State'] = buttonItem.Enabled ? 'Default' : 'Disabled';
+
+                const icon = buttonItem.Icon;
+                button.componentProperties['Show Icon Left#3133:110'] = icon != null;
+                if (icon) {
+                    if (!buttonIconIDs.has(icon))
+                        console.warn(`${icon} icon is not supported`);
+                    else
+                        button.componentProperties['Icon Left#3131:0'] = buttonIconIDs.get(icon)!;
                 }
+                const text = buttonItem.Text;
+                button.componentProperties['Show Label#3133:443'] = text != null;
+                if (text)
+                    button.componentProperties['Value ▶#3133:332'] = text;
+                //button.componentProperties['Show Icon Right#3133:221'] = false;
             }
 
         }
@@ -516,13 +543,21 @@ class figmaTemplate extends figmaField {
                     this.children.push(new figmaSlot(fs as FieldsetSlot, curW));
                     break;
                 case AcuElementType.Grid:
-                    const fsGrid = {
-                        Type: AcuElementType.FieldSet,
-                        Label: 'Grid',
-                        Highlighted: false,
-                        Children: [fs as Grid]
-                    } as QPFieldset;
-                    this.children.push(new figmaFieldSet(fsGrid, curW));
+                    const grid = new figmaGrid(fs as Grid, 'Grid', true);
+                    grid.componentProperties['Wrapped'] = 'Yes';
+                    grid.properties['layoutAlign'] = 'STRETCH';
+                    grid.height = 250;
+                    console.log(grid);
+                    this.children.push(grid);
+
+                    // const fsGrid = {
+                    //     Id: 'fsGrid2',
+                    //     Type: AcuElementType.FieldSet,
+                    //     Label: 'Grid',
+                    //     Highlighted: false,
+                    //     Children: [fs as Grid]
+                    // } as QPFieldset;
+                    // this.children.push(new figmaFieldSet(fsGrid, curW));
                     break;
             }
         });
@@ -541,13 +576,20 @@ class figmaSlot extends figmaField {
                     this.children.push(new figmaFieldSet(fs as QPFieldset, width));
                     break;
                 case AcuElementType.Grid:
-                    const fsGrid = {
-                        Type: AcuElementType.FieldSet,
-                        Label: 'Grid',
-                        Highlighted: false,
-                        Children: [fs as Grid]
-                    } as QPFieldset;
-                    this.children.push(new figmaFieldSet(fsGrid, width));
+                    const grid = new figmaGrid(fs as Grid, 'Grid', true);
+                    grid.componentProperties['Wrapped'] = 'Yes';
+                    grid.properties['layoutAlign'] = 'STRETCH';
+                    grid.height = 250;
+                    console.log(grid);
+                    this.children.push(grid);
+                    // const fsGrid = {
+                    //     Id: 'fsGrid1',
+                    //     Type: AcuElementType.FieldSet,
+                    //     Label: 'Grid',
+                    //     Highlighted: false,
+                    //     Children: [fs as Grid]
+                    // } as QPFieldset;
+                    // this.children.push(new figmaFieldSet(fsGrid, width));
                     break;
             }
         });
@@ -559,6 +601,9 @@ class figmaRoot extends figmaField {
         super('Canvas', 'FRAME');
         this.tryToFind = false;
         this.acuElement = root;
+
+        if (root.ToolBar)
+            this.children.push(new figmaToolbar(root.ToolBar));
 
         for (const fs of root.Children) {
             switch (fs.Type) {
@@ -644,11 +689,7 @@ class figmaFieldSet extends figmaField{
 }
 
 
-async function DrawFromJSON(input: string) {
-
-    progress = 5;
-    figma.ui.postMessage({type: 'progress', progress});
-    await new Promise(resolve => setTimeout(resolve, 20));
+async function DrawFromJSON(input: string, reuseSummary: boolean) {
 
     if (input === '')
         return;
@@ -663,66 +704,72 @@ async function DrawFromJSON(input: string) {
     let summary;
     let compSummary;
 
-    if (root.Caption1 &&
-        rootItem.children.length >= 2 &&
-        rootItem.children[0].acuElement?.Type == AcuElementType.Template &&
-        rootItem.children[1].acuElement?.Type == AcuElementType.Tabbar)
+    if (rootItem.children.length >= 2 &&
+        rootItem.children[rootItem.children.length - 2].acuElement?.Type == AcuElementType.Template &&
+        rootItem.children[rootItem.children.length - 1].acuElement?.Type == AcuElementType.Tabbar)
     {
-        const libPageName = 'Component Library';
-        let libPage = figma.root.children.find(p => p.name === libPageName);
-        if (!libPage) {
-            libPage = figma.createPage();
-            libPage.name = libPageName;
-        }
+        summary = rootItem.children[rootItem.children.length - 2];
+        setSummaryStretching(summary);
 
-        const workPageName = root.Caption1;
-        let workPage = figma.root.children.find(p => p.name === workPageName);
-        if (!workPage) {
-            workPage = figma.createPage();
-            workPage.name = workPageName;
-        }
+        if (reuseSummary) {
 
-        const componentName = `${workPageName} Summary`;
-        compSummary = libPage.children.find(n => n.type === 'COMPONENT' &&  n.name === componentName) as ComponentNode;
+            let workPage;
+            if (devMode) {
+                workPage = figma.root.children.find(p => p.name === screenName);
+                if (!workPage) {
+                    workPage = figma.createPage();
+                    workPage.name = screenName;
+                }
+            }
+            else
+                workPage = figma.currentPage;
 
-        if (!compSummary) {
-            summary = rootItem.children[0];
-            await figma.setCurrentPageAsync(libPage);
-            const componentGap = 100;
-            let componentY = 0;
-            for (const child of libPage.children) {
-                if (child.y + child.height + componentGap > componentY)
-                    componentY = child.y + child.height + componentGap;
+            const libPageName = 'Component Library';
+            let libPage = figma.root.children.find(p => p.name === libPageName);
+            if (!libPage) {
+                libPage = figma.createPage();
+                libPage.name = libPageName;
             }
 
-            compSummary = figma.createComponent();
-            compSummary.y = componentY;
-            compSummary.layoutMode = 'HORIZONTAL';
-            compSummary.primaryAxisSizingMode = 'AUTO';
-            compSummary.counterAxisSizingMode = 'AUTO';
-            compSummary.name = componentName;
-            summary.name = componentName;
-            setSummaryStretching(summary);
+            const componentName = `${screenName} Summary`;
+            compSummary = libPage.children.find(n => n.type === 'COMPONENT' &&  n.name === componentName) as ComponentNode;
 
-            drawSummaryComponent = true;
+            if (!compSummary) {
+                await figma.setCurrentPageAsync(libPage);
+                const componentGap = 100;
+                let componentY = 0;
+                for (const child of libPage.children) {
+                    if (child.y + child.height + componentGap > componentY)
+                        componentY = child.y + child.height + componentGap;
+                }
+
+                compSummary = figma.createComponent();
+                compSummary.y = componentY;
+                compSummary.layoutMode = 'HORIZONTAL';
+                compSummary.primaryAxisSizingMode = 'AUTO';
+                compSummary.counterAxisSizingMode = 'AUTO';
+                compSummary.name = componentName;
+                summary.name = componentName;
+
+                drawSummaryComponent = true;
+            }
+
+            let tabName = 'undefined';
+            const tabBar = rootItem.children[rootItem.children.length - 1].acuElement as TabBar;
+            tabBar.Tabs.forEach((tab) => {
+                if (tab.IsActive)
+                    tabName = tab.Label;
+            })
+
+            screenName = `${screenName} - ${tabName}`;
+
+            await figma.setCurrentPageAsync(workPage);
+            const summaryNode = new figmaField('Summary', 'INSTANCE')
+            summaryNode.tryToFind = false;
+            summaryNode.componentNode = compSummary;
+
+            rootItem.children[rootItem.children.length - 2] = summaryNode;
         }
-
-        let tabName = 'undefined';
-        const tabBar = rootItem.children[1].acuElement as TabBar;
-        tabBar.Tabs.forEach((tab) => {
-            if (tab.IsActive)
-                tabName = tab.Label;
-        })
-
-        //screenName = `${root.Caption1} - ${tabName}`;
-        screenName = tabName;
-
-        await figma.setCurrentPageAsync(workPage);
-        const summaryNode = new figmaField('Summary', 'INSTANCE')
-        summaryNode.tryToFind = false;
-        summaryNode.componentNode = compSummary;
-
-        rootItem.children[0] = summaryNode;
     }
 
     progress = 10;
@@ -753,15 +800,29 @@ async function DrawFromJSON(input: string) {
 
 async function CreateCanvas(screenName: string, screenTitle: string|null, backLink: string|null) {
 
-    const frameList = new figmaField('List', 'FRAME');
-    frameList.createIfNotFound = true;
-    frameList.properties['itemSpacing'] = screenSpacing;
-    frameList.properties['fills'] = [];
-
     const frameScreenVertical  = new figmaField(screenName, 'FRAME');
     frameScreenVertical.tryToFind = false;
     frameScreenVertical.properties['itemSpacing'] = 0;
-    frameList.children.push(frameScreenVertical);
+
+    let rootItem;
+    if (devMode){
+        const frameList = new figmaField('List', 'FRAME');
+        frameList.createIfNotFound = true;
+        frameList.properties['itemSpacing'] = screenSpacing;
+        frameList.properties['fills'] = [];
+        rootItem = frameList;
+        rootItem.children.push(frameScreenVertical);
+    }
+    else {
+        rootItem = frameScreenVertical;
+        const gap = 100;
+        let newScreenY = 0;
+        for (const child of figma.currentPage.children) {
+            if (child.y + child.height + gap > newScreenY)
+                newScreenY = child.y + child.height + gap;
+        }
+        frameScreenVertical.properties['y'] = newScreenY;
+    }
 
     const fieldMainHeader = new figmaField('MainHeader', 'INSTANCE', pageWidth);
     fieldMainHeader.tryToFind = false;
@@ -798,9 +859,9 @@ async function CreateCanvas(screenName: string, screenTitle: string|null, backLi
     fieldHeader.componentProperties['Title Value ▶#6711:8'] = screenTitle??'';
     frameCanvas.children.push(fieldHeader);
 
-    childrenNumber += countChildren(frameList);
+    childrenNumber += countChildren(rootItem);
 
-    await Draw(frameList, figma.currentPage);
+    await Draw(rootItem, figma.currentPage);
 
     return frameCanvas;
 }
@@ -837,7 +898,7 @@ function getLastItem(root: figmaRoot){
 // Calls to "parent.postMessage" from within the HTML page will trigger this
 // callback. The callback will be passed the "pluginMessage" property of the
 // posted message.
-figma.ui.onmessage = async (msg: { input: string, format: string }) => {
+figma.ui.onmessage = async (msg: { input: string, reuseSummary: boolean, format: string }) => {
 
     if (msg.format === '') {
         figma.closePlugin();
@@ -845,6 +906,9 @@ figma.ui.onmessage = async (msg: { input: string, format: string }) => {
     }
 
     const startTime = Date.now();
+    progress = 5;
+    figma.ui.postMessage({type: 'progress', progress});
+    await new Promise(resolve => setTimeout(resolve, 20));
 
     await figma.loadAllPagesAsync();
 
@@ -870,7 +934,7 @@ figma.ui.onmessage = async (msg: { input: string, format: string }) => {
     }
 
     if (msg.format === 'json')
-        await DrawFromJSON(msg.input);
+        await DrawFromJSON(msg.input, msg.reuseSummary);
 
     const endTime = Date.now();
     console.log(`Completed in ${Math.floor((endTime - startTime) / 1000)}s`);

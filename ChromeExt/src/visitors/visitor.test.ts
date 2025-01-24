@@ -1,4 +1,3 @@
-import {AcuContainer} from "../elements/acu-container";
 import {AcuElementType} from "../elements/acu-element";
 import ChildrenVisitor from "./children-visitors";
 import ElementVisitor from "./qp-element-visitor";
@@ -6,66 +5,94 @@ import QPGridVisitor from "./qp-grid-visitor";
 import QPTabBarVisitor from "./qp-tab-bar-visitor";
 import * as fs from "node:fs";
 import QPToolBarVisitor from "./qp-tool-bar-visitor";
-import QpFilterBarVisitor from "./qp-filter-bar-visitor";
+import QPFilterBarVisitor from "./qp-filter-bar-visitor";
+import {Root} from "../elements/qp-root";
+import QPGridToolBarVisitor from "./qp-grid-tool-bar-visitor";
+import QPFieldVisitor from "./qp-field-visitor";
 
 describe('visitor', () => {
     interface testCase {
         testName: string;
         sut: ElementVisitor;
+        childrenVisitor: ChildrenVisitor;
         incomingHTMLFileName: string;
-        expectedJSONFileFile: string;
+        expectedJSONFile: string;
     }
 
     const testCases: testCase[] = [
         {
             testName: "tool-bar",
             sut: new QPToolBarVisitor(),
+            childrenVisitor: new ChildrenVisitor([]),
             incomingHTMLFileName: './test-cases/tool-bar-input.html',
-            expectedJSONFileFile: './test-cases/tool-bar-output.json',
+            expectedJSONFile: './test-cases/tool-bar-output.json',
         },
         {
             testName: "grid-tool-bar",
-            sut: new QPToolBarVisitor(),
+            sut: new QPGridToolBarVisitor(),
+            childrenVisitor: new ChildrenVisitor([new QPToolBarVisitor()]),
             incomingHTMLFileName: './test-cases/grid-tool-bar-input.html',
-            expectedJSONFileFile: './test-cases/grid-tool-bar-output.json',
+            expectedJSONFile: './test-cases/grid-tool-bar-output.json',
         },
         {
             testName: "filter-bar",
-            sut: new QpFilterBarVisitor(),
+            sut: new QPFilterBarVisitor(),
+            childrenVisitor: new ChildrenVisitor([]),
             incomingHTMLFileName: './test-cases/filter-bar-input.html',
-            expectedJSONFileFile: './test-cases/filter-bar-output.json',
+            expectedJSONFile: './test-cases/filter-bar-output.json',
         },
         {
             testName: "grid",
             sut: new QPGridVisitor(),
+            childrenVisitor: new ChildrenVisitor([]),
             incomingHTMLFileName: './test-cases/grid-input.html',
-            expectedJSONFileFile: './test-cases/grid-output.json',
+            expectedJSONFile: './test-cases/grid-output.json',
         },
         {
             testName: "tab-bar",
             sut: new QPTabBarVisitor(),
+            childrenVisitor: new ChildrenVisitor([]),
             incomingHTMLFileName: './test-cases/tab-bar-input.html',
-            expectedJSONFileFile: './test-cases/tab-bar-output.json',
+            expectedJSONFile: './test-cases/tab-bar-output.json',
+        },
+        {
+            testName: "checkbox-checked",
+            sut: new QPFieldVisitor(),
+            childrenVisitor: new ChildrenVisitor([]),
+            incomingHTMLFileName: './test-cases/checkbox-checked-input.html',
+            expectedJSONFile: './test-cases/checkbox-checked-output.json',
+        },
+        {
+            testName: "checkbox-unchecked",
+            sut: new QPFieldVisitor(),
+            childrenVisitor: new ChildrenVisitor([]),
+            incomingHTMLFileName: './test-cases/checkbox-unchecked-input.html',
+            expectedJSONFile: './test-cases/checkbox-unchecked-output.json',
         },
     ]
 
-    for (const testCase of testCases) {
-        test(testCase.testName, () => {
-            const incomingHTML = fs.readFileSync(testCase.incomingHTMLFileName, 'utf8');
-            const expectedJSON = fs.readFileSync(testCase.expectedJSONFileFile, 'utf8');
+    it.each(testCases)(
+        '$testName',
+        async ({sut, incomingHTMLFileName, expectedJSONFile, childrenVisitor}) => {
+            const incomingHTML = fs.readFileSync(incomingHTMLFileName, 'utf8');
+            const expectedJSON = fs.readFileSync(expectedJSONFile, 'utf8');
 
             const parser = new DOMParser();
             const doc = parser.parseFromString(incomingHTML, 'text/html');
 
-            const parent: AcuContainer = {
+            const parent: Root = {
                 Type: AcuElementType.Root,
+                Id: "Root",
                 Children: [],
-            }
+                Caption1: null,
+                Caption2: null,
+                ToolBar: null,
+            };
 
-            testCase.sut.visit(doc.body.children[0], parent, new ChildrenVisitor([]));
+            sut.visit(doc.body.children[0], parent, childrenVisitor);
 
             const expected = JSON.parse(expectedJSON);
-            expect(parent.Children[0]).toEqual(expected);
-        });
-    }
+            expect(parent).toEqual(expected);
+        }
+    );
 });
