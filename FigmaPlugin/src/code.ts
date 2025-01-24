@@ -15,7 +15,7 @@ import {Root} from "./elements/qp-root";
 import {QPToolBar, QPToolBarItemButton, QPToolBarItemType, QPToolBarType} from "./elements/qp-toolbar";
 import {IconType} from "./elements/icon";
 
-figma.showUI(__html__, {width: 650, height: 550});
+figma.showUI(__html__, {width: 650, height: 540});
 
 const horizontalSpacing = 12;
 const verticalSpacing = 12;
@@ -30,6 +30,7 @@ const devMode = false;
 let childrenNumber = 0;
 let childrenProcessed = 0;
 let progress = 0;
+let isCancelled = false;
 
 let compFieldset = undefined as unknown as ComponentNode;
 let compHeader = undefined as unknown as ComponentNode;
@@ -99,8 +100,8 @@ class figmaField {
 }
 
 async function Draw(field: figmaField, parent: InstanceNode | PageNode | GroupNode | FrameNode | ComponentNode) {
+    if (isCancelled) { stopNow(); return; }
     childrenProcessed++;
-    //console.log(childrenProcessed, field);
     const newProgress = Math.floor(childrenProcessed * 90 / childrenNumber) + 10;
     if (newProgress == 100 || newProgress - progress >= 10) {
         progress = newProgress;
@@ -685,9 +686,7 @@ class figmaFieldSet extends figmaField{
         for (let i = 0; i < this.showRowPropNames.length; i++)
             this.componentProperties[this.showRowPropNames[i]] = (rowNumber > i);
     }
-
 }
-
 
 async function DrawFromJSON(input: string, reuseSummary: boolean) {
 
@@ -805,15 +804,14 @@ async function CreateCanvas(screenName: string, screenTitle: string|null, backLi
     frameScreenVertical.properties['itemSpacing'] = 0;
 
     let rootItem;
-    if (devMode){
+    if (devMode) {
         const frameList = new figmaField('List', 'FRAME');
         frameList.createIfNotFound = true;
         frameList.properties['itemSpacing'] = screenSpacing;
         frameList.properties['fills'] = [];
         rootItem = frameList;
         rootItem.children.push(frameScreenVertical);
-    }
-    else {
+    } else {
         rootItem = frameScreenVertical;
         const gap = 100;
         let newScreenY = 0;
@@ -895,16 +893,25 @@ function getLastItem(root: figmaRoot){
     }
 }
 
+function stopNow() {
+    figma.ui.postMessage({ type: 'unlock' });
+    childrenNumber = 0;
+    childrenProcessed = 0;
+    progress = 0;
+    figma.ui.postMessage({ type: 'progress', progress });
+}
+
 // Calls to "parent.postMessage" from within the HTML page will trigger this
 // callback. The callback will be passed the "pluginMessage" property of the
 // posted message.
 figma.ui.onmessage = async (msg: { input: string, reuseSummary: boolean, format: string }) => {
-
-    if (msg.format === '') {
-        figma.closePlugin();
+    if (msg.format === 'cancel') {
+        isCancelled = true;
+        stopNow();
         return;
     }
 
+    isCancelled = false;
     const startTime = Date.now();
     progress = 5;
     figma.ui.postMessage({type: 'progress', progress});
@@ -939,5 +946,5 @@ figma.ui.onmessage = async (msg: { input: string, reuseSummary: boolean, format:
     const endTime = Date.now();
     console.log(`Completed in ${Math.floor((endTime - startTime) / 1000)}s`);
 
-    figma.closePlugin();
+    stopNow();
 };
