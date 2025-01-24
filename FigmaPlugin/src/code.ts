@@ -20,7 +20,7 @@ import {
     QPToolBarItemType
 } from "./elements/qp-toolbar";
 
-figma.showUI(__html__, {width: 650, height: 410});
+figma.showUI(__html__, {width: 650, height: 550});
 
 const horizontalSpacing = 12;
 const verticalSpacing = 12;
