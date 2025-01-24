@@ -9,6 +9,7 @@ import QPFilterBarVisitor from "./qp-filter-bar-visitor";
 import {Root} from "../elements/qp-root";
 import QPGridToolBarVisitor from "./qp-grid-tool-bar-visitor";
 import QPFieldVisitor from "./qp-field-visitor";
+import QPFieldsetVisitor from "./qp-field-set-visitor";
 
 describe('visitor', () => {
     interface testCase {
@@ -75,6 +76,13 @@ describe('visitor', () => {
             childrenVisitor: new ChildrenVisitor([]),
             incomingHTMLFileName: './test-cases/field-set-button-input.html',
             expectedJSONFile: './test-cases/field-set-button-output.json',
+        },
+        {
+            testName: "field-set-statuses",
+            sut: new QPFieldsetVisitor(),
+            childrenVisitor: new ChildrenVisitor([new QPFieldVisitor()]),
+            incomingHTMLFileName: './test-cases/field-set-statuses-input.html',
+            expectedJSONFile: './test-cases/field-set-statuses-output.json',
         },
     ]
 

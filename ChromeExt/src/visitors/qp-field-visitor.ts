@@ -61,6 +61,15 @@ export default class QPFieldVisitor implements ElementVisitor {
             return true;
         }
 
+        if (element.getAttribute("name") === "Status") {
+            const enhancedComposeElement = findElementByNodeNameDown(element, "enhanced-compose");
+            if (enhancedComposeElement) {
+                field.Value = findFirstLeafTextContent(enhancedComposeElement);
+                field.ElementType = QPFieldElementType.Status;
+                return true;
+            }
+        }
+
         if (findElementByClassesDown(element, 'qp-text-editor-control')) {
             field.Value = this.getInputValue(element);
             field.ElementType = QPFieldElementType.TextEditor;
