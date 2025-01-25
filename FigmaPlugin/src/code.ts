@@ -212,6 +212,14 @@ class figmaRow extends figmaField{
                     child.componentProperties['State'] = 'Disabled';
                 this.children.push(child);
                 break;
+            case QPFieldElementType.Button:
+                child = new figmaField('Button');
+                child.componentProperties['Type'] = 'Secondary';
+                child.componentProperties['Value ▶#3133:332'] = field.Value??'';
+                if (field.ReadOnly)
+                    child.componentProperties['State'] = 'Disabled';
+                this.children.push(child);
+                break;
             case QPFieldElementType.MultilineTextEditor:
                 child = new figmaField('Label');
                 child.componentProperties['Label Value ▶#3141:62'] = field.Label??'';
@@ -759,6 +767,8 @@ async function DrawFromJSON(input: string, reuseSummary: boolean) {
             summaryNode.componentNode = compSummary;
 
             rootItem.children[rootItem.children.length - 2] = summaryNode;
+            if (!drawSummaryComponent)
+                childrenNumber = countChildren(rootItem);
         }
     }
 
