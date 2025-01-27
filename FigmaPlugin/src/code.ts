@@ -4,7 +4,14 @@
 // full browser environment (See https://www.figma.com/plugin-docs/how-plugins-run).
 
 // This shows the HTML page in "ui.html".
-import {QPField, QPFieldElementType} from "./elements/qp-field";
+import {
+    QPField,
+    QPFieldButton,
+    QPFieldCheckbox,
+    QPFieldElementType, QPFieldLabelValue,
+    QPFieldMultilineTextEditor,
+    QPFieldRadioButton, QPFieldStatus
+} from "./elements/qp-field";
 import {Template} from "./elements/qp-template";
 import {QPFieldset} from "./elements/qp-fieldset";
 import {AcuElement, AcuElementType} from "./elements/acu-element";
@@ -165,7 +172,7 @@ class figmaRow extends figmaField{
     rowTypes = new Map<QPFieldElementType, string>([
         [QPFieldElementType.Currency    , 'Currency'],
         [QPFieldElementType.CheckBox    , 'Checkbox'],
-        [QPFieldElementType.DatetimeEdit, 'Label + Field'],
+        [QPFieldElementType.DateTimeEdit, 'Label + Field'],
         [QPFieldElementType.DropDown    , 'Label + Field'],
         [QPFieldElementType.TextEditor  , 'Label + Field'],
         [QPFieldElementType.Selector    , 'Label + Field'],
@@ -194,46 +201,52 @@ class figmaRow extends figmaField{
         this.componentProperties[this.typePropertyName] = this.rowTypes.get(elementType)!;
 
         let child;
+        let typedField;
 
         switch (elementType) {
             case QPFieldElementType.CheckBox:
+                typedField = field as QPFieldCheckbox;
                 child = new figmaField('Checkbox');
-                child.componentProperties['Value ▶#6695:0'] = field.Label??'';
-                child.componentProperties['Selected'] = field.Value == 'on' ? 'True' : 'False';
+                child.componentProperties['Value ▶#6695:0'] = typedField.CheckboxName??'';
+                child.componentProperties['Selected'] = typedField.Checked ? 'True' : 'False';
                 if (field.ReadOnly)
                     child.componentProperties['State'] = 'Disabled';
                 this.children.push(child);
                 break;
             case QPFieldElementType.RadioButton:
+                typedField = field as QPFieldRadioButton;
                 child = new figmaField('Radiobuttons');
-                child.componentProperties['Name#8227:0'] = field.Label??'';
-                child.componentProperties['Checked'] = field.Value == 'on' ? 'True' : 'False';
+                child.componentProperties['Name#8227:0'] = typedField.RadioName??'';
+                child.componentProperties['Checked'] = typedField.Checked ? 'True' : 'False';
                 if (field.ReadOnly)
                     child.componentProperties['State'] = 'Disabled';
                 this.children.push(child);
                 break;
             case QPFieldElementType.Button:
+                typedField = field as QPFieldButton;
                 child = new figmaField('Button');
                 child.componentProperties['Type'] = 'Secondary';
-                child.componentProperties['Value ▶#3133:332'] = field.Value??'';
+                child.componentProperties['Value ▶#3133:332'] = typedField.Value??'';
                 if (field.ReadOnly)
                     child.componentProperties['State'] = 'Disabled';
                 this.children.push(child);
                 break;
             case QPFieldElementType.MultilineTextEditor:
+                typedField = field as QPFieldMultilineTextEditor;
                 child = new figmaField('Label');
-                child.componentProperties['Label Value ▶#3141:62'] = field.Label??'';
+                child.componentProperties['Label Value ▶#3141:62'] = typedField.Label??'';
                 this.children.push(child);
 
                 child = new figmaField('Text Area');
-                child.componentProperties['Text Value ▶#4221:3'] = field.Value??'';
+                child.componentProperties['Text Value ▶#4221:3'] = typedField.Value??'';
                 if (field.ReadOnly)
                     child.componentProperties['State'] = 'Disabled';
                 this.children.push(child);
                 break;
             case QPFieldElementType.Status:
+                typedField = field as QPFieldStatus;
                 child = new figmaField('Label');
-                child.componentProperties['Label Value ▶#3141:62'] = field.Label??'';
+                child.componentProperties['Label Value ▶#3141:62'] = typedField.Label??'';
                 this.children.push(child);
 
                 child = new figmaField('Field');
@@ -243,22 +256,30 @@ class figmaRow extends figmaField{
                 this.children.push(child);
 
                 child = new figmaField('Status');
-                child.componentProperties['Status'] = field.Value??'';
+                child.componentProperties['Status'] = typedField.Value??'';
                 this.children.push(child);
                 break;
-            default:
+            case QPFieldElementType.TextEditor:
+            case QPFieldElementType.Selector:
+            case QPFieldElementType.DropDown:
+            case QPFieldElementType.NumberEditor:
+            case QPFieldElementType.DateTimeEdit:
+            case QPFieldElementType.Currency:
+                typedField = field as QPFieldLabelValue;
                 child = new figmaField('Label');
-                child.componentProperties['Label Value ▶#3141:62'] = field.Label??'';
+                child.componentProperties['Label Value ▶#3141:62'] = typedField.Label??'';
                 this.children.push(child);
                 child = new figmaField('Field');
-                child.componentProperties['Text Value ▶#3161:0'] = field.Value??'';
+                child.componentProperties['Text Value ▶#3161:0'] = typedField.Value??'';
                 if (field.ReadOnly)
                     child.componentProperties['State'] = 'Disabled';
                 this.children.push(child);
                 break;
+            default:
+                console.warn(elementType, 'row element type not supported');
+                break
         }
     }
-
 }
 
 class figmaGrid extends figmaField {
