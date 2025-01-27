@@ -1,0 +1,41 @@
+{
+  "Caption": null,
+  "Children": [
+    {
+      "Children": [
+        {
+          "CheckboxName": "IN",
+          "Checked": true,
+          "ElementType": "CheckBox",
+          "Id": "Root-1513-1514",
+          "ReadOnly": false,
+          "Type": "Field"
+        },
+        {
+          "CheckboxName": "CA",
+          "Checked": true,
+          "ElementType": "CheckBox",
+          "Id": "Root-1513-1515",
+          "ReadOnly": false,
+          "Type": "Field"
+        },
+        {
+          "CheckboxName": "CRM",
+          "Checked": true,
+          "ElementType": "CheckBox",
+          "Id": "Root-1513-1516",
+          "ReadOnly": false,
+          "Type": "Field"
+        }
+      ],
+      "ElementType": "HorizontalContainer",
+      "Id": "Root-1513",
+      "ReadOnly": false,
+      "Type": "Field"
+    }
+  ],
+  "Id": "Root",
+  "Title": null,
+  "ToolBar": null,
+  "Type": "Root"
+}

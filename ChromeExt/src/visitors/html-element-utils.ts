@@ -58,6 +58,16 @@ export function findElementByNodeNameDown(htmlElement: Element, nodeName: string
     return null;
 }
 
+export function findAllElementByNodeNameDown(htmlElement: Element, nodeName: string, target: Element[]) {
+    if (htmlElement.nodeName.toLowerCase() === nodeName.toLowerCase()) {
+        target.push(htmlElement);
+    }
+
+    for (const child of htmlElement.children) {
+        findAllElementByNodeNameDown(child, nodeName, target);
+    }
+}
+
 export function innerTextContent(htmlElement: Element): string | null {
     if (htmlElement.children.length === 0) {
         return htmlElement.textContent;

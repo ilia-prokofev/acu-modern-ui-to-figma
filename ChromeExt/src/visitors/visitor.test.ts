@@ -10,6 +10,7 @@ import {Root} from "../elements/qp-root";
 import QPGridToolBarVisitor from "./qp-grid-tool-bar-visitor";
 import QPFieldVisitor from "./qp-field-visitor";
 import QPFieldsetVisitor from "./qp-field-set-visitor";
+import QPFieldContainerVisitor from "./qp-field-container-visitor";
 
 describe('visitor', () => {
     interface testCase {
@@ -90,6 +91,13 @@ describe('visitor', () => {
             childrenVisitor: new ChildrenVisitor([new QPFieldVisitor()]),
             incomingHTMLFileName: './test-cases/field-set-radio-input.html',
             expectedJSONFile: './test-cases/field-set-radio-output.json',
+        },
+        {
+            testName: "field-set-check-box-container",
+            sut: new QPFieldContainerVisitor(),
+            childrenVisitor: new ChildrenVisitor([new QPFieldVisitor()]),
+            incomingHTMLFileName: './test-cases/field-set-check-box-container-input.html',
+            expectedJSONFile: './test-cases/field-set-check-box-container-output.json',
         },
     ]
 
