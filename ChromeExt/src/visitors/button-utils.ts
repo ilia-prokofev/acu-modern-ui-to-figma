@@ -1,14 +1,30 @@
 import {ButtonStyle, QPButton} from "../elements/qp-button";
-import {findElementByClassesDown, findFirstLeafTextContent, isElementDisabled} from "./html-element-utils";
+import {
+    findClasses,
+    findElementByNodeNameDown,
+    findFirstLeafTextContent,
+    isElementDisabled
+} from "./html-element-utils";
 import {getIconType} from "./icon-utils";
 
 export function getButtonStyle(element: Element): ButtonStyle {
-    return getLiButtonStyle(element) ?? ButtonStyle.Tertiary;
+    let buttonStyle: ButtonStyle | null = null;
+
+    const liElement = findElementByNodeNameDown(element, "li");
+    if (liElement) {
+        buttonStyle = getLiButtonStyle(liElement);
+    }
+
+    return buttonStyle ?? ButtonStyle.Tertiary;
 }
 
 function getLiButtonStyle(element: Element): ButtonStyle | null {
-    if (findElementByClassesDown(element, "qp-connotation-Success")) {
+    if (findClasses(element, "qp-connotation-Success")) {
         return ButtonStyle.Special;
+    }
+
+    if (findClasses(element, "minor-button")) {
+        return ButtonStyle.Secondary;
     }
 
     return null;
