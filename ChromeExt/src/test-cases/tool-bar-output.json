@@ -1,8 +1,8 @@
 {
-  "Title": null,
   "Caption": null,
   "Children": [],
   "Id": "Root",
+  "Title": null,
   "ToolBar": {
     "Id": "Root-22",
     "Items": [
@@ -10,77 +10,77 @@
         "Enabled": true,
         "Icon": "Back",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       },
       {
         "Enabled": false,
         "Icon": "SaveAndBack",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       },
       {
         "Enabled": false,
         "Icon": "Save",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Undo",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Insert",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Delete",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Copy",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "First",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Previous",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Next",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Last",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       },
       {

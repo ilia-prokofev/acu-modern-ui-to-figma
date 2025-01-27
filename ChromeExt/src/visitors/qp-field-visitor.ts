@@ -29,13 +29,14 @@ export default class QPFieldVisitor implements ElementVisitor {
         }
 
         return this.visitRadioButton(htmlElement, parent as AcuContainer)
-            || this.visitSingleField(htmlElement, parent as AcuContainer);
+            || this.visitSimpleField(htmlElement, parent as AcuContainer);
     }
 
     private visitRadioButton(element: Element, parent: AcuContainer): boolean {
         if (element.getAttribute("control-type") !== "qp-radio") {
             return false;
         }
+
         const radioGroupElement = findElementByClassesDown(element, 'qp-radio-group');
         if (!radioGroupElement) {
             return true;
@@ -62,7 +63,7 @@ export default class QPFieldVisitor implements ElementVisitor {
         return true;
     }
 
-    visitSingleField(element: Element, parent: AcuContainer): boolean {
+    visitSimpleField(element: Element, parent: AcuContainer): boolean {
         const field = this.createField(element, parent.Id);
         if (!field) {
             return false;

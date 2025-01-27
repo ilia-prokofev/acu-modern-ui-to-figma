@@ -1,4 +1,5 @@
 import {AcuElement, AcuElementType} from "./acu-element";
+import {AcuContainer} from "./acu-container";
 
 export enum QPFieldElementType {
     TextEditor = 'TextEditor',
@@ -80,7 +81,7 @@ export interface QPFieldLabelFieldCheckbox extends QPFieldLabelValue {
     Checkbox: QPFieldCheckbox;
 }
 
-export interface QPFieldHorizontalContainer extends QPField {
+export interface QPFieldHorizontalContainer extends QPField, AcuContainer {
+    Type: AcuElementType.Field;
     ElementType: QPFieldElementType.HorizontalContainer;
-    Fields: Array<QPField>;
 }

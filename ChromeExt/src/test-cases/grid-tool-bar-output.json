@@ -1,8 +1,8 @@
 {
-  "Title": null,
   "Caption": null,
   "Children": [],
   "Id": "Root",
+  "Title": null,
   "ToolBar": {
     "Id": "Root-1054",
     "Items": [
@@ -10,7 +10,7 @@
         "Enabled": true,
         "Icon": "Refresh",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       },
       {
@@ -24,42 +24,42 @@
         "Enabled": true,
         "Icon": "Import",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Undo",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Insert",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Edit",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "AdjustColumns",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "ExportToExcel",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       }
     ],

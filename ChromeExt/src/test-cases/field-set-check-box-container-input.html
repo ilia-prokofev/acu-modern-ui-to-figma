@@ -1,0 +1,255 @@
+<qp-field
+  class="main-control unbound-control au-target qp-field qp-field-expanded qp-field-disabled"
+  control-state.bind="ProjectProperties.ProjectVisibilitySettingsRow02"
+  context.bind="$this"
+  au-target-id="1513"
+>
+  <!--anchor-->
+
+  <div
+    show.bind="controlState.visible === undefined || controlState.visible !== false"
+    data-tooltip.bind="errorMessage"
+    data-error-level.bind="errorLevel"
+    data-id.bind="effectiveId"
+    class="au-target wrapper qp-field-empty"
+    au-target-id="218"
+    data-id="edProjectProperties-ProjectVisibilitySettingsRow02"
+  >
+    <span
+      class="label-wrapper no-label au-target"
+      show.bind="!noLabel"
+      au-target-id="219"
+    >
+      <!--view-->
+
+      <div class="label-container">
+        <label
+          for.bind="controlId"
+          click.delegate="processClick()"
+          ref="element"
+          class="au-target clickable"
+          au-target-id="590"
+          for="edProjectProperties-ProjectVisibilitySettingsRow02"
+        >
+        </label>
+        <!--anchor-->
+      </div>
+      <!--anchor--><!--anchor-->
+      <!--slot-->
+    </span>
+
+    <div class="control-container no-label size-default">
+      <qp-field
+        control-state.bind="ProjectProperties.VisibleInIN"
+        class="col-2 au-target qp-field qp-field-expanded"
+        context.bind="$this"
+        au-target-id="1514"
+      >
+        <!--anchor-->
+
+        <div
+          show.bind="controlState.visible === undefined || controlState.visible !== false"
+          data-tooltip.bind="errorMessage"
+          data-error-level.bind="errorLevel"
+          data-id.bind="effectiveId"
+          class="au-target wrapper align-right"
+          au-target-id="218"
+          data-error-level="0"
+          data-id="edProjectProperties-VisibleInIN"
+        >
+          <div class="control-container no-label size-default">
+            <div
+              class="au-target main-field qp-check-box-control"
+              au-target-id="223"
+            >
+              <div class="icon-container"></div>
+              <!--anchor-->
+              <enhanced-compose
+                view-model.bind="controlType || defaultControlType"
+                config.bind="controlConfig"
+                state.bind="controlState"
+                value.two-way="controlState.value"
+                control-id.bind="effectiveId"
+                context.bind="context"
+                proxy-expressions.bind="proxyExpressions"
+                class="main-control au-target"
+                au-target-id="225"
+              >
+                <span
+                  enabled.bind="!!config.enabled &amp; attr"
+                  click.delegate="config.enabled===true &amp;&amp; toggleValue($event)"
+                  class="au-target qp-checkbox qp-checkbox-default"
+                  au-target-id="241"
+                  id="edProjectProperties-VisibleInIN"
+                  enabled="true"
+                >
+                  <!--anchor-->
+                  <input
+                    ref="element"
+                    type="checkbox"
+                    disabled.bind="!config.enabled"
+                    checked.two-way="value | intToBool"
+                    class="au-target"
+                    au-target-id="245"
+                    id="edProjectProperties-VisibleInIN_text"
+                    name=""
+                    tabindex="0"
+                    value="on"
+                    checked="checked"
+                  /><label
+                    class="au-target"
+                    au-target-id="246"
+                    for="edProjectProperties-VisibleInIN_text"
+                    >IN</label
+                  ><!--anchor--> </span
+                ><!--anchor-->
+                <!--anchor--> </enhanced-compose
+              ><!--anchor-->
+            </div>
+            <!--slot-->
+          </div>
+        </div> </qp-field
+      ><qp-field
+        control-state.bind="ProjectProperties.VisibleInCA"
+        class="col-2 au-target qp-field qp-field-expanded"
+        context.bind="$this"
+        au-target-id="1515"
+      >
+        <!--anchor-->
+
+        <div
+          show.bind="controlState.visible === undefined || controlState.visible !== false"
+          data-tooltip.bind="errorMessage"
+          data-error-level.bind="errorLevel"
+          data-id.bind="effectiveId"
+          class="au-target wrapper align-right"
+          au-target-id="218"
+          data-error-level="0"
+          data-id="edProjectProperties-VisibleInCA"
+        >
+          <div class="control-container no-label size-default">
+            <div
+              class="au-target main-field qp-check-box-control"
+              au-target-id="223"
+            >
+              <div class="icon-container"></div>
+              <!--anchor-->
+              <enhanced-compose
+                view-model.bind="controlType || defaultControlType"
+                config.bind="controlConfig"
+                state.bind="controlState"
+                value.two-way="controlState.value"
+                control-id.bind="effectiveId"
+                context.bind="context"
+                proxy-expressions.bind="proxyExpressions"
+                class="main-control au-target"
+                au-target-id="225"
+              >
+                <span
+                  enabled.bind="!!config.enabled &amp; attr"
+                  click.delegate="config.enabled===true &amp;&amp; toggleValue($event)"
+                  class="au-target qp-checkbox qp-checkbox-default"
+                  au-target-id="241"
+                  id="edProjectProperties-VisibleInCA"
+                  enabled="true"
+                >
+                  <!--anchor-->
+                  <input
+                    ref="element"
+                    type="checkbox"
+                    disabled.bind="!config.enabled"
+                    checked.two-way="value | intToBool"
+                    class="au-target"
+                    au-target-id="245"
+                    id="edProjectProperties-VisibleInCA_text"
+                    name=""
+                    tabindex="0"
+                    value="on"
+                    checked="checked"
+                  /><label
+                    class="au-target"
+                    au-target-id="246"
+                    for="edProjectProperties-VisibleInCA_text"
+                    >CA</label
+                  ><!--anchor--> </span
+                ><!--anchor-->
+                <!--anchor--> </enhanced-compose
+              ><!--anchor-->
+            </div>
+            <!--slot-->
+          </div>
+        </div> </qp-field
+      ><qp-field
+        control-state.bind="ProjectProperties.VisibleInCR"
+        class="col-4 au-target qp-field qp-field-expanded"
+        context.bind="$this"
+        au-target-id="1516"
+      >
+        <!--anchor-->
+
+        <div
+          show.bind="controlState.visible === undefined || controlState.visible !== false"
+          data-tooltip.bind="errorMessage"
+          data-error-level.bind="errorLevel"
+          data-id.bind="effectiveId"
+          class="au-target wrapper align-right"
+          au-target-id="218"
+          data-error-level="0"
+          data-id="edProjectProperties-VisibleInCR"
+        >
+          <div class="control-container no-label size-default">
+            <div
+              class="au-target main-field qp-check-box-control"
+              au-target-id="223"
+            >
+              <div class="icon-container"></div>
+              <!--anchor-->
+              <enhanced-compose
+                view-model.bind="controlType || defaultControlType"
+                config.bind="controlConfig"
+                state.bind="controlState"
+                value.two-way="controlState.value"
+                control-id.bind="effectiveId"
+                context.bind="context"
+                proxy-expressions.bind="proxyExpressions"
+                class="main-control au-target"
+                au-target-id="225"
+              >
+                <span
+                  enabled.bind="!!config.enabled &amp; attr"
+                  click.delegate="config.enabled===true &amp;&amp; toggleValue($event)"
+                  class="au-target qp-checkbox qp-checkbox-default"
+                  au-target-id="241"
+                  id="edProjectProperties-VisibleInCR"
+                  enabled="true"
+                >
+                  <!--anchor-->
+                  <input
+                    ref="element"
+                    type="checkbox"
+                    disabled.bind="!config.enabled"
+                    checked.two-way="value | intToBool"
+                    class="au-target"
+                    au-target-id="245"
+                    id="edProjectProperties-VisibleInCR_text"
+                    name=""
+                    tabindex="0"
+                    value="on"
+                    checked="checked"
+                  /><label
+                    class="au-target"
+                    au-target-id="246"
+                    for="edProjectProperties-VisibleInCR_text"
+                    >CRM</label
+                  ><!--anchor--> </span
+                ><!--anchor-->
+                <!--anchor--> </enhanced-compose
+              ><!--anchor-->
+            </div>
+            <!--slot-->
+          </div>
+        </div> </qp-field
+      ><!--slot-->
+    </div>
+  </div>
+</qp-field>

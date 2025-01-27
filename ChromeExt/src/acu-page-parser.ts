@@ -12,6 +12,7 @@ import QPRootVisitor from "./visitors/qp-root-visitor";
 import QPToolBarVisitor from "./visitors/qp-tool-bar-visitor";
 import QPFilterBarVisitor from "./visitors/qp-filter-bar-visitor";
 import QPGridToolBarVisitor from "./visitors/qp-grid-tool-bar-visitor";
+import QPFieldContainerVisitor from "./visitors/qp-field-container-visitor";
 
 export class AcuPageParser {
     parse(html: string): AcuElement | null {
@@ -22,6 +23,7 @@ export class AcuPageParser {
             new QPTemplateVisitor(),
             new QPFieldSetSlotVisitor(),
             new QPFieldsetVisitor(),
+            new QPFieldContainerVisitor(),
             new QPFieldVisitor(),
             new QPTabBarVisitor(),
             new QPGridVisitor(),

@@ -16,27 +16,16 @@ export default class ChildrenVisitor {
         }
     }
 
-    private visit(htmlElement: Element, parent: AcuElement) {
-        // for debug purposes
-        const auTargetId = this.getElementPath(htmlElement, null);
+    public visit(htmlElement: Element, parent: AcuElement) {
+        if (findClasses(htmlElement, "aurelia-hide")) {
+            return;
+        }
+
         for (const visitor of this.visitors) {
             if (visitor.visit(htmlElement, parent, this)) {
                 return;
             }
         }
         this.visitChildren(htmlElement, parent);
-    }
-
-    private getElementPath(htmlElement: Element, current: string | null): string {
-        let auTargetId = htmlElement.getAttribute("au-target-id") ?? "<absent>";
-        if (current) {
-            auTargetId += "|" + current;
-        }
-
-        if (!htmlElement.parentElement) {
-            return auTargetId;
-        }
-
-        return this.getElementPath(htmlElement.parentElement, auTargetId);
     }
 }
