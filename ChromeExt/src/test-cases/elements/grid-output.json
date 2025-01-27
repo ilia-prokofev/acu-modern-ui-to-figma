@@ -3,6 +3,7 @@
   "Caption": null,
   "Children": [
     {
+      "Caption": null,
       "Columns": [
         {
           "Alignment": "Left",
@@ -324,6 +325,7 @@
           "Type": "GridColumn"
         }
       ],
+      "Footer": null,
       "Id": "Root-1633",
       "ToolBar": null,
       "Type": "Grid"

@@ -8,6 +8,7 @@
           "Checked": true,
           "ElementType": "CheckBox",
           "Id": "Root-1513-1514",
+          "Mandatory": false,
           "ReadOnly": false,
           "Type": "Field"
         },
@@ -16,6 +17,7 @@
           "Checked": true,
           "ElementType": "CheckBox",
           "Id": "Root-1513-1515",
+          "Mandatory": false,
           "ReadOnly": false,
           "Type": "Field"
         },
@@ -24,12 +26,14 @@
           "Checked": true,
           "ElementType": "CheckBox",
           "Id": "Root-1513-1516",
+          "Mandatory": false,
           "ReadOnly": false,
           "Type": "Field"
         }
       ],
       "ElementType": "HorizontalContainer",
       "Id": "Root-1513",
+      "Mandatory": true,
       "ReadOnly": false,
       "Type": "Field"
     }

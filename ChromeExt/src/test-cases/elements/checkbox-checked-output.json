@@ -6,6 +6,7 @@
       "Checked": true,
       "ElementType": "CheckBox",
       "Id": "Root-1474",
+      "Mandatory": false,
       "ReadOnly": false,
       "Type": "Field"
     }

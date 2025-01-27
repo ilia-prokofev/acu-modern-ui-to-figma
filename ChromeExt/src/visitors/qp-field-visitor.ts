@@ -55,6 +55,7 @@ export default class QPFieldVisitor implements ElementVisitor {
                 Checked: inputElement?.getAttribute("checked") === "checked",
                 RadioName: this.getLabel(radioElement),
                 ReadOnly: isElementDisabled(element),
+                Mandatory: this.isMandatory(element),
             };
 
             parent.Children.push(field);
@@ -85,6 +86,7 @@ export default class QPFieldVisitor implements ElementVisitor {
                     Id: concatElementID(parentId, element),
                     Label: this.getLabel(element),
                     Value: findFirstLeafTextContent(enhancedComposeElement),
+                    Mandatory: this.isMandatory(element),
                 };
                 return field;
             }
@@ -99,6 +101,7 @@ export default class QPFieldVisitor implements ElementVisitor {
                 Id: concatElementID(parentId, element),
                 Label: this.getLabel(element),
                 Value: textAreaElement?.textContent?.trim() ?? null,
+                Mandatory: this.isMandatory(element),
             };
             return field;
         }
@@ -120,6 +123,7 @@ export default class QPFieldVisitor implements ElementVisitor {
                 Label: this.getLabel(element),
                 Value: this.getInputValue(element)
                     ?? this.getSelectorLink(element),
+                Mandatory: this.isMandatory(element),
             };
             return field;
         }
@@ -142,6 +146,7 @@ export default class QPFieldVisitor implements ElementVisitor {
                 Id: concatElementID(parentId, element),
                 CheckboxName: enhancedComposeElement ? this.getLabel(enhancedComposeElement) : null,
                 Checked: input?.getAttribute("checked") === "checked",
+                Mandatory: this.isMandatory(element),
             };
             return field;
         }
@@ -180,6 +185,7 @@ export default class QPFieldVisitor implements ElementVisitor {
                 Id: concatElementID(parentId, element),
                 Label: this.getLabel(element),
                 Value: button.Text,
+                Mandatory: this.isMandatory(element),
             };
             return field;
         }
@@ -195,6 +201,7 @@ export default class QPFieldVisitor implements ElementVisitor {
             Id: concatElementID(parentId, element),
             Label: this.getLabel(element),
             Value: this.getInputValue(element),
+            Mandatory: this.isMandatory(element),
         };
     }
 
@@ -233,5 +240,9 @@ export default class QPFieldVisitor implements ElementVisitor {
         }
 
         return text;
+    }
+
+    private isMandatory(element: Element): boolean {
+        return findElementByClassesDown(element, "req-l") !== null;
     }
 }

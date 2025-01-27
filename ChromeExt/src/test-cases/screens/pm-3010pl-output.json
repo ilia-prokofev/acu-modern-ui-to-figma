@@ -2,6 +2,7 @@
   "Caption": "",
   "Children": [
     {
+      "Caption": null,
       "Columns": [
         {
           "Alignment": "Left",
@@ -316,6 +317,9 @@
           "Type": "GridColumn"
         }
       ],
+      "Footer": {
+        "FooterType": "GI"
+      },
       "Id": "Root-1313",
       "ToolBar": {
         "Id": "Root-1313-1062",
@@ -371,42 +375,42 @@
         "Enabled": true,
         "Icon": "Refresh",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Undo",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Insert",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Edit",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "AdjustColumns",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "ExportToExcel",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       }
     ],

@@ -7,25 +7,14 @@ export function findClasses(htmlElement: Element, ...classNames: string[]): bool
     }
 
     const classes = classAttr.split(" ");
-    for (const className of classNames) {
-        if (classes.find(c => c === className) === undefined) {
+    for (let className of classNames) {
+        className = className.toLowerCase();
+        if (classes.find(c => c.toLowerCase() === className) === undefined) {
             return false;
         }
     }
 
     return true;
-}
-
-export function findElementByClassesUp(htmlElement: Element, ...classNames: string[]): Element | null {
-    if (findClasses(htmlElement, ...classNames)) {
-        return htmlElement;
-    }
-
-    if (!htmlElement.parentElement) {
-        return null;
-    }
-
-    return findElementByClassesUp(htmlElement.parentElement, ...classNames);
 }
 
 export function findElementByClassesDown(htmlElement: Element, ...classNames: string[]): Element | null {

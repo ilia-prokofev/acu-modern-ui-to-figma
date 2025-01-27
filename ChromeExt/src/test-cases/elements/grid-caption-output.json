@@ -1,0 +1,17 @@
+{
+  "Caption": null,
+  "Children": [
+    {
+      "Caption": "Conversion Rules",
+      "Columns": [],
+      "Footer": null,
+      "Id": "Root-1324",
+      "ToolBar": null,
+      "Type": "Grid"
+    }
+  ],
+  "Id": "Root",
+  "Title": null,
+  "ToolBar": null,
+  "Type": "Root"
+}

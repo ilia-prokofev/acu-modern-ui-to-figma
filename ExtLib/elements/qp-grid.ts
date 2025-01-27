@@ -19,7 +19,19 @@ export interface GridColumn {
     Cells: string[];
 }
 
+export enum GridFooterType {
+    WithCounters = "WithCounters",
+    GI = "GI",
+    Simple = "Simple",
+}
+
+export interface GridFooter {
+    FooterType: GridFooterType;
+}
+
 export interface Grid extends QPToolbarContainer {
     Type: AcuElementType.Grid;
+    Caption: string | null;
     Columns: GridColumn[];
+    Footer: GridFooter | null;
 }
