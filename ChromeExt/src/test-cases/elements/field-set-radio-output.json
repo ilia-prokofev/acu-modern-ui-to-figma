@@ -22,9 +22,9 @@
           "Type": "Field"
         }
       ],
-      "Highlighted": false,
       "Id": "Root-1322",
       "Label": null,
+      "Style": "Grey",
       "Type": "FieldSet"
     }
   ],

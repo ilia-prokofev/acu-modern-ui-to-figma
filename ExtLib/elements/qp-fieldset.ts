@@ -1,8 +1,14 @@
 import {AcuContainer} from "./acu-container";
 import {AcuElementType} from "./acu-element";
 
+export enum QPFieldsetStyle {
+    Default = "Default",
+    Grey = "Grey",
+    Blue = "Blue",
+}
+
 export interface QPFieldset extends AcuContainer {
     Type: AcuElementType.FieldSet;
     Label: string | null;
-    Highlighted: boolean;
+    Style: QPFieldsetStyle;
 }

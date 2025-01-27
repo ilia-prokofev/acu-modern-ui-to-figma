@@ -51,9 +51,9 @@
               "Value": ""
             }
           ],
-          "Highlighted": false,
           "Id": "Root-1311-1312",
           "Label": null,
+          "Style": "Grey",
           "Type": "FieldSet"
         },
         {
@@ -104,9 +104,9 @@
               "Value": "SITE WORK"
             }
           ],
-          "Highlighted": false,
           "Id": "Root-1311-1313",
           "Label": null,
+          "Style": "Grey",
           "Type": "FieldSet"
         },
         {
@@ -166,9 +166,9 @@
               "Value": "8,500.00"
             }
           ],
-          "Highlighted": true,
           "Id": "Root-1311-1314",
           "Label": null,
+          "Style": "Blue",
           "Type": "FieldSet"
         }
       ],

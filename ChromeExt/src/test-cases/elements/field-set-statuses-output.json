@@ -13,9 +13,9 @@
           "Value": "Open"
         }
       ],
-      "Highlighted": false,
       "Id": "Root-1312",
       "Label": null,
+      "Style": "Grey",
       "Type": "FieldSet"
     }
   ],

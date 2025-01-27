@@ -117,6 +117,27 @@ describe('acu-page-parser.test', () => {
             parent: createRoot(),
         },
         {
+            testName: "elements/field-set-blue",
+            childrenVisitor: new ChildrenVisitor([new QPFieldsetVisitor()]),
+            incomingHTMLFileName: './test-cases/elements/field-set-blue-input.html',
+            expectedJSONFile: './test-cases/elements/field-set-blue-output.json',
+            parent: createRoot(),
+        },
+        {
+            testName: "elements/field-set-default",
+            childrenVisitor: new ChildrenVisitor([new QPFieldsetVisitor()]),
+            incomingHTMLFileName: './test-cases/elements/field-set-default-input.html',
+            expectedJSONFile: './test-cases/elements/field-set-default-output.json',
+            parent: createRoot(),
+        },
+        {
+            testName: "elements/field-set-grey",
+            childrenVisitor: new ChildrenVisitor([new QPFieldsetVisitor()]),
+            incomingHTMLFileName: './test-cases/elements/field-set-grey-input.html',
+            expectedJSONFile: './test-cases/elements/field-set-grey-output.json',
+            parent: createRoot(),
+        },
+        {
             testName: "elements/field-set-button",
             childrenVisitor: new ChildrenVisitor([new QPFieldVisitor()]),
             incomingHTMLFileName: './test-cases/elements/field-set-button-input.html',
