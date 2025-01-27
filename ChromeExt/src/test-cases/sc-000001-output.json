@@ -9,6 +9,7 @@
               "ElementType": "Selector",
               "Id": "Root-1311-1312-1543",
               "Label": "Subcontract Nbr.",
+              "Mandatory": false,
               "ReadOnly": false,
               "Type": "Field",
               "Value": "SC-000036"
@@ -17,6 +18,7 @@
               "ElementType": "Status",
               "Id": "Root-1311-1312-1545",
               "Label": "Status",
+              "Mandatory": false,
               "ReadOnly": true,
               "Type": "Field",
               "Value": "On Hold"
@@ -25,6 +27,7 @@
               "ElementType": "DateTimeEdit",
               "Id": "Root-1311-1312-1551",
               "Label": "Date",
+              "Mandatory": true,
               "ReadOnly": false,
               "Type": "Field",
               "Value": "12/1/2022"
@@ -33,6 +36,7 @@
               "ElementType": "DateTimeEdit",
               "Id": "Root-1311-1312-1553",
               "Label": "Start Date",
+              "Mandatory": false,
               "ReadOnly": false,
               "Type": "Field",
               "Value": "12/1/2022"
@@ -41,6 +45,7 @@
               "ElementType": "TextEditor",
               "Id": "Root-1311-1312-1557",
               "Label": "Vendor Ref.",
+              "Mandatory": false,
               "ReadOnly": false,
               "Type": "Field",
               "Value": ""
@@ -57,6 +62,7 @@
               "ElementType": "Selector",
               "Id": "Root-1311-1313-1559",
               "Label": "Vendor",
+              "Mandatory": true,
               "ReadOnly": false,
               "Type": "Field",
               "Value": "CBSITEWORK- CB Sitework, Inc."
@@ -65,6 +71,7 @@
               "ElementType": "Selector",
               "Id": "Root-1311-1313-1561",
               "Label": "Location",
+              "Mandatory": true,
               "ReadOnly": false,
               "Type": "Field",
               "Value": "MAIN - Primary Location"
@@ -73,6 +80,7 @@
               "ElementType": "Selector",
               "Id": "Root-1311-1313-1563",
               "Label": "Owner",
+              "Mandatory": false,
               "ReadOnly": false,
               "Type": "Field",
               "Value": "Maxwell Baker"
@@ -81,6 +89,7 @@
               "ElementType": "Currency",
               "Id": "Root-1311-1313-1567",
               "Label": "Currency",
+              "Mandatory": true,
               "ReadOnly": false,
               "Type": "Field",
               "Value": "USD"
@@ -89,6 +98,7 @@
               "ElementType": "MultilineTextEditor",
               "Id": "Root-1311-1313-1569",
               "Label": "Description",
+              "Mandatory": false,
               "ReadOnly": false,
               "Type": "Field",
               "Value": "SITE WORK"
@@ -105,6 +115,7 @@
               "ElementType": "NumberEditor",
               "Id": "Root-1311-1314-1571",
               "Label": "Detail Total",
+              "Mandatory": false,
               "ReadOnly": true,
               "Type": "Field",
               "Value": "170,000.00"
@@ -113,6 +124,7 @@
               "ElementType": "NumberEditor",
               "Id": "Root-1311-1314-1573",
               "Label": "Line Discounts",
+              "Mandatory": false,
               "ReadOnly": true,
               "Type": "Field",
               "Value": "0.00"
@@ -121,6 +133,7 @@
               "ElementType": "NumberEditor",
               "Id": "Root-1311-1314-1575",
               "Label": "Document Discounts",
+              "Mandatory": false,
               "ReadOnly": true,
               "Type": "Field",
               "Value": "0.00"
@@ -129,6 +142,7 @@
               "ElementType": "NumberEditor",
               "Id": "Root-1311-1314-1577",
               "Label": "Tax Total",
+              "Mandatory": false,
               "ReadOnly": true,
               "Type": "Field",
               "Value": "0.00"
@@ -137,6 +151,7 @@
               "ElementType": "NumberEditor",
               "Id": "Root-1311-1314-1579",
               "Label": "Subcontract Total",
+              "Mandatory": false,
               "ReadOnly": true,
               "Type": "Field",
               "Value": "170,000.00"
@@ -145,6 +160,7 @@
               "ElementType": "NumberEditor",
               "Id": "Root-1311-1314-1583",
               "Label": "Retainage Total",
+              "Mandatory": false,
               "ReadOnly": true,
               "Type": "Field",
               "Value": "8,500.00"
@@ -536,49 +552,49 @@
                 "Enabled": true,
                 "Icon": "Refresh",
                 "ItemType": "Button",
-                "Style": "Secondary",
+                "Style": "Tertiary",
                 "Text": null
               },
               {
                 "Enabled": true,
                 "Icon": "AddRow",
                 "ItemType": "Button",
-                "Style": "Secondary",
+                "Style": "Tertiary",
                 "Text": null
               },
               {
                 "Enabled": true,
                 "Icon": "DeleteRow",
                 "ItemType": "Button",
-                "Style": "Secondary",
+                "Style": "Tertiary",
                 "Text": null
               },
               {
                 "Enabled": true,
                 "Icon": null,
                 "ItemType": "Button",
-                "Style": "Tertiary",
+                "Style": "Secondary",
                 "Text": "Add Project Items"
               },
               {
                 "Enabled": true,
                 "Icon": "AdjustColumns",
                 "ItemType": "Button",
-                "Style": "Secondary",
+                "Style": "Tertiary",
                 "Text": null
               },
               {
                 "Enabled": true,
                 "Icon": "ExportToExcel",
                 "ItemType": "Button",
-                "Style": "Secondary",
+                "Style": "Tertiary",
                 "Text": null
               },
               {
                 "Enabled": true,
                 "Icon": "Import",
                 "ItemType": "Button",
-                "Style": "Secondary",
+                "Style": "Tertiary",
                 "Text": null
               }
             ],
@@ -665,77 +681,77 @@
         "Enabled": true,
         "Icon": "Back",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": false,
         "Icon": "SaveAndBack",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": false,
         "Icon": "Save",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Undo",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Insert",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Delete",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Copy",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "First",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Previous",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Next",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Last",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
@@ -749,7 +765,7 @@
         "Enabled": true,
         "Icon": "Ellipsis",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       }
     ],

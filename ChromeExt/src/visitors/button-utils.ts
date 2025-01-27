@@ -15,7 +15,7 @@ export function getButtonStyle(element: Element): ButtonStyle {
         buttonStyle = getLiButtonStyle(liElement);
     }
 
-    return buttonStyle ?? ButtonStyle.Tertiary;
+    return buttonStyle ?? ButtonStyle.Secondary;
 }
 
 function getLiButtonStyle(element: Element): ButtonStyle | null {
@@ -24,7 +24,7 @@ function getLiButtonStyle(element: Element): ButtonStyle | null {
     }
 
     if (findClasses(element, "minor-button")) {
-        return ButtonStyle.Secondary;
+        return ButtonStyle.Tertiary;
     }
 
     return null;

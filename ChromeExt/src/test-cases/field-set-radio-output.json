@@ -7,6 +7,7 @@
           "Checked": true,
           "ElementType": "RadioButton",
           "Id": "Root-1322-1640",
+          "Mandatory": false,
           "RadioName": "Fixed Retainage",
           "ReadOnly": false,
           "Type": "Field"
@@ -15,6 +16,7 @@
           "Checked": false,
           "ElementType": "RadioButton",
           "Id": "Root-1322-1640",
+          "Mandatory": false,
           "RadioName": "Retainage with Steps",
           "ReadOnly": false,
           "Type": "Field"

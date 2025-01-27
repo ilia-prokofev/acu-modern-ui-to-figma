@@ -99,6 +99,13 @@ describe('visitor', () => {
             incomingHTMLFileName: './test-cases/field-set-check-box-container-input.html',
             expectedJSONFile: './test-cases/field-set-check-box-container-output.json',
         },
+        {
+            testName: "field-mandatory",
+            sut: new QPFieldVisitor(),
+            childrenVisitor: new ChildrenVisitor([]),
+            incomingHTMLFileName: './test-cases/field-mandatory-input.html',
+            expectedJSONFile: './test-cases/field-mandatory-output.json',
+        },
     ]
 
     it.each(testCases)(

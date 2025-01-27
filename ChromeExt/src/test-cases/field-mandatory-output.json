@@ -1,0 +1,18 @@
+{
+  "Caption": null,
+  "Children": [
+    {
+      "ElementType": "Selector",
+      "Id": "Root-1732",
+      "Label": "Project ID",
+      "Mandatory": true,
+      "ReadOnly": false,
+      "Type": "Field",
+      "Value": null
+    }
+  ],
+  "Id": "Root",
+  "Title": null,
+  "ToolBar": null,
+  "Type": "Root"
+}

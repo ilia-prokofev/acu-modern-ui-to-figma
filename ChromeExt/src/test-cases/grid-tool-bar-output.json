@@ -10,56 +10,56 @@
         "Enabled": true,
         "Icon": "Refresh",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": false,
         "Icon": null,
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": "Add Project Items"
       },
       {
         "Enabled": true,
         "Icon": "Import",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Undo",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Insert",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "Edit",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "AdjustColumns",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
         "Icon": "ExportToExcel",
         "ItemType": "Button",
-        "Style": "Secondary",
+        "Style": "Tertiary",
         "Text": null
       }
     ],

@@ -21,6 +21,7 @@ export interface QPField extends AcuElement {
     Type: AcuElementType.Field;
     ElementType: QPFieldElementType | null;
     ReadOnly: boolean | null;
+    Mandatory: boolean;
 }
 
 export interface QPFieldLabelValue extends QPField {

@@ -7,6 +7,7 @@
           "ElementType": "Status",
           "Id": "Root-1312-1545",
           "Label": "Status",
+          "Mandatory": false,
           "ReadOnly": true,
           "Type": "Field",
           "Value": "Open"

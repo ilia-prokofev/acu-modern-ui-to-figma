@@ -1,7 +1,7 @@
 import ElementVisitor from "./qp-element-visitor";
 import {AcuElement, AcuElementType} from "../elements/acu-element";
 import ChildrenVisitor from "./children-visitors";
-import {concatElementID, findAllElementByNodeNameDown, findElementByNodeNameDown} from "./html-element-utils";
+import {concatElementID, findAllElementByNodeNameDown} from "./html-element-utils";
 import {QPFieldElementType, QPFieldHorizontalContainer} from "../elements/qp-field";
 import {AcuContainer} from "../elements/acu-container";
 
@@ -31,6 +31,7 @@ export default class QPFieldContainerVisitor implements ElementVisitor {
             Children: [],
             ReadOnly: false,
             ElementType: QPFieldElementType.HorizontalContainer,
+            Mandatory: true,
         };
         (parent as AcuContainer).Children.push(container);
 
