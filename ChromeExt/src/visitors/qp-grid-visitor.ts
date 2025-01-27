@@ -30,6 +30,7 @@ export default class QPGridVisitor implements ElementVisitor {
             Id: concatElementID(parent.Id, htmlElement),
             ToolBar: null,
             Columns: [],
+            Footer: null,
         };
 
         this.setupCells(grid, htmlElement);

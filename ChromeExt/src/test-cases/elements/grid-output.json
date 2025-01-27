@@ -324,6 +324,7 @@
           "Type": "GridColumn"
         }
       ],
+      "Footer": null,
       "Id": "Root-1633",
       "ToolBar": null,
       "Type": "Grid"
