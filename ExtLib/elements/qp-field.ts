@@ -46,7 +46,7 @@ export interface QPFieldDropDown extends QPFieldLabelValue {
 export interface QPFieldCheckbox extends QPField {
     ElementType: QPFieldElementType.CheckBox;
     Checked: boolean;
-    CheckboxName: string;
+    CheckboxName: string | null;
 }
 
 export interface QPFieldDateTimeEdit extends QPFieldLabelValue {
@@ -64,7 +64,7 @@ export interface QPFieldButton extends QPFieldLabelValue {
 export interface QPFieldRadioButton extends QPField {
     ElementType: QPFieldElementType.RadioButton;
     Checked: boolean;
-    RadioName: string;
+    RadioName: string | null;
 }
 
 export interface QPFieldStatus extends QPFieldLabelValue {
