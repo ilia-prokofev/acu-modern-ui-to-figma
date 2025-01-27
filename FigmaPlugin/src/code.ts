@@ -8,12 +8,15 @@ import {
     QPField,
     QPFieldButton,
     QPFieldCheckbox,
-    QPFieldElementType, QPFieldLabelValue,
+    QPFieldElementType,
+    QPFieldHorizontalContainer,
+    QPFieldLabelValue,
     QPFieldMultilineTextEditor,
-    QPFieldRadioButton, QPFieldStatus
+    QPFieldRadioButton,
+    QPFieldStatus
 } from "./elements/qp-field";
 import {Template} from "./elements/qp-template";
-import {QPFieldset} from "./elements/qp-fieldset";
+import {QPFieldset, QPFieldsetStyle} from "./elements/qp-fieldset";
 import {AcuElement, AcuElementType} from "./elements/acu-element";
 import {FieldsetSlot} from "./elements/qp-fieldset-slot";
 import {Tab, TabBar} from "./elements/qp-tabbar";
@@ -45,6 +48,7 @@ let compMainHeader = undefined as unknown as ComponentNode;
 let compLeftMenu = undefined as unknown as ComponentNode;
 let compGrid = undefined as unknown as ComponentNode;
 let compTabbar = undefined as unknown as ComponentNode;
+let compCheckbox = undefined as unknown as ComponentNode;
 
 const buttonIcons = new Map<IconType, string>([
     [IconType.Refresh        , 'c49868efe2dfa88095d9db037824cdd7721ad06e'],
@@ -97,6 +101,7 @@ class figmaField {
     componentNode: ComponentNode | null = null;
     layoutMode: figmaLayoutMode = 'VERTICAL';
     figmaObject: FrameNode | InstanceNode | null = null;
+    detach = false;
 
     constructor(name: string, type: figmaFieldTypes = 'INSTANCE', width = 0, height = 0) {
         this.name = name;
@@ -162,6 +167,11 @@ async function Draw(field: figmaField, parent: InstanceNode | PageNode | GroupNo
     if (setView)
         figma.viewport.scrollAndZoomIntoView([instance]);
 
+    if (field.detach) {
+        instance = (instance as InstanceNode).detachInstance();
+        instance.children[1].remove();
+    }
+
     for (const child of field.children)
         await Draw(child, instance);
 }
@@ -180,10 +190,11 @@ class figmaRow extends figmaField{
         [QPFieldElementType.Status      , 'Label + Field'],
         [QPFieldElementType.Button      , 'Button'],
         [QPFieldElementType.RadioButton , 'Radio Button'],
-        [QPFieldElementType.MultilineTextEditor, 'Label + Text Area']
+        [QPFieldElementType.MultilineTextEditor, 'Label + Text Area'],
+        [QPFieldElementType.HorizontalContainer, 'Label + Field']
     ]);
 
-    constructor(field: QPField, name: string) {
+    constructor(field: QPField, name: string, parent: figmaField | null = null) {
         super(name, 'INSTANCE');
         this.acuElement = field;
 
@@ -253,6 +264,25 @@ class figmaRow extends figmaField{
                 status.componentProperties['Status'] = typedField.Value??'';
                 this.children.push(status);
                 break;
+            case QPFieldElementType.HorizontalContainer:
+                console.warn(elementType, 'row element type not supported');
+                return;
+                // if (parent)
+                //     parent.detach = true;
+                // this.detach = true;
+                // typedField = field as QPFieldHorizontalContainer;
+                // const container = new figmaField('Container', 'FRAME');
+                // container.tryToFind = false;
+                // container.layoutMode = 'HORIZONTAL';
+                // this.children.push(container);
+                // let childNumber = 1;
+                // for (const childField of typedField.Children) {
+                //     const newChild = new figmaRow(childField as QPField, `Child ${childNumber++}`);
+                //     newChild.tryToFind = false;
+                //     newChild.componentNode = compCheckbox;
+                //     container.children.push(newChild);
+                // }
+                // return;
             case QPFieldElementType.TextEditor:
             case QPFieldElementType.Selector:
             case QPFieldElementType.DropDown:
@@ -270,7 +300,7 @@ class figmaRow extends figmaField{
                 break;
             default:
                 console.warn(elementType, 'row element type not supported');
-                break
+                break;
         }
         if (child)
             child.componentProperties['State'] = field.ReadOnly == false ? defaultState : 'Disabled';
@@ -402,8 +432,6 @@ class figmaGrid extends figmaField {
             gridColumn.properties['visible'] = false;
             this.children.push(gridColumn);
         }
-
-        console.log(this);
     }
 }
 
@@ -585,16 +613,7 @@ class figmaSlot extends figmaField {
                     grid.componentProperties['Wrapped'] = 'Yes';
                     grid.properties['layoutAlign'] = 'STRETCH';
                     grid.height = 250;
-                    console.log(grid);
                     this.children.push(grid);
-                    // const fsGrid = {
-                    //     Id: 'fsGrid1',
-                    //     Type: AcuElementType.FieldSet,
-                    //     Label: 'Grid',
-                    //     Highlighted: false,
-                    //     Children: [fs as Grid]
-                    // } as QPFieldset;
-                    // this.children.push(new figmaFieldSet(fsGrid, width));
                     break;
             }
         });
@@ -674,8 +693,7 @@ class figmaFieldSet extends figmaField{
             this.children.push(child);
         }
 
-        if (fs.Highlighted)
-            this.componentProperties[this.wrappingPropName] = figmaFieldSet.Wrappings.Blue;
+        this.componentProperties[this.wrappingPropName] = fs.Style;
 
         let rowNumber = 0;
         for (const child of fs.Children) {
@@ -684,11 +702,13 @@ class figmaFieldSet extends figmaField{
                 this.children.push(new figmaGrid(child as unknown as Grid, 'Grid', false));
             }
             else
-                this.children.push(new figmaRow(child as QPField, `Row ${++rowNumber}`));
+                this.children.push(new figmaRow(child as QPField, `Row ${++rowNumber}`, this));
         }
 
         for (let i = 0; i < this.showRowPropNames.length; i++)
             this.componentProperties[this.showRowPropNames[i]] = (rowNumber > i);
+
+        console.log('fs1', this);
     }
 }
 
@@ -940,6 +960,7 @@ figma.ui.onmessage = async (msg: { input: string, reuseSummary: boolean, format:
     compHeader      = (await figma.importComponentSetByKeyAsync('6bf3d7f22449e758cc2b697dd7d80ad7a2d3c21a')).defaultVariant;
     compMainHeader  = (await figma.importComponentSetByKeyAsync('95717954e19e7929d19b33f7bcd03f16e8e1a51b')).defaultVariant;
     compGrid        = (await figma.importComponentSetByKeyAsync('b6b4901b43589a4e2e738087122069e2df254b8f')).defaultVariant;
+    compCheckbox    = (await figma.importComponentSetByKeyAsync('4b4affdd12a4320b054701445e4c34aa95af7198')).defaultVariant;
     compLeftMenu    = await figma.importComponentByKeyAsync('5b4ee7b5f881aa8f6e64f128f4cceef050357378');
     compTabbar      = await figma.importComponentByKeyAsync('e4b7a83b5e34cee8565ad8079b4932764b45dae4');
 
