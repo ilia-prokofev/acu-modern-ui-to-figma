@@ -149,13 +149,13 @@ async function Draw(field: figmaField, parent: InstanceNode | PageNode | GroupNo
     if (field.width > 0 || field.height > 0)
         instance.resize(field.width > 0 ? field.width : instance.width, field.height > 0 ? field.height : instance.height);
 
+    if (instance.type === 'INSTANCE')
+        SetProperties(instance, field.componentProperties);
+
     for (const property in field.properties) {
         // @ts-ignore
         instance[property] = field.properties[property];
     }
-
-    if (instance.type === 'INSTANCE')
-        SetProperties(instance, field.componentProperties);
 
     field.figmaObject = instance;
 
@@ -202,6 +202,7 @@ class figmaRow extends figmaField{
 
         let child;
         let typedField;
+        let defaultState = 'Default';
 
         switch (elementType) {
             case QPFieldElementType.CheckBox:
@@ -209,17 +210,15 @@ class figmaRow extends figmaField{
                 child = new figmaField('Checkbox');
                 child.componentProperties['Value ▶#6695:0'] = typedField.CheckboxName??'';
                 child.componentProperties['Selected'] = typedField.Checked ? 'True' : 'False';
-                if (field.ReadOnly)
-                    child.componentProperties['State'] = 'Disabled';
                 this.children.push(child);
                 break;
             case QPFieldElementType.RadioButton:
+                this.componentProperties['Label Position'] = 'Top';
+                this.componentProperties['Label Length'] = 's';
                 typedField = field as QPFieldRadioButton;
                 child = new figmaField('Radiobuttons');
                 child.componentProperties['Name#8227:0'] = typedField.RadioName??'';
                 child.componentProperties['Checked'] = typedField.Checked ? 'True' : 'False';
-                if (field.ReadOnly)
-                    child.componentProperties['State'] = 'Disabled';
                 this.children.push(child);
                 break;
             case QPFieldElementType.Button:
@@ -227,8 +226,6 @@ class figmaRow extends figmaField{
                 child = new figmaField('Button');
                 child.componentProperties['Type'] = 'Secondary';
                 child.componentProperties['Value ▶#3133:332'] = typedField.Value??'';
-                if (field.ReadOnly)
-                    child.componentProperties['State'] = 'Disabled';
                 this.children.push(child);
                 break;
             case QPFieldElementType.MultilineTextEditor:
@@ -239,8 +236,7 @@ class figmaRow extends figmaField{
 
                 child = new figmaField('Text Area');
                 child.componentProperties['Text Value ▶#4221:3'] = typedField.Value??'';
-                if (field.ReadOnly)
-                    child.componentProperties['State'] = 'Disabled';
+                defaultState = 'Normal';
                 this.children.push(child);
                 break;
             case QPFieldElementType.Status:
@@ -251,13 +247,11 @@ class figmaRow extends figmaField{
 
                 child = new figmaField('Field');
                 child.componentProperties['Type'] = 'Status';
-                if (field.ReadOnly)
-                    child.componentProperties['State'] = 'Disabled';
                 this.children.push(child);
 
-                child = new figmaField('Status');
-                child.componentProperties['Status'] = typedField.Value??'';
-                this.children.push(child);
+                const status = new figmaField('Status');
+                status.componentProperties['Status'] = typedField.Value??'';
+                this.children.push(status);
                 break;
             case QPFieldElementType.TextEditor:
             case QPFieldElementType.Selector:
@@ -269,16 +263,17 @@ class figmaRow extends figmaField{
                 child = new figmaField('Label');
                 child.componentProperties['Label Value ▶#3141:62'] = typedField.Label??'';
                 this.children.push(child);
+
                 child = new figmaField('Field');
                 child.componentProperties['Text Value ▶#3161:0'] = typedField.Value??'';
-                if (field.ReadOnly)
-                    child.componentProperties['State'] = 'Disabled';
                 this.children.push(child);
                 break;
             default:
                 console.warn(elementType, 'row element type not supported');
                 break
         }
+        if (child)
+            child.componentProperties['State'] = field.ReadOnly == false ? defaultState : 'Disabled';
     }
 }
 
@@ -324,45 +319,32 @@ class figmaGrid extends figmaField {
         if (grid.ToolBar)
             this.children.push(new figmaToolbar(grid.ToolBar));
 
-        const columnSettings = new figmaField(`Grid Column 1`);
-        columnSettings.properties['visible'] = false;
-        this.children.push(columnSettings);
-
-        const columnNotes = new figmaField(`Grid Column 2`);
-        columnNotes.properties['visible'] = false;
-        this.children.push(columnNotes);
-
-        const columnFiles = new figmaField(`Grid Column 3`);
-        columnFiles.properties['visible'] = false;
-        this.children.push(columnFiles);
-
-        let columnNumber = 4;
+        let columnNumber = 1;
 
         for (let i = 1; i <= visibleColumns; i++) {
             const column = grid.Columns[i-1];
-            let columnInstance;
-            switch (column.ColumnType) {
-                case GridColumnType.Settings:
-                    columnSettings.properties['visible'] = true;
-                    continue;
-                case GridColumnType.Files:
-                    columnInstance = columnFiles;
-                    break;
-                case GridColumnType.Notes:
-                    columnInstance = columnNotes;
-                    break;
-                default:
-                    columnInstance = new figmaField(`Grid Column ${columnNumber++}`);
-                    if (!this.columnTypes.has(column.ColumnType))
-                        console.warn(`${this.columnTypes} column type is not supported`);
-                    else
-                        columnInstance.componentProperties['Type'] = this.columnTypes.get(column.ColumnType)!;
-                    columnInstance.componentProperties['Alignment'] = (column.Alignment == 'Right' ? 'Right' : 'Left');
-                    this.children.push(columnInstance);
-                    break;
-            }
+            let columnInstance = new figmaField(`Grid Column ${columnNumber++}`);
+
+            if (!this.columnTypes.has(column.ColumnType))
+                console.warn(`${this.columnTypes} column type is not supported`);
+            else
+                columnInstance.componentProperties['Type'] = this.columnTypes.get(column.ColumnType)!;
 
             columnInstance.properties['visible'] = true;
+            columnInstance.properties['counterAxisSizingMode'] = 'AUTO';
+
+            if (column.ColumnType == GridColumnType.Settings ||
+                column.ColumnType == GridColumnType.Notes ||
+                column.ColumnType == GridColumnType.Files)
+                columnInstance.properties['layoutGrow'] = 0;
+            else
+                columnInstance.properties['layoutGrow'] = 1;
+
+            if (column.ColumnType == GridColumnType.Settings)
+                continue;
+
+            columnInstance.componentProperties['Alignment'] = (column.Alignment == 'Right' ? 'Right' : 'Left');
+            this.children.push(columnInstance);
 
             for (let j = displayedRowsDefault; j < displayedRows; j++) {
                 const cell = new figmaField(`Cell ${j+1}`);
@@ -420,6 +402,8 @@ class figmaGrid extends figmaField {
             gridColumn.properties['visible'] = false;
             this.children.push(gridColumn);
         }
+
+        console.log(this);
     }
 }
 
