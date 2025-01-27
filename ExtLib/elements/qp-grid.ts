@@ -31,6 +31,7 @@ export interface GridFooter {
 
 export interface Grid extends QPToolbarContainer {
     Type: AcuElementType.Grid;
+    Caption: string | null;
     Columns: GridColumn[];
     Footer: GridFooter | null;
 }

@@ -179,6 +179,7 @@
     {
       "Children": [
         {
+          "Caption": null,
           "Columns": [
             {
               "Alignment": "Left",

@@ -30,9 +30,10 @@ describe('acu-page-parser.test', () => {
         return {
             Type: AcuElementType.Grid,
             Id: "Grid",
-            Footer: null,
+            Caption: null,
             Columns: [],
             ToolBar: null,
+            Footer: null,
         }
     }
 
@@ -163,6 +164,13 @@ describe('acu-page-parser.test', () => {
             incomingHTMLFileName: './test-cases/elements/grid-footer-simple-input.html',
             expectedJSONFile: './test-cases/elements/grid-footer-simple-output.json',
             parent: createGrid(),
+        },
+        {
+            testName: "elements/grid-caption",
+            childrenVisitor: new ChildrenVisitor([new QPGridVisitor()]),
+            incomingHTMLFileName: './test-cases/elements/grid-caption-input.html',
+            expectedJSONFile: './test-cases/elements/grid-caption-output.json',
+            parent: createRoot(),
         },
     ]
 
