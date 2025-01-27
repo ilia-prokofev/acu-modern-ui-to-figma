@@ -1,6 +1,12 @@
 import {AcuElement, AcuElementType} from "../elements/acu-element";
 import {AcuContainer} from "../elements/acu-container";
-import {QPField, QPFieldElementType} from "../elements/qp-field";
+import {
+    QPField, QPFieldButton, QPFieldCheckbox,
+    QPFieldElementType, QPFieldLabelValue,
+    QPFieldMultilineTextEditor,
+    QPFieldRadioButton, QPFieldSelector,
+    QPFieldStatus,
+} from "../elements/qp-field";
 import ElementVisitor from "./qp-element-visitor";
 import ChildrenVisitor from "./children-visitors";
 import {
@@ -41,16 +47,15 @@ export default class QPFieldVisitor implements ElementVisitor {
                 continue;
             }
 
-            const field: QPField = {
+            const field: QPFieldRadioButton = {
                 Type: AcuElementType.Field,
                 Id: concatElementID(parent.Id, element),
                 ElementType: QPFieldElementType.RadioButton,
-                Value: inputElement?.getAttribute("checked") === "checked" ? "on" : "off",
-                Label: null,
+                Checked: inputElement?.getAttribute("checked") === "checked",
+                RadioName: this.getLabel(radioElement),
                 ReadOnly: isElementDisabled(element),
             };
 
-            this.visitLabel(radioElement, field);
             parent.Children.push(field);
         }
 
@@ -58,17 +63,8 @@ export default class QPFieldVisitor implements ElementVisitor {
     }
 
     visitSingleField(element: Element, parent: AcuContainer): boolean {
-        const field: QPField = {
-            Type: AcuElementType.Field,
-            Id: concatElementID(parent.Id, element),
-            ElementType: QPFieldElementType.TextEditor,
-            Value: null,
-            Label: null,
-            ReadOnly: true,
-        };
-
-        this.visitLabel(element, field)
-        if (!this.visitEditor(element, field)) {
+        const field = this.createField(element, parent.Id);
+        if (!field) {
             return false;
         }
 
@@ -77,90 +73,137 @@ export default class QPFieldVisitor implements ElementVisitor {
         return true;
     }
 
-    visitLabel(htmlElement: Element, field: QPField) {
-        const labelElement = findElementByNodeNameDown(htmlElement, "label");
-        if (!labelElement) {
-            return;
-        }
-
-        field.Label = labelElement.textContent?.trim() ?? null;
-        return;
-    }
-
-    visitEditor(element: Element, field: QPField): boolean {
+    createField(element: Element, parentId: string): QPField | null {
         if (element.getAttribute("name") === "Status") {
             const enhancedComposeElement = findElementByNodeNameDown(element, "enhanced-compose");
             if (enhancedComposeElement) {
-                field.Value = findFirstLeafTextContent(enhancedComposeElement);
-                field.ElementType = QPFieldElementType.Status;
-                return true;
+                const field: QPFieldStatus = {
+                    Type: AcuElementType.Field,
+                    ReadOnly: isElementDisabled(element),
+                    ElementType: QPFieldElementType.Status,
+                    Id: concatElementID(parentId, element),
+                    Label: this.getLabel(element),
+                    Value: findFirstLeafTextContent(enhancedComposeElement),
+                };
+                return field;
             }
         }
 
         const textAreaElement = findElementByNodeNameDown(element, "textarea")
         if (textAreaElement) {
-            field.Value = textAreaElement?.textContent?.trim() ?? null
-            field.ElementType = QPFieldElementType.MultilineTextEditor;
-            return true;
+            const field: QPFieldMultilineTextEditor = {
+                Type: AcuElementType.Field,
+                ReadOnly: isElementDisabled(element),
+                ElementType: QPFieldElementType.MultilineTextEditor,
+                Id: concatElementID(parentId, element),
+                Label: this.getLabel(element),
+                Value: textAreaElement?.textContent?.trim() ?? null,
+            };
+            return field;
         }
 
         if (findElementByClassesDown(element, 'qp-text-editor-control')) {
-            field.Value = this.getInputValue(element);
-            field.ElementType = QPFieldElementType.TextEditor;
-            return true;
+            return this.createFieldLabelValue(
+                element,
+                parentId,
+                QPFieldElementType.TextEditor
+            );
         }
 
         if (findElementByClassesDown(element, 'qp-selector-control')) {
-            field.ElementType = QPFieldElementType.Selector;
-            field.Value = this.getInputValue(element)
-                ?? this.getSelectorLink(element);
-
-            return true;
+            const field: QPFieldSelector = {
+                Type: AcuElementType.Field,
+                ReadOnly: isElementDisabled(element),
+                ElementType: QPFieldElementType.Selector,
+                Id: concatElementID(parentId, element),
+                Label: this.getLabel(element),
+                Value: this.getInputValue(element)
+                    ?? this.getSelectorLink(element),
+            };
+            return field;
         }
         if (findElementByClassesDown(element, 'qp-drop-down-control')) {
-            field.ElementType = QPFieldElementType.DropDown;
-            field.Value = this.getInputValue(element);
-
-            return true;
+            return this.createFieldLabelValue(
+                element,
+                parentId,
+                QPFieldElementType.DropDown,
+            );
         }
 
         if (findElementByClassesDown(element, 'qp-check-box-control')) {
-            this.visitCheckBox(element, field);
+            const input = findElementByNodeNameDown(element, 'input');
+            const enhancedComposeElement = findElementByNodeNameDown(element, "enhanced-compose");
 
-            return true;
+            const field: QPFieldCheckbox = {
+                Type: AcuElementType.Field,
+                ReadOnly: isElementDisabled(element),
+                ElementType: QPFieldElementType.CheckBox,
+                Id: concatElementID(parentId, element),
+                CheckboxName: enhancedComposeElement ? this.getLabel(enhancedComposeElement) : null,
+                Checked: input?.getAttribute("checked") === "checked",
+            };
+            return field;
         }
 
         if (findElementByClassesDown(element, 'qp-datetime-edit-control')) {
-            field.ElementType = QPFieldElementType.DatetimeEdit;
-            field.Value = this.getInputValue(element);
-
-            return true;
+            return this.createFieldLabelValue(
+                element,
+                parentId,
+                QPFieldElementType.DateTimeEdit,
+            );
         }
 
         if (findElementByClassesDown(element, 'qp-currency-control')) {
-            field.ElementType = QPFieldElementType.Currency;
-            field.Value = this.getInputValue(element);
-
-            return true;
+            return this.createFieldLabelValue(
+                element,
+                parentId,
+                QPFieldElementType.Currency
+            );
         }
 
         if (findElementByClassesDown(element, 'qp-number-editor-control')) {
-            field.ElementType = QPFieldElementType.NumberEditor;
-            field.Value = this.getInputValue(element);
-
-            return true;
+            return this.createFieldLabelValue(
+                element,
+                parentId,
+                QPFieldElementType.NumberEditor
+            );
         }
 
         const buttonElement = findElementByNodeNameDown(element, "qp-button");
         if (buttonElement) {
             const button = parseButton(element);
-            field.ReadOnly = !button.Enabled;
-            field.Value = button.Text;
-            field.ElementType = QPFieldElementType.Button;
-            return true;
+            const field: QPFieldButton = {
+                Type: AcuElementType.Field,
+                ReadOnly: !button.Enabled,
+                ElementType: QPFieldElementType.Button,
+                Id: concatElementID(parentId, element),
+                Label: this.getLabel(element),
+                Value: button.Text,
+            };
+            return field;
         }
 
-        return false;
+        return null;
+    }
+
+    private createFieldLabelValue(element: Element, parentId: string, elementType: QPFieldElementType): QPFieldLabelValue {
+        return {
+            Type: AcuElementType.Field,
+            ReadOnly: isElementDisabled(element),
+            ElementType: elementType,
+            Id: concatElementID(parentId, element),
+            Label: this.getLabel(element),
+            Value: this.getInputValue(element),
+        };
+    }
+
+    private getLabel(htmlElement: Element): string | null {
+        const labelElement = findElementByNodeNameDown(htmlElement, "label");
+        if (!labelElement) {
+            return null;
+        }
+
+        return labelElement.textContent?.trim() ?? null;
     }
 
     private getInputValue(element: Element): string | null {
@@ -189,17 +232,5 @@ export default class QPFieldVisitor implements ElementVisitor {
         }
 
         return text;
-    }
-
-    private visitCheckBox(element: Element, field: QPField) {
-        field.ElementType = QPFieldElementType.CheckBox;
-
-        const input = findElementByNodeNameDown(element, 'input');
-        field.Value = input?.getAttribute("checked") === "checked" ? "on" : "off";
-
-        const enhancedComposeElement = findElementByNodeNameDown(element, "enhanced-compose");
-        if (enhancedComposeElement) {
-            this.visitLabel(enhancedComposeElement, field);
-        }
     }
 }

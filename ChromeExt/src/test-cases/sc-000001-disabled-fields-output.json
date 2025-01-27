@@ -23,7 +23,7 @@
               "Value": "Open"
             },
             {
-              "ElementType": "DatetimeEdit",
+              "ElementType": "DateTimeEdit",
               "Id": "Root-1311-1312-1551",
               "Label": "Date",
               "ReadOnly": true,
@@ -31,7 +31,7 @@
               "Value": "12/1/2022"
             },
             {
-              "ElementType": "DatetimeEdit",
+              "ElementType": "DateTimeEdit",
               "Id": "Root-1311-1312-1553",
               "Label": "Start Date",
               "ReadOnly": true,
