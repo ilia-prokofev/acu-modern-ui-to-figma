@@ -88,8 +88,6 @@ export default class QPFieldVisitor implements ElementVisitor {
     }
 
     visitEditor(element: Element, field: QPField): boolean {
-
-
         if (element.getAttribute("name") === "Status") {
             const enhancedComposeElement = findElementByNodeNameDown(element, "enhanced-compose");
             if (enhancedComposeElement) {
