@@ -1,0 +1,37 @@
+{
+  "Caption": null,
+  "Children": [
+    {
+      "Children": [
+        {
+          "ElementType": "Selector",
+          "Id": "Root-1655-223",
+          "Label": null,
+          "Mandatory": false,
+          "ReadOnly": false,
+          "Type": "Field",
+          "Value": "EA"
+        },
+        {
+          "CheckboxName": "Divisible Unit",
+          "Checked": true,
+          "ElementType": "CheckBox",
+          "Id": "Root-1655-1656",
+          "Mandatory": false,
+          "ReadOnly": false,
+          "Type": "Field"
+        }
+      ],
+      "ElementType": "HorizontalContainer",
+      "Id": "Root-1655",
+      "Label": "Base Unit",
+      "Mandatory": true,
+      "ReadOnly": false,
+      "Type": "Field"
+    }
+  ],
+  "Id": "Root",
+  "Title": null,
+  "ToolBar": null,
+  "Type": "Root"
+}

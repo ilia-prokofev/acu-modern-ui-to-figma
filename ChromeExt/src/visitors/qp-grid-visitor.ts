@@ -6,7 +6,7 @@ import ChildrenVisitor from "./children-visitors";
 import {
     concatElementID,
     findElementByClassesDown,
-    findElementByNodeNameDown,
+    findElementByNodeNameDown, findFirstLeafTextContent,
     getElementAlignment,
     innerTextContent
 } from "./html-element-utils";
@@ -28,22 +28,29 @@ export default class QPGridVisitor implements ElementVisitor {
         const grid: Grid = {
             Type: AcuElementType.Grid,
             Id: concatElementID(parent.Id, htmlElement),
+            Caption: this.parseCaption(htmlElement),
             ToolBar: null,
             Columns: [],
+            Footer: null,
         };
 
-        this.setupCells(grid, htmlElement);
-
-        if (grid.Columns.length === 0) {
-            return false;
-        }
+        this.visitCells(grid, htmlElement);
 
         allVisitor.visitChildren(htmlElement, grid);
         (parent as AcuContainer).Children.push(grid);
         return true;
     }
 
-    setupCells(grid: Grid, htmlElement: Element) {
+    parseCaption(htmlElement: Element): string | null {
+        const captionElement = findElementByClassesDown(htmlElement, "qp-caption");
+        if (!captionElement) {
+            return null;
+        }
+
+        return findFirstLeafTextContent(captionElement);
+    }
+
+    visitCells(grid: Grid, htmlElement: Element) {
         const tHeadElement = findElementByNodeNameDown(htmlElement, "thead");
         if (!tHeadElement) {
             return;

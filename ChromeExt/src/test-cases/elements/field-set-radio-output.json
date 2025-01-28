@@ -4,25 +4,27 @@
     {
       "Children": [
         {
+          "Checked": true,
           "ElementType": "RadioButton",
           "Id": "Root-1322-1640",
-          "Label": "Fixed Retainage",
+          "Mandatory": false,
+          "RadioName": "Fixed Retainage",
           "ReadOnly": false,
-          "Type": "Field",
-          "Value": "on"
+          "Type": "Field"
         },
         {
+          "Checked": false,
           "ElementType": "RadioButton",
           "Id": "Root-1322-1640",
-          "Label": "Retainage with Steps",
+          "Mandatory": false,
+          "RadioName": "Retainage with Steps",
           "ReadOnly": false,
-          "Type": "Field",
-          "Value": "off"
+          "Type": "Field"
         }
       ],
-      "Highlighted": false,
       "Id": "Root-1322",
       "Label": null,
+      "Style": "Gray",
       "Type": "FieldSet"
     }
   ],

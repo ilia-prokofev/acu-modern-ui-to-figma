@@ -1,6 +1,6 @@
 import {AcuElement, AcuElementType} from "../elements/acu-element";
 import {AcuContainer} from "../elements/acu-container";
-import {QPFieldset} from "../elements/qp-fieldset";
+import {QPFieldset, QPFieldsetStyle} from "../elements/qp-fieldset";
 import ElementVisitor from "./qp-element-visitor";
 import {concatElementID, findClasses, findElementByClassesDown} from "./html-element-utils";
 import ChildrenVisitor from "./children-visitors";
@@ -22,15 +22,23 @@ export default class QPFieldsetVisitor implements ElementVisitor {
             Type: AcuElementType.FieldSet,
             Id: concatElementID(parent.Id, htmlElement),
             Children: [],
-            Highlighted: findClasses(htmlElement, 'highlights-section'),
+            Style: this.parseFieldSetStyle(htmlElement),
         };
 
         allVisitor.visitChildren(htmlElement, child);
-        if (!child.Label && child.Children.length === 0) {
-            return false;
-        }
-
         (parent as AcuContainer).Children.push(child);
         return true;
+    }
+
+    private parseFieldSetStyle(element: Element): QPFieldsetStyle {
+        if (findClasses(element, "highlights-section")) {
+            return QPFieldsetStyle.Blue;
+        }
+
+        if (findClasses(element, "transparent-section")) {
+            return QPFieldsetStyle.Default;
+        }
+
+        return QPFieldsetStyle.Gray;
     }
 }

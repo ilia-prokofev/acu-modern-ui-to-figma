@@ -1,17 +1,18 @@
 {
-  "Title": null,
   "Caption": null,
   "Children": [
     {
-      "ElementType": "CheckBox",
-      "Id": "Root-1419",
-      "Label": "Override",
+      "ElementType": "Selector",
+      "Id": "Root-1732",
+      "Label": "Project ID",
+      "Mandatory": true,
       "ReadOnly": false,
       "Type": "Field",
-      "Value": "off"
+      "Value": null
     }
   ],
   "Id": "Root",
+  "Title": null,
   "ToolBar": null,
   "Type": "Root"
 }

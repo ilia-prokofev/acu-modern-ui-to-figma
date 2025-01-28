@@ -1,5 +1,4 @@
 {
-  "Title": "Subcontracts",
   "Caption": "SC-000036 - CB Sitework, Inc.",
   "Children": [
     {
@@ -10,6 +9,7 @@
               "ElementType": "Selector",
               "Id": "Root-1311-1312-1543",
               "Label": "Subcontract Nbr.",
+              "Mandatory": false,
               "ReadOnly": false,
               "Type": "Field",
               "Value": "SC-000036"
@@ -18,23 +18,26 @@
               "ElementType": "Status",
               "Id": "Root-1311-1312-1545",
               "Label": "Status",
+              "Mandatory": false,
               "ReadOnly": true,
               "Type": "Field",
-              "Value": "On Hold"
+              "Value": "Open"
             },
             {
-              "ElementType": "DatetimeEdit",
+              "ElementType": "DateTimeEdit",
               "Id": "Root-1311-1312-1551",
               "Label": "Date",
-              "ReadOnly": false,
+              "Mandatory": true,
+              "ReadOnly": true,
               "Type": "Field",
               "Value": "12/1/2022"
             },
             {
-              "ElementType": "DatetimeEdit",
+              "ElementType": "DateTimeEdit",
               "Id": "Root-1311-1312-1553",
               "Label": "Start Date",
-              "ReadOnly": false,
+              "Mandatory": false,
+              "ReadOnly": true,
               "Type": "Field",
               "Value": "12/1/2022"
             },
@@ -42,14 +45,15 @@
               "ElementType": "TextEditor",
               "Id": "Root-1311-1312-1557",
               "Label": "Vendor Ref.",
-              "ReadOnly": false,
+              "Mandatory": false,
+              "ReadOnly": true,
               "Type": "Field",
               "Value": ""
             }
           ],
-          "Highlighted": false,
           "Id": "Root-1311-1312",
           "Label": null,
+          "Style": "Gray",
           "Type": "FieldSet"
         },
         {
@@ -58,7 +62,8 @@
               "ElementType": "Selector",
               "Id": "Root-1311-1313-1559",
               "Label": "Vendor",
-              "ReadOnly": false,
+              "Mandatory": true,
+              "ReadOnly": true,
               "Type": "Field",
               "Value": "CBSITEWORK- CB Sitework, Inc."
             },
@@ -66,7 +71,8 @@
               "ElementType": "Selector",
               "Id": "Root-1311-1313-1561",
               "Label": "Location",
-              "ReadOnly": false,
+              "Mandatory": true,
+              "ReadOnly": true,
               "Type": "Field",
               "Value": "MAIN - Primary Location"
             },
@@ -74,7 +80,8 @@
               "ElementType": "Selector",
               "Id": "Root-1311-1313-1563",
               "Label": "Owner",
-              "ReadOnly": false,
+              "Mandatory": false,
+              "ReadOnly": true,
               "Type": "Field",
               "Value": "Maxwell Baker"
             },
@@ -82,7 +89,8 @@
               "ElementType": "Currency",
               "Id": "Root-1311-1313-1567",
               "Label": "Currency",
-              "ReadOnly": false,
+              "Mandatory": true,
+              "ReadOnly": true,
               "Type": "Field",
               "Value": "USD"
             },
@@ -90,14 +98,15 @@
               "ElementType": "MultilineTextEditor",
               "Id": "Root-1311-1313-1569",
               "Label": "Description",
-              "ReadOnly": false,
+              "Mandatory": false,
+              "ReadOnly": true,
               "Type": "Field",
               "Value": "SITE WORK"
             }
           ],
-          "Highlighted": false,
           "Id": "Root-1311-1313",
           "Label": null,
+          "Style": "Gray",
           "Type": "FieldSet"
         },
         {
@@ -106,6 +115,7 @@
               "ElementType": "NumberEditor",
               "Id": "Root-1311-1314-1571",
               "Label": "Detail Total",
+              "Mandatory": false,
               "ReadOnly": true,
               "Type": "Field",
               "Value": "170,000.00"
@@ -114,6 +124,7 @@
               "ElementType": "NumberEditor",
               "Id": "Root-1311-1314-1573",
               "Label": "Line Discounts",
+              "Mandatory": false,
               "ReadOnly": true,
               "Type": "Field",
               "Value": "0.00"
@@ -122,6 +133,7 @@
               "ElementType": "NumberEditor",
               "Id": "Root-1311-1314-1575",
               "Label": "Document Discounts",
+              "Mandatory": false,
               "ReadOnly": true,
               "Type": "Field",
               "Value": "0.00"
@@ -130,6 +142,7 @@
               "ElementType": "NumberEditor",
               "Id": "Root-1311-1314-1577",
               "Label": "Tax Total",
+              "Mandatory": false,
               "ReadOnly": true,
               "Type": "Field",
               "Value": "0.00"
@@ -138,6 +151,7 @@
               "ElementType": "NumberEditor",
               "Id": "Root-1311-1314-1579",
               "Label": "Subcontract Total",
+              "Mandatory": false,
               "ReadOnly": true,
               "Type": "Field",
               "Value": "170,000.00"
@@ -146,14 +160,15 @@
               "ElementType": "NumberEditor",
               "Id": "Root-1311-1314-1583",
               "Label": "Retainage Total",
+              "Mandatory": false,
               "ReadOnly": true,
               "Type": "Field",
               "Value": "8,500.00"
             }
           ],
-          "Highlighted": true,
           "Id": "Root-1311-1314",
           "Label": null,
+          "Style": "Blue",
           "Type": "FieldSet"
         }
       ],
@@ -164,6 +179,7 @@
     {
       "Children": [
         {
+          "Caption": null,
           "Columns": [
             {
               "Alignment": "Left",
@@ -529,6 +545,7 @@
               "Type": "GridColumn"
             }
           ],
+          "Footer": null,
           "Id": "Root-402-1317",
           "ToolBar": {
             "Id": "Root-402-1317-1054",
@@ -541,24 +558,10 @@
                 "Text": null
               },
               {
-                "Enabled": true,
-                "Icon": "AddRow",
-                "ItemType": "Button",
-                "Style": "Tertiary",
-                "Text": null
-              },
-              {
-                "Enabled": true,
-                "Icon": "DeleteRow",
-                "ItemType": "Button",
-                "Style": "Tertiary",
-                "Text": null
-              },
-              {
-                "Enabled": true,
+                "Enabled": false,
                 "Icon": null,
                 "ItemType": "Button",
-                "Style": "Tertiary",
+                "Style": "Secondary",
                 "Text": "Add Project Items"
               },
               {
@@ -658,6 +661,7 @@
     }
   ],
   "Id": "Root",
+  "Title": "Subcontracts",
   "ToolBar": {
     "Id": "Root-22",
     "Items": [
@@ -743,13 +747,13 @@
         "Icon": null,
         "ItemType": "Button",
         "Style": "Special",
-        "Text": "Remove Hold"
+        "Text": "Enter AP Bill"
       },
       {
         "Enabled": true,
         "Icon": "Ellipsis",
         "ItemType": "Button",
-        "Style": "Tertiary",
+        "Style": "Secondary",
         "Text": null
       }
     ],

@@ -7,25 +7,14 @@ export function findClasses(htmlElement: Element, ...classNames: string[]): bool
     }
 
     const classes = classAttr.split(" ");
-    for (const className of classNames) {
-        if (classes.find(c => c === className) === undefined) {
+    for (let className of classNames) {
+        className = className.toLowerCase();
+        if (classes.find(c => c.toLowerCase() === className) === undefined) {
             return false;
         }
     }
 
     return true;
-}
-
-export function findElementByClassesUp(htmlElement: Element, ...classNames: string[]): Element | null {
-    if (findClasses(htmlElement, ...classNames)) {
-        return htmlElement;
-    }
-
-    if (!htmlElement.parentElement) {
-        return null;
-    }
-
-    return findElementByClassesUp(htmlElement.parentElement, ...classNames);
 }
 
 export function findElementByClassesDown(htmlElement: Element, ...classNames: string[]): Element | null {
@@ -43,7 +32,7 @@ export function findElementByClassesDown(htmlElement: Element, ...classNames: st
     return null;
 }
 
-export function findElementByNodeNameDown(htmlElement: Element, nodeName: string): Element | null {
+export function findElementByNodeNameDown(htmlElement: Element, nodeName: string,): Element | null {
     if (htmlElement.nodeName.toLowerCase() === nodeName.toLowerCase()) {
         return htmlElement;
     }
@@ -56,6 +45,36 @@ export function findElementByNodeNameDown(htmlElement: Element, nodeName: string
     }
 
     return null;
+}
+
+export function findElementByNodeNameAndClassesDown(
+    htmlElement: Element,
+    nodeName: string,
+    ...classNames: string[]
+): Element | null {
+    if (htmlElement.nodeName.toLowerCase() === nodeName.toLowerCase() &&
+        findClasses(htmlElement, ...classNames)) {
+        return htmlElement;
+    }
+
+    for (const element of htmlElement.children) {
+        const foundElement = findElementByNodeNameAndClassesDown(element, nodeName, ...classNames)
+        if (foundElement) {
+            return foundElement;
+        }
+    }
+
+    return null;
+}
+
+export function findAllElementsByNodeNameDown(htmlElement: Element, nodeName: string, target: Element[]) {
+    if (htmlElement.nodeName.toLowerCase() === nodeName.toLowerCase()) {
+        target.push(htmlElement);
+    }
+
+    for (const child of htmlElement.children) {
+        findAllElementsByNodeNameDown(child, nodeName, target);
+    }
 }
 
 export function innerTextContent(htmlElement: Element): string | null {

@@ -2,6 +2,7 @@
   "Caption": "",
   "Children": [
     {
+      "Caption": null,
       "Columns": [
         {
           "Alignment": "Left",
@@ -316,6 +317,9 @@
           "Type": "GridColumn"
         }
       ],
+      "Footer": {
+        "FooterType": "GI"
+      },
       "Id": "Root-1313",
       "ToolBar": {
         "Id": "Root-1313-1062",

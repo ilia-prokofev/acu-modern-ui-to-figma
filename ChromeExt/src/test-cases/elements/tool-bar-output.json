@@ -1,28 +1,28 @@
 {
-  "Title": null,
   "Caption": null,
   "Children": [],
   "Id": "Root",
+  "Title": null,
   "ToolBar": {
-    "Id": "Root-1054",
+    "Id": "Root-22",
     "Items": [
       {
         "Enabled": true,
-        "Icon": "Refresh",
+        "Icon": "Back",
         "ItemType": "Button",
         "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": false,
-        "Icon": null,
+        "Icon": "SaveAndBack",
         "ItemType": "Button",
         "Style": "Tertiary",
-        "Text": "Add Project Items"
+        "Text": null
       },
       {
-        "Enabled": true,
-        "Icon": "Import",
+        "Enabled": false,
+        "Icon": "Save",
         "ItemType": "Button",
         "Style": "Tertiary",
         "Text": null
@@ -43,29 +43,57 @@
       },
       {
         "Enabled": true,
-        "Icon": "Edit",
+        "Icon": "Delete",
         "ItemType": "Button",
         "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
-        "Icon": "AdjustColumns",
+        "Icon": "Copy",
         "ItemType": "Button",
         "Style": "Tertiary",
         "Text": null
       },
       {
         "Enabled": true,
-        "Icon": "ExportToExcel",
+        "Icon": "First",
         "ItemType": "Button",
         "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Previous",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Next",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Last",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Ellipsis",
+        "ItemType": "Button",
+        "Style": "Secondary",
         "Text": null
       }
     ],
-    "ShowRightAction": true,
+    "ShowRightAction": false,
     "ShowSaveButton": false,
-    "ToolBarType": "List",
+    "ToolBarType": "Record",
     "Type": "ToolBar"
   },
   "Type": "Root"

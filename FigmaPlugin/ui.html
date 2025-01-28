@@ -7,8 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 10px 20px 0 20px;
-            padding-top: 10px;
+            margin: 10px;
             background-color: #f4f4f4;
             color: #333;
             min-width: 610px;
@@ -47,12 +46,18 @@
 
         textarea {
             width: 100%;
-            height: 250px;
+            height: 200px;
             border: 1px solid #d1d1d1;
             border-radius: 4px;
             padding: 8px;
             resize: vertical;
             font-size: 14px;
+        }
+
+        textarea.log {
+            margin: 10px 0 0 0;
+            height: 75px;
+            background-color: #f0f0f0;
         }
 
         .progress-container {
@@ -151,6 +156,11 @@
         <button id="cancel">Cancel</button>
         <button id="import">Import</button>
     </div>
+    <div>
+        <label for="log">
+        </label>
+        <textarea class="log" id="log" readonly placeholder="log"></textarea>
+    </div>
 </div>
 
 <script>
@@ -183,6 +193,8 @@
         } else if (msg?.type === 'unlock') {
             isProcessing = false;
             document.getElementById('import').disabled = false;
+        } else if (msg?.type === 'log') {
+            document.getElementById('log').value = msg.log;
         }
     };
 </script>

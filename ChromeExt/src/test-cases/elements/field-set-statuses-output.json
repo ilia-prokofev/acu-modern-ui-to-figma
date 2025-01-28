@@ -7,14 +7,15 @@
           "ElementType": "Status",
           "Id": "Root-1312-1545",
           "Label": "Status",
+          "Mandatory": false,
           "ReadOnly": true,
           "Type": "Field",
           "Value": "Open"
         }
       ],
-      "Highlighted": false,
       "Id": "Root-1312",
       "Label": null,
+      "Style": "Gray",
       "Type": "FieldSet"
     }
   ],

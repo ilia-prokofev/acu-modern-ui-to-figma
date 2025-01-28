@@ -1,0 +1,10 @@
+{
+  "Caption": null,
+  "Columns": [],
+  "Footer": {
+    "FooterType": "GI"
+  },
+  "Id": "Grid",
+  "ToolBar": null,
+  "Type": "Grid"
+}

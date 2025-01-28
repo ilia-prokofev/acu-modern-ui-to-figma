@@ -5,6 +5,7 @@
       "ElementType": "Button",
       "Id": "Root-1422",
       "Label": "",
+      "Mandatory": false,
       "ReadOnly": true,
       "Type": "Field",
       "Value": "Address Lookup"
