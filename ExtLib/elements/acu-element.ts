@@ -9,6 +9,8 @@ export enum AcuElementType {
     FieldsetSlot = 'FieldsetSlot',
     Root = 'Root',
     ToolBar = 'ToolBar',
+    SplitContainer = "SplitContainer",
+    SplitPanel = "SplitPanel",
 }
 
 export interface AcuElement {

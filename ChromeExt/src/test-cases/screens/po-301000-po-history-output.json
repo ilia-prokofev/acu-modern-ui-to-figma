@@ -1,0 +1,594 @@
+{
+  "Caption": "RO PO002511 - Widget Supply Company - ACH",
+  "Children": [
+    {
+      "Children": [
+        {
+          "Children": [
+            {
+              "ElementType": "DropDown",
+              "Id": "Root-1311-1312-1598",
+              "Label": "Type",
+              "Mandatory": false,
+              "ReadOnly": false,
+              "Type": "Field",
+              "Value": "Normal"
+            },
+            {
+              "ElementType": "Selector",
+              "Id": "Root-1311-1312-1600",
+              "Label": "Order Nbr.",
+              "Mandatory": false,
+              "ReadOnly": false,
+              "Type": "Field",
+              "Value": "PO002511"
+            },
+            {
+              "ElementType": "Status",
+              "Id": "Root-1311-1312-1602",
+              "Label": "Status",
+              "Mandatory": false,
+              "ReadOnly": true,
+              "Type": "Field",
+              "Value": "Closed"
+            },
+            {
+              "ElementType": "DateTimeEdit",
+              "Id": "Root-1311-1312-1608",
+              "Label": "Date",
+              "Mandatory": true,
+              "ReadOnly": true,
+              "Type": "Field",
+              "Value": "8/1/2024"
+            },
+            {
+              "ElementType": "DateTimeEdit",
+              "Id": "Root-1311-1312-1610",
+              "Label": "Promised On",
+              "Mandatory": false,
+              "ReadOnly": true,
+              "Type": "Field",
+              "Value": "8/1/2024"
+            },
+            {
+              "ElementType": "TextEditor",
+              "Id": "Root-1311-1312-1614",
+              "Label": "Vendor Ref.",
+              "Mandatory": false,
+              "ReadOnly": true,
+              "Type": "Field",
+              "Value": ""
+            }
+          ],
+          "Id": "Root-1311-1312",
+          "Label": null,
+          "Style": "Gray",
+          "Type": "FieldSet"
+        },
+        {
+          "Children": [
+            {
+              "ElementType": "Selector",
+              "Id": "Root-1311-1313-1586",
+              "Label": "Vendor",
+              "Mandatory": true,
+              "ReadOnly": true,
+              "Type": "Field",
+              "Value": "WIDSUPPLY- Widget Supply Company - ACH"
+            },
+            {
+              "ElementType": "Selector",
+              "Id": "Root-1311-1313-1588",
+              "Label": "Location",
+              "Mandatory": true,
+              "ReadOnly": true,
+              "Type": "Field",
+              "Value": "MAIN - Primary Location"
+            },
+            {
+              "ElementType": "Selector",
+              "Id": "Root-1311-1313-1590",
+              "Label": "Owner",
+              "Mandatory": false,
+              "ReadOnly": true,
+              "Type": "Field",
+              "Value": "Maxwell Baker"
+            },
+            {
+              "ElementType": "Currency",
+              "Id": "Root-1311-1313-1594",
+              "Label": "Currency",
+              "Mandatory": true,
+              "ReadOnly": true,
+              "Type": "Field",
+              "Value": "USD"
+            },
+            {
+              "ElementType": "MultilineTextEditor",
+              "Id": "Root-1311-1313-1596",
+              "Label": "Description",
+              "Mandatory": false,
+              "ReadOnly": true,
+              "Type": "Field",
+              "Value": ""
+            }
+          ],
+          "Id": "Root-1311-1313",
+          "Label": null,
+          "Style": "Gray",
+          "Type": "FieldSet"
+        },
+        {
+          "Children": [
+            {
+              "ElementType": "NumberEditor",
+              "Id": "Root-1311-1314-1572",
+              "Label": "Detail Total",
+              "Mandatory": false,
+              "ReadOnly": true,
+              "Type": "Field",
+              "Value": "2,250.00"
+            },
+            {
+              "ElementType": "NumberEditor",
+              "Id": "Root-1311-1314-1574",
+              "Label": "Line Discounts",
+              "Mandatory": false,
+              "ReadOnly": true,
+              "Type": "Field",
+              "Value": "0.00"
+            },
+            {
+              "ElementType": "NumberEditor",
+              "Id": "Root-1311-1314-1576",
+              "Label": "Document Discounts",
+              "Mandatory": false,
+              "ReadOnly": true,
+              "Type": "Field",
+              "Value": "0.00"
+            },
+            {
+              "ElementType": "NumberEditor",
+              "Id": "Root-1311-1314-1578",
+              "Label": "Tax Total",
+              "Mandatory": false,
+              "ReadOnly": true,
+              "Type": "Field",
+              "Value": "0.00"
+            },
+            {
+              "ElementType": "NumberEditor",
+              "Id": "Root-1311-1314-1580",
+              "Label": "Order Total",
+              "Mandatory": false,
+              "ReadOnly": true,
+              "Type": "Field",
+              "Value": "2,250.00"
+            }
+          ],
+          "Id": "Root-1311-1314",
+          "Label": null,
+          "Style": "Blue",
+          "Type": "FieldSet"
+        }
+      ],
+      "Id": "Root-1311",
+      "Name": "7-10-7",
+      "Type": "Template"
+    },
+    {
+      "Children": [
+        {
+          "Id": "Root-402-1345",
+          "Orientation": "Horizontal",
+          "Panel1": {
+            "Children": [
+              {
+                "Caption": null,
+                "Columns": [
+                  {
+                    "Alignment": "Left",
+                    "Cells": [
+                      ""
+                    ],
+                    "ColumnType": "Settings",
+                    "Label": "",
+                    "Type": "GridColumn"
+                  },
+                  {
+                    "Alignment": "Center",
+                    "Cells": [
+                      ""
+                    ],
+                    "ColumnType": "Files",
+                    "Label": "",
+                    "Type": "GridColumn"
+                  },
+                  {
+                    "Alignment": "Center",
+                    "Cells": [
+                      ""
+                    ],
+                    "ColumnType": "Notes",
+                    "Label": "",
+                    "Type": "GridColumn"
+                  },
+                  {
+                    "Alignment": "Left",
+                    "Cells": [
+                      "Receipt"
+                    ],
+                    "ColumnType": "Text",
+                    "Label": "Type",
+                    "Type": "GridColumn"
+                  },
+                  {
+                    "Alignment": "Left",
+                    "Cells": [
+                      "PR002447"
+                    ],
+                    "ColumnType": "Link",
+                    "Label": "Receipt Nbr.",
+                    "Type": "GridColumn"
+                  },
+                  {
+                    "Alignment": "Left",
+                    "Cells": [
+                      "8/7/2024"
+                    ],
+                    "ColumnType": "Text",
+                    "Label": "Date",
+                    "Type": "GridColumn"
+                  },
+                  {
+                    "Alignment": "Left",
+                    "Cells": [
+                      "Released"
+                    ],
+                    "ColumnType": "Text",
+                    "Label": "Status",
+                    "Type": "GridColumn"
+                  },
+                  {
+                    "Alignment": "Right",
+                    "Cells": [
+                      "25.00"
+                    ],
+                    "ColumnType": "Text",
+                    "Label": "Received Qty.",
+                    "Type": "GridColumn"
+                  }
+                ],
+                "Footer": {
+                  "FooterType": "GI"
+                },
+                "Id": "Root-402-1345-339-1347",
+                "ToolBar": {
+                  "Id": "Root-402-1345-339-1347-1054",
+                  "Items": [
+                    {
+                      "Enabled": true,
+                      "Icon": "Refresh",
+                      "ItemType": "Button",
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "Enabled": true,
+                      "Icon": "AdjustColumns",
+                      "ItemType": "Button",
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "Enabled": true,
+                      "Icon": "ExportToExcel",
+                      "ItemType": "Button",
+                      "Style": "Tertiary",
+                      "Text": null
+                    }
+                  ],
+                  "ShowRightAction": true,
+                  "ShowSaveButton": false,
+                  "ToolBarType": "List",
+                  "Type": "ToolBar"
+                },
+                "Type": "Grid"
+              }
+            ],
+            "Id": "Root-402-1345-339",
+            "Type": "SplitPanel"
+          },
+          "Panel2": {
+            "Children": [
+              {
+                "Caption": null,
+                "Columns": [
+                  {
+                    "Alignment": "Left",
+                    "Cells": [
+                      ""
+                    ],
+                    "ColumnType": "Settings",
+                    "Label": "",
+                    "Type": "GridColumn"
+                  },
+                  {
+                    "Alignment": "Left",
+                    "Cells": [
+                      "Bill"
+                    ],
+                    "ColumnType": "Text",
+                    "Label": "Type",
+                    "Type": "GridColumn"
+                  },
+                  {
+                    "Alignment": "Left",
+                    "Cells": [
+                      "005522"
+                    ],
+                    "ColumnType": "Link",
+                    "Label": "Reference Nbr.",
+                    "Type": "GridColumn"
+                  },
+                  {
+                    "Alignment": "Left",
+                    "Cells": [
+                      "8/7/2024"
+                    ],
+                    "ColumnType": "Text",
+                    "Label": "Date",
+                    "Type": "GridColumn"
+                  },
+                  {
+                    "Alignment": "Left",
+                    "Cells": [
+                      "Open"
+                    ],
+                    "ColumnType": "Text",
+                    "Label": "Status",
+                    "Type": "GridColumn"
+                  },
+                  {
+                    "Alignment": "Right",
+                    "Cells": [
+                      "25.00"
+                    ],
+                    "ColumnType": "Text",
+                    "Label": "Billed Qty.",
+                    "Type": "GridColumn"
+                  },
+                  {
+                    "Alignment": "Right",
+                    "Cells": [
+                      "2,250.00"
+                    ],
+                    "ColumnType": "Text",
+                    "Label": "Billed Amt.",
+                    "Type": "GridColumn"
+                  },
+                  {
+                    "Alignment": "Right",
+                    "Cells": [
+                      "0.00"
+                    ],
+                    "ColumnType": "Text",
+                    "Label": "PPV Amt",
+                    "Type": "GridColumn"
+                  },
+                  {
+                    "Alignment": "Left",
+                    "Cells": [
+                      "USD"
+                    ],
+                    "ColumnType": "Text",
+                    "Label": "Currency",
+                    "Type": "GridColumn"
+                  }
+                ],
+                "Footer": {
+                  "FooterType": "GI"
+                },
+                "Id": "Root-402-1345-359-1350",
+                "ToolBar": {
+                  "Id": "Root-402-1345-359-1350-1054",
+                  "Items": [
+                    {
+                      "Enabled": true,
+                      "Icon": "Refresh",
+                      "ItemType": "Button",
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "Enabled": true,
+                      "Icon": "AdjustColumns",
+                      "ItemType": "Button",
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "Enabled": true,
+                      "Icon": "ExportToExcel",
+                      "ItemType": "Button",
+                      "Style": "Tertiary",
+                      "Text": null
+                    }
+                  ],
+                  "ShowRightAction": true,
+                  "ShowSaveButton": false,
+                  "ToolBarType": "List",
+                  "Type": "ToolBar"
+                },
+                "Type": "Grid"
+              }
+            ],
+            "Id": "Root-402-1345-359",
+            "Type": "SplitPanel"
+          },
+          "Type": "SplitContainer"
+        }
+      ],
+      "Id": "Root-402",
+      "Tabs": [
+        {
+          "Id": "Root-402",
+          "IsActive": false,
+          "Label": "Details",
+          "Type": "Tab"
+        },
+        {
+          "Id": "Root-402",
+          "IsActive": false,
+          "Label": "Taxes",
+          "Type": "Tab"
+        },
+        {
+          "Id": "Root-402",
+          "IsActive": false,
+          "Label": "Shipping",
+          "Type": "Tab"
+        },
+        {
+          "Id": "Root-402",
+          "IsActive": false,
+          "Label": "Vendor Info",
+          "Type": "Tab"
+        },
+        {
+          "Id": "Root-402",
+          "IsActive": false,
+          "Label": "Approvals",
+          "Type": "Tab"
+        },
+        {
+          "Id": "Root-402",
+          "IsActive": false,
+          "Label": "Discounts",
+          "Type": "Tab"
+        },
+        {
+          "Id": "Root-402",
+          "IsActive": true,
+          "Label": "PO History",
+          "Type": "Tab"
+        },
+        {
+          "Id": "Root-402",
+          "IsActive": false,
+          "Label": "Prepayments",
+          "Type": "Tab"
+        },
+        {
+          "Id": "Root-402",
+          "IsActive": false,
+          "Label": "Other",
+          "Type": "Tab"
+        },
+        {
+          "Id": "Root-402",
+          "IsActive": false,
+          "Label": "Compliance",
+          "Type": "Tab"
+        }
+      ],
+      "Type": "Tabbar"
+    }
+  ],
+  "Id": "Root",
+  "Title": "Purchase Orders",
+  "ToolBar": {
+    "Id": "Root-22",
+    "Items": [
+      {
+        "Enabled": true,
+        "Icon": "Back",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": false,
+        "Icon": "SaveAndBack",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": false,
+        "Icon": "Save",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Undo",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Insert",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": false,
+        "Icon": "Delete",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Copy",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "First",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Previous",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Next",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Last",
+        "ItemType": "Button",
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "Enabled": true,
+        "Icon": "Ellipsis",
+        "ItemType": "Button",
+        "Style": "Secondary",
+        "Text": null
+      }
+    ],
+    "ShowRightAction": false,
+    "ShowSaveButton": false,
+    "ToolBarType": "Record",
+    "Type": "ToolBar"
+  },
+  "Type": "Root"
+}

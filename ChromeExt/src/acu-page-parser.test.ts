@@ -76,6 +76,13 @@ describe('acu-page-parser.test', () => {
             parent: createRoot(),
         },
         {
+            testName: "screen/po-301000-po-history-",
+            childrenVisitor: new ChildrenVisitor(allVisitors),
+            incomingHTMLFileName: './test-cases/screens/po-301000-po-history-input.html',
+            expectedJSONFile: './test-cases/screens/po-301000-po-history-output.json',
+            parent: createRoot(),
+        },
+        {
             testName: "elements/tool-bar",
             childrenVisitor: new ChildrenVisitor([new QPToolBarVisitor()]),
             incomingHTMLFileName: './test-cases/elements/tool-bar-input.html',

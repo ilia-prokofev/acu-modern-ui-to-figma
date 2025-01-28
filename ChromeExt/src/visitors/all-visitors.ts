@@ -25,6 +25,7 @@ import QpFieldRadioButtonVisitor from "./qp-field-radio-button-visitor";
 import QPNoFieldSelectorVisitor from "./qp-field-no-label-selector-visitor";
 import QPFieldMaskEditorElementVisitor from "./qp-field-mask-editor-element-visitor";
 import QPFieldMaskEditorAttributeVisitor from "./qp-field-mask-editor-attribute-visitor";
+import QPSplitterVisitor from "./qp-splitter-visitor";
 
 export const allVisitors: ElementVisitor[] = [
     new QPRootVisitor(),
@@ -53,4 +54,5 @@ export const allVisitors: ElementVisitor[] = [
     new QPGridToolBarVisitor(),
     new QPGridFooterGIVisitor(),
     new QPGridFooterSimpleVisitor(),
+    new QPSplitterVisitor(),
 ];
