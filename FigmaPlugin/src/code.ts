@@ -419,7 +419,6 @@ class figmaGrid extends figmaNode {
             this.children.push(footer);
         }
 
-
         let displayedRows = 0;
         const displayedColumns = 13;
         const displayedRowsDefault = 5;
@@ -920,7 +919,7 @@ async function DrawFromJSON(input: string, reuseSummary: boolean) {
         frameCanvas.figmaObject.height > viewportHeight) {
         const grid = lastItem.figmaObject;
         if (grid) {
-            let newGridHeight = Math.max(180, grid.height - frameCanvas.figmaObject.height + viewportHeight);
+            let newGridHeight = Math.max(250, grid.height - frameCanvas.figmaObject.height + viewportHeight);
             grid.resize(grid.width, newGridHeight);
         }
     }
