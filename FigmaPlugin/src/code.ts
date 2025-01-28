@@ -12,7 +12,8 @@ import {
     QPFieldHorizontalContainer,
     QPFieldLabelValue,
     QPFieldMultilineTextEditor,
-    QPFieldRadioButton, QPFieldSelector,
+    QPFieldRadioButton,
+    QPFieldSelector,
     QPFieldStatus
 } from "./elements/qp-field";
 import {Template} from "./elements/qp-template";
@@ -24,6 +25,9 @@ import {Grid, GridColumnType} from "./elements/qp-grid";
 import {Root} from "./elements/qp-root";
 import {QPToolBar, QPToolBarItemButton, QPToolBarItemType, QPToolBarType} from "./elements/qp-toolbar";
 import {IconType} from "./elements/icon";
+import {QPRichTextEditor} from "./elements/qp-rich-text-editor";
+import {QPImage} from "./elements/qp-image";
+import {QPSplitContainer, QPSplitContainerOrientation, QPSplitPanel} from "./elements/qp-split";
 
 figma.showUI(__html__, {width: 650, height: 540});
 
@@ -49,6 +53,9 @@ let compLeftMenu = undefined as unknown as ComponentNode;
 let compGrid = undefined as unknown as ComponentNode;
 let compTabbar = undefined as unknown as ComponentNode;
 let compCheckbox = undefined as unknown as ComponentNode;
+let compImageViewer = undefined as unknown as ComponentNode;
+let compRichTextEditor = undefined as unknown as ComponentNode;
+let compSplitter = undefined as unknown as ComponentNode;
 let log: string[] = [];
 
 const buttonIcons = new Map<IconType, string>([
@@ -391,6 +398,62 @@ class figmaRow extends figmaNode{
     }
 }
 
+class figmaSplitter extends figmaNode {
+    constructor(orientation: QPSplitContainerOrientation) {
+        super('Splitter');
+        this.tryToFind = false;
+        this.componentNode = compSplitter;
+        this.width = 16;
+        this.properties['rotation'] = orientation == QPSplitContainerOrientation.Horizontal ? 0 : 90;
+        this.properties['layoutAlign'] = 'STRETCH';
+    }
+}
+
+class figmaSplitContainer extends figmaNode {
+    constructor(splitContainer: QPSplitContainer, width = 0) {
+        super('SplitContainer', 'FRAME');
+        this.layoutMode = splitContainer.Orientation == QPSplitContainerOrientation.Vertical ? 'VERTICAL' : 'HORIZONTAL';
+        this.properties['counterAxisSizingMode'] = 'AUTO';
+        this.properties['itemSpacing'] = 0;
+        this.tryToFind = false;
+        this.acuElement = splitContainer;
+        this.width = width;
+
+        const splitterWidth = 16;
+        let panelWidth = width;
+        if (splitContainer.Orientation == QPSplitContainerOrientation.Horizontal)
+            panelWidth = (panelWidth - splitterWidth) / 2;
+
+        if (splitContainer.Panel1)
+            this.children.push(new figmaSlot(splitContainer.Panel1, panelWidth));
+        this.children.push(new figmaSplitter(splitContainer.Orientation));
+        if (splitContainer.Panel2)
+            this.children.push(new figmaSlot(splitContainer.Panel2, panelWidth));
+    }
+}
+
+class figmaImageViewer extends figmaNode {
+    constructor(imageViewer: QPImage, width = 0) {
+        super('ImageViewer');
+        this.tryToFind = false;
+        this.acuElement = imageViewer;
+        this.componentNode = compImageViewer;
+        this.width = width;
+        this.componentProperties['Caption#6303:4'] = false;
+    }
+}
+
+class figmaRichTextEditor extends figmaNode {
+    constructor(richTextEditor: QPRichTextEditor, width = 0) {
+        super('RichTextEditor');
+        this.tryToFind = false;
+        this.acuElement = richTextEditor;
+        this.componentNode = compRichTextEditor;
+        this.width = width;
+        this.componentProperties['Header#5725:0'] = false;
+    }
+}
+
 class figmaGrid extends figmaNode {
 
     columnTypes = new Map<GridColumnType, string>([
@@ -406,6 +469,7 @@ class figmaGrid extends figmaNode {
         super(name);
         this.tryToFind = !newInstance;
         this.acuElement = grid;
+        this.componentProperties['Wrapped'] = grid.Wrapped ? 'Yes' : 'No';
 
         if (newInstance) {
             this.componentNode = compGrid;
@@ -603,8 +667,8 @@ class figmaToolbar extends figmaNode {
 }
 
 class figmaTabbar extends figmaNode {
-    constructor(tabBar: TabBar) {
-        super('Tabbar', 'FRAME', viewportWidth);
+    constructor(tabBar: TabBar, width = 0) {
+        super('Tabbar', 'FRAME', width == 0 ? viewportWidth : width);
         this.tryToFind = false;
         this.acuElement = tabBar;
 
@@ -633,11 +697,17 @@ class figmaTabbar extends figmaNode {
         tabBar.Children.forEach(fs => {
             switch (fs.Type) {
                 case AcuElementType.Template: {
-                    this.children.push(new figmaTemplate(fs as Template));
+                    this.children.push(new figmaTemplate(fs as Template, width));
                     break;
                 }
                 case AcuElementType.Grid: {
-                    this.children.push(new figmaGrid((fs as unknown) as Grid, 'Grid', true));
+                    const grid = new figmaGrid((fs as unknown) as Grid, 'Grid', true);
+                    grid.width = width;
+                    this.children.push(grid);
+                    break;
+                }
+                case AcuElementType.SplitContainer: {
+                    this.children.push(new figmaSplitContainer(fs as QPSplitContainer, viewportWidth));
                     break;
                 }
             }
@@ -646,8 +716,8 @@ class figmaTabbar extends figmaNode {
 }
 
 class figmaTemplate extends figmaNode {
-    constructor(template: Template) {
-        super('Template', 'FRAME');
+    constructor(template: Template, width = 0) {
+        super('Template', 'FRAME', width == 0 ? viewportWidth : width);
         this.tryToFind = false;
         this.acuElement = template;
         this.layoutMode = 'HORIZONTAL';
@@ -655,18 +725,20 @@ class figmaTemplate extends figmaNode {
         if (template.Children.length == 0)
             this.properties['visible'] = false;
 
-        let w = (viewportWidth - (horizontalSpacing * (template.Children.length - 1))) / template.Children.length;
+        let proportionalWidth = (this.width - (horizontalSpacing * (template.Children.length - 1))) / template.Children.length;
         const parts = template.Name?.split('-').map(p => parseInt(p)) ?? [];
         let sum = 0;
-
         parts?.forEach((part, i) => {
             sum += part;
         })
+        console.log('template.Name', template.Name);
+        console.log('sum', sum);
 
         template.Children.forEach((fs, i) => {
-            let slotWidth = w;
+            let slotWidth = proportionalWidth;
             if (sum > 0)
-                slotWidth = (viewportWidth - (horizontalSpacing * (template.Children.length - 1))) * parts[i] / sum;
+                slotWidth = (this.width - (horizontalSpacing * (template.Children.length - 1))) * parts[i] / sum;
+            console.log('slotWidth', slotWidth);
             switch (fs.Type) {
                 case AcuElementType.FieldSet:
                     this.children.push(new figmaFieldSet(fs as QPFieldset, slotWidth));
@@ -674,9 +746,14 @@ class figmaTemplate extends figmaNode {
                 case AcuElementType.FieldsetSlot:
                     this.children.push(new figmaSlot(fs as FieldsetSlot, slotWidth));
                     break;
+                case AcuElementType.Image:
+                    this.children.push(new figmaImageViewer(fs as QPImage, slotWidth));
+                    break;
+                case AcuElementType.RichTextEditor:
+                    this.children.push(new figmaRichTextEditor(fs as QPRichTextEditor, slotWidth));
+                    break;
                 case AcuElementType.Grid:
                     const grid = new figmaGrid(fs as Grid, 'Grid', true);
-                    grid.componentProperties['Wrapped'] = 'Yes';
                     grid.properties['layoutAlign'] = 'STRETCH';
                     grid.height = 250;
                     grid.width = slotWidth;
@@ -688,20 +765,31 @@ class figmaTemplate extends figmaNode {
 }
 
 class figmaSlot extends figmaNode {
-    constructor(slot: FieldsetSlot, width = 0) {
+    constructor(slot: FieldsetSlot | QPSplitPanel, width = 0) {
         super('slot', 'FRAME', width);
         this.tryToFind = false;
         this.acuElement = slot;
 
         slot.Children.forEach(fs => {
             switch (fs.Type) {
+                case AcuElementType.Template:
+                    this.children.push(new figmaTemplate(fs as Template, width));
+                    break;
+                case AcuElementType.Tabbar:
+                    this.children.push(new figmaTabbar(fs as TabBar, width));
+                    break;
                 case AcuElementType.FieldSet:
                     this.children.push(new figmaFieldSet(fs as QPFieldset, width));
                     break;
+                case AcuElementType.Image:
+                    this.children.push(new figmaImageViewer(fs as QPImage, width));
+                    break;
+                case AcuElementType.RichTextEditor:
+                    this.children.push(new figmaRichTextEditor(fs as QPRichTextEditor, width));
+                    break;
                 case AcuElementType.Grid:
                     const grid = new figmaGrid(fs as Grid, 'Grid', true);
-                    grid.componentProperties['Wrapped'] = 'Yes';
-                    if ((fs as Grid).Caption != null){
+                    if ((fs as Grid).Caption != null) {
                         grid.componentProperties['👁 Caption#5610:0'] = true;
                         const caption = new figmaNode('Group Header');
                         caption.componentProperties['Text Value ▶#4494:3'] = (fs as Grid).Caption!;
@@ -1063,13 +1151,16 @@ figma.ui.onmessage = async (msg: { input: string, reuseSummary: boolean, format:
     // cTabbar = await figma.importComponentByKeyAsync('6908d5b76e824d2a677a35490265b9d64efb3606');
 
     // Prod
-    compFieldset    = (await figma.importComponentSetByKeyAsync('3738d3cfa01194fc3cfe855bf127daa66b21e39e')).defaultVariant;
-    compHeader      = (await figma.importComponentSetByKeyAsync('6bf3d7f22449e758cc2b697dd7d80ad7a2d3c21a')).defaultVariant;
-    compMainHeader  = (await figma.importComponentSetByKeyAsync('95717954e19e7929d19b33f7bcd03f16e8e1a51b')).defaultVariant;
-    compGrid        = (await figma.importComponentSetByKeyAsync('b6b4901b43589a4e2e738087122069e2df254b8f')).defaultVariant;
-    compCheckbox    = (await figma.importComponentSetByKeyAsync('4b4affdd12a4320b054701445e4c34aa95af7198')).defaultVariant;
-    compLeftMenu    = await figma.importComponentByKeyAsync('5b4ee7b5f881aa8f6e64f128f4cceef050357378');
-    compTabbar      = await figma.importComponentByKeyAsync('e4b7a83b5e34cee8565ad8079b4932764b45dae4');
+    compFieldset       = (await figma.importComponentSetByKeyAsync('3738d3cfa01194fc3cfe855bf127daa66b21e39e')).defaultVariant;
+    compHeader         = (await figma.importComponentSetByKeyAsync('6bf3d7f22449e758cc2b697dd7d80ad7a2d3c21a')).defaultVariant;
+    compMainHeader     = (await figma.importComponentSetByKeyAsync('95717954e19e7929d19b33f7bcd03f16e8e1a51b')).defaultVariant;
+    compGrid           = (await figma.importComponentSetByKeyAsync('b6b4901b43589a4e2e738087122069e2df254b8f')).defaultVariant;
+    compCheckbox       = (await figma.importComponentSetByKeyAsync('4b4affdd12a4320b054701445e4c34aa95af7198')).defaultVariant;
+    compImageViewer    = (await figma.importComponentSetByKeyAsync('ba08cb51bc3ad778dc9221d76aaa1baaf1f6ae7b')).defaultVariant;
+    compRichTextEditor = (await figma.importComponentSetByKeyAsync('cb542d6b221cd1cb4302529415ff7bb4a135eb67')).defaultVariant;
+    compSplitter       = (await figma.importComponentSetByKeyAsync('c671076454c35e10bb86f1ef18936e7953cec793')).defaultVariant;
+    compLeftMenu       = await figma.importComponentByKeyAsync('5b4ee7b5f881aa8f6e64f128f4cceef050357378');
+    compTabbar         = await figma.importComponentByKeyAsync('e4b7a83b5e34cee8565ad8079b4932764b45dae4');
 
     for (const [iconType, componentKey] of buttonIcons) {
         const icon = await figma.importComponentByKeyAsync(componentKey);

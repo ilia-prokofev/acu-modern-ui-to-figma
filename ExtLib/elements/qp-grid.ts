@@ -34,4 +34,5 @@ export interface Grid extends QPToolbarContainer {
     Caption: string | null;
     Columns: GridColumn[];
     Footer: GridFooter | null;
+	Wrapped: boolean;
 }
