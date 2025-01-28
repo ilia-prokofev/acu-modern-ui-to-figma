@@ -85,4 +85,5 @@ export interface QPFieldLabelFieldCheckbox extends QPFieldLabelValue {
 export interface QPFieldHorizontalContainer extends QPField, AcuContainer {
     Type: AcuElementType.Field;
     ElementType: QPFieldElementType.HorizontalContainer;
+    Label: string | null;
 }

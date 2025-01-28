@@ -33,7 +33,8 @@
       ],
       "ElementType": "HorizontalContainer",
       "Id": "Root-1513",
-      "Mandatory": true,
+      "Label": "",
+      "Mandatory": false,
       "ReadOnly": false,
       "Type": "Field"
     }

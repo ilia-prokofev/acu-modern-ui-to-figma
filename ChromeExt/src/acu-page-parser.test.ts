@@ -18,6 +18,7 @@ import QPFieldCheckboxVisitor from "./visitors/qp-field-checkbox-visitor";
 import QPFieldButtonVisitor from "./visitors/qp-field-button-visitor";
 import QpFieldRadioButtonVisitor from "./visitors/qp-field-radio-button-visitor";
 import QPFieldSelectorVisitor from "./visitors/qp-field-selector-visitor";
+import QPNoFieldSelectorVisitor from "./visitors/qp-field-no-label-selector-visitor";
 
 describe('acu-page-parser.test', () => {
     const createRoot = (): Root => {
@@ -175,6 +176,16 @@ describe('acu-page-parser.test', () => {
             childrenVisitor: new ChildrenVisitor([new QPFieldSelectorVisitor()]),
             incomingHTMLFileName: './test-cases/elements/field-mandatory-input.html',
             expectedJSONFile: './test-cases/elements/field-mandatory-output.json',
+            parent: createRoot(),
+        },
+        {
+            testName: "elements/field-with-selector-and-checkbox",
+            childrenVisitor: new ChildrenVisitor([
+                new QPFieldContainerVisitor(),
+                new QPNoFieldSelectorVisitor(),
+                new QPFieldCheckboxVisitor()]),
+            incomingHTMLFileName: './test-cases/elements/field-with-selector-and-checkbox-input.html',
+            expectedJSONFile: './test-cases/elements/field-with-selector-and-checkbox-output.json',
             parent: createRoot(),
         },
         {

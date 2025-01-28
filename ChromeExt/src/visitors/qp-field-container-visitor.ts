@@ -4,6 +4,7 @@ import ChildrenVisitor from "./children-visitors";
 import {concatElementID, findAllElementsByNodeNameDown} from "./html-element-utils";
 import {QPFieldElementType, QPFieldHorizontalContainer} from "../elements/qp-field";
 import {AcuContainer} from "../elements/acu-container";
+import {getFieldLabel, isFieldMandatory} from "./qp-field-utils";
 
 
 export default class QPFieldContainerVisitor implements ElementVisitor {
@@ -31,14 +32,11 @@ export default class QPFieldContainerVisitor implements ElementVisitor {
             Children: [],
             ReadOnly: false,
             ElementType: QPFieldElementType.HorizontalContainer,
-            Mandatory: true,
+            Mandatory: isFieldMandatory(htmlElement),
+            Label: getFieldLabel(htmlElement),
         };
         (parent as AcuContainer).Children.push(container);
-
-        for (const childFieldElement of childFieldElements) {
-            allVisitor.visit(childFieldElement, container)
-        }
-
+        allVisitor.visitChildren(htmlElement, container);
         return true;
     }
 }

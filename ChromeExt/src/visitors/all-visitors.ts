@@ -22,6 +22,7 @@ import QPFieldCurrencyVisitor from "./qp-field-currency-visitor";
 import QPFieldNumberEditorVisitor from "./qp-field-number-editor-visitor";
 import QPFieldButtonVisitor from "./qp-field-button-visitor";
 import QpFieldRadioButtonVisitor from "./qp-field-radio-button-visitor";
+import QPNoFieldSelectorVisitor from "./qp-field-no-label-selector-visitor";
 
 export const allVisitors: ElementVisitor[] = [
     new QPRootVisitor(),
@@ -35,6 +36,7 @@ export const allVisitors: ElementVisitor[] = [
     new QPFieldStatusVisitor(),
     new QPFieldTextAreaVisitor(),
     new QPFieldTextEditorVisitor(),
+    new QPNoFieldSelectorVisitor(),
     new QPFieldSelectorVisitor(),
     new QPFieldDropDownVisitor(),
     new QPFieldCheckboxVisitor(),

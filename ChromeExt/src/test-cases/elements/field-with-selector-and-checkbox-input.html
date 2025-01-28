@@ -1,0 +1,238 @@
+<qp-field
+  class="main-control au-target qp-field qp-field-expanded"
+  control-state.bind="ItemSettings.BaseUnit"
+  context.bind="$this"
+  au-target-id="1655"
+>
+  <!--anchor-->
+
+  <div
+    show.bind="controlState.visible === undefined || controlState.visible !== false"
+    data-tooltip.bind="errorMessage"
+    data-error-level.bind="errorLevel"
+    data-id.bind="effectiveId"
+    class="au-target wrapper req-l"
+    au-target-id="218"
+    data-error-level="0"
+    data-id="edItemSettings-BaseUnit"
+  >
+    <span
+      class="label-wrapper no-label au-target"
+      show.bind="!noLabel"
+      au-target-id="219"
+    >
+      <!--view-->
+
+      <div class="label-container">
+        <label
+          for.bind="controlId"
+          click.delegate="processClick()"
+          ref="element"
+          class="au-target clickable"
+          au-target-id="590"
+          for="edItemSettings-BaseUnit"
+        >
+          Base Unit
+        </label>
+        <qp-tooltip
+          get-visible.call="showTooltip()"
+          class="au-target"
+          au-target-id="592"
+        >
+        </qp-tooltip
+        ><!--anchor-->
+      </div>
+      <!--anchor--><!--anchor-->
+      <!--slot-->
+    </span>
+
+    <div class="control-container no-label size-default">
+      <div class="au-target main-field qp-selector-control" au-target-id="223">
+        <div class="icon-container"></div>
+        <!--anchor-->
+        <enhanced-compose
+          view-model.bind="controlType || defaultControlType"
+          config.bind="controlConfig"
+          state.bind="controlState"
+          value.two-way="controlState.value"
+          control-id.bind="effectiveId"
+          context.bind="context"
+          proxy-expressions.bind="proxyExpressions"
+          class="main-control au-target"
+          au-target-id="225"
+        >
+          <div
+            ref="editorDiv"
+            tabindex="-1"
+            class="au-target editor qp-selector"
+            au-target-id="878"
+            id="edItemSettings-BaseUnit"
+          >
+            <!--anchor-->
+            <enhanced-compose
+              show.bind="!isLinkMode"
+              class="qp-editor-plugin au-target"
+              view-model.bind="editorType"
+              config.bind="editorConfig"
+              value.two-way="editorValue"
+              elem-text.from-view="editor"
+              converter.to-view="converterType"
+              keydown.delegate="handleKeyDown($event)"
+              au-target-id="886"
+            >
+              <!--anchor-->
+
+              <!--anchor-->
+
+              <!--anchor-->
+
+              <input
+                ref="elemText"
+                autocomplete="off"
+                autocorrect="off"
+                maxlength.bind="config.maxLength &amp; attr"
+                enabled.bind="config.enabled ? null : false &amp; attr"
+                spellcheck.bind="config.spellcheck ? null : false &amp; attr"
+                placeholder.bind="config.placeholder &amp; attr"
+                value.bind="value | meta : converter : hasFocus : editorState : config &amp; updateTrigger : 'blur' : 'update'"
+                keydown.trigger="processKeyDown($event)"
+                input.delegate="processInput($event)"
+                focus.trigger="processFocus($event)"
+                blur.trigger="processBlur($event)"
+                paste.delegate="processPaste($event)"
+                class="au-target qp-text-editor"
+                au-target-id="208"
+                type="text"
+                id="edItemSettings-BaseUnit_text"
+                name=""
+                tabindex="0"
+                value="EA"
+              /><!--anchor-->
+              <!--anchor-->
+
+              <!--anchor-->
+              <!--anchor-->
+            </enhanced-compose>
+            <!--anchor-->
+
+            <button
+              type="button"
+              mousedown.capture="openSelector($event)"
+              class="qp-field-editor__button au-target"
+              tabindex="-1"
+              au-target-id="892"
+            >
+              <qp-icon
+                imagesrc="svg:main@search"
+                class="buttonsCont au-target"
+                type="sel"
+                au-target-id="893"
+              >
+                <!--anchor-->
+                <!--anchor-->
+                <svg>
+                  <use
+                    href.bind="imageName &amp; attr"
+                    class="au-target"
+                    au-target-id="398"
+                    href="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#search"
+                  ></use></svg
+                ><!--anchor-->
+                <!--anchor-->
+              </qp-icon>
+
+              <!-- <div class="buttonsCont sprite-icon control-icon" icon="SelectorN" type="sel">
+                                                                                <div class="control-icon-img control-SelectorN">
+                                                                                </div>
+                                                                            </div> --></button
+            ><!--anchor-->
+          </div>
+
+          <qp-suggester
+            config.bind="config.suggester"
+            editor.two-way="editor"
+            rect-element.bind="editorDiv"
+            force-open.two-way="suggesterOpen"
+            set-editor-value.call="setSuggestedValue(value,display,useUpdateValue)"
+            class="au-target"
+            au-target-id="895"
+          >
+            <!--anchor--> </qp-suggester
+          ><!--anchor-->
+          <!--anchor--> </enhanced-compose
+        ><!--anchor-->
+      </div>
+      <qp-field
+        control-state.bind="ItemSettings.DecimalBaseUnit"
+        class="no-label au-target qp-field qp-field-expanded"
+        context.bind="$this"
+        au-target-id="1656"
+      >
+        <!--anchor-->
+
+        <div
+          show.bind="controlState.visible === undefined || controlState.visible !== false"
+          data-tooltip.bind="errorMessage"
+          data-error-level.bind="errorLevel"
+          data-id.bind="effectiveId"
+          class="au-target wrapper align-right"
+          au-target-id="218"
+          data-error-level="0"
+          data-id="edItemSettings-DecimalBaseUnit"
+        >
+          <div class="control-container no-label size-default">
+            <div
+              class="au-target main-field qp-check-box-control"
+              au-target-id="223"
+            >
+              <div class="icon-container"></div>
+              <!--anchor-->
+              <enhanced-compose
+                view-model.bind="controlType || defaultControlType"
+                config.bind="controlConfig"
+                state.bind="controlState"
+                value.two-way="controlState.value"
+                control-id.bind="effectiveId"
+                context.bind="context"
+                proxy-expressions.bind="proxyExpressions"
+                class="main-control au-target"
+                au-target-id="225"
+              >
+                <span
+                  enabled.bind="!!config.enabled &amp; attr"
+                  click.delegate="config.enabled===true &amp;&amp; toggleValue($event)"
+                  class="au-target qp-checkbox qp-checkbox-default"
+                  au-target-id="241"
+                  id="edItemSettings-DecimalBaseUnit"
+                  enabled="true"
+                >
+                  <!--anchor-->
+                  <input
+                    ref="element"
+                    type="checkbox"
+                    disabled.bind="!config.enabled"
+                    checked.two-way="value | intToBool"
+                    class="au-target"
+                    au-target-id="245"
+                    id="edItemSettings-DecimalBaseUnit_text"
+                    name=""
+                    tabindex="0"
+                    value="on"
+                    checked="checked"
+                  /><label
+                    class="au-target"
+                    au-target-id="246"
+                    for="edItemSettings-DecimalBaseUnit_text"
+                    >Divisible Unit</label
+                  ><!--anchor--> </span
+                ><!--anchor-->
+                <!--anchor--> </enhanced-compose
+              ><!--anchor-->
+            </div>
+            <!--slot-->
+          </div>
+        </div> </qp-field
+      ><!--slot-->
+    </div>
+  </div>
+</qp-field>
