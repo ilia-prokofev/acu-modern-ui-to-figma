@@ -75,21 +75,22 @@ const buttonIcons = new Map<IconType, string>([
 ]);
 let buttonIconIDs = new Map<IconType, string>();
 
-function SetProperties(node: InstanceNode, properties: any) {
+function SetProperties(instanceNode: InstanceNode, figmaNode: FigmaNode) {
     try {
-        node.setProperties(properties);
+        instanceNode.setProperties(figmaNode.componentProperties);
     }
     catch (e) {
-        Warn(e as string);
+        Warn((e as Error).message, figmaNode.acuElement?.Id);
     }
 }
 
 type figmaFieldTypes = 'INSTANCE' | 'FRAME';
 type figmaLayoutMode = 'NONE' | 'HORIZONTAL' | 'VERTICAL'
 
-function Warn(message: string, node: any | null = null): void {
-    log.push(message);
-    console.warn(message, node);
+function Warn(message: string, id: string | null = null, node: any | null = null): void {
+    const messageAndID = `${message.replace(/\n/g, '\t')} (id: ${id})`;
+    log.push(messageAndID);
+    console.warn(messageAndID, node);
 }
 
 function Log(message: string): void {
@@ -97,7 +98,7 @@ function Log(message: string): void {
     console.log(message);
 }
 
-class figmaNode {
+class FigmaNode {
 
     childIndex: number = -1; // to find this instance in the children list of parent instance by index
     name: string; // to find this instance in nested items of the parent instance by name
@@ -108,7 +109,7 @@ class figmaNode {
     width = 0;
     componentProperties: { [propertyName: string]: string | boolean; } = {};
     properties: { [propertyName: string]: any; } = {};
-    children: figmaNode[] = [];
+    children: FigmaNode[] = [];
     type: figmaFieldTypes;
     componentNode: ComponentNode | null = null;
     layoutMode: figmaLayoutMode = 'VERTICAL';
@@ -123,7 +124,7 @@ class figmaNode {
     }
 }
 
-async function Draw(field: figmaNode, parent: InstanceNode | PageNode | GroupNode | FrameNode | ComponentNode, setView = false) {
+async function Draw(field: FigmaNode, parent: InstanceNode | PageNode | GroupNode | FrameNode | ComponentNode, setView = false) {
     if (isCancelled) { stopNow(); return; }
     childrenProcessed++;
     if (childrenProcessed == childrenNumber || childrenProcessed % 10 == 0) {
@@ -141,7 +142,7 @@ async function Draw(field: figmaNode, parent: InstanceNode | PageNode | GroupNod
                 instance = parent.findOne(node => node.type === field.type && node.name === field.name) as InstanceNode;
 
             if (!instance && !field.createIfNotFound) {
-                Warn(`${field.name} not found`, parent);
+                Warn(`${field.name} not found`, field.acuElement?.Id, parent);
                 return;
             }
         }
@@ -166,7 +167,7 @@ async function Draw(field: figmaNode, parent: InstanceNode | PageNode | GroupNod
         instance.resize(field.width > 0 ? field.width : instance.width, field.height > 0 ? field.height : instance.height);
 
     if (instance.type === 'INSTANCE')
-        SetProperties(instance, field.componentProperties);
+        SetProperties(instance, field);
 
     for (const property in field.properties) {
         // @ts-ignore
@@ -187,7 +188,7 @@ async function Draw(field: figmaNode, parent: InstanceNode | PageNode | GroupNod
         await Draw(child, instance);
 }
 
-class figmaCheckbox extends figmaNode{
+class figmaCheckbox extends FigmaNode{
     constructor(checkbox: QPFieldCheckbox, name: string) {
         super(name, 'INSTANCE');
         this.componentProperties['Value ▶#6695:0'] = checkbox.CheckboxName??'';
@@ -195,7 +196,7 @@ class figmaCheckbox extends figmaNode{
     }
 }
 
-class figmaValue extends figmaNode{
+class figmaValue extends FigmaNode{
     constructor(field: QPFieldSelector) {
         super('Field', 'INSTANCE');
         const typedField = field as QPFieldLabelValue;
@@ -204,7 +205,7 @@ class figmaValue extends figmaNode{
     }
 }
 
-class figmaRow extends figmaNode{
+class figmaRow extends FigmaNode{
 
     typePropertyName = 'Type';
     rowTypes = new Map<QPFieldElementType, string>([
@@ -225,12 +226,12 @@ class figmaRow extends figmaNode{
         [QPFieldElementType.LabelFieldButton, 'Label + Field + Button']
     ]);
 
-    constructor(field: QPField, name: string, parent: figmaNode | null = null) {
+    constructor(field: QPField, name: string, parent: FigmaNode | null = null) {
         super(name, 'INSTANCE');
         this.acuElement = field;
 
         if (!field.ElementType) {
-            Warn(`Row type can not be null (${field})`, field);
+            Warn(`Row type can not be null (${field})`, this.acuElement.Id, field);
             return;
         }
 
@@ -248,7 +249,7 @@ class figmaRow extends figmaNode{
         }
 
         if (!this.rowTypes.has(field.ElementType)) {
-            Warn(`${field.ElementType} row type is not supported`, field);
+            Warn(`${field.ElementType} row type is not supported`, this.acuElement.Id, field);
             elementType = QPFieldElementType.TextEditor;
         }
         this.componentProperties[this.typePropertyName] = this.rowTypes.get(elementType)!;
@@ -268,40 +269,40 @@ class figmaRow extends figmaNode{
                 this.componentProperties['Label Position'] = 'Top';
                 this.componentProperties['Label Length'] = 's';
                 typedField = field as QPFieldRadioButton;
-                valueField = new figmaNode('Radiobuttons');
+                valueField = new FigmaNode('Radiobuttons');
                 valueField.componentProperties['Name#8227:0'] = typedField.RadioName??'';
                 valueField.componentProperties['Checked'] = typedField.Checked ? 'True' : 'False';
                 this.children.push(valueField);
                 break;
             case QPFieldElementType.Button:
                 typedField = field as QPFieldButton;
-                valueField = new figmaNode('Button');
+                valueField = new FigmaNode('Button');
                 valueField.componentProperties['Type'] = 'Secondary';
                 valueField.componentProperties['Value ▶#3133:332'] = typedField.Value??'';
                 this.children.push(valueField);
                 break;
             case QPFieldElementType.MultilineTextEditor:
                 typedField = field as QPFieldMultilineTextEditor;
-                labelField = new figmaNode('Label');
+                labelField = new FigmaNode('Label');
                 labelField.componentProperties['Label Value ▶#3141:62'] = typedField.Label??'';
                 this.children.push(labelField);
 
-                valueField = new figmaNode('Text Area');
+                valueField = new FigmaNode('Text Area');
                 valueField.componentProperties['Text Value ▶#4221:3'] = typedField.Value??'';
                 defaultState = 'Normal';
                 this.children.push(valueField);
                 break;
             case QPFieldElementType.Status:
                 typedField = field as QPFieldStatus;
-                labelField = new figmaNode('Label');
+                labelField = new FigmaNode('Label');
                 labelField.componentProperties['Label Value ▶#3141:62'] = typedField.Label??'';
                 this.children.push(labelField);
 
-                valueField = new figmaNode('Field');
+                valueField = new FigmaNode('Field');
                 valueField.componentProperties['Type'] = 'Status';
                 this.children.push(valueField);
 
-                const status = new figmaNode('Status');
+                const status = new FigmaNode('Status');
                 status.componentProperties['Status'] = typedField.Value??'';
                 this.children.push(status);
                 break;
@@ -315,7 +316,7 @@ class figmaRow extends figmaNode{
                 }
                 this.detach = true;
                 typedField = field as QPFieldHorizontalContainer;
-                const container = new figmaNode('Container', 'FRAME');
+                const container = new FigmaNode('Container', 'FRAME');
                 container.tryToFind = false;
                 container.layoutMode = 'HORIZONTAL';
                 container.properties['primaryAxisSizingMode'] = 'AUTO';
@@ -324,7 +325,7 @@ class figmaRow extends figmaNode{
                 container.properties['layoutGrow'] = 1;
                 container.properties['fills'] = [];
 
-                labelField = new figmaNode('Label');
+                labelField = new FigmaNode('Label');
                 labelField.componentProperties['Label Value ▶#3141:62'] = '';
                 this.children.push(labelField);
                 if (width > 0)
@@ -353,7 +354,7 @@ class figmaRow extends figmaNode{
                 return;
             case QPFieldElementType.LabelFieldCheckbox:
                 typedField = field as QPFieldHorizontalContainer;
-                labelField = new figmaNode('Label');
+                labelField = new FigmaNode('Label');
                 labelField.componentProperties['Label Value ▶#3141:62'] = typedField.Label??'';
                 this.children.push(labelField);
                 this.children.push(new figmaValue(typedField.Children[0] as QPFieldSelector));
@@ -366,11 +367,11 @@ class figmaRow extends figmaNode{
             case QPFieldElementType.DateTimeEdit:
             case QPFieldElementType.Currency:
                 typedField = field as QPFieldLabelValue;
-                labelField = new figmaNode('Label');
+                labelField = new FigmaNode('Label');
                 labelField.componentProperties['Label Value ▶#3141:62'] = typedField.Label??'';
                 this.children.push(labelField);
 
-                valueField = new figmaNode('Field');
+                valueField = new FigmaNode('Field');
                 valueField.componentProperties['Text Value ▶#3161:0'] = typedField.Value??'';
                 if (elementType == QPFieldElementType.DropDown)
                     valueField.componentProperties['Icon#3160:22'] = buttonIconIDs.get(IconType.ArrowDown)!;
@@ -380,7 +381,7 @@ class figmaRow extends figmaNode{
                 this.children.push(valueField);
                 break;
             default:
-                Warn(`${elementType} row element type not supported`, field);
+                Warn(`${elementType} row element type not supported`, this.acuElement.Id, field);
                 break;
         }
         if (labelField && !field.ReadOnly && field.Mandatory)
@@ -391,7 +392,7 @@ class figmaRow extends figmaNode{
     }
 }
 
-class figmaGrid extends figmaNode {
+class figmaGrid extends FigmaNode {
 
     columnTypes = new Map<GridColumnType, string>([
         [GridColumnType.Settings, 'Settings'],
@@ -414,7 +415,7 @@ class figmaGrid extends figmaNode {
         this.componentProperties['👁 Header#6826:0'] = true;
         if (grid.Footer) {
             this.componentProperties['👁 Footer#4741:54'] = true;
-            const footer = new figmaNode('Grid Footer');
+            const footer = new FigmaNode('Grid Footer');
             footer.componentProperties['Type'] = grid.Footer.FooterType;
             this.children.push(footer);
         }
@@ -443,10 +444,10 @@ class figmaGrid extends figmaNode {
 
         for (let i = 1; i <= visibleColumns; i++) {
             const column = grid.Columns[i-1];
-            let columnInstance = new figmaNode(`Grid Column ${columnNumber++}`);
+            let columnInstance = new FigmaNode(`Grid Column ${columnNumber++}`);
 
             if (!this.columnTypes.has(column.ColumnType))
-                Warn(`${this.columnTypes} column type is not supported`, this);
+                Warn(`${this.columnTypes} column type is not supported`, this.acuElement.Id, this);
             else
                 columnInstance.componentProperties['Type'] = this.columnTypes.get(column.ColumnType)!;
 
@@ -467,14 +468,14 @@ class figmaGrid extends figmaNode {
             this.children.push(columnInstance);
 
             for (let j = displayedRowsDefault; j < displayedRows; j++) {
-                const cell = new figmaNode(`Cell ${j+1}`);
+                const cell = new FigmaNode(`Cell ${j+1}`);
                 cell.childIndex = j + 1;
                 cell.componentProperties['Show Value#4709:42'] = true;
                 columnInstance.children.push(cell);
             }
 
             for (let j = displayedRows; j < displayedRowsDefault; j++) {
-                const cell = new figmaNode(`Cell ${j+1}`);
+                const cell = new FigmaNode(`Cell ${j+1}`);
                 cell.childIndex = j + 1;
                 cell.componentProperties['Show Value#4709:42'] = false;
                 columnInstance.children.push(cell);
@@ -483,17 +484,17 @@ class figmaGrid extends figmaNode {
             if (column.ColumnType == GridColumnType.Notes || column.ColumnType == GridColumnType.Files)
                 continue;
 
-            const header = new figmaNode('Column Header');
+            const header = new FigmaNode('Column Header');
             header.childIndex = 0;
             header.componentProperties['Value#6706:49'] = column.Label;
             columnInstance.children.push(header);
 
             for (let j = 0; j < column.Cells.length; j++) {
-                const cell = new figmaNode(`Cell ${j+1}`);
+                const cell = new FigmaNode(`Cell ${j+1}`);
                 cell.childIndex = j + 1;
                 if (column.ColumnType == GridColumnType.Checkbox) {
                     if (column.Cells[j] == 'true') {
-                        const checkbox = new figmaNode(`Checkbox Indicator`);
+                        const checkbox = new FigmaNode(`Checkbox Indicator`);
                         checkbox.componentProperties['Selected'] = true;
                         cell.children.push(checkbox);
                     }
@@ -504,7 +505,7 @@ class figmaGrid extends figmaNode {
             }
 
             for (let j = column.Cells.length; j < displayedRows; j++) {
-                const cell = new figmaNode(`Cell ${j+1}`);
+                const cell = new FigmaNode(`Cell ${j+1}`);
                 cell.childIndex = j + 1;
                 cell.componentProperties['Value#6706:0'] = '';
                 columnInstance.children.push(cell);
@@ -512,20 +513,20 @@ class figmaGrid extends figmaNode {
         }
 
         for (let i = columnNumber; i <= displayedColumnsDefault; i++) {
-            const gridColumn = new figmaNode(`Grid Column ${i}`);
+            const gridColumn = new FigmaNode(`Grid Column ${i}`);
             gridColumn.properties['visible'] = false;
             this.children.push(gridColumn);
         }
 
         if (columnNumber > 10) {
-            const gridColumn = new figmaNode(`Grid Column 20`);
+            const gridColumn = new FigmaNode(`Grid Column 20`);
             gridColumn.properties['visible'] = false;
             this.children.push(gridColumn);
         }
     }
 }
 
-class figmaToolbar extends figmaNode {
+class figmaToolbar extends FigmaNode {
 
     toolBarTypes = new Map<QPToolBarType, string>([
         [QPToolBarType.List     , 'List'],
@@ -562,12 +563,12 @@ class figmaToolbar extends figmaNode {
             return;
         }
 
-        const buttons = new figmaNode('Buttons');
+        const buttons = new FigmaNode('Buttons');
         buttons.childIndex = 0;
         this.children.push(buttons);
 
         for (let i = 0; i < displayedButtonsMax; i++) {
-            const button = new figmaNode('Button');
+            const button = new FigmaNode('Button');
             button.childIndex = i;
             buttons.children.push(button);
 
@@ -587,7 +588,7 @@ class figmaToolbar extends figmaNode {
                 button.componentProperties['Show Icon Left#3133:110'] = icon != null;
                 if (icon) {
                     if (!buttonIconIDs.has(icon))
-                        Warn(`${icon} icon is not supported`);
+                        Warn(`${icon} icon is not supported`, this.acuElement.Id);
                     else
                         button.componentProperties['Icon Left#3131:0'] = buttonIconIDs.get(icon)!;
                 }
@@ -602,13 +603,13 @@ class figmaToolbar extends figmaNode {
     }
 }
 
-class figmaTabbar extends figmaNode {
+class figmaTabbar extends FigmaNode {
     constructor(tabBar: TabBar) {
         super('Tabbar', 'FRAME', viewportWidth);
         this.tryToFind = false;
         this.acuElement = tabBar;
 
-        const tabs = new figmaNode('Tabs');
+        const tabs = new FigmaNode('Tabs');
         tabs.tryToFind = false;
         tabs.componentNode = compTabbar;
 
@@ -621,7 +622,7 @@ class figmaTabbar extends figmaNode {
 
         for (let i = 0; i < Math.min(tabBar.Tabs.length, maxTabsCount); i++) {
             const tab = (tabBar.Tabs[i] as unknown) as Tab;
-            const figmaTab = new figmaNode(`Tab ${i+1}`);
+            const figmaTab = new FigmaNode(`Tab ${i+1}`);
             figmaTab.componentProperties['State'] = 'Normal';
             figmaTab.componentProperties['Value ▶#3265:0'] = tab.Label;
             figmaTab.componentProperties['Selected'] = tab.IsActive ? 'True' : 'False';
@@ -645,7 +646,7 @@ class figmaTabbar extends figmaNode {
     }
 }
 
-class figmaTemplate extends figmaNode {
+class figmaTemplate extends FigmaNode {
     constructor(template: Template) {
         super('Template', 'FRAME');
         this.tryToFind = false;
@@ -687,7 +688,7 @@ class figmaTemplate extends figmaNode {
     }
 }
 
-class figmaSlot extends figmaNode {
+class figmaSlot extends FigmaNode {
     constructor(slot: FieldsetSlot, width = 0) {
         super('slot', 'FRAME', width);
         this.tryToFind = false;
@@ -703,7 +704,7 @@ class figmaSlot extends figmaNode {
                     grid.componentProperties['Wrapped'] = 'Yes';
                     if ((fs as Grid).Caption != null){
                         grid.componentProperties['👁 Caption#5610:0'] = true;
-                        const caption = new figmaNode('Group Header');
+                        const caption = new FigmaNode('Group Header');
                         caption.componentProperties['Text Value ▶#4494:3'] = (fs as Grid).Caption!;
                         grid.children.push(caption);
                     }
@@ -716,7 +717,7 @@ class figmaSlot extends figmaNode {
     }
 }
 
-class figmaRoot extends figmaNode {
+class figmaRoot extends FigmaNode {
     constructor(root: Root) {
         super('Canvas', 'FRAME');
         this.tryToFind = false;
@@ -741,7 +742,7 @@ class figmaRoot extends figmaNode {
     }
 }
 
-class figmaFieldSet extends figmaNode{
+class figmaFieldSet extends FigmaNode{
 
     static Wrappings = {
         Gray: "Gray",
@@ -784,7 +785,7 @@ class figmaFieldSet extends figmaNode{
         const showHeader = (fs.Label != '' && fs.Label != null)
         this.componentProperties[this.showHeaderPropName] = showHeader;
         if (showHeader) {
-            let child = new figmaNode('Group Header');
+            let child = new FigmaNode('Group Header');
             child.componentProperties['Text Value ▶#4494:3'] = fs.Label??'';
             this.children.push(child);
         }
@@ -890,7 +891,7 @@ async function DrawFromJSON(input: string, reuseSummary: boolean) {
             screenName = `${screenName} - ${tabName}`;
 
             await figma.setCurrentPageAsync(workPage);
-            const summaryNode = new figmaNode('Summary', 'INSTANCE')
+            const summaryNode = new FigmaNode('Summary', 'INSTANCE')
             summaryNode.tryToFind = false;
             summaryNode.componentNode = compSummary;
 
@@ -908,10 +909,10 @@ async function DrawFromJSON(input: string, reuseSummary: boolean) {
     if (!frameCanvas.figmaObject) return;
 
     if (drawSummaryComponent)
-        await Draw(summary as figmaNode, compSummary!);
+        await Draw(summary as FigmaNode, compSummary!);
 
     rootItem.figmaObject = frameCanvas.figmaObject;
-    await Draw(rootItem as figmaNode, frameCanvas.figmaObject);
+    await Draw(rootItem as FigmaNode, frameCanvas.figmaObject);
     frameCanvas.figmaObject.primaryAxisSizingMode = "AUTO";
 
     const lastItem = getLastItem(rootItem);
@@ -928,14 +929,14 @@ async function DrawFromJSON(input: string, reuseSummary: boolean) {
 
 async function CreateCanvas(screenName: string, screenTitle: string|null, backLink: string|null) {
 
-    const frameScreenVertical  = new figmaNode(screenName, 'FRAME', pageWidth, pageHeight);
+    const frameScreenVertical  = new FigmaNode(screenName, 'FRAME', pageWidth, pageHeight);
     frameScreenVertical.tryToFind = false;
     frameScreenVertical.properties['itemSpacing'] = 0;
     frameScreenVertical.properties['primaryAxisSizingMode'] = 'AUTO';
 
     let rootItem;
     if (devMode) {
-        const frameList = new figmaNode('List', 'FRAME');
+        const frameList = new FigmaNode('List', 'FRAME');
         frameList.createIfNotFound = true;
         frameList.properties['itemSpacing'] = screenSpacing;
         frameList.properties['fills'] = [];
@@ -952,12 +953,12 @@ async function CreateCanvas(screenName: string, screenTitle: string|null, backLi
         frameScreenVertical.properties['y'] = newScreenY;
     }
 
-    const fieldMainHeader = new figmaNode('MainHeader', 'INSTANCE', pageWidth);
+    const fieldMainHeader = new FigmaNode('MainHeader', 'INSTANCE', pageWidth);
     fieldMainHeader.tryToFind = false;
     fieldMainHeader.componentNode = compMainHeader;
     frameScreenVertical.children.push(fieldMainHeader);
 
-    const frameScreenHorizontal  = new figmaNode('FrameH', 'FRAME', pageWidth);
+    const frameScreenHorizontal  = new FigmaNode('FrameH', 'FRAME', pageWidth);
     frameScreenHorizontal.tryToFind = false;
     frameScreenHorizontal.properties['primaryAxisSizingMode'] = 'FIXED';
     frameScreenHorizontal.properties['counterAxisSizingMode'] = 'AUTO';
@@ -965,13 +966,13 @@ async function CreateCanvas(screenName: string, screenTitle: string|null, backLi
     frameScreenHorizontal.properties['itemSpacing'] = 0;
     frameScreenVertical.children.push(frameScreenHorizontal);
 
-    const fieldLeftMenu = new figmaNode('LeftMenu', 'INSTANCE');
+    const fieldLeftMenu = new FigmaNode('LeftMenu', 'INSTANCE');
     fieldLeftMenu.tryToFind = false;
     fieldLeftMenu.componentNode = compLeftMenu;
     fieldLeftMenu.properties['layoutAlign'] = 'STRETCH';
     frameScreenHorizontal.children.push(fieldLeftMenu);
 
-    const frameCanvas  = new figmaNode('Canvas', 'FRAME', pageWidth - compLeftMenu.width);
+    const frameCanvas  = new FigmaNode('Canvas', 'FRAME', pageWidth - compLeftMenu.width);
     frameCanvas.tryToFind = false;
     frameCanvas.properties['counterAxisSizingMode'] = 'FIXED';
     frameCanvas.properties['itemSpacing'] = verticalSpacing;
@@ -980,7 +981,7 @@ async function CreateCanvas(screenName: string, screenTitle: string|null, backLi
     frameCanvas.properties['paddingBottom'] = padding;
     frameScreenHorizontal.children.push(frameCanvas);
 
-    const fieldHeader = new figmaNode('Header', 'INSTANCE', viewportWidth);
+    const fieldHeader = new FigmaNode('Header', 'INSTANCE', viewportWidth);
     fieldHeader.tryToFind = false;
     fieldHeader.componentNode = compHeader;
     fieldHeader.componentProperties['Show Back Link#3139:0'] = backLink != null;
@@ -1003,7 +1004,7 @@ function countChildren(root: figmaRoot){
     return count;
 }
 
-function setSummaryStretching(root: figmaNode){
+function setSummaryStretching(root: FigmaNode){
     if (root.acuElement?.Type == AcuElementType.FieldSet) {
         root.properties['primaryAxisSizingMode'] = 'FIXED';
         root.properties['layoutAlign'] = 'STRETCH';
