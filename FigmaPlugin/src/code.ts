@@ -12,11 +12,11 @@ import {
     QPFieldHorizontalContainer,
     QPFieldLabelValue,
     QPFieldMultilineTextEditor,
-    QPFieldRadioButton,
+    QPFieldRadioButton, QPFieldSelector,
     QPFieldStatus
 } from "./elements/qp-field";
 import {Template} from "./elements/qp-template";
-import {QPFieldset, QPFieldsetStyle} from "./elements/qp-fieldset";
+import {QPFieldset} from "./elements/qp-fieldset";
 import {AcuElement, AcuElementType} from "./elements/acu-element";
 import {FieldsetSlot} from "./elements/qp-fieldset-slot";
 import {Tab, TabBar} from "./elements/qp-tabbar";
@@ -71,6 +71,7 @@ const buttonIcons = new Map<IconType, string>([
     [IconType.Ellipsis       , '19be5dec53338a1bd35ff1f7e409da34d5f1e287'],
     [IconType.AddRow         , 'de700daf8268fce0d3acff9011f4a936bf77f714'],
     [IconType.DeleteRow      , '4eb380b404d2d81e5c704961928388fd224c3964'],
+    [IconType.ArrowDown      , '800ef65e596f2ae7e722ca31984f4d649c4ccc63'],
 ]);
 let buttonIconIDs = new Map<IconType, string>();
 
@@ -86,9 +87,9 @@ function SetProperties(node: InstanceNode, properties: any) {
 type figmaFieldTypes = 'INSTANCE' | 'FRAME';
 type figmaLayoutMode = 'NONE' | 'HORIZONTAL' | 'VERTICAL'
 
-function Warn(message: string): void {
+function Warn(message: string, node: any | null = null): void {
     log.push(message);
-    console.warn(message);
+    console.warn(message, node);
 }
 
 function Log(message: string): void {
@@ -140,7 +141,7 @@ async function Draw(field: figmaNode, parent: InstanceNode | PageNode | GroupNod
                 instance = parent.findOne(node => node.type === field.type && node.name === field.name) as InstanceNode;
 
             if (!instance && !field.createIfNotFound) {
-                Warn(`${field.name} not found`);
+                Warn(`${field.name} not found`, parent);
                 return;
             }
         }
@@ -187,10 +188,19 @@ async function Draw(field: figmaNode, parent: InstanceNode | PageNode | GroupNod
 }
 
 class figmaCheckbox extends figmaNode{
-    constructor(checkbox: QPFieldCheckbox, name: string, parent: figmaNode | null = null) {
+    constructor(checkbox: QPFieldCheckbox, name: string) {
         super(name, 'INSTANCE');
         this.componentProperties['Value ▶#6695:0'] = checkbox.CheckboxName??'';
         this.componentProperties['Selected'] = checkbox.Checked ? 'True' : 'False';
+    }
+}
+
+class figmaValue extends figmaNode{
+    constructor(field: QPFieldSelector) {
+        super('Field', 'INSTANCE');
+        const typedField = field as QPFieldLabelValue;
+        this.componentProperties['Text Value ▶#3161:0'] = typedField.Value??'';
+        this.componentProperties['State'] = field.ReadOnly == false ? 'Default' : 'Disabled';
     }
 }
 
@@ -200,16 +210,19 @@ class figmaRow extends figmaNode{
     rowTypes = new Map<QPFieldElementType, string>([
         [QPFieldElementType.Currency    , 'Currency'],
         [QPFieldElementType.CheckBox    , 'Checkbox'],
-        [QPFieldElementType.DateTimeEdit, 'Label + Field'],
+        [QPFieldElementType.DateTimeEdit, 'Date'],
         [QPFieldElementType.DropDown    , 'Label + Field'],
         [QPFieldElementType.TextEditor  , 'Label + Field'],
         [QPFieldElementType.Selector    , 'Label + Field'],
         [QPFieldElementType.NumberEditor, 'Label + Field'],
+        //[QPFieldElementType.NumberEditor, 'Label + Number Field'],
         [QPFieldElementType.Status      , 'Label + Field'],
         [QPFieldElementType.Button      , 'Button'],
         [QPFieldElementType.RadioButton , 'Radio Button'],
         [QPFieldElementType.MultilineTextEditor, 'Label + Text Area'],
-        [QPFieldElementType.HorizontalContainer, 'Label + Field']
+        [QPFieldElementType.HorizontalContainer, 'Label + Field'],
+        [QPFieldElementType.LabelFieldCheckbox, 'Label + Field + Checkbox'],
+        [QPFieldElementType.LabelFieldButton, 'Label + Field + Button']
     ]);
 
     constructor(field: QPField, name: string, parent: figmaNode | null = null) {
@@ -217,72 +230,82 @@ class figmaRow extends figmaNode{
         this.acuElement = field;
 
         if (!field.ElementType) {
-            Warn(`Row type can not be null (${field})`);
+            Warn(`Row type can not be null (${field})`, field);
             return;
         }
 
         let elementType = field.ElementType;
 
+        if (elementType == QPFieldElementType.HorizontalContainer) {
+            const typedField = field as QPFieldHorizontalContainer;
+            if (typedField.Children.length == 2) {
+                const child1 = typedField.Children[0] as QPField;
+                const child2 = typedField.Children[1] as QPField;
+
+                if (child1.ElementType == QPFieldElementType.Selector && child2.ElementType == QPFieldElementType.CheckBox)
+                    elementType = QPFieldElementType.LabelFieldCheckbox;
+            }
+        }
+
         if (!this.rowTypes.has(field.ElementType)) {
-            Warn(`${field.ElementType} row type is not supported`);
+            Warn(`${field.ElementType} row type is not supported`, field);
             elementType = QPFieldElementType.TextEditor;
         }
         this.componentProperties[this.typePropertyName] = this.rowTypes.get(elementType)!;
 
-        let child;
+        let labelField;
+        let valueField;
         let typedField;
         let defaultState = 'Default';
 
         switch (elementType) {
             case QPFieldElementType.CheckBox:
                 typedField = field as QPFieldCheckbox;
-                child = new figmaCheckbox(typedField, 'Checkbox');
-                this.children.push(child);
+                valueField = new figmaCheckbox(typedField, 'Checkbox');
+                this.children.push(valueField);
                 break;
             case QPFieldElementType.RadioButton:
                 this.componentProperties['Label Position'] = 'Top';
                 this.componentProperties['Label Length'] = 's';
                 typedField = field as QPFieldRadioButton;
-                child = new figmaNode('Radiobuttons');
-                child.componentProperties['Name#8227:0'] = typedField.RadioName??'';
-                child.componentProperties['Checked'] = typedField.Checked ? 'True' : 'False';
-                this.children.push(child);
+                valueField = new figmaNode('Radiobuttons');
+                valueField.componentProperties['Name#8227:0'] = typedField.RadioName??'';
+                valueField.componentProperties['Checked'] = typedField.Checked ? 'True' : 'False';
+                this.children.push(valueField);
                 break;
             case QPFieldElementType.Button:
                 typedField = field as QPFieldButton;
-                child = new figmaNode('Button');
-                child.componentProperties['Type'] = 'Secondary';
-                child.componentProperties['Value ▶#3133:332'] = typedField.Value??'';
-                this.children.push(child);
+                valueField = new figmaNode('Button');
+                valueField.componentProperties['Type'] = 'Secondary';
+                valueField.componentProperties['Value ▶#3133:332'] = typedField.Value??'';
+                this.children.push(valueField);
                 break;
             case QPFieldElementType.MultilineTextEditor:
                 typedField = field as QPFieldMultilineTextEditor;
-                child = new figmaNode('Label');
-                child.componentProperties['Label Value ▶#3141:62'] = typedField.Label??'';
-                this.children.push(child);
+                labelField = new figmaNode('Label');
+                labelField.componentProperties['Label Value ▶#3141:62'] = typedField.Label??'';
+                this.children.push(labelField);
 
-                child = new figmaNode('Text Area');
-                child.componentProperties['Text Value ▶#4221:3'] = typedField.Value??'';
+                valueField = new figmaNode('Text Area');
+                valueField.componentProperties['Text Value ▶#4221:3'] = typedField.Value??'';
                 defaultState = 'Normal';
-                this.children.push(child);
+                this.children.push(valueField);
                 break;
             case QPFieldElementType.Status:
                 typedField = field as QPFieldStatus;
-                child = new figmaNode('Label');
-                child.componentProperties['Label Value ▶#3141:62'] = typedField.Label??'';
-                this.children.push(child);
+                labelField = new figmaNode('Label');
+                labelField.componentProperties['Label Value ▶#3141:62'] = typedField.Label??'';
+                this.children.push(labelField);
 
-                child = new figmaNode('Field');
-                child.componentProperties['Type'] = 'Status';
-                this.children.push(child);
+                valueField = new figmaNode('Field');
+                valueField.componentProperties['Type'] = 'Status';
+                this.children.push(valueField);
 
                 const status = new figmaNode('Status');
                 status.componentProperties['Status'] = typedField.Value??'';
                 this.children.push(status);
                 break;
             case QPFieldElementType.HorizontalContainer:
-                // Warn(elementType, 'row element type not supported');
-                // return;
                 let width = 0;
                 const itemSpacing = 8;
                 const labelWisth = 200;
@@ -301,22 +324,41 @@ class figmaRow extends figmaNode{
                 container.properties['layoutGrow'] = 1;
                 container.properties['fills'] = [];
 
-                const label = new figmaNode('Label');
-                label.componentProperties['Label Value ▶#3141:62'] = '';
-                this.children.push(label);
+                labelField = new figmaNode('Label');
+                labelField.componentProperties['Label Value ▶#3141:62'] = '';
+                this.children.push(labelField);
                 if (width > 0)
                     width = (width - labelWisth) / typedField.Children.length - itemSpacing;
 
                 this.children.push(container);
                 let childNumber = 1;
                 for (const childField of typedField.Children) {
-                    const newChild = new figmaCheckbox(childField as QPFieldCheckbox, `Checkbox ${childNumber++}`);
+                    let newChild;
+                    switch ((childField as QPField).ElementType) {
+                        case QPFieldElementType.CheckBox:
+                            newChild = new figmaCheckbox(childField as QPFieldCheckbox, `Checkbox ${childNumber++}`);
+                            break;
+                        // case QPFieldElementType.Selector:
+                        //     newChild = new figmaCheckbox(childField as QPFieldCheckbox, `Checkbox ${childNumber++}`);
+                        //     break;
+                        default:
+                            continue;
+                    }
+
                     newChild.tryToFind = false;
                     newChild.componentNode = compCheckbox;
                     newChild.width = width;
                     container.children.push(newChild);
                 }
                 return;
+            case QPFieldElementType.LabelFieldCheckbox:
+                typedField = field as QPFieldHorizontalContainer;
+                labelField = new figmaNode('Label');
+                labelField.componentProperties['Label Value ▶#3141:62'] = typedField.Label??'';
+                this.children.push(labelField);
+                this.children.push(new figmaValue(typedField.Children[0] as QPFieldSelector));
+                this.children.push(new figmaCheckbox(typedField.Children[1] as QPFieldCheckbox, 'Checkbox'));
+                break;
             case QPFieldElementType.TextEditor:
             case QPFieldElementType.Selector:
             case QPFieldElementType.DropDown:
@@ -324,20 +366,28 @@ class figmaRow extends figmaNode{
             case QPFieldElementType.DateTimeEdit:
             case QPFieldElementType.Currency:
                 typedField = field as QPFieldLabelValue;
-                child = new figmaNode('Label');
-                child.componentProperties['Label Value ▶#3141:62'] = typedField.Label??'';
-                this.children.push(child);
+                labelField = new figmaNode('Label');
+                labelField.componentProperties['Label Value ▶#3141:62'] = typedField.Label??'';
+                this.children.push(labelField);
 
-                child = new figmaNode('Field');
-                child.componentProperties['Text Value ▶#3161:0'] = typedField.Value??'';
-                this.children.push(child);
+                valueField = new figmaNode('Field');
+                valueField.componentProperties['Text Value ▶#3161:0'] = typedField.Value??'';
+                if (elementType == QPFieldElementType.DropDown)
+                    valueField.componentProperties['Icon#3160:22'] = buttonIconIDs.get(IconType.ArrowDown)!;
+                if (elementType == QPFieldElementType.TextEditor)
+                    valueField.componentProperties['Show Icon#3160:30'] = false;
+
+                this.children.push(valueField);
                 break;
             default:
-                Warn(`${elementType} row element type not supported`);
+                Warn(`${elementType} row element type not supported`, field);
                 break;
         }
-        if (child)
-            child.componentProperties['State'] = field.ReadOnly == false ? defaultState : 'Disabled';
+        if (labelField && !field.ReadOnly && field.Mandatory)
+            labelField.componentProperties['Mandatory#3141:16'] = field.Mandatory;
+        if (valueField)
+            valueField.componentProperties['State'] = field.ReadOnly == false ? defaultState : 'Disabled';
+
     }
 }
 
@@ -362,6 +412,13 @@ class figmaGrid extends figmaNode {
             this.width = viewportWidth;
         }
         this.componentProperties['👁 Header#6826:0'] = true;
+        if (grid.Footer) {
+            this.componentProperties['👁 Footer#4741:54'] = true;
+            const footer = new figmaNode('Grid Footer');
+            footer.componentProperties['Type'] = grid.Footer.FooterType;
+            this.children.push(footer);
+        }
+
 
         let displayedRows = 0;
         const displayedColumns = 13;
@@ -390,7 +447,7 @@ class figmaGrid extends figmaNode {
             let columnInstance = new figmaNode(`Grid Column ${columnNumber++}`);
 
             if (!this.columnTypes.has(column.ColumnType))
-                Warn(`${this.columnTypes} column type is not supported`);
+                Warn(`${this.columnTypes} column type is not supported`, this);
             else
                 columnInstance.componentProperties['Type'] = this.columnTypes.get(column.ColumnType)!;
 
@@ -645,6 +702,12 @@ class figmaSlot extends figmaNode {
                 case AcuElementType.Grid:
                     const grid = new figmaGrid(fs as Grid, 'Grid', true);
                     grid.componentProperties['Wrapped'] = 'Yes';
+                    if ((fs as Grid).Caption != null){
+                        grid.componentProperties['👁 Caption#5610:0'] = true;
+                        const caption = new figmaNode('Group Header');
+                        caption.componentProperties['Text Value ▶#4494:3'] = (fs as Grid).Caption!;
+                        grid.children.push(caption);
+                    }
                     grid.properties['layoutAlign'] = 'STRETCH';
                     grid.height = 250;
                     this.children.push(grid);
@@ -760,7 +823,7 @@ async function DrawFromJSON(input: string, reuseSummary: boolean) {
     }
 
     const rootItem = new figmaRoot(root);
-    //console.log(rootItem);
+    console.log(rootItem);
     childrenNumber = countChildren(rootItem);
 
     let screenName = root.Title??'Screen';

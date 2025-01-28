@@ -20,7 +20,7 @@ export interface GridColumn {
 }
 
 export enum GridFooterType {
-    WithCounters = "WithCounters",
+    WithCounters = "With сounters",
     GI = "GI",
     Simple = "Simple",
 }

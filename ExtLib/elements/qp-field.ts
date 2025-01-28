@@ -14,6 +14,7 @@ export enum QPFieldElementType {
     Status = 'Status',
     Currency = 'Currency',
     LabelFieldCheckbox = "LabelFieldCheckbox",
+    LabelFieldButton = "LabelFieldButton",
     HorizontalContainer = "HorizontalContainer",
 }
 
