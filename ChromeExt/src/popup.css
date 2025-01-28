@@ -2,13 +2,32 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
     background-color: #f3f6fa;
-    width: 200px;
+    width: 220px;
     padding: 20px;
+}
+
+.header-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+}
+
+.title {
+    margin: 0;
+    font-size: 18px;
+    color: #2a7de1;
 }
 
 .container {
@@ -18,30 +37,27 @@ body {
     justify-content: center;
 }
 
-.title {
-    color: #2a7de1;
-    font-size: 18px;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
 .description {
     color: #6c757d;
-    font-size: 12px;
+    font-size: 14px;
     margin-bottom: 20px;
     text-align: center;
+    line-height: 1.4;
+    width: 130px;
 }
 
 .btn {
     background-color: #2a7de1;
-    color: white;
+    color: #ffffff;
     border: none;
     padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition:
+            background-color 0.3s ease,
+            transform 0.3s ease;
 }
 
 .btn:hover {
@@ -49,13 +65,47 @@ body {
 }
 
 .btn:active {
-    transform: scale(0.98); /* Небольшое уменьшение при клике */
+    transform: scale(0.97);
 }
 
-.success {
-    background-color: #28a745 !important; /* Зеленый цвет */
+.btn.success {
+    background-color: #28a745 !important;
 }
 
-.error {
-    background-color: #dc3545 !important; /* Красный цвет */
+.btn.error {
+    background-color: #dc3545 !important;
+    position: relative;
+}
+
+.btn-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: #fff;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 12px;
+    line-height: 1.4;
+
+    pointer-events: auto;
+    user-select: text;
+    white-space: pre-wrap;
+    max-width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}
+
+.btn-wrapper.error:hover .tooltip,
+.btn-wrapper.error .tooltip:hover {
+    display: block;
 }

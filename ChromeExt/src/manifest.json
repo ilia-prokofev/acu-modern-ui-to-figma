@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Acumatica to Figma",
+    "name": "Figmatica",
     "version": "1.0.0",
     "description": "Chrome extension to export HTML content to Figma",
     "action": {
@@ -11,5 +11,6 @@
 		"48": "icon48.png",
 		"128": "icon128.png"
 	},
-    "permissions": ["scripting", "activeTab", "clipboardWrite"]
+    "permissions": ["scripting", "activeTab", "clipboardWrite"],
+    "host_permissions": ["<all_urls>"]
 }

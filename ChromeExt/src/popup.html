@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acumatica Modern UI Exporter</title>
-    <link rel="stylesheet" href="popup.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Figmatica</title>
+    <link rel="stylesheet" href="popup.css" />
 </head>
 <body>
 <div class="container">
-    <h1 class="title">Acumatica to Figma</h1>
-    <p class="description">The content of the page will be copied to the clipboard.</p>
-    <button id="exportBtn" class="btn">Export to Figma</button>
+    <div class="header-row">
+        <img src="icon48.png" alt="Figmatica Logo" class="logo" />
+        <h1 class="title">Figmatica</h1>
+    </div>
+    <p class="description">
+        The content of the page will be copied to the clipboard.
+    </p>
+
+    <div class="btn-wrapper">
+        <button id="exportBtn" class="btn">Export JSON</button>
+        <div class="tooltip"></div>
+    </div>
 </div>
 
-<script src="popup.js"></script>
+<script type="module" src="popup.js"></script>
 </body>
 </html>
