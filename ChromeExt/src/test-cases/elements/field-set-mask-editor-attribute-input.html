@@ -1,0 +1,115 @@
+<qp-field
+  control-id="edItemSettings-LotSerNumVal"
+  control-type.bind="df.controlType"
+  no-label.bind="df.noLabel == null ? noLabel : df.noLabel"
+  caption.bind="df.caption"
+  control-state.bind="state"
+  context.bind="$this"
+  collapsed.bind="collapsed"
+  pinned.one-way="getFieldPinned(df)"
+  tab-index.one-way="getFieldTabIndex(df)"
+  name="LotSerNumVal"
+  class="au-target qp-field qp-field-expanded qp-field-disabled"
+  au-target-id="1687"
+>
+  <!--anchor-->
+
+  <div
+    show.bind="controlState.visible === undefined || controlState.visible !== false"
+    data-tooltip.bind="errorMessage"
+    data-error-level.bind="errorLevel"
+    data-id.bind="effectiveId"
+    class="au-target wrapper qp-field-empty"
+    au-target-id="218"
+    data-error-level="0"
+    data-id="edItemSettings-LotSerNumVal"
+  >
+    <span
+      class="label-wrapper no-label au-target"
+      show.bind="!noLabel"
+      au-target-id="219"
+    >
+      <!--view-->
+
+      <div class="label-container">
+        <label
+          for.bind="controlId"
+          click.delegate="processClick()"
+          ref="element"
+          class="au-target clickable"
+          au-target-id="590"
+          for="edItemSettings-LotSerNumVal"
+        >
+          Auto-Incremental Value
+        </label>
+        <qp-tooltip
+          get-visible.call="showTooltip()"
+          class="au-target"
+          au-target-id="592"
+        >
+        </qp-tooltip
+        ><!--anchor-->
+      </div>
+      <!--anchor--><!--anchor-->
+      <!--slot-->
+    </span>
+
+    <div class="control-container no-label size-default">
+      <div
+        class="au-target main-field qp-mask-editor-control"
+        au-target-id="223"
+      >
+        <div class="icon-container"></div>
+        <!--anchor-->
+        <enhanced-compose
+          view-model.bind="controlType || defaultControlType"
+          config.bind="controlConfig"
+          state.bind="controlState"
+          value.two-way="controlState.value"
+          control-id.bind="effectiveId"
+          context.bind="context"
+          proxy-expressions.bind="proxyExpressions"
+          class="main-control au-target"
+          au-target-id="225"
+        >
+          <!--anchor-->
+
+          <!--anchor-->
+
+          <!--anchor-->
+
+          <input
+            ref="elemText"
+            autocomplete="off"
+            autocorrect="off"
+            maxlength.bind="config.maxLength &amp; attr"
+            enabled.bind="config.enabled ? null : false &amp; attr"
+            spellcheck.bind="config.spellcheck ? null : false &amp; attr"
+            placeholder.bind="config.placeholder &amp; attr"
+            value.bind="value | meta : converter : hasFocus : editorState : config &amp; updateTrigger : 'blur' : 'update'"
+            keydown.trigger="processKeyDown($event)"
+            input.delegate="processInput($event)"
+            focus.trigger="processFocus($event)"
+            blur.trigger="processBlur($event)"
+            paste.delegate="processPaste($event)"
+            class="au-target qp-text-editor"
+            au-target-id="208"
+            type="text"
+            id="edItemSettings-LotSerNumVal"
+            name=""
+            tabindex="0"
+            maxlength="30"
+            enabled="false"
+            readonly=""
+            value=""
+          /><!--anchor-->
+          <!--anchor-->
+
+          <!--anchor-->
+          <!--anchor--> </enhanced-compose
+        ><!--anchor-->
+      </div>
+      <!--slot-->
+    </div>
+  </div>
+</qp-field>

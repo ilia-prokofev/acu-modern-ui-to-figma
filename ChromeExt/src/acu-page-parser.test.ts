@@ -19,6 +19,8 @@ import QPFieldButtonVisitor from "./visitors/qp-field-button-visitor";
 import QpFieldRadioButtonVisitor from "./visitors/qp-field-radio-button-visitor";
 import QPFieldSelectorVisitor from "./visitors/qp-field-selector-visitor";
 import QPNoFieldSelectorVisitor from "./visitors/qp-field-no-label-selector-visitor";
+import QPFieldMaskEditorElementVisitor from "./visitors/qp-field-mask-editor-element-visitor";
+import QPFieldMaskEditorAttributeVisitor from "./visitors/qp-field-mask-editor-attribute-visitor";
 
 describe('acu-page-parser.test', () => {
     const createRoot = (): Root => {
@@ -186,6 +188,20 @@ describe('acu-page-parser.test', () => {
                 new QPFieldCheckboxVisitor()]),
             incomingHTMLFileName: './test-cases/elements/field-with-selector-and-checkbox-input.html',
             expectedJSONFile: './test-cases/elements/field-with-selector-and-checkbox-output.json',
+            parent: createRoot(),
+        },
+        {
+            testName: "elements/field-mask-editor-element",
+            childrenVisitor: new ChildrenVisitor([new QPFieldMaskEditorElementVisitor()]),
+            incomingHTMLFileName: './test-cases/elements/field-set-mask-editor-element-input.html',
+            expectedJSONFile: './test-cases/elements/field-set-mask-editor-element-output.json',
+            parent: createRoot(),
+        },
+        {
+            testName: "elements/field-mask-editor-attribute",
+            childrenVisitor: new ChildrenVisitor([new QPFieldMaskEditorAttributeVisitor()]),
+            incomingHTMLFileName: './test-cases/elements/field-set-mask-editor-attribute-input.html',
+            expectedJSONFile: './test-cases/elements/field-set-mask-editor-attribute-output.json',
             parent: createRoot(),
         },
         {

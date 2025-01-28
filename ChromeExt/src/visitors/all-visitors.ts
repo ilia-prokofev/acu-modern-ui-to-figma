@@ -23,6 +23,8 @@ import QPFieldNumberEditorVisitor from "./qp-field-number-editor-visitor";
 import QPFieldButtonVisitor from "./qp-field-button-visitor";
 import QpFieldRadioButtonVisitor from "./qp-field-radio-button-visitor";
 import QPNoFieldSelectorVisitor from "./qp-field-no-label-selector-visitor";
+import QPFieldMaskEditorElementVisitor from "./qp-field-mask-editor-element-visitor";
+import QPFieldMaskEditorAttributeVisitor from "./qp-field-mask-editor-attribute-visitor";
 
 export const allVisitors: ElementVisitor[] = [
     new QPRootVisitor(),
@@ -38,6 +40,8 @@ export const allVisitors: ElementVisitor[] = [
     new QPFieldTextEditorVisitor(),
     new QPNoFieldSelectorVisitor(),
     new QPFieldSelectorVisitor(),
+    new QPFieldMaskEditorElementVisitor(),
+    new QPFieldMaskEditorAttributeVisitor(),
     new QPFieldDropDownVisitor(),
     new QPFieldCheckboxVisitor(),
     new QPFieldDateTimeEditVisitor(),

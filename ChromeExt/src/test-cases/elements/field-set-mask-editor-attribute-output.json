@@ -1,0 +1,18 @@
+{
+  "Caption": null,
+  "Children": [
+    {
+      "ElementType": "Selector",
+      "Id": "Root-1687",
+      "Label": "Auto-Incremental Value",
+      "Mandatory": false,
+      "ReadOnly": true,
+      "Type": "Field",
+      "Value": ""
+    }
+  ],
+  "Id": "Root",
+  "Title": null,
+  "ToolBar": null,
+  "Type": "Root"
+}

@@ -1,0 +1,18 @@
+{
+  "Caption": null,
+  "Children": [
+    {
+      "ElementType": "Selector",
+      "Id": "Root-1671",
+      "Label": "Item Class",
+      "Mandatory": true,
+      "ReadOnly": false,
+      "Type": "Field",
+      "Value": "MFGFG     -   -           - Manufacturing Finished Goods"
+    }
+  ],
+  "Id": "Root",
+  "Title": null,
+  "ToolBar": null,
+  "Type": "Root"
+}
