@@ -26,6 +26,8 @@ import QPNoFieldSelectorVisitor from "./qp-field-no-label-selector-visitor";
 import QPFieldMaskEditorElementVisitor from "./qp-field-mask-editor-element-visitor";
 import QPFieldMaskEditorAttributeVisitor from "./qp-field-mask-editor-attribute-visitor";
 import QPSplitterVisitor from "./qp-splitter-visitor";
+import QPRichTextEditorVisitor from "./qp-rich-text-editor-visitor";
+import QPImageViewVisitor from "./qp-image-view-visitor";
 
 export const allVisitors: ElementVisitor[] = [
     new QPRootVisitor(),
@@ -55,4 +57,6 @@ export const allVisitors: ElementVisitor[] = [
     new QPGridFooterGIVisitor(),
     new QPGridFooterSimpleVisitor(),
     new QPSplitterVisitor(),
+    new QPRichTextEditorVisitor(),
+    new QPImageViewVisitor(),
 ];

@@ -11,6 +11,8 @@ export enum AcuElementType {
     ToolBar = 'ToolBar',
     SplitContainer = "SplitContainer",
     SplitPanel = "SplitPanel",
+    RichTextEditor = "RichTextEditor",
+    Image = "Image",
 }
 
 export interface AcuElement {

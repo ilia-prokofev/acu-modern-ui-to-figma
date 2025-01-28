@@ -1,0 +1,43 @@
+<image-view
+  src.one-way="imageSource"
+  click.call="clickImage(source, image)"
+  cancel.call="cancelImage(source)"
+  loaded.call="imageLoaded(source, image)"
+  view-model.ref="imageView"
+  css.bind="imageStyle"
+  allow-zoom.bind="allowZoom"
+  class="au-target"
+  au-target-id="1042"
+>
+  <div
+    class="image-view au-target"
+    ref="viewFrame"
+    block-size.bind="blockSize"
+    au-target-id="919"
+  >
+    <!--anchor-->
+
+    <img
+      class="image-view-image au-target"
+      src.bind="image.url &amp; attr"
+      width.bind="image.size.width &amp; attr"
+      height.bind="image.size.height &amp; attr"
+      load.trigger="setLoaded()"
+      error.trigger="errorHappened($event)"
+      alt.bind="source.name &amp; attr"
+      draggable="false"
+      mousedown.trigger="mouseDown($event)"
+      mouseleave.trigger="mouseLeave($event)"
+      mouseup.trigger="mouseUp($event)"
+      mousemove.trigger="mouseMove($event)"
+      loading="lazy"
+      zoom.two-way="zoomApplied"
+      au-target-id="931"
+      src="blob:http://localhost/500d4e62-cafa-4398-861b-51ddc80c835d"
+      alt="AACOMPUT01.jpg"
+      style="object-fit: scale-down; object-position: unset"
+    />
+    <!--anchor-->
+    <!--anchor-->
+  </div>
+</image-view>

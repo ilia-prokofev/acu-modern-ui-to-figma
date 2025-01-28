@@ -21,6 +21,8 @@ import QPFieldSelectorVisitor from "./visitors/qp-field-selector-visitor";
 import QPNoFieldSelectorVisitor from "./visitors/qp-field-no-label-selector-visitor";
 import QPFieldMaskEditorElementVisitor from "./visitors/qp-field-mask-editor-element-visitor";
 import QPFieldMaskEditorAttributeVisitor from "./visitors/qp-field-mask-editor-attribute-visitor";
+import QPRichTextEditorVisitor from "./visitors/qp-rich-text-editor-visitor";
+import QPImageViewVisitor from "./visitors/qp-image-view-visitor";
 
 describe('acu-page-parser.test', () => {
     const createRoot = (): Root => {
@@ -230,6 +232,20 @@ describe('acu-page-parser.test', () => {
             childrenVisitor: new ChildrenVisitor([new QPGridVisitor()]),
             incomingHTMLFileName: './test-cases/elements/grid-caption-input.html',
             expectedJSONFile: './test-cases/elements/grid-caption-output.json',
+            parent: createRoot(),
+        },
+        {
+            testName: "elements/rich-text-editor",
+            childrenVisitor: new ChildrenVisitor([new QPRichTextEditorVisitor()]),
+            incomingHTMLFileName: './test-cases/elements/rich-text-editor-input.html',
+            expectedJSONFile: './test-cases/elements/rich-text-editor-output.json',
+            parent: createRoot(),
+        },
+        {
+            testName: "elements/image-view",
+            childrenVisitor: new ChildrenVisitor([new QPImageViewVisitor()]),
+            incomingHTMLFileName: './test-cases/elements/image-view-input.html',
+            expectedJSONFile: './test-cases/elements/image-view-output.json',
             parent: createRoot(),
         },
     ]
