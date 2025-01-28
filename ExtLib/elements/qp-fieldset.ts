@@ -3,7 +3,7 @@ import {AcuElementType} from "./acu-element";
 
 export enum QPFieldsetStyle {
     Default = "Default",
-    Grey = "Grey",
+    Gray = "Gray",
     Blue = "Blue",
 }
 

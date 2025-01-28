@@ -39,6 +39,6 @@ export default class QPFieldsetVisitor implements ElementVisitor {
             return QPFieldsetStyle.Default;
         }
 
-        return QPFieldsetStyle.Grey;
+        return QPFieldsetStyle.Gray;
     }
 }

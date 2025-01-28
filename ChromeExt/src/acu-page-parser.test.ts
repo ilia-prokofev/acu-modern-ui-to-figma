@@ -136,10 +136,10 @@ describe('acu-page-parser.test', () => {
             parent: createRoot(),
         },
         {
-            testName: "elements/field-set-grey",
+            testName: "elements/field-set-gray",
             childrenVisitor: new ChildrenVisitor([new QPFieldsetVisitor()]),
-            incomingHTMLFileName: './test-cases/elements/field-set-grey-input.html',
-            expectedJSONFile: './test-cases/elements/field-set-grey-output.json',
+            incomingHTMLFileName: './test-cases/elements/field-set-gray-input.html',
+            expectedJSONFile: './test-cases/elements/field-set-gray-output.json',
             parent: createRoot(),
         },
         {
