@@ -1,7 +1,7 @@
 import ElementVisitor from "./qp-element-visitor";
 import {AcuElement, AcuElementType} from "../elements/acu-element";
 import ChildrenVisitor from "./children-visitors";
-import {concatElementID, findAllElementByNodeNameDown} from "./html-element-utils";
+import {concatElementID, findAllElementsByNodeNameDown} from "./html-element-utils";
 import {QPFieldElementType, QPFieldHorizontalContainer} from "../elements/qp-field";
 import {AcuContainer} from "../elements/acu-container";
 
@@ -18,7 +18,7 @@ export default class QPFieldContainerVisitor implements ElementVisitor {
 
         const childFieldElements: Element[] = [];
         for (const childElement of htmlElement.children) {
-            findAllElementByNodeNameDown(childElement, "qp-field", childFieldElements);
+            findAllElementsByNodeNameDown(childElement, "qp-field", childFieldElements);
         }
 
         if (childFieldElements.length === 0) {

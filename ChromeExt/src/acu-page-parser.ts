@@ -1,6 +1,7 @@
 import {Root} from "./elements/qp-root";
 import {AcuElement, AcuElementType} from "./elements/acu-element";
-import ChildrenVisitor, {allVisitors} from "./visitors/children-visitors";
+import ChildrenVisitor from "./visitors/children-visitors";
+import {allVisitors} from "./visitors/all-visitors";
 
 export class AcuPageParser {
     parse(html: string): AcuElement | null {

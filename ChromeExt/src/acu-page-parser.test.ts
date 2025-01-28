@@ -1,5 +1,5 @@
 import {AcuElement, AcuElementType} from "./elements/acu-element";
-import ChildrenVisitor, {allVisitors} from "./visitors/children-visitors";
+import ChildrenVisitor from "./visitors/children-visitors";
 import QPGridVisitor from "./visitors/qp-grid-visitor";
 import QPTabBarVisitor from "./visitors/qp-tab-bar-visitor";
 import * as fs from "node:fs";
@@ -7,12 +7,17 @@ import QPToolBarVisitor from "./visitors/qp-tool-bar-visitor";
 import QPFilterBarVisitor from "./visitors/qp-filter-bar-visitor";
 import {Root} from "./elements/qp-root";
 import QPGridToolBarVisitor from "./visitors/qp-grid-tool-bar-visitor";
-import QPFieldVisitor from "./visitors/qp-field-visitor";
 import QPFieldsetVisitor from "./visitors/qp-field-set-visitor";
 import QPFieldContainerVisitor from "./visitors/qp-field-container-visitor";
 import {Grid} from "./elements/qp-grid";
 import QPGridFooterGIVisitor from "./visitors/qp-grid-footer-gi-visitor";
 import QPGridFooterSimpleVisitor from "./visitors/qp-grid-footer-simple-visitor";
+import {allVisitors} from "./visitors/all-visitors";
+import QPFieldStatusVisitor from "./visitors/qp-field-status-visitor";
+import QPFieldCheckboxVisitor from "./visitors/qp-field-checkbox-visitor";
+import QPFieldButtonVisitor from "./visitors/qp-field-button-visitor";
+import QpFieldRadioButtonVisitor from "./visitors/qp-field-radio-button-visitor";
+import QPFieldSelectorVisitor from "./visitors/qp-field-selector-visitor";
 
 describe('acu-page-parser.test', () => {
     const createRoot = (): Root => {
@@ -104,14 +109,14 @@ describe('acu-page-parser.test', () => {
         },
         {
             testName: "elements/checkbox-checked",
-            childrenVisitor: new ChildrenVisitor([new QPFieldVisitor()]),
+            childrenVisitor: new ChildrenVisitor([new QPFieldCheckboxVisitor()]),
             incomingHTMLFileName: './test-cases/elements/checkbox-checked-input.html',
             expectedJSONFile: './test-cases/elements/checkbox-checked-output.json',
             parent: createRoot(),
         },
         {
             testName: "elements/checkbox-unchecked",
-            childrenVisitor: new ChildrenVisitor([new QPFieldVisitor()]),
+            childrenVisitor: new ChildrenVisitor([new QPFieldCheckboxVisitor()]),
             incomingHTMLFileName: './test-cases/elements/checkbox-unchecked-input.html',
             expectedJSONFile: './test-cases/elements/checkbox-unchecked-output.json',
             parent: createRoot(),
@@ -139,35 +144,35 @@ describe('acu-page-parser.test', () => {
         },
         {
             testName: "elements/field-set-button",
-            childrenVisitor: new ChildrenVisitor([new QPFieldVisitor()]),
+            childrenVisitor: new ChildrenVisitor([new QPFieldButtonVisitor()]),
             incomingHTMLFileName: './test-cases/elements/field-set-button-input.html',
             expectedJSONFile: './test-cases/elements/field-set-button-output.json',
             parent: createRoot(),
         },
         {
             testName: "elements/field-set-statuses",
-            childrenVisitor: new ChildrenVisitor([new QPFieldsetVisitor(), new QPFieldVisitor()]),
+            childrenVisitor: new ChildrenVisitor([new QPFieldsetVisitor(), new QPFieldStatusVisitor()]),
             incomingHTMLFileName: './test-cases/elements/field-set-statuses-input.html',
             expectedJSONFile: './test-cases/elements/field-set-statuses-output.json',
             parent: createRoot(),
         },
         {
             testName: "elements/field-set-radio",
-            childrenVisitor: new ChildrenVisitor([new QPFieldsetVisitor(), new QPFieldVisitor()]),
+            childrenVisitor: new ChildrenVisitor([new QPFieldsetVisitor(), new QpFieldRadioButtonVisitor()]),
             incomingHTMLFileName: './test-cases/elements/field-set-radio-input.html',
             expectedJSONFile: './test-cases/elements/field-set-radio-output.json',
             parent: createRoot(),
         },
         {
             testName: "elements/field-set-check-box-container",
-            childrenVisitor: new ChildrenVisitor([new QPFieldContainerVisitor(), new QPFieldVisitor()]),
+            childrenVisitor: new ChildrenVisitor([new QPFieldContainerVisitor(), new QPFieldCheckboxVisitor()]),
             incomingHTMLFileName: './test-cases/elements/field-set-check-box-container-input.html',
             expectedJSONFile: './test-cases/elements/field-set-check-box-container-output.json',
             parent: createRoot(),
         },
         {
             testName: "elements/field-mandatory",
-            childrenVisitor: new ChildrenVisitor([new QPFieldVisitor()]),
+            childrenVisitor: new ChildrenVisitor([new QPFieldSelectorVisitor()]),
             incomingHTMLFileName: './test-cases/elements/field-mandatory-input.html',
             expectedJSONFile: './test-cases/elements/field-mandatory-output.json',
             parent: createRoot(),
