@@ -1,0 +1,14 @@
+{
+    "private": true,
+    "workspaces": [
+      "elements",
+      "chrome-extension",
+      "figma-plugin"
+    ],
+    "scripts": {
+        "build": "npm run build:elements && npm run build:chrome-extension && npm run build:figma-plugin",
+        "build:elements": "npm run build --workspace=elements",
+        "build:chrome-extension": "npm run build --workspace=chrome-extension",
+        "build:figma-plugin": "npm run build --workspace=figma-plugin"
+    }
+}
