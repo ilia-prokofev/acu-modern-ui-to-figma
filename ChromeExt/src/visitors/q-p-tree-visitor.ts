@@ -5,7 +5,7 @@ import {AcuContainer} from "../elements/acu-container";
 import {concatElementID, findElementByNodeNameDown, findFirstLeafTextContent} from "./html-element-utils";
 import {QPTree} from "../elements/qp-tree";
 
-export default class QpTreeVisitor implements ElementVisitor {
+export default class QPTreeVisitor implements ElementVisitor {
     visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean {
         if (!(parent as AcuContainer)?.Children) {
             return false;
