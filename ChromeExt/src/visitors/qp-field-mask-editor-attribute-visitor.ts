@@ -7,9 +7,8 @@ import {
     findElementByNodeNameAndClassesDown,
     isElementDisabled
 } from "./html-element-utils";
-import {QPFieldElementType, QPFieldSelector} from "../elements/qp-field";
+import {QPFieldElementType, QPFieldTextEditor} from "../elements/qp-field";
 import {getFieldLabel, getInputValue, isFieldMandatory} from "./qp-field-utils";
-import {getSelectorLink} from "./selector-utils";
 
 export default class QPFieldMaskEditorAttributeVisitor implements ElementVisitor {
     visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean {
@@ -25,13 +24,13 @@ export default class QPFieldMaskEditorAttributeVisitor implements ElementVisitor
             return false;
         }
 
-        const field: QPFieldSelector = {
+        const field: QPFieldTextEditor = {
             Type: AcuElementType.Field,
             ReadOnly: isElementDisabled(htmlElement),
-            ElementType: QPFieldElementType.Selector,
+            ElementType: QPFieldElementType.TextEditor,
             Id: concatElementID(parent.Id, htmlElement),
             Label: getFieldLabel(htmlElement),
-            Value: getInputValue(htmlElement) ?? getSelectorLink(htmlElement),
+            Value: getInputValue(htmlElement),
             Mandatory: isFieldMandatory(htmlElement),
         };
         (parent as AcuContainer).Children.push(field);
