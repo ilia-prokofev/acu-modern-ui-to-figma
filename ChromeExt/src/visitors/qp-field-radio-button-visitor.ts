@@ -11,7 +11,7 @@ import {
 import {QPFieldElementType, QPFieldRadioButton} from "../elements/qp-field";
 import {getFieldLabel, isFieldMandatory} from "./qp-field-utils";
 
-export default class QpFieldRadioButtonVisitor implements ElementVisitor {
+export default class QPFieldRadioButtonVisitor implements ElementVisitor {
     visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean {
         if (!(parent as AcuContainer)?.Children) {
             return false;

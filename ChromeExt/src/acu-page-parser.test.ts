@@ -16,14 +16,14 @@ import {allVisitors} from "./visitors/all-visitors";
 import QPFieldStatusVisitor from "./visitors/qp-field-status-visitor";
 import QPFieldCheckboxVisitor from "./visitors/qp-field-checkbox-visitor";
 import QPFieldButtonVisitor from "./visitors/qp-field-button-visitor";
-import QpFieldRadioButtonVisitor from "./visitors/qp-field-radio-button-visitor";
+import QPFieldRadioButtonVisitor from "./visitors/qp-field-radio-button-visitor";
 import QPFieldSelectorVisitor from "./visitors/qp-field-selector-visitor";
 import QPNoFieldSelectorVisitor from "./visitors/qp-field-no-label-selector-visitor";
 import QPFieldMaskEditorElementVisitor from "./visitors/qp-field-mask-editor-element-visitor";
 import QPFieldMaskEditorAttributeVisitor from "./visitors/qp-field-mask-editor-attribute-visitor";
 import QPRichTextEditorVisitor from "./visitors/qp-rich-text-editor-visitor";
 import QPImageViewVisitor from "./visitors/qp-image-view-visitor";
-import QpTreeVisitor from "./visitors/qp-tree-visitor";
+import QPTreeVisitor from "./visitors/q-p-tree-visitor";
 
 describe('acu-page-parser.test', () => {
     const createRoot = (): Root => {
@@ -172,7 +172,7 @@ describe('acu-page-parser.test', () => {
         },
         {
             testName: "elements/field-set-radio",
-            childrenVisitor: new ChildrenVisitor([new QPFieldsetVisitor(), new QpFieldRadioButtonVisitor()]),
+            childrenVisitor: new ChildrenVisitor([new QPFieldsetVisitor(), new QPFieldRadioButtonVisitor()]),
             incomingHTMLFileName: './test-cases/elements/field-set-radio-input.html',
             expectedJSONFile: './test-cases/elements/field-set-radio-output.json',
             parent: createRoot(),
@@ -252,7 +252,7 @@ describe('acu-page-parser.test', () => {
         },
         {
             testName: "elements/tree",
-            childrenVisitor: new ChildrenVisitor([new QpTreeVisitor()]),
+            childrenVisitor: new ChildrenVisitor([new QPTreeVisitor()]),
             incomingHTMLFileName: './test-cases/elements/tree-input.html',
             expectedJSONFile: './test-cases/elements/tree-output.json',
             parent: createRoot(),

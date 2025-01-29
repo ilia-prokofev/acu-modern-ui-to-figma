@@ -21,14 +21,15 @@ import QPFieldDateTimeEditVisitor from "./qp-field-date-time-edit-visitor";
 import QPFieldCurrencyVisitor from "./qp-field-currency-visitor";
 import QPFieldNumberEditorVisitor from "./qp-field-number-editor-visitor";
 import QPFieldButtonVisitor from "./qp-field-button-visitor";
-import QpFieldRadioButtonVisitor from "./qp-field-radio-button-visitor";
+import QPFieldRadioButtonVisitor from "./qp-field-radio-button-visitor";
 import QPNoFieldSelectorVisitor from "./qp-field-no-label-selector-visitor";
 import QPFieldMaskEditorElementVisitor from "./qp-field-mask-editor-element-visitor";
 import QPFieldMaskEditorAttributeVisitor from "./qp-field-mask-editor-attribute-visitor";
 import QPSplitterVisitor from "./qp-splitter-visitor";
 import QPRichTextEditorVisitor from "./qp-rich-text-editor-visitor";
 import QPImageViewVisitor from "./qp-image-view-visitor";
-import QpTreeVisitor from "./qp-tree-visitor";
+import QPTreeVisitor from "./q-p-tree-visitor";
+import QPFieldDefaultVisitor from "./qp-field-default-visitor";
 
 export const allVisitors: ElementVisitor[] = [
     new QPRootVisitor(),
@@ -51,7 +52,7 @@ export const allVisitors: ElementVisitor[] = [
     new QPFieldDateTimeEditVisitor(),
     new QPFieldNumberEditorVisitor(),
     new QPFieldButtonVisitor(),
-    new QpFieldRadioButtonVisitor(),
+    new QPFieldRadioButtonVisitor(),
     new QPTabBarVisitor(),
     new QPGridVisitor(),
     new QPGridToolBarVisitor(),
@@ -60,5 +61,6 @@ export const allVisitors: ElementVisitor[] = [
     new QPSplitterVisitor(),
     new QPRichTextEditorVisitor(),
     new QPImageViewVisitor(),
-    new QpTreeVisitor(),
+    new QPTreeVisitor(),
+    new QPFieldDefaultVisitor(), // this field visitor should be the latest one, because it returns default QPField when others were not visited
 ];
