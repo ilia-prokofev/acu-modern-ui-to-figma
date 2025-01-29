@@ -2,7 +2,7 @@
   "name": "Figmatica",
   "id": "1431175011597677298",
   "api": "1.0.0",
-  "main": "dist/code.js",
+  "main": "code.js",
   "capabilities": [],
   "enableProposedApi": false,
   "documentAccess": "dynamic-page",

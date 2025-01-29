@@ -1,5 +1,5 @@
 import {FigmaNode} from "./figma-node";
-import {QPSplitContainer, QPSplitContainerOrientation} from "./elements/qp-split";
+import {QPSplitContainer, QPSplitContainerOrientation} from "@modern-ui-to-figma/elements";
 import {compSplitter, viewportWidth} from "./figma-main";
 import {figmaSlot} from "./figma-slot";
 

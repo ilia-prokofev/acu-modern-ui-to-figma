@@ -1,5 +1,5 @@
 import {FigmaNode} from "./figma-node";
-import {QPFieldCheckbox} from "./elements/qp-field";
+import {QPFieldCheckbox} from "@modern-ui-to-figma/elements";
 
 export class figmaCheckbox extends FigmaNode {
     constructor(checkbox: QPFieldCheckbox, name: string) {

@@ -2,9 +2,9 @@
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "jsx": "react",
-    "typeRoots": ["./node_modules/@types", "./node_modules/@figma"],
     "allowJs": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "types": ["node" ,"@figma/plugin-typings", "jest"]
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts"],
 }

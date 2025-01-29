@@ -1,17 +1,17 @@
 import {FigmaNode} from "./figma-node";
-import {Root} from "./elements/qp-root";
+import {Root} from "@modern-ui-to-figma/elements";
 import {figmaToolbar} from "./figma-toolbar";
-import {AcuElementType} from "./elements/acu-element";
+import {AcuElementType} from "@modern-ui-to-figma/elements";
 import {figmaTemplate} from "./figma-template";
-import {Template} from "./elements/qp-template";
+import {Template} from "@modern-ui-to-figma/elements";
 import {figmaSplitContainer} from "./figma-split-container";
-import {QPSplitContainer} from "./elements/qp-split";
+import {QPSplitContainer} from "@modern-ui-to-figma/elements";
 import {figmaTabbar} from "./figma-tabbar";
-import {TabBar} from "./elements/qp-tabbar";
+import {TabBar} from "@modern-ui-to-figma/elements";
 import {figmaTree} from "./figma-tree";
-import {QPTree} from "./elements/qp-tree";
+import {QPTree} from "@modern-ui-to-figma/elements";
 import {figmaGrid} from "./figma-grid";
-import {Grid} from "./elements/qp-grid";
+import {Grid} from "@modern-ui-to-figma/elements";
 
 export class figmaRoot extends FigmaNode {
     constructor(root: Root) {

@@ -10,5 +10,8 @@
         "build:elements": "npm run build --workspace=elements",
         "build:chrome-extension": "npm run build --workspace=chrome-extension",
         "build:figma-plugin": "npm run build --workspace=figma-plugin"
+    },
+    "dependencies": {
+      "@modern-ui-to-figma/elements": "*"
     }
 }

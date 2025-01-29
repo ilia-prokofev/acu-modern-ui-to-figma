@@ -1,5 +1,5 @@
 import {FigmaNode} from "./figma-node";
-import {Grid, GridColumnType} from "./elements/qp-grid";
+import {Grid, GridColumnType} from "@modern-ui-to-figma/elements";
 import {figmaToolbar} from "./figma-toolbar";
 import {compGrid, logger, viewportWidth} from "./figma-main";
 

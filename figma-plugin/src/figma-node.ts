@@ -1,4 +1,4 @@
-import {AcuElement} from "./elements/acu-element";
+import {AcuElement} from "@modern-ui-to-figma/elements";
 
 export type figmaFieldTypes = 'INSTANCE' | 'FRAME';
 export type figmaLayoutMode = 'NONE' | 'HORIZONTAL' | 'VERTICAL'

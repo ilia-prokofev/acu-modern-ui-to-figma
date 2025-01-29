@@ -1,5 +1,5 @@
 import * as fs from "node:fs";
-import {Root} from "./elements/qp-root";
+import {Root} from "@modern-ui-to-figma/elements";
 
 
 import {figmaRoot} from "./figma-root";

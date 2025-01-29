@@ -10,8 +10,8 @@ import {
     QPFieldRadioButton,
     QPFieldSelector,
     QPFieldStatus
-} from "./elements/qp-field";
-import {IconType} from "./elements/icon";
+} from "@modern-ui-to-figma/elements";
+import {IconType} from "@modern-ui-to-figma/elements";
 import {buttonIconIDs, compCheckbox, logger} from "./figma-main";
 import {figmaCheckbox} from "./figma-checkbox";
 import {figmaValue} from "./figma-value";

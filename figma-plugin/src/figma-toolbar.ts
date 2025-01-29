@@ -1,5 +1,5 @@
 import {FigmaNode} from "./figma-node";
-import {QPToolBar, QPToolBarItemButton, QPToolBarItemType, QPToolBarType} from "./elements/qp-toolbar";
+import {QPToolBar, QPToolBarItemButton, QPToolBarItemType, QPToolBarType} from "@modern-ui-to-figma/elements";
 import {buttonIconIDs, logger} from "./figma-main";
 
 export class figmaToolbar extends FigmaNode {

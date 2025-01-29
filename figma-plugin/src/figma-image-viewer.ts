@@ -1,5 +1,5 @@
 import {FigmaNode} from "./figma-node";
-import {QPImage} from "./elements/qp-image";
+import {QPImage} from "@modern-ui-to-figma/elements";
 import {compImageViewer} from "./figma-main";
 
 export class figmaImageViewer extends FigmaNode {

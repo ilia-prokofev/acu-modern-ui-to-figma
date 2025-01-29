@@ -31,31 +31,19 @@ function doCopy(destDir, fileList) {
     });
 }
 
+const distDir = path.resolve(__dirname, './dist');
+const srcDir = path.resolve(__dirname, './src');
+
 // Files to copy to dist directory (popup, css, icons, manifest)
 const filesAndFoldersToCopyToDist = [
-
+    path.resolve(srcDir, 'manifest.json'),
+    path.resolve(srcDir, 'ui.html'),
 ];
-
-// The ExtLib folder is two levels above
-const filesAndFoldersToCopyToSrc = [
-    path.resolve(__dirname, '../../ExtLib/elements')
-];
-
-// Destination directories
-const distDir = path.resolve(__dirname, '../dist');
-const srcDir = path.resolve(__dirname, './');
 
 // Create the destination directory if it does not exist
 if (!fs.existsSync(distDir)) {
     fs.mkdirSync(distDir);
 }
-
-if (!fs.existsSync(srcDir)) {
-    fs.mkdirSync(srcDir);
-}
-
-// Copy ExtLib to src directory
-doCopy(srcDir, filesAndFoldersToCopyToSrc);
 
 // Copy other files to dist directory
 doCopy(distDir, filesAndFoldersToCopyToDist);

@@ -1,12 +1,12 @@
 import {FigmaNode} from "./figma-node";
-import {Tab, TabBar} from "./elements/qp-tabbar";
-import {AcuElementType} from "./elements/acu-element";
+import {Tab, TabBar} from "@modern-ui-to-figma/elements";
+import {AcuElementType} from "@modern-ui-to-figma/elements";
 import {figmaTemplate} from "./figma-template";
-import {Template} from "./elements/qp-template";
-import {QPTree} from "./elements/qp-tree";
-import {Grid} from "./elements/qp-grid";
+import {Template} from "@modern-ui-to-figma/elements";
+import {QPTree} from "@modern-ui-to-figma/elements";
+import {Grid} from "@modern-ui-to-figma/elements";
 import {figmaSplitContainer} from "./figma-split-container";
-import {QPSplitContainer} from "./elements/qp-split";
+import {QPSplitContainer} from "@modern-ui-to-figma/elements";
 import {compTabbar, viewportWidth} from "./figma-main";
 import {figmaTree} from "./figma-tree";
 import {figmaGrid} from "./figma-grid";

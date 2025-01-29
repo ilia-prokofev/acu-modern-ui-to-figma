@@ -1,5 +1,5 @@
 import {FigmaNode} from "./figma-node";
-import {QPTree} from "./elements/qp-tree";
+import {QPTree} from "@modern-ui-to-figma/elements";
 import {compTree} from "./figma-main";
 
 export class figmaTree extends FigmaNode {

@@ -12,5 +12,5 @@ figma.showUI(__html__, {width: 650, height: 540});
 // callback. The callback will be passed the "pluginMessage" property of the
 // posted message.
 figma.ui.onmessage = async (msg: { input: string, reuseSummary: boolean, format: string }) => {
-    processScreen(msg.input, msg.format, msg.reuseSummary)
+    await processScreen(msg.input, msg.format, msg.reuseSummary)
 };
