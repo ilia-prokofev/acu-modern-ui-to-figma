@@ -13,6 +13,7 @@ export enum AcuElementType {
     SplitPanel = "SplitPanel",
     RichTextEditor = "RichTextEditor",
     Image = "Image",
+    Tree = "Tree",
 }
 
 export interface AcuElement {
