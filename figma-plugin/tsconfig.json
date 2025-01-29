@@ -4,7 +4,7 @@
     "jsx": "react",
     "allowJs": true,
     "outDir": "./dist",
-    "types": ["node" ,"@figma/plugin-typings", "jest"]
+    "types": ["node" ,"@figma/plugin-typings"]
   },
   "include": ["src/**/*.ts"],
 }

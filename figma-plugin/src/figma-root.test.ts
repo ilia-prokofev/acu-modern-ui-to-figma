@@ -1,6 +1,6 @@
 import * as fs from "node:fs";
 import {Root} from "@modern-ui-to-figma/elements";
-
+import { describe, it, expect } from "vitest";
 
 import {figmaRoot} from "./figma-root";
 
@@ -13,13 +13,13 @@ describe('figma-root', () => {
     const testCases: testCase[] = [
         {
             testName: "SC301000",
-            incomingJSONFileName: './test-cases/SC301000-input.json',
-            expectedJSONFileName: './test-cases/SC301000-output.json',
+            incomingJSONFileName: './src/test-cases/SC301000-input.json',
+            expectedJSONFileName: './src/test-cases/SC301000-output.json',
         },
         {
             testName: "PM301000",
-            incomingJSONFileName: './test-cases/PM301000-input.json',
-            expectedJSONFileName: './test-cases/PM301000-output.json',
+            incomingJSONFileName: './src/test-cases/PM301000-input.json',
+            expectedJSONFileName: './src/test-cases/PM301000-output.json',
         },
     ]
 
