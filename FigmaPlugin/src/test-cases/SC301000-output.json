@@ -1,0 +1,5737 @@
+{
+  "acuElement": {
+    "Caption": "SC-000001 - Cornerstone Concrete",
+    "Children": [
+      {
+        "Children": [
+          {
+            "Children": [
+              {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1628-1852",
+                "Label": "Subcontract Nbr.",
+                "Mandatory": false,
+                "ReadOnly": false,
+                "Type": "Field",
+                "Value": "SC-000001"
+              },
+              {
+                "ElementType": "Status",
+                "Id": "Root-1627-1628-1854",
+                "Label": "Status",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "Closed"
+              },
+              {
+                "ElementType": "DateTimeEdit",
+                "Id": "Root-1627-1628-1860",
+                "Label": "Date",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "8/7/2020"
+              },
+              {
+                "ElementType": "DateTimeEdit",
+                "Id": "Root-1627-1628-1862",
+                "Label": "Start Date",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "8/7/2020"
+              },
+              {
+                "ElementType": "TextEditor",
+                "Id": "Root-1627-1628-1866",
+                "Label": "Vendor Ref.",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": ""
+              }
+            ],
+            "Id": "Root-1627-1628",
+            "Label": null,
+            "Style": "Gray",
+            "Type": "FieldSet"
+          },
+          {
+            "Children": [
+              {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1868",
+                "Label": "Vendor",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "CORNERCONC- Cornerstone Concrete"
+              },
+              {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1870",
+                "Label": "Location",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "MAIN - Primary Location"
+              },
+              {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1872",
+                "Label": "Owner",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "Maxwell Baker"
+              },
+              {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1874",
+                "Label": "Project",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "CSTRHOTEL- The Beach Hotel and Condos - Progress Billing Example"
+              },
+              {
+                "ElementType": "Currency",
+                "Id": "Root-1627-1629-1876",
+                "Label": "Currency",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "USD"
+              },
+              {
+                "ElementType": "MultilineTextEditor",
+                "Id": "Root-1627-1629-1878",
+                "Label": "Description",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "Concrete Sub"
+              }
+            ],
+            "Id": "Root-1627-1629",
+            "Label": null,
+            "Style": "Gray",
+            "Type": "FieldSet"
+          },
+          {
+            "Children": [
+              {
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1880",
+                "Label": "Detail Total",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "5,290,000.00"
+              },
+              {
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1886",
+                "Label": "Tax Total",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "0.00"
+              },
+              {
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1888",
+                "Label": "Subcontract Total",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "5,290,000.00"
+              },
+              {
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1892",
+                "Label": "Retainage Total",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "264,500.00"
+              }
+            ],
+            "Id": "Root-1627-1630",
+            "Label": null,
+            "Style": "Blue",
+            "Type": "FieldSet"
+          }
+        ],
+        "Id": "Root-1627",
+        "Name": "7-10-7",
+        "Type": "Template"
+      },
+      {
+        "Children": [
+          {
+            "Caption": null,
+            "Columns": [
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "",
+                  "",
+                  ""
+                ],
+                "ColumnType": "Settings",
+                "Label": "",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Center",
+                "Cells": [
+                  "",
+                  "",
+                  ""
+                ],
+                "ColumnType": "Files",
+                "Label": "",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Center",
+                "Cells": [
+                  "",
+                  "",
+                  ""
+                ],
+                "ColumnType": "Notes",
+                "Label": "",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "PRODWHOLE",
+                  "PRODWHOLE",
+                  "PRODWHOLE"
+                ],
+                "ColumnType": "Text",
+                "Label": "Branch",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "CSTRSUBCON",
+                  "CSTRSUBCON",
+                  "CSTRSUBCON"
+                ],
+                "ColumnType": "Link",
+                "Label": "Inventory ID",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "CSTRHOTEL",
+                  "CSTRHOTEL",
+                  "CSTRHOTEL"
+                ],
+                "ColumnType": "Text",
+                "Label": "Project",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "03",
+                  "03",
+                  "03"
+                ],
+                "ColumnType": "Text",
+                "Label": "Project Task",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "03-309",
+                  "03-300",
+                  "03-480"
+                ],
+                "ColumnType": "Text",
+                "Label": "Cost Code",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "CIP Stairs",
+                  "CIP Slab",
+                  "Materials & Methods"
+                ],
+                "ColumnType": "Text",
+                "Label": "Line Description",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "LS",
+                  "LS",
+                  "LS"
+                ],
+                "ColumnType": "Text",
+                "Label": "UOM",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "1.00",
+                  "1.00",
+                  "1.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Order Qty.",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "290,000.00",
+                  "4,000,000.00",
+                  "1,000,000.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Unit Cost",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "290,000.00",
+                  "4,000,000.00",
+                  "1,000,000.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Ext. Cost",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "0.00",
+                  "0.00",
+                  "0.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Prepaid Qty.",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "0.00",
+                  "0.00",
+                  "0.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Prepaid Amount",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "5.000000",
+                  "5.000000",
+                  "5.000000"
+                ],
+                "ColumnType": "Text",
+                "Label": "Retainage Percent",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "14,500.00",
+                  "200,000.00",
+                  "50,000.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Retainage Amount",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "275,500.00",
+                  "3,800,000.00",
+                  "950,000.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Amount",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "",
+                  "",
+                  ""
+                ],
+                "ColumnType": "Text",
+                "Label": "Alternate ID",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "EXEMPT",
+                  "EXEMPT",
+                  "EXEMPT"
+                ],
+                "ColumnType": "Text",
+                "Label": "Tax Category",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "51250",
+                  "51250",
+                  "51250"
+                ],
+                "ColumnType": "Text",
+                "Label": "Account",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "COGS - Subcontractors",
+                  "COGS - Subcontractors",
+                  "COGS - Subcontractors"
+                ],
+                "ColumnType": "Text",
+                "Label": "Description",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "000-000",
+                  "000-000",
+                  "000-000"
+                ],
+                "ColumnType": "Text",
+                "Label": "Sub.",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Center",
+                "Cells": [
+                  "true",
+                  "true",
+                  "true"
+                ],
+                "ColumnType": "Checkbox",
+                "Label": "Closed",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "1.00",
+                  "1.00",
+                  "1.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Billed Qty.",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "290,000.00",
+                  "4,000,000.00",
+                  "1,000,000.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Billed Amount",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "0.00",
+                  "0.00",
+                  "0.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Unbilled Qty.",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "0.00",
+                  "0.00",
+                  "0.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Unbilled Amount",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "1.000000",
+                  "1.000000",
+                  "1.000000"
+                ],
+                "ColumnType": "Text",
+                "Label": "Base Order Qty.",
+                "Type": "GridColumn"
+              }
+            ],
+            "Footer": null,
+            "Id": "Root-396-1633",
+            "ToolBar": {
+              "Id": "Root-396-1633-1313",
+              "Items": [
+                {
+                  "Enabled": true,
+                  "Icon": "Refresh",
+                  "ItemType": "Button",
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "Enabled": false,
+                  "Icon": null,
+                  "ItemType": "Button",
+                  "Style": "Secondary",
+                  "Text": "Add Project Items"
+                },
+                {
+                  "Enabled": true,
+                  "Icon": "AdjustColumns",
+                  "ItemType": "Button",
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "Enabled": true,
+                  "Icon": "ExportToExcel",
+                  "ItemType": "Button",
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "Enabled": true,
+                  "Icon": "Import",
+                  "ItemType": "Button",
+                  "Style": "Tertiary",
+                  "Text": null
+                }
+              ],
+              "ShowRightAction": true,
+              "ShowSaveButton": false,
+              "ToolBarType": "List",
+              "Type": "ToolBar"
+            },
+            "Type": "Grid",
+            "Wrapped": false
+          }
+        ],
+        "Id": "Root-396",
+        "Tabs": [
+          {
+            "Id": "Root-396",
+            "IsActive": true,
+            "Label": "Details",
+            "Type": "Tab"
+          },
+          {
+            "Id": "Root-396",
+            "IsActive": false,
+            "Label": "Taxes",
+            "Type": "Tab"
+          },
+          {
+            "Id": "Root-396",
+            "IsActive": false,
+            "Label": "Addresses",
+            "Type": "Tab"
+          },
+          {
+            "Id": "Root-396",
+            "IsActive": false,
+            "Label": "Discounts",
+            "Type": "Tab"
+          },
+          {
+            "Id": "Root-396",
+            "IsActive": false,
+            "Label": "Billing",
+            "Type": "Tab"
+          },
+          {
+            "Id": "Root-396",
+            "IsActive": false,
+            "Label": "Prepayments",
+            "Type": "Tab"
+          },
+          {
+            "Id": "Root-396",
+            "IsActive": false,
+            "Label": "Change Orders",
+            "Type": "Tab"
+          },
+          {
+            "Id": "Root-396",
+            "IsActive": false,
+            "Label": "Financial",
+            "Type": "Tab"
+          },
+          {
+            "Id": "Root-396",
+            "IsActive": false,
+            "Label": "Attributes",
+            "Type": "Tab"
+          },
+          {
+            "Id": "Root-396",
+            "IsActive": false,
+            "Label": "Compliance",
+            "Type": "Tab"
+          }
+        ],
+        "Type": "Tabbar"
+      }
+    ],
+    "Id": "Root",
+    "Title": "Subcontracts",
+    "ToolBar": {
+      "Id": "Root-27",
+      "Items": [
+        {
+          "Enabled": true,
+          "Icon": "Back",
+          "ItemType": "Button",
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "Enabled": false,
+          "Icon": "SaveAndBack",
+          "ItemType": "Button",
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "Enabled": false,
+          "Icon": "Save",
+          "ItemType": "Button",
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "Enabled": true,
+          "Icon": "Undo",
+          "ItemType": "Button",
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "Enabled": true,
+          "Icon": "Insert",
+          "ItemType": "Button",
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "Enabled": true,
+          "Icon": "Delete",
+          "ItemType": "Button",
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "Enabled": true,
+          "Icon": "Copy",
+          "ItemType": "Button",
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "Enabled": true,
+          "Icon": "First",
+          "ItemType": "Button",
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "Enabled": true,
+          "Icon": "Previous",
+          "ItemType": "Button",
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "Enabled": true,
+          "Icon": "Next",
+          "ItemType": "Button",
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "Enabled": true,
+          "Icon": "Last",
+          "ItemType": "Button",
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "Enabled": true,
+          "Icon": "Ellipsis",
+          "ItemType": "Button",
+          "Style": "Secondary",
+          "Text": null
+        }
+      ],
+      "ShowRightAction": false,
+      "ShowSaveButton": false,
+      "ToolBarType": "Record",
+      "Type": "ToolBar"
+    },
+    "Type": "Root"
+  },
+  "childIndex": -1,
+  "children": [
+    {
+      "acuElement": {
+        "Id": "Root-27",
+        "Items": [
+          {
+            "Enabled": true,
+            "Icon": "Back",
+            "ItemType": "Button",
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "Enabled": false,
+            "Icon": "SaveAndBack",
+            "ItemType": "Button",
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "Enabled": false,
+            "Icon": "Save",
+            "ItemType": "Button",
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "Enabled": true,
+            "Icon": "Undo",
+            "ItemType": "Button",
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "Enabled": true,
+            "Icon": "Insert",
+            "ItemType": "Button",
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "Enabled": true,
+            "Icon": "Delete",
+            "ItemType": "Button",
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "Enabled": true,
+            "Icon": "Copy",
+            "ItemType": "Button",
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "Enabled": true,
+            "Icon": "First",
+            "ItemType": "Button",
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "Enabled": true,
+            "Icon": "Previous",
+            "ItemType": "Button",
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "Enabled": true,
+            "Icon": "Next",
+            "ItemType": "Button",
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "Enabled": true,
+            "Icon": "Last",
+            "ItemType": "Button",
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "Enabled": true,
+            "Icon": "Ellipsis",
+            "ItemType": "Button",
+            "Style": "Secondary",
+            "Text": null
+          }
+        ],
+        "ShowRightAction": false,
+        "ShowSaveButton": false,
+        "ToolBarType": "Record",
+        "Type": "ToolBar"
+      },
+      "childIndex": -1,
+      "children": [
+        {
+          "acuElement": null,
+          "childIndex": 0,
+          "children": [
+            {
+              "acuElement": null,
+              "childIndex": 0,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false,
+                "State": "Default",
+                "Type": "Tertiary"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Button",
+              "properties": {
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": 1,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false,
+                "State": "Disabled",
+                "Type": "Tertiary"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Button",
+              "properties": {
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": 2,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false,
+                "State": "Disabled",
+                "Type": "Tertiary"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Button",
+              "properties": {
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": 3,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false,
+                "State": "Default",
+                "Type": "Tertiary"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Button",
+              "properties": {
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": 4,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false,
+                "State": "Default",
+                "Type": "Tertiary"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Button",
+              "properties": {
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": 5,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false,
+                "State": "Default",
+                "Type": "Tertiary"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Button",
+              "properties": {
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": 6,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false,
+                "State": "Default",
+                "Type": "Tertiary"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Button",
+              "properties": {
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": 7,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false,
+                "State": "Default",
+                "Type": "Tertiary"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Button",
+              "properties": {
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": 8,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false,
+                "State": "Default",
+                "Type": "Tertiary"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Button",
+              "properties": {
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": 9,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false,
+                "State": "Default",
+                "Type": "Tertiary"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Button",
+              "properties": {
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": 10,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false,
+                "State": "Default",
+                "Type": "Tertiary"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Button",
+              "properties": {
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": 11,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false,
+                "State": "Default",
+                "Type": "Secondary"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Button",
+              "properties": {
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": 12,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {},
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Button",
+              "properties": {
+                "visible": false
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": 13,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {},
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Button",
+              "properties": {
+                "visible": false
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": 14,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {},
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Button",
+              "properties": {
+                "visible": false
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            }
+          ],
+          "componentNode": null,
+          "componentProperties": {},
+          "createIfNotFound": false,
+          "detach": false,
+          "figmaObject": null,
+          "height": 0,
+          "layoutMode": "VERTICAL",
+          "name": "Buttons",
+          "properties": {},
+          "tryToFind": true,
+          "type": "INSTANCE",
+          "width": 0
+        }
+      ],
+      "componentNode": null,
+      "componentProperties": {
+        "Show Right Actions#6826:45": false,
+        "Type": "Record"
+      },
+      "createIfNotFound": false,
+      "detach": false,
+      "figmaObject": null,
+      "filterBarMapping": {},
+      "height": 0,
+      "layoutMode": "VERTICAL",
+      "name": "Toolbar",
+      "properties": {},
+      "toolBarTypes": {},
+      "tryToFind": true,
+      "type": "INSTANCE",
+      "width": 0
+    },
+    {
+      "acuElement": {
+        "Children": [
+          {
+            "Children": [
+              {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1628-1852",
+                "Label": "Subcontract Nbr.",
+                "Mandatory": false,
+                "ReadOnly": false,
+                "Type": "Field",
+                "Value": "SC-000001"
+              },
+              {
+                "ElementType": "Status",
+                "Id": "Root-1627-1628-1854",
+                "Label": "Status",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "Closed"
+              },
+              {
+                "ElementType": "DateTimeEdit",
+                "Id": "Root-1627-1628-1860",
+                "Label": "Date",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "8/7/2020"
+              },
+              {
+                "ElementType": "DateTimeEdit",
+                "Id": "Root-1627-1628-1862",
+                "Label": "Start Date",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "8/7/2020"
+              },
+              {
+                "ElementType": "TextEditor",
+                "Id": "Root-1627-1628-1866",
+                "Label": "Vendor Ref.",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": ""
+              }
+            ],
+            "Id": "Root-1627-1628",
+            "Label": null,
+            "Style": "Gray",
+            "Type": "FieldSet"
+          },
+          {
+            "Children": [
+              {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1868",
+                "Label": "Vendor",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "CORNERCONC- Cornerstone Concrete"
+              },
+              {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1870",
+                "Label": "Location",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "MAIN - Primary Location"
+              },
+              {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1872",
+                "Label": "Owner",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "Maxwell Baker"
+              },
+              {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1874",
+                "Label": "Project",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "CSTRHOTEL- The Beach Hotel and Condos - Progress Billing Example"
+              },
+              {
+                "ElementType": "Currency",
+                "Id": "Root-1627-1629-1876",
+                "Label": "Currency",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "USD"
+              },
+              {
+                "ElementType": "MultilineTextEditor",
+                "Id": "Root-1627-1629-1878",
+                "Label": "Description",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "Concrete Sub"
+              }
+            ],
+            "Id": "Root-1627-1629",
+            "Label": null,
+            "Style": "Gray",
+            "Type": "FieldSet"
+          },
+          {
+            "Children": [
+              {
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1880",
+                "Label": "Detail Total",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "5,290,000.00"
+              },
+              {
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1886",
+                "Label": "Tax Total",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "0.00"
+              },
+              {
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1888",
+                "Label": "Subcontract Total",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "5,290,000.00"
+              },
+              {
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1892",
+                "Label": "Retainage Total",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "264,500.00"
+              }
+            ],
+            "Id": "Root-1627-1630",
+            "Label": null,
+            "Style": "Blue",
+            "Type": "FieldSet"
+          }
+        ],
+        "Id": "Root-1627",
+        "Name": "7-10-7",
+        "Type": "Template"
+      },
+      "childIndex": -1,
+      "children": [
+        {
+          "acuElement": {
+            "Children": [
+              {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1628-1852",
+                "Label": "Subcontract Nbr.",
+                "Mandatory": false,
+                "ReadOnly": false,
+                "Type": "Field",
+                "Value": "SC-000001"
+              },
+              {
+                "ElementType": "Status",
+                "Id": "Root-1627-1628-1854",
+                "Label": "Status",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "Closed"
+              },
+              {
+                "ElementType": "DateTimeEdit",
+                "Id": "Root-1627-1628-1860",
+                "Label": "Date",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "8/7/2020"
+              },
+              {
+                "ElementType": "DateTimeEdit",
+                "Id": "Root-1627-1628-1862",
+                "Label": "Start Date",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "8/7/2020"
+              },
+              {
+                "ElementType": "TextEditor",
+                "Id": "Root-1627-1628-1866",
+                "Label": "Vendor Ref.",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": ""
+              }
+            ],
+            "Id": "Root-1627-1628",
+            "Label": null,
+            "Style": "Gray",
+            "Type": "FieldSet"
+          },
+          "childIndex": -1,
+          "children": [
+            {
+              "acuElement": {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1628-1852",
+                "Label": "Subcontract Nbr.",
+                "Mandatory": false,
+                "ReadOnly": false,
+                "Type": "Field",
+                "Value": "SC-000001"
+              },
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Subcontract Nbr."
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Label",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "State": "Default",
+                    "Text Value ▶#3161:0": "SC-000001"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Field",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Type": "Label + Field"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Row 1",
+              "properties": {},
+              "rowTypes": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "typePropertyName": "Type",
+              "width": 0
+            },
+            {
+              "acuElement": {
+                "ElementType": "Status",
+                "Id": "Root-1627-1628-1854",
+                "Label": "Status",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "Closed"
+              },
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Status"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Label",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "State": "Disabled",
+                    "Type": "Status"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Field",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Status": "Closed"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Status",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Type": "Label + Field"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Row 2",
+              "properties": {},
+              "rowTypes": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "typePropertyName": "Type",
+              "width": 0
+            },
+            {
+              "acuElement": {
+                "ElementType": "DateTimeEdit",
+                "Id": "Root-1627-1628-1860",
+                "Label": "Date",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "8/7/2020"
+              },
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Date"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Label",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "State": "Disabled",
+                    "Text Value ▶#3161:0": "8/7/2020"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Field",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Type": "Date"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Row 3",
+              "properties": {},
+              "rowTypes": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "typePropertyName": "Type",
+              "width": 0
+            },
+            {
+              "acuElement": {
+                "ElementType": "DateTimeEdit",
+                "Id": "Root-1627-1628-1862",
+                "Label": "Start Date",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "8/7/2020"
+              },
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Start Date"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Label",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "State": "Disabled",
+                    "Text Value ▶#3161:0": "8/7/2020"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Field",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Type": "Date"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Row 4",
+              "properties": {},
+              "rowTypes": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "typePropertyName": "Type",
+              "width": 0
+            },
+            {
+              "acuElement": {
+                "ElementType": "TextEditor",
+                "Id": "Root-1627-1628-1866",
+                "Label": "Vendor Ref.",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": ""
+              },
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Vendor Ref."
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Label",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Icon#3160:30": false,
+                    "State": "Disabled",
+                    "Text Value ▶#3161:0": ""
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Field",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Type": "Label + Field"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Row 5",
+              "properties": {},
+              "rowTypes": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "typePropertyName": "Type",
+              "width": 0
+            }
+          ],
+          "componentProperties": {
+            "Show Group Header#6619:0": false,
+            "Show Row 1#5419:15": true,
+            "Show Row 10#5419:12": false,
+            "Show Row 11#5419:10": false,
+            "Show Row 12#5419:3": false,
+            "Show Row 13#5419:2": false,
+            "Show Row 14#5419:6": false,
+            "Show Row 15#5419:4": false,
+            "Show Row 16#5419:16": false,
+            "Show Row 17#5419:18": false,
+            "Show Row 18#5419:1": false,
+            "Show Row 19#5419:0": false,
+            "Show Row 2#5419:17": true,
+            "Show Row 20#5419:14": false,
+            "Show Row 3#5419:19": true,
+            "Show Row 4#5419:13": true,
+            "Show Row 5#5419:11": true,
+            "Show Row 6#5419:9": false,
+            "Show Row 7#5419:8": false,
+            "Show Row 8#5419:7": false,
+            "Show Row 9#5419:5": false,
+            "Wrapping": "Gray"
+          },
+          "createIfNotFound": false,
+          "detach": false,
+          "figmaObject": null,
+          "height": 0,
+          "layoutMode": "VERTICAL",
+          "name": "FieldSet",
+          "properties": {},
+          "showGridPropName": "Show grid#5425:0",
+          "showHeaderPropName": "Show Group Header#6619:0",
+          "showRowPropNames": [
+            "Show Row 1#5419:15",
+            "Show Row 2#5419:17",
+            "Show Row 3#5419:19",
+            "Show Row 4#5419:13",
+            "Show Row 5#5419:11",
+            "Show Row 6#5419:9",
+            "Show Row 7#5419:8",
+            "Show Row 8#5419:7",
+            "Show Row 9#5419:5",
+            "Show Row 10#5419:12",
+            "Show Row 11#5419:10",
+            "Show Row 12#5419:3",
+            "Show Row 13#5419:2",
+            "Show Row 14#5419:6",
+            "Show Row 15#5419:4",
+            "Show Row 16#5419:16",
+            "Show Row 17#5419:18",
+            "Show Row 18#5419:1",
+            "Show Row 19#5419:0",
+            "Show Row 20#5419:14"
+          ],
+          "tryToFind": false,
+          "type": "INSTANCE",
+          "width": 353.5,
+          "wrappingPropName": "Wrapping"
+        },
+        {
+          "acuElement": {
+            "Children": [
+              {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1868",
+                "Label": "Vendor",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "CORNERCONC- Cornerstone Concrete"
+              },
+              {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1870",
+                "Label": "Location",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "MAIN - Primary Location"
+              },
+              {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1872",
+                "Label": "Owner",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "Maxwell Baker"
+              },
+              {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1874",
+                "Label": "Project",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "CSTRHOTEL- The Beach Hotel and Condos - Progress Billing Example"
+              },
+              {
+                "ElementType": "Currency",
+                "Id": "Root-1627-1629-1876",
+                "Label": "Currency",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "USD"
+              },
+              {
+                "ElementType": "MultilineTextEditor",
+                "Id": "Root-1627-1629-1878",
+                "Label": "Description",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "Concrete Sub"
+              }
+            ],
+            "Id": "Root-1627-1629",
+            "Label": null,
+            "Style": "Gray",
+            "Type": "FieldSet"
+          },
+          "childIndex": -1,
+          "children": [
+            {
+              "acuElement": {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1868",
+                "Label": "Vendor",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "CORNERCONC- Cornerstone Concrete"
+              },
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Vendor"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Label",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "State": "Disabled",
+                    "Text Value ▶#3161:0": "CORNERCONC- Cornerstone Concrete"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Field",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Type": "Label + Field"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Row 1",
+              "properties": {},
+              "rowTypes": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "typePropertyName": "Type",
+              "width": 0
+            },
+            {
+              "acuElement": {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1870",
+                "Label": "Location",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "MAIN - Primary Location"
+              },
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Location"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Label",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "State": "Disabled",
+                    "Text Value ▶#3161:0": "MAIN - Primary Location"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Field",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Type": "Label + Field"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Row 2",
+              "properties": {},
+              "rowTypes": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "typePropertyName": "Type",
+              "width": 0
+            },
+            {
+              "acuElement": {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1872",
+                "Label": "Owner",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "Maxwell Baker"
+              },
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Owner"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Label",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "State": "Disabled",
+                    "Text Value ▶#3161:0": "Maxwell Baker"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Field",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Type": "Label + Field"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Row 3",
+              "properties": {},
+              "rowTypes": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "typePropertyName": "Type",
+              "width": 0
+            },
+            {
+              "acuElement": {
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1874",
+                "Label": "Project",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "CSTRHOTEL- The Beach Hotel and Condos - Progress Billing Example"
+              },
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Project"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Label",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "State": "Disabled",
+                    "Text Value ▶#3161:0": "CSTRHOTEL- The Beach Hotel and Condos - Progress Billing Example"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Field",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Type": "Label + Field"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Row 4",
+              "properties": {},
+              "rowTypes": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "typePropertyName": "Type",
+              "width": 0
+            },
+            {
+              "acuElement": {
+                "ElementType": "Currency",
+                "Id": "Root-1627-1629-1876",
+                "Label": "Currency",
+                "Mandatory": true,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "USD"
+              },
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Currency"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Label",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "State": "Disabled",
+                    "Text Value ▶#3161:0": "USD"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Field",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Type": "Currency"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Row 5",
+              "properties": {},
+              "rowTypes": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "typePropertyName": "Type",
+              "width": 0
+            },
+            {
+              "acuElement": {
+                "ElementType": "MultilineTextEditor",
+                "Id": "Root-1627-1629-1878",
+                "Label": "Description",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "Concrete Sub"
+              },
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Description"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Label",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "State": "Disabled",
+                    "Text Value ▶#4221:3": "Concrete Sub"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Text Area",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Type": "Label + Text Area"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Row 6",
+              "properties": {},
+              "rowTypes": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "typePropertyName": "Type",
+              "width": 0
+            }
+          ],
+          "componentProperties": {
+            "Show Group Header#6619:0": false,
+            "Show Row 1#5419:15": true,
+            "Show Row 10#5419:12": false,
+            "Show Row 11#5419:10": false,
+            "Show Row 12#5419:3": false,
+            "Show Row 13#5419:2": false,
+            "Show Row 14#5419:6": false,
+            "Show Row 15#5419:4": false,
+            "Show Row 16#5419:16": false,
+            "Show Row 17#5419:18": false,
+            "Show Row 18#5419:1": false,
+            "Show Row 19#5419:0": false,
+            "Show Row 2#5419:17": true,
+            "Show Row 20#5419:14": false,
+            "Show Row 3#5419:19": true,
+            "Show Row 4#5419:13": true,
+            "Show Row 5#5419:11": true,
+            "Show Row 6#5419:9": true,
+            "Show Row 7#5419:8": false,
+            "Show Row 8#5419:7": false,
+            "Show Row 9#5419:5": false,
+            "Wrapping": "Gray"
+          },
+          "createIfNotFound": false,
+          "detach": false,
+          "figmaObject": null,
+          "height": 0,
+          "layoutMode": "VERTICAL",
+          "name": "FieldSet",
+          "properties": {},
+          "showGridPropName": "Show grid#5425:0",
+          "showHeaderPropName": "Show Group Header#6619:0",
+          "showRowPropNames": [
+            "Show Row 1#5419:15",
+            "Show Row 2#5419:17",
+            "Show Row 3#5419:19",
+            "Show Row 4#5419:13",
+            "Show Row 5#5419:11",
+            "Show Row 6#5419:9",
+            "Show Row 7#5419:8",
+            "Show Row 8#5419:7",
+            "Show Row 9#5419:5",
+            "Show Row 10#5419:12",
+            "Show Row 11#5419:10",
+            "Show Row 12#5419:3",
+            "Show Row 13#5419:2",
+            "Show Row 14#5419:6",
+            "Show Row 15#5419:4",
+            "Show Row 16#5419:16",
+            "Show Row 17#5419:18",
+            "Show Row 18#5419:1",
+            "Show Row 19#5419:0",
+            "Show Row 20#5419:14"
+          ],
+          "tryToFind": false,
+          "type": "INSTANCE",
+          "width": 505,
+          "wrappingPropName": "Wrapping"
+        },
+        {
+          "acuElement": {
+            "Children": [
+              {
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1880",
+                "Label": "Detail Total",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "5,290,000.00"
+              },
+              {
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1886",
+                "Label": "Tax Total",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "0.00"
+              },
+              {
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1888",
+                "Label": "Subcontract Total",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "5,290,000.00"
+              },
+              {
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1892",
+                "Label": "Retainage Total",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "264,500.00"
+              }
+            ],
+            "Id": "Root-1627-1630",
+            "Label": null,
+            "Style": "Blue",
+            "Type": "FieldSet"
+          },
+          "childIndex": -1,
+          "children": [
+            {
+              "acuElement": {
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1880",
+                "Label": "Detail Total",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "5,290,000.00"
+              },
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Detail Total"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Label",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "State": "Disabled",
+                    "Text Value ▶#3161:0": "5,290,000.00"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Field",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Type": "Label + Number Field"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Row 1",
+              "properties": {},
+              "rowTypes": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "typePropertyName": "Type",
+              "width": 0
+            },
+            {
+              "acuElement": {
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1886",
+                "Label": "Tax Total",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "0.00"
+              },
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Tax Total"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Label",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "State": "Disabled",
+                    "Text Value ▶#3161:0": "0.00"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Field",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Type": "Label + Number Field"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Row 2",
+              "properties": {},
+              "rowTypes": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "typePropertyName": "Type",
+              "width": 0
+            },
+            {
+              "acuElement": {
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1888",
+                "Label": "Subcontract Total",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "5,290,000.00"
+              },
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Subcontract Total"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Label",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "State": "Disabled",
+                    "Text Value ▶#3161:0": "5,290,000.00"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Field",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Type": "Label + Number Field"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Row 3",
+              "properties": {},
+              "rowTypes": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "typePropertyName": "Type",
+              "width": 0
+            },
+            {
+              "acuElement": {
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1892",
+                "Label": "Retainage Total",
+                "Mandatory": false,
+                "ReadOnly": true,
+                "Type": "Field",
+                "Value": "264,500.00"
+              },
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Retainage Total"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Label",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": -1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "State": "Disabled",
+                    "Text Value ▶#3161:0": "264,500.00"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Field",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Type": "Label + Number Field"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Row 4",
+              "properties": {},
+              "rowTypes": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "typePropertyName": "Type",
+              "width": 0
+            }
+          ],
+          "componentProperties": {
+            "Show Group Header#6619:0": false,
+            "Show Row 1#5419:15": true,
+            "Show Row 10#5419:12": false,
+            "Show Row 11#5419:10": false,
+            "Show Row 12#5419:3": false,
+            "Show Row 13#5419:2": false,
+            "Show Row 14#5419:6": false,
+            "Show Row 15#5419:4": false,
+            "Show Row 16#5419:16": false,
+            "Show Row 17#5419:18": false,
+            "Show Row 18#5419:1": false,
+            "Show Row 19#5419:0": false,
+            "Show Row 2#5419:17": true,
+            "Show Row 20#5419:14": false,
+            "Show Row 3#5419:19": true,
+            "Show Row 4#5419:13": true,
+            "Show Row 5#5419:11": false,
+            "Show Row 6#5419:9": false,
+            "Show Row 7#5419:8": false,
+            "Show Row 8#5419:7": false,
+            "Show Row 9#5419:5": false,
+            "Wrapping": "Blue"
+          },
+          "createIfNotFound": false,
+          "detach": false,
+          "figmaObject": null,
+          "height": 0,
+          "layoutMode": "VERTICAL",
+          "name": "FieldSet",
+          "properties": {},
+          "showGridPropName": "Show grid#5425:0",
+          "showHeaderPropName": "Show Group Header#6619:0",
+          "showRowPropNames": [
+            "Show Row 1#5419:15",
+            "Show Row 2#5419:17",
+            "Show Row 3#5419:19",
+            "Show Row 4#5419:13",
+            "Show Row 5#5419:11",
+            "Show Row 6#5419:9",
+            "Show Row 7#5419:8",
+            "Show Row 8#5419:7",
+            "Show Row 9#5419:5",
+            "Show Row 10#5419:12",
+            "Show Row 11#5419:10",
+            "Show Row 12#5419:3",
+            "Show Row 13#5419:2",
+            "Show Row 14#5419:6",
+            "Show Row 15#5419:4",
+            "Show Row 16#5419:16",
+            "Show Row 17#5419:18",
+            "Show Row 18#5419:1",
+            "Show Row 19#5419:0",
+            "Show Row 20#5419:14"
+          ],
+          "tryToFind": false,
+          "type": "INSTANCE",
+          "width": 353.5,
+          "wrappingPropName": "Wrapping"
+        }
+      ],
+      "componentNode": null,
+      "componentProperties": {},
+      "createIfNotFound": false,
+      "detach": false,
+      "figmaObject": null,
+      "height": 0,
+      "layoutMode": "HORIZONTAL",
+      "name": "Template",
+      "properties": {
+        "counterAxisSizingMode": "AUTO"
+      },
+      "tryToFind": false,
+      "type": "FRAME",
+      "width": 1236
+    },
+    {
+      "acuElement": {
+        "Children": [
+          {
+            "Caption": null,
+            "Columns": [
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "",
+                  "",
+                  ""
+                ],
+                "ColumnType": "Settings",
+                "Label": "",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Center",
+                "Cells": [
+                  "",
+                  "",
+                  ""
+                ],
+                "ColumnType": "Files",
+                "Label": "",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Center",
+                "Cells": [
+                  "",
+                  "",
+                  ""
+                ],
+                "ColumnType": "Notes",
+                "Label": "",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "PRODWHOLE",
+                  "PRODWHOLE",
+                  "PRODWHOLE"
+                ],
+                "ColumnType": "Text",
+                "Label": "Branch",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "CSTRSUBCON",
+                  "CSTRSUBCON",
+                  "CSTRSUBCON"
+                ],
+                "ColumnType": "Link",
+                "Label": "Inventory ID",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "CSTRHOTEL",
+                  "CSTRHOTEL",
+                  "CSTRHOTEL"
+                ],
+                "ColumnType": "Text",
+                "Label": "Project",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "03",
+                  "03",
+                  "03"
+                ],
+                "ColumnType": "Text",
+                "Label": "Project Task",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "03-309",
+                  "03-300",
+                  "03-480"
+                ],
+                "ColumnType": "Text",
+                "Label": "Cost Code",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "CIP Stairs",
+                  "CIP Slab",
+                  "Materials & Methods"
+                ],
+                "ColumnType": "Text",
+                "Label": "Line Description",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "LS",
+                  "LS",
+                  "LS"
+                ],
+                "ColumnType": "Text",
+                "Label": "UOM",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "1.00",
+                  "1.00",
+                  "1.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Order Qty.",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "290,000.00",
+                  "4,000,000.00",
+                  "1,000,000.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Unit Cost",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "290,000.00",
+                  "4,000,000.00",
+                  "1,000,000.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Ext. Cost",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "0.00",
+                  "0.00",
+                  "0.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Prepaid Qty.",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "0.00",
+                  "0.00",
+                  "0.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Prepaid Amount",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "5.000000",
+                  "5.000000",
+                  "5.000000"
+                ],
+                "ColumnType": "Text",
+                "Label": "Retainage Percent",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "14,500.00",
+                  "200,000.00",
+                  "50,000.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Retainage Amount",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "275,500.00",
+                  "3,800,000.00",
+                  "950,000.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Amount",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "",
+                  "",
+                  ""
+                ],
+                "ColumnType": "Text",
+                "Label": "Alternate ID",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "EXEMPT",
+                  "EXEMPT",
+                  "EXEMPT"
+                ],
+                "ColumnType": "Text",
+                "Label": "Tax Category",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "51250",
+                  "51250",
+                  "51250"
+                ],
+                "ColumnType": "Text",
+                "Label": "Account",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "COGS - Subcontractors",
+                  "COGS - Subcontractors",
+                  "COGS - Subcontractors"
+                ],
+                "ColumnType": "Text",
+                "Label": "Description",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "000-000",
+                  "000-000",
+                  "000-000"
+                ],
+                "ColumnType": "Text",
+                "Label": "Sub.",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Center",
+                "Cells": [
+                  "true",
+                  "true",
+                  "true"
+                ],
+                "ColumnType": "Checkbox",
+                "Label": "Closed",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "1.00",
+                  "1.00",
+                  "1.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Billed Qty.",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "290,000.00",
+                  "4,000,000.00",
+                  "1,000,000.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Billed Amount",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "0.00",
+                  "0.00",
+                  "0.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Unbilled Qty.",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "0.00",
+                  "0.00",
+                  "0.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Unbilled Amount",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "1.000000",
+                  "1.000000",
+                  "1.000000"
+                ],
+                "ColumnType": "Text",
+                "Label": "Base Order Qty.",
+                "Type": "GridColumn"
+              }
+            ],
+            "Footer": null,
+            "Id": "Root-396-1633",
+            "ToolBar": {
+              "Id": "Root-396-1633-1313",
+              "Items": [
+                {
+                  "Enabled": true,
+                  "Icon": "Refresh",
+                  "ItemType": "Button",
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "Enabled": false,
+                  "Icon": null,
+                  "ItemType": "Button",
+                  "Style": "Secondary",
+                  "Text": "Add Project Items"
+                },
+                {
+                  "Enabled": true,
+                  "Icon": "AdjustColumns",
+                  "ItemType": "Button",
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "Enabled": true,
+                  "Icon": "ExportToExcel",
+                  "ItemType": "Button",
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "Enabled": true,
+                  "Icon": "Import",
+                  "ItemType": "Button",
+                  "Style": "Tertiary",
+                  "Text": null
+                }
+              ],
+              "ShowRightAction": true,
+              "ShowSaveButton": false,
+              "ToolBarType": "List",
+              "Type": "ToolBar"
+            },
+            "Type": "Grid",
+            "Wrapped": false
+          }
+        ],
+        "Id": "Root-396",
+        "Tabs": [
+          {
+            "Id": "Root-396",
+            "IsActive": true,
+            "Label": "Details",
+            "Type": "Tab"
+          },
+          {
+            "Id": "Root-396",
+            "IsActive": false,
+            "Label": "Taxes",
+            "Type": "Tab"
+          },
+          {
+            "Id": "Root-396",
+            "IsActive": false,
+            "Label": "Addresses",
+            "Type": "Tab"
+          },
+          {
+            "Id": "Root-396",
+            "IsActive": false,
+            "Label": "Discounts",
+            "Type": "Tab"
+          },
+          {
+            "Id": "Root-396",
+            "IsActive": false,
+            "Label": "Billing",
+            "Type": "Tab"
+          },
+          {
+            "Id": "Root-396",
+            "IsActive": false,
+            "Label": "Prepayments",
+            "Type": "Tab"
+          },
+          {
+            "Id": "Root-396",
+            "IsActive": false,
+            "Label": "Change Orders",
+            "Type": "Tab"
+          },
+          {
+            "Id": "Root-396",
+            "IsActive": false,
+            "Label": "Financial",
+            "Type": "Tab"
+          },
+          {
+            "Id": "Root-396",
+            "IsActive": false,
+            "Label": "Attributes",
+            "Type": "Tab"
+          },
+          {
+            "Id": "Root-396",
+            "IsActive": false,
+            "Label": "Compliance",
+            "Type": "Tab"
+          }
+        ],
+        "Type": "Tabbar"
+      },
+      "childIndex": -1,
+      "children": [
+        {
+          "acuElement": null,
+          "childIndex": -1,
+          "children": [
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Selected": "True",
+                "State": "Normal",
+                "Value ▶#3265:0": "Details"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Tab 1",
+              "properties": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Selected": "False",
+                "State": "Normal",
+                "Value ▶#3265:0": "Taxes"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Tab 2",
+              "properties": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Selected": "False",
+                "State": "Normal",
+                "Value ▶#3265:0": "Addresses"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Tab 3",
+              "properties": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Selected": "False",
+                "State": "Normal",
+                "Value ▶#3265:0": "Discounts"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Tab 4",
+              "properties": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Selected": "False",
+                "State": "Normal",
+                "Value ▶#3265:0": "Billing"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Tab 5",
+              "properties": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Selected": "False",
+                "State": "Normal",
+                "Value ▶#3265:0": "Prepayments"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Tab 6",
+              "properties": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Selected": "False",
+                "State": "Normal",
+                "Value ▶#3265:0": "Change Orders"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Tab 7",
+              "properties": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Selected": "False",
+                "State": "Normal",
+                "Value ▶#3265:0": "Financial"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Tab 8",
+              "properties": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Selected": "False",
+                "State": "Normal",
+                "Value ▶#3265:0": "Attributes"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Tab 9",
+              "properties": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {
+                "Selected": "False",
+                "State": "Normal",
+                "Value ▶#3265:0": "Compliance"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Tab 10",
+              "properties": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            }
+          ],
+          "componentProperties": {
+            "1 tab#6936:0": true,
+            "10 tab#6936:9": true,
+            "11 tab#6936:10": false,
+            "12 tab#6936:11": false,
+            "13 tab#6936:12": false,
+            "2 tab#6936:1": true,
+            "3 tab#6936:2": true,
+            "4 tab#6936:3": true,
+            "5 tab#6936:4": true,
+            "6 tab#6936:5": true,
+            "7 tab#6936:6": true,
+            "8 tab#6936:7": true,
+            "9 tab#6936:8": true
+          },
+          "createIfNotFound": false,
+          "detach": false,
+          "figmaObject": null,
+          "height": 0,
+          "layoutMode": "VERTICAL",
+          "name": "Tabs",
+          "properties": {},
+          "tryToFind": false,
+          "type": "INSTANCE",
+          "width": 0
+        },
+        {
+          "acuElement": {
+            "Caption": null,
+            "Columns": [
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "",
+                  "",
+                  ""
+                ],
+                "ColumnType": "Settings",
+                "Label": "",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Center",
+                "Cells": [
+                  "",
+                  "",
+                  ""
+                ],
+                "ColumnType": "Files",
+                "Label": "",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Center",
+                "Cells": [
+                  "",
+                  "",
+                  ""
+                ],
+                "ColumnType": "Notes",
+                "Label": "",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "PRODWHOLE",
+                  "PRODWHOLE",
+                  "PRODWHOLE"
+                ],
+                "ColumnType": "Text",
+                "Label": "Branch",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "CSTRSUBCON",
+                  "CSTRSUBCON",
+                  "CSTRSUBCON"
+                ],
+                "ColumnType": "Link",
+                "Label": "Inventory ID",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "CSTRHOTEL",
+                  "CSTRHOTEL",
+                  "CSTRHOTEL"
+                ],
+                "ColumnType": "Text",
+                "Label": "Project",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "03",
+                  "03",
+                  "03"
+                ],
+                "ColumnType": "Text",
+                "Label": "Project Task",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "03-309",
+                  "03-300",
+                  "03-480"
+                ],
+                "ColumnType": "Text",
+                "Label": "Cost Code",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "CIP Stairs",
+                  "CIP Slab",
+                  "Materials & Methods"
+                ],
+                "ColumnType": "Text",
+                "Label": "Line Description",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "LS",
+                  "LS",
+                  "LS"
+                ],
+                "ColumnType": "Text",
+                "Label": "UOM",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "1.00",
+                  "1.00",
+                  "1.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Order Qty.",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "290,000.00",
+                  "4,000,000.00",
+                  "1,000,000.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Unit Cost",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "290,000.00",
+                  "4,000,000.00",
+                  "1,000,000.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Ext. Cost",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "0.00",
+                  "0.00",
+                  "0.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Prepaid Qty.",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "0.00",
+                  "0.00",
+                  "0.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Prepaid Amount",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "5.000000",
+                  "5.000000",
+                  "5.000000"
+                ],
+                "ColumnType": "Text",
+                "Label": "Retainage Percent",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "14,500.00",
+                  "200,000.00",
+                  "50,000.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Retainage Amount",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "275,500.00",
+                  "3,800,000.00",
+                  "950,000.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Amount",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "",
+                  "",
+                  ""
+                ],
+                "ColumnType": "Text",
+                "Label": "Alternate ID",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "EXEMPT",
+                  "EXEMPT",
+                  "EXEMPT"
+                ],
+                "ColumnType": "Text",
+                "Label": "Tax Category",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "51250",
+                  "51250",
+                  "51250"
+                ],
+                "ColumnType": "Text",
+                "Label": "Account",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "COGS - Subcontractors",
+                  "COGS - Subcontractors",
+                  "COGS - Subcontractors"
+                ],
+                "ColumnType": "Text",
+                "Label": "Description",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Left",
+                "Cells": [
+                  "000-000",
+                  "000-000",
+                  "000-000"
+                ],
+                "ColumnType": "Text",
+                "Label": "Sub.",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Center",
+                "Cells": [
+                  "true",
+                  "true",
+                  "true"
+                ],
+                "ColumnType": "Checkbox",
+                "Label": "Closed",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "1.00",
+                  "1.00",
+                  "1.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Billed Qty.",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "290,000.00",
+                  "4,000,000.00",
+                  "1,000,000.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Billed Amount",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "0.00",
+                  "0.00",
+                  "0.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Unbilled Qty.",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "0.00",
+                  "0.00",
+                  "0.00"
+                ],
+                "ColumnType": "Text",
+                "Label": "Unbilled Amount",
+                "Type": "GridColumn"
+              },
+              {
+                "Alignment": "Right",
+                "Cells": [
+                  "1.000000",
+                  "1.000000",
+                  "1.000000"
+                ],
+                "ColumnType": "Text",
+                "Label": "Base Order Qty.",
+                "Type": "GridColumn"
+              }
+            ],
+            "Footer": null,
+            "Id": "Root-396-1633",
+            "ToolBar": {
+              "Id": "Root-396-1633-1313",
+              "Items": [
+                {
+                  "Enabled": true,
+                  "Icon": "Refresh",
+                  "ItemType": "Button",
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "Enabled": false,
+                  "Icon": null,
+                  "ItemType": "Button",
+                  "Style": "Secondary",
+                  "Text": "Add Project Items"
+                },
+                {
+                  "Enabled": true,
+                  "Icon": "AdjustColumns",
+                  "ItemType": "Button",
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "Enabled": true,
+                  "Icon": "ExportToExcel",
+                  "ItemType": "Button",
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "Enabled": true,
+                  "Icon": "Import",
+                  "ItemType": "Button",
+                  "Style": "Tertiary",
+                  "Text": null
+                }
+              ],
+              "ShowRightAction": true,
+              "ShowSaveButton": false,
+              "ToolBarType": "List",
+              "Type": "ToolBar"
+            },
+            "Type": "Grid",
+            "Wrapped": false
+          },
+          "childIndex": -1,
+          "children": [
+            {
+              "acuElement": {
+                "Id": "Root-396-1633-1313",
+                "Items": [
+                  {
+                    "Enabled": true,
+                    "Icon": "Refresh",
+                    "ItemType": "Button",
+                    "Style": "Tertiary",
+                    "Text": null
+                  },
+                  {
+                    "Enabled": false,
+                    "Icon": null,
+                    "ItemType": "Button",
+                    "Style": "Secondary",
+                    "Text": "Add Project Items"
+                  },
+                  {
+                    "Enabled": true,
+                    "Icon": "AdjustColumns",
+                    "ItemType": "Button",
+                    "Style": "Tertiary",
+                    "Text": null
+                  },
+                  {
+                    "Enabled": true,
+                    "Icon": "ExportToExcel",
+                    "ItemType": "Button",
+                    "Style": "Tertiary",
+                    "Text": null
+                  },
+                  {
+                    "Enabled": true,
+                    "Icon": "Import",
+                    "ItemType": "Button",
+                    "Style": "Tertiary",
+                    "Text": null
+                  }
+                ],
+                "ShowRightAction": true,
+                "ShowSaveButton": false,
+                "ToolBarType": "List",
+                "Type": "ToolBar"
+              },
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": 0,
+                  "children": [
+                    {
+                      "acuElement": null,
+                      "childIndex": 0,
+                      "children": [],
+                      "componentNode": null,
+                      "componentProperties": {
+                        "Show Icon Left#3133:110": true,
+                        "Show Label#3133:443": false,
+                        "State": "Default",
+                        "Type": "Tertiary"
+                      },
+                      "createIfNotFound": false,
+                      "detach": false,
+                      "figmaObject": null,
+                      "height": 0,
+                      "layoutMode": "VERTICAL",
+                      "name": "Button",
+                      "properties": {
+                        "visible": true
+                      },
+                      "tryToFind": true,
+                      "type": "INSTANCE",
+                      "width": 0
+                    },
+                    {
+                      "acuElement": null,
+                      "childIndex": 1,
+                      "children": [],
+                      "componentNode": null,
+                      "componentProperties": {
+                        "Show Icon Left#3133:110": false,
+                        "Show Label#3133:443": true,
+                        "State": "Disabled",
+                        "Type": "Secondary",
+                        "Value ▶#3133:332": "Add Project Items"
+                      },
+                      "createIfNotFound": false,
+                      "detach": false,
+                      "figmaObject": null,
+                      "height": 0,
+                      "layoutMode": "VERTICAL",
+                      "name": "Button",
+                      "properties": {
+                        "visible": true
+                      },
+                      "tryToFind": true,
+                      "type": "INSTANCE",
+                      "width": 0
+                    },
+                    {
+                      "acuElement": null,
+                      "childIndex": 2,
+                      "children": [],
+                      "componentNode": null,
+                      "componentProperties": {
+                        "Show Icon Left#3133:110": true,
+                        "Show Label#3133:443": false,
+                        "State": "Default",
+                        "Type": "Tertiary"
+                      },
+                      "createIfNotFound": false,
+                      "detach": false,
+                      "figmaObject": null,
+                      "height": 0,
+                      "layoutMode": "VERTICAL",
+                      "name": "Button",
+                      "properties": {
+                        "visible": true
+                      },
+                      "tryToFind": true,
+                      "type": "INSTANCE",
+                      "width": 0
+                    },
+                    {
+                      "acuElement": null,
+                      "childIndex": 3,
+                      "children": [],
+                      "componentNode": null,
+                      "componentProperties": {
+                        "Show Icon Left#3133:110": true,
+                        "Show Label#3133:443": false,
+                        "State": "Default",
+                        "Type": "Tertiary"
+                      },
+                      "createIfNotFound": false,
+                      "detach": false,
+                      "figmaObject": null,
+                      "height": 0,
+                      "layoutMode": "VERTICAL",
+                      "name": "Button",
+                      "properties": {
+                        "visible": true
+                      },
+                      "tryToFind": true,
+                      "type": "INSTANCE",
+                      "width": 0
+                    },
+                    {
+                      "acuElement": null,
+                      "childIndex": 4,
+                      "children": [],
+                      "componentNode": null,
+                      "componentProperties": {
+                        "Show Icon Left#3133:110": true,
+                        "Show Label#3133:443": false,
+                        "State": "Default",
+                        "Type": "Tertiary"
+                      },
+                      "createIfNotFound": false,
+                      "detach": false,
+                      "figmaObject": null,
+                      "height": 0,
+                      "layoutMode": "VERTICAL",
+                      "name": "Button",
+                      "properties": {
+                        "visible": true
+                      },
+                      "tryToFind": true,
+                      "type": "INSTANCE",
+                      "width": 0
+                    },
+                    {
+                      "acuElement": null,
+                      "childIndex": 5,
+                      "children": [],
+                      "componentNode": null,
+                      "componentProperties": {},
+                      "createIfNotFound": false,
+                      "detach": false,
+                      "figmaObject": null,
+                      "height": 0,
+                      "layoutMode": "VERTICAL",
+                      "name": "Button",
+                      "properties": {
+                        "visible": false
+                      },
+                      "tryToFind": true,
+                      "type": "INSTANCE",
+                      "width": 0
+                    },
+                    {
+                      "acuElement": null,
+                      "childIndex": 6,
+                      "children": [],
+                      "componentNode": null,
+                      "componentProperties": {},
+                      "createIfNotFound": false,
+                      "detach": false,
+                      "figmaObject": null,
+                      "height": 0,
+                      "layoutMode": "VERTICAL",
+                      "name": "Button",
+                      "properties": {
+                        "visible": false
+                      },
+                      "tryToFind": true,
+                      "type": "INSTANCE",
+                      "width": 0
+                    },
+                    {
+                      "acuElement": null,
+                      "childIndex": 7,
+                      "children": [],
+                      "componentNode": null,
+                      "componentProperties": {},
+                      "createIfNotFound": false,
+                      "detach": false,
+                      "figmaObject": null,
+                      "height": 0,
+                      "layoutMode": "VERTICAL",
+                      "name": "Button",
+                      "properties": {
+                        "visible": false
+                      },
+                      "tryToFind": true,
+                      "type": "INSTANCE",
+                      "width": 0
+                    },
+                    {
+                      "acuElement": null,
+                      "childIndex": 8,
+                      "children": [],
+                      "componentNode": null,
+                      "componentProperties": {},
+                      "createIfNotFound": false,
+                      "detach": false,
+                      "figmaObject": null,
+                      "height": 0,
+                      "layoutMode": "VERTICAL",
+                      "name": "Button",
+                      "properties": {
+                        "visible": false
+                      },
+                      "tryToFind": true,
+                      "type": "INSTANCE",
+                      "width": 0
+                    },
+                    {
+                      "acuElement": null,
+                      "childIndex": 9,
+                      "children": [],
+                      "componentNode": null,
+                      "componentProperties": {},
+                      "createIfNotFound": false,
+                      "detach": false,
+                      "figmaObject": null,
+                      "height": 0,
+                      "layoutMode": "VERTICAL",
+                      "name": "Button",
+                      "properties": {
+                        "visible": false
+                      },
+                      "tryToFind": true,
+                      "type": "INSTANCE",
+                      "width": 0
+                    },
+                    {
+                      "acuElement": null,
+                      "childIndex": 10,
+                      "children": [],
+                      "componentNode": null,
+                      "componentProperties": {},
+                      "createIfNotFound": false,
+                      "detach": false,
+                      "figmaObject": null,
+                      "height": 0,
+                      "layoutMode": "VERTICAL",
+                      "name": "Button",
+                      "properties": {
+                        "visible": false
+                      },
+                      "tryToFind": true,
+                      "type": "INSTANCE",
+                      "width": 0
+                    }
+                  ],
+                  "componentNode": null,
+                  "componentProperties": {},
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Buttons",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Show Right Actions#6826:45": true,
+                "Type": "List"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "filterBarMapping": {},
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Toolbar",
+              "properties": {},
+              "toolBarTypes": {},
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": 4,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 4",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 5,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 5",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Alignment": "Left",
+                "Type": "Files"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Grid Column 2",
+              "properties": {
+                "counterAxisSizingMode": "AUTO",
+                "layoutGrow": 0,
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": 4,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 4",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 5,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 5",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Alignment": "Left",
+                "Type": "Notes"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Grid Column 3",
+              "properties": {
+                "counterAxisSizingMode": "AUTO",
+                "layoutGrow": 0,
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": 4,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 4",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 5,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 5",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 0,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:49": "Branch"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Column Header",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "PRODWHOLE"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 1",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 2,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "PRODWHOLE"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 2",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 3,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "PRODWHOLE"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 3",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Alignment": "Left",
+                "Type": "Text"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Grid Column 4",
+              "properties": {
+                "counterAxisSizingMode": "AUTO",
+                "layoutGrow": 1,
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": 4,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 4",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 5,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 5",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 0,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:49": "Inventory ID"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Column Header",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "CSTRSUBCON"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 1",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 2,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "CSTRSUBCON"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 2",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 3,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "CSTRSUBCON"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 3",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Alignment": "Left",
+                "Type": "Link"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Grid Column 5",
+              "properties": {
+                "counterAxisSizingMode": "AUTO",
+                "layoutGrow": 1,
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": 4,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 4",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 5,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 5",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 0,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:49": "Project"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Column Header",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "CSTRHOTEL"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 1",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 2,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "CSTRHOTEL"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 2",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 3,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "CSTRHOTEL"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 3",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Alignment": "Left",
+                "Type": "Text"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Grid Column 6",
+              "properties": {
+                "counterAxisSizingMode": "AUTO",
+                "layoutGrow": 1,
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": 4,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 4",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 5,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 5",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 0,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:49": "Project Task"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Column Header",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "03"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 1",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 2,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "03"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 2",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 3,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "03"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 3",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Alignment": "Left",
+                "Type": "Text"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Grid Column 7",
+              "properties": {
+                "counterAxisSizingMode": "AUTO",
+                "layoutGrow": 1,
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": 4,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 4",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 5,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 5",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 0,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:49": "Cost Code"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Column Header",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "03-309"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 1",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 2,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "03-300"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 2",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 3,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "03-480"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 3",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Alignment": "Left",
+                "Type": "Text"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Grid Column 8",
+              "properties": {
+                "counterAxisSizingMode": "AUTO",
+                "layoutGrow": 1,
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": 4,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 4",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 5,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 5",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 0,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:49": "Line Description"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Column Header",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "CIP Stairs"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 1",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 2,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "CIP Slab"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 2",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 3,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "Materials & Methods"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 3",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Alignment": "Left",
+                "Type": "Text"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Grid Column 9",
+              "properties": {
+                "counterAxisSizingMode": "AUTO",
+                "layoutGrow": 1,
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": 4,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 4",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 5,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 5",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 0,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:49": "UOM"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Column Header",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "LS"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 1",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 2,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "LS"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 2",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 3,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "LS"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 3",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Alignment": "Left",
+                "Type": "Text"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Grid Column 10",
+              "properties": {
+                "counterAxisSizingMode": "AUTO",
+                "layoutGrow": 1,
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": 4,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 4",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 5,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 5",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 0,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:49": "Order Qty."
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Column Header",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "1.00"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 1",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 2,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "1.00"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 2",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 3,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "1.00"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 3",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Alignment": "Right",
+                "Type": "Text"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Grid Column 11",
+              "properties": {
+                "counterAxisSizingMode": "AUTO",
+                "layoutGrow": 1,
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": 4,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 4",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 5,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 5",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 0,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:49": "Unit Cost"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Column Header",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "290,000.00"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 1",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 2,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "4,000,000.00"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 2",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 3,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "1,000,000.00"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 3",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Alignment": "Right",
+                "Type": "Text"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Grid Column 12",
+              "properties": {
+                "counterAxisSizingMode": "AUTO",
+                "layoutGrow": 1,
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [
+                {
+                  "acuElement": null,
+                  "childIndex": 4,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 4",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 5,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Show Value#4709:42": false
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 5",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 0,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:49": "Ext. Cost"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Column Header",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 1,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "290,000.00"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 1",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 2,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "4,000,000.00"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 2",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                },
+                {
+                  "acuElement": null,
+                  "childIndex": 3,
+                  "children": [],
+                  "componentNode": null,
+                  "componentProperties": {
+                    "Value#6706:0": "1,000,000.00"
+                  },
+                  "createIfNotFound": false,
+                  "detach": false,
+                  "figmaObject": null,
+                  "height": 0,
+                  "layoutMode": "VERTICAL",
+                  "name": "Cell 3",
+                  "properties": {},
+                  "tryToFind": true,
+                  "type": "INSTANCE",
+                  "width": 0
+                }
+              ],
+              "componentNode": null,
+              "componentProperties": {
+                "Alignment": "Right",
+                "Type": "Text"
+              },
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Grid Column 13",
+              "properties": {
+                "counterAxisSizingMode": "AUTO",
+                "layoutGrow": 1,
+                "visible": true
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            },
+            {
+              "acuElement": null,
+              "childIndex": -1,
+              "children": [],
+              "componentNode": null,
+              "componentProperties": {},
+              "createIfNotFound": false,
+              "detach": false,
+              "figmaObject": null,
+              "height": 0,
+              "layoutMode": "VERTICAL",
+              "name": "Grid Column 20",
+              "properties": {
+                "visible": false
+              },
+              "tryToFind": true,
+              "type": "INSTANCE",
+              "width": 0
+            }
+          ],
+          "columnTypes": {},
+          "componentProperties": {
+            "Wrapped": "No",
+            "👁 Header#6826:0": true
+          },
+          "createIfNotFound": false,
+          "detach": false,
+          "figmaObject": null,
+          "height": 0,
+          "layoutMode": "VERTICAL",
+          "name": "Grid",
+          "properties": {},
+          "tryToFind": false,
+          "type": "INSTANCE",
+          "width": 0
+        }
+      ],
+      "componentNode": null,
+      "componentProperties": {},
+      "createIfNotFound": false,
+      "detach": false,
+      "figmaObject": null,
+      "height": 0,
+      "layoutMode": "VERTICAL",
+      "name": "Tabbar",
+      "properties": {},
+      "tryToFind": false,
+      "type": "FRAME",
+      "width": 1236
+    }
+  ],
+  "componentNode": null,
+  "componentProperties": {},
+  "createIfNotFound": false,
+  "detach": false,
+  "figmaObject": null,
+  "height": 0,
+  "layoutMode": "VERTICAL",
+  "name": "Canvas",
+  "properties": {},
+  "tryToFind": false,
+  "type": "FRAME",
+  "width": 0
+}
