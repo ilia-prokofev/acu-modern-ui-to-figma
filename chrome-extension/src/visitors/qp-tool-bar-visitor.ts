@@ -32,7 +32,7 @@ export default class QPToolBarVisitor implements ElementVisitor {
             return false;
         }
 
-        const toolBarContainer = (parent as QPToolbarContainer);
+        const toolBarContainer = (parent);
         if (toolBarContainer.ToolBar) {
             // already exists. Just ignore it (carefully)
             return false;

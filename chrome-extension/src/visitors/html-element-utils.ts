@@ -138,7 +138,7 @@ export function findAttributeValueDown(htmlElement: Element, attributeName: stri
 }
 
 export function concatElementID(otherId: string, htmlElement: Element): string {
-    let id = htmlElement.getAttribute("au-target-id") ??
+    const id = htmlElement.getAttribute("au-target-id") ??
         htmlElement.getAttribute("id") ??
         htmlElement.nodeName.toLowerCase();
     return `${otherId}-${id}`

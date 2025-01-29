@@ -24,7 +24,7 @@ import QPFieldMaskEditorAttributeVisitor from "./visitors/qp-field-mask-editor-a
 import QPRichTextEditorVisitor from "./visitors/qp-rich-text-editor-visitor";
 import QPImageViewVisitor from "./visitors/qp-image-view-visitor";
 import QPTreeVisitor from "./visitors/q-p-tree-visitor";
-import { describe, it, expect } from "vitest";
+import {describe, it, expect} from "vitest";
 
 describe('acu-page-parser', () => {
     const createRoot = (): Root => {
@@ -262,7 +262,7 @@ describe('acu-page-parser', () => {
 
     it.each(testCases)(
         '$testName',
-        async ({incomingHTMLFileName, expectedJSONFile, childrenVisitor, parent}) => {
+        ({incomingHTMLFileName, expectedJSONFile, childrenVisitor, parent}) => {
             const incomingHTML = fs.readFileSync(incomingHTMLFileName, 'utf8');
             const expectedJSON = fs.readFileSync(expectedJSONFile, 'utf8');
 
@@ -271,7 +271,7 @@ describe('acu-page-parser', () => {
 
             childrenVisitor.visit(doc.body.children[0], parent);
 
-            const expected = JSON.parse(expectedJSON);
+            const expected: any = JSON.parse(expectedJSON);
             expect(parent).toEqual(expected);
         }
     );

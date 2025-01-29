@@ -20,7 +20,7 @@ export default class QPGridToolBarVisitor implements ElementVisitor {
 
         // Next visitors should create toolbar. If nobody does, we do nothing.
         allVisitor.visitChildren(htmlElement, parent);
-        const toolBar = (parent as QPToolbarContainer).ToolBar;
+        const toolBar = (parent).ToolBar;
         if (!toolBar) {
             return false;
         }
