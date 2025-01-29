@@ -2,7 +2,7 @@
   "Caption": null,
   "Children": [
     {
-      "ElementType": "Selector",
+      "ElementType": "TextEditor",
       "Id": "Root-1671",
       "Label": "Item Class",
       "Mandatory": true,

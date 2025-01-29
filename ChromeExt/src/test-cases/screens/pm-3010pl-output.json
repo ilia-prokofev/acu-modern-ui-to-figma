@@ -363,7 +363,8 @@
         "ToolBarType": "FilterBar",
         "Type": "ToolBar"
       },
-      "Type": "Grid"
+      "Type": "Grid",
+      "Wrapped": false
     }
   ],
   "Id": "Root",

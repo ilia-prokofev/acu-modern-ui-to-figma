@@ -6,5 +6,6 @@
   },
   "Id": "Grid",
   "ToolBar": null,
-  "Type": "Grid"
+  "Type": "Grid",
+  "Wrapped": false
 }

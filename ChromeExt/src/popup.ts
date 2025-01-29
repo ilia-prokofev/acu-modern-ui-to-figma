@@ -160,6 +160,7 @@ document.getElementById('exportBtn')?.addEventListener('click', () => {
                     if (res?.data) {
                         try {
                             const htmlContent = res.data;
+                            console.log(htmlContent);
                             const parser = new AcuPageParser();
                             const parsedStructure = parser.parse(htmlContent);
                             const parsedDataJSON = JSON.stringify(parsedStructure, null, 2);

@@ -4,7 +4,7 @@ import {Grid, GridColumn, GridColumnType} from "../elements/qp-grid";
 import ElementVisitor from "./qp-element-visitor";
 import ChildrenVisitor from "./children-visitors";
 import {
-    concatElementID,
+    concatElementID, findClasses,
     findElementByClassesDown,
     findElementByNodeNameDown, findFirstLeafTextContent,
     getElementAlignment,
@@ -32,6 +32,7 @@ export default class QPGridVisitor implements ElementVisitor {
             ToolBar: null,
             Columns: [],
             Footer: null,
+            Wrapped: findClasses(htmlElement, "framed-section"),
         };
 
         this.visitCells(grid, htmlElement);

@@ -1,0 +1,908 @@
+<qp-tree
+  id="tree-ItemCategory"
+  view.bind="Folders"
+  caption.bind='localizationService.localize("IN204060.tree-ItemCategory.caption", "Categories")'
+  caption.original-value="Categories"
+  class="au-target"
+  au-target-id="1313"
+  style="min-height: unset"
+>
+  <div
+    class="au-target tree-root"
+    au-target-id="815"
+    id="tree-ItemCategory_tree_root"
+  >
+    <qp-tree-toolbar
+      view-model.ref="topToolbar"
+      config.bind="topToolbarConfig"
+      caption.bind="captionText"
+      parent.bind="$this"
+      class="au-target tree-main-toolbar"
+      au-target-id="816"
+    >
+      <div
+        class="au-target tree-main-toolbar__caption tree-main-toolbar__caption--wide"
+        au-target-id="751"
+      >
+        Categories
+      </div>
+      <!--anchor-->
+      <qp-tool-bar
+        config.bind="config"
+        class="au-target tree-main-toolbar__toolbar-container tree-main-toolbar__toolbar-container--wide"
+        au-target-id="754"
+      >
+        <div
+          ref="toolbarElement"
+          class="au-target qp-tool-bar qp-tool-bar-no-menu"
+          au-target-id="480"
+          id="tree-ItemCategory_topBar"
+        >
+          <ul
+            ref="fullULElement"
+            class="au-target items-list"
+            au-target-id="481"
+            id="tree-ItemCategory_topBar_full_bar"
+            style=""
+          >
+            <li
+              click.capture="processClick(item.id, item.type, $event)"
+              mousedown.trigger="processDown(item.id, item.type, $event)"
+              mouseout.trigger="processOut(item.id, $event)"
+              class="au-target qp-tool-bar-item minor-button qp-connotation-default"
+              au-target-id="482"
+              data-cmd="AddCategory"
+              id="tree-ItemCategory_topBarAddCategory"
+            >
+              <div class="au-target qp-tool-bar-button" au-target-id="483">
+                <qp-hyper-icon
+                  images.bind="item.images"
+                  class="au-target"
+                  au-target-id="484"
+                >
+                  <div
+                    class="qp-hyper-icon au-target"
+                    mouseover.delegate="OnMouseOver()"
+                    mouseout.delegate="OnMouseOut()"
+                    mousedown.delegate="OnMouseDown()"
+                    click.delegate="OnClick()"
+                    au-target-id="24"
+                  >
+                    <!--anchor-->
+                    <div
+                      icon.bind="ImageName &amp; attr"
+                      class="au-target sprite-icon main-icon"
+                      au-target-id="27"
+                      icon="RecordAdd"
+                    >
+                      <div
+                        class="au-target main-icon-img main-RecordAdd"
+                        au-target-id="28"
+                      ></div>
+                      <!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <!--anchor-->
+                  </div> </qp-hyper-icon
+                ><!--anchor-->
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+
+              <qp-tooltip
+                exclude=".qp-menu-options"
+                class="au-target"
+                au-target-id="493"
+              >
+              </qp-tooltip
+              ><!--anchor-->
+            </li>
+            <li
+              click.capture="processClick(item.id, item.type, $event)"
+              mousedown.trigger="processDown(item.id, item.type, $event)"
+              mouseout.trigger="processOut(item.id, $event)"
+              class="au-target qp-tool-bar-item minor-button qp-connotation-default"
+              au-target-id="482"
+              data-cmd="Up"
+              id="tree-ItemCategory_topBarUp"
+            >
+              <div class="au-target qp-tool-bar-button" au-target-id="483">
+                <qp-hyper-icon
+                  images.bind="item.images"
+                  class="au-target"
+                  au-target-id="484"
+                >
+                  <div
+                    class="qp-hyper-icon au-target"
+                    mouseover.delegate="OnMouseOver()"
+                    mouseout.delegate="OnMouseOut()"
+                    mousedown.delegate="OnMouseDown()"
+                    click.delegate="OnClick()"
+                    au-target-id="24"
+                  >
+                    <!--anchor-->
+                    <div
+                      icon.bind="ImageName &amp; attr"
+                      class="au-target sprite-icon main-icon"
+                      au-target-id="27"
+                      icon="ArrowUp"
+                    >
+                      <div
+                        class="au-target main-icon-img main-ArrowUp"
+                        au-target-id="28"
+                      ></div>
+                      <!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <!--anchor-->
+                  </div> </qp-hyper-icon
+                ><!--anchor-->
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+
+              <qp-tooltip
+                exclude=".qp-menu-options"
+                class="au-target"
+                au-target-id="493"
+              >
+              </qp-tooltip
+              ><!--anchor-->
+            </li>
+            <li
+              click.capture="processClick(item.id, item.type, $event)"
+              mousedown.trigger="processDown(item.id, item.type, $event)"
+              mouseout.trigger="processOut(item.id, $event)"
+              class="au-target qp-tool-bar-item minor-button qp-connotation-default"
+              au-target-id="482"
+              data-cmd="Down"
+              id="tree-ItemCategory_topBarDown"
+            >
+              <div class="au-target qp-tool-bar-button" au-target-id="483">
+                <qp-hyper-icon
+                  images.bind="item.images"
+                  class="au-target"
+                  au-target-id="484"
+                >
+                  <div
+                    class="qp-hyper-icon au-target"
+                    mouseover.delegate="OnMouseOver()"
+                    mouseout.delegate="OnMouseOut()"
+                    mousedown.delegate="OnMouseDown()"
+                    click.delegate="OnClick()"
+                    au-target-id="24"
+                  >
+                    <!--anchor-->
+                    <div
+                      icon.bind="ImageName &amp; attr"
+                      class="au-target sprite-icon main-icon"
+                      au-target-id="27"
+                      icon="ArrowDown"
+                    >
+                      <div
+                        class="au-target main-icon-img main-ArrowDown"
+                        au-target-id="28"
+                      ></div>
+                      <!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <!--anchor-->
+                  </div> </qp-hyper-icon
+                ><!--anchor-->
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+
+              <qp-tooltip
+                exclude=".qp-menu-options"
+                class="au-target"
+                au-target-id="493"
+              >
+              </qp-tooltip
+              ><!--anchor-->
+            </li>
+            <li
+              click.capture="processClick(item.id, item.type, $event)"
+              mousedown.trigger="processDown(item.id, item.type, $event)"
+              mouseout.trigger="processOut(item.id, $event)"
+              class="au-target qp-tool-bar-item minor-button qp-connotation-default"
+              au-target-id="482"
+              data-cmd="DeleteCategory"
+              id="tree-ItemCategory_topBarDeleteCategory"
+            >
+              <div class="au-target qp-tool-bar-button" au-target-id="483">
+                <qp-hyper-icon
+                  images.bind="item.images"
+                  class="au-target"
+                  au-target-id="484"
+                >
+                  <div
+                    class="qp-hyper-icon au-target"
+                    mouseover.delegate="OnMouseOver()"
+                    mouseout.delegate="OnMouseOut()"
+                    mousedown.delegate="OnMouseDown()"
+                    click.delegate="OnClick()"
+                    au-target-id="24"
+                  >
+                    <!--anchor-->
+                    <div
+                      icon.bind="ImageName &amp; attr"
+                      class="au-target sprite-icon main-icon"
+                      au-target-id="27"
+                      icon="RecordDel"
+                    >
+                      <div
+                        class="au-target main-icon-img main-RecordDel"
+                        au-target-id="28"
+                      ></div>
+                      <!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <!--anchor-->
+                  </div> </qp-hyper-icon
+                ><!--anchor-->
+                <!--anchor-->
+              </div>
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+
+              <qp-tooltip
+                exclude=".qp-menu-options"
+                class="au-target"
+                au-target-id="493"
+              >
+              </qp-tooltip
+              ><!--anchor-->
+            </li>
+            <!--anchor-->
+          </ul>
+        </div>
+
+        <!--anchor--> </qp-tool-bar
+      ><!--anchor-->
+      <!--anchor-->
+    </qp-tree-toolbar>
+    <!--anchor-->
+    <div
+      ref="treeContainer"
+      class="au-target tree-table-container"
+      au-target-id="825"
+    >
+      <!--anchor-->
+      <div
+        ref="treeTableWrap"
+        scroll.trigger="!treeService.dynamic &amp;&amp; hasHorizontalScroll? onTableWrapScroll($event): null"
+        class="au-target tree-table-wrap"
+        au-target-id="827"
+      >
+        <table
+          ref="treeTable"
+          scroll.trigger="!treeService.dynamic? onTableScroll($event): null"
+          as-element="qp-tree-node"
+          view-model.ref="tree"
+          node-id.bind="nodeId"
+          cellspacing="0"
+          cellpadding="0"
+          id="tree-ItemCategory"
+          class="au-target tree-container"
+          au-target-id="828"
+        >
+          <!--anchor-->
+          <tr
+            dragover.trigger="treeService.modifiable? showSeparator(): null"
+            class="au-target tree-separator hidden"
+            au-target-id="78"
+          >
+            <td
+              colspan="100%"
+              drop.trigger="treeService.modifiable? dropNode($event, false): null"
+              class="au-target"
+              au-target-id="79"
+            ></td>
+          </tr>
+
+          <!--view-->
+          <tr
+            ref="treeNode"
+            draggable="true"
+            dragstart.delegate="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDrag === true)? onDragStart($event): null"
+            drop.trigger="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDropChild === true)? dropNode($event, true): null"
+            dragover.trigger="treeService.modifiable? onDragOver($event): null"
+            dblclick.delegate="onSelectSingle()"
+            click.delegate="treeService.mode=='multi' ? onSelectMulti() : checkSingle()"
+            class="au-target tree-row tree-node"
+            au-target-id="36"
+            id="tree-ItemCategory_node_0"
+            style="width: 517.049px"
+          >
+            <td
+              ref="flexFirst"
+              class="tree-flex au-target"
+              au-target-id="37"
+              style="padding-left: 0px; width: auto"
+            >
+              <i
+                ref="arrow"
+                click.trigger="onOpen($event)"
+                class="au-target ac ac-keyboard_arrow_down tree-open"
+                au-target-id="38"
+              ></i
+              ><!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+              <span
+                ref="text"
+                class="tree-text au-target"
+                title.bind="(meta.item.toolTip) ? '' : meta.item.name"
+                au-target-id="47"
+                title="Company"
+                style="width: auto"
+              >
+                <!--view--><span
+                  class.bind="part.selected ? 'selected' : ''"
+                  class="au-target"
+                  au-target-id="48"
+                  >Company</span
+                ><!--anchor--><!--anchor-->
+                <!--anchor--> </span
+              ><!--anchor-->
+            </td>
+            <!--anchor-->
+            <!--anchor-->
+          </tr>
+          <!--anchor-->
+          <tr
+            dragover.trigger="treeService.modifiable? showSeparator(): null"
+            class="au-target tree-separator hidden"
+            au-target-id="78"
+          >
+            <td
+              colspan="100%"
+              drop.trigger="treeService.modifiable? dropNode($event, false): null"
+              class="au-target"
+              au-target-id="79"
+            ></td>
+          </tr>
+
+          <!--view-->
+          <tr
+            ref="treeNode"
+            draggable="true"
+            dragstart.delegate="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDrag === true)? onDragStart($event): null"
+            drop.trigger="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDropChild === true)? dropNode($event, true): null"
+            dragover.trigger="treeService.modifiable? onDragOver($event): null"
+            dblclick.delegate="onSelectSingle()"
+            click.delegate="treeService.mode=='multi' ? onSelectMulti() : checkSingle()"
+            class="au-target tree-row tree-node"
+            au-target-id="36"
+            id="tree-ItemCategory_node_0_0"
+            style="width: 517.049px"
+          >
+            <td
+              ref="flexFirst"
+              class="tree-flex au-target"
+              au-target-id="37"
+              style="padding-left: 46px; width: auto"
+            >
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+              <span
+                ref="text"
+                class="tree-text au-target"
+                title.bind="(meta.item.toolTip) ? '' : meta.item.name"
+                au-target-id="47"
+                title="Food Items"
+                style="width: auto"
+              >
+                <!--view--><span
+                  class.bind="part.selected ? 'selected' : ''"
+                  class="au-target"
+                  au-target-id="48"
+                  >Food Items</span
+                ><!--anchor--><!--anchor-->
+                <!--anchor--> </span
+              ><!--anchor-->
+            </td>
+            <!--anchor-->
+            <!--anchor-->
+          </tr>
+          <!--anchor-->
+          <tr
+            dragover.trigger="treeService.modifiable? showSeparator(): null"
+            class="au-target tree-separator hidden"
+            au-target-id="78"
+          >
+            <td
+              colspan="100%"
+              drop.trigger="treeService.modifiable? dropNode($event, false): null"
+              class="au-target"
+              au-target-id="79"
+            ></td>
+          </tr>
+          <!--anchor-->
+          <!--anchor--><!--view-->
+          <tr
+            ref="treeNode"
+            draggable="true"
+            dragstart.delegate="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDrag === true)? onDragStart($event): null"
+            drop.trigger="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDropChild === true)? dropNode($event, true): null"
+            dragover.trigger="treeService.modifiable? onDragOver($event): null"
+            dblclick.delegate="onSelectSingle()"
+            click.delegate="treeService.mode=='multi' ? onSelectMulti() : checkSingle()"
+            class="au-target tree-row tree-node"
+            au-target-id="36"
+            id="tree-ItemCategory_node_0_1"
+            style="width: 517.049px"
+          >
+            <td
+              ref="flexFirst"
+              class="tree-flex au-target"
+              au-target-id="37"
+              style="padding-left: 23px; width: auto"
+            >
+              <i
+                ref="arrow"
+                click.trigger="onOpen($event)"
+                class="au-target ac ac-keyboard_arrow_right tree-open"
+                au-target-id="38"
+              ></i
+              ><!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+              <span
+                ref="text"
+                class="tree-text au-target"
+                title.bind="(meta.item.toolTip) ? '' : meta.item.name"
+                au-target-id="47"
+                title="Electronics"
+                style="width: auto"
+              >
+                <!--view--><span
+                  class.bind="part.selected ? 'selected' : ''"
+                  class="au-target"
+                  au-target-id="48"
+                  >Electronics</span
+                ><!--anchor--><!--anchor-->
+                <!--anchor--> </span
+              ><!--anchor-->
+            </td>
+            <!--anchor-->
+            <!--anchor-->
+          </tr>
+          <!--anchor-->
+          <tr
+            dragover.trigger="treeService.modifiable? showSeparator(): null"
+            class="au-target tree-separator hidden"
+            au-target-id="78"
+          >
+            <td
+              colspan="100%"
+              drop.trigger="treeService.modifiable? dropNode($event, false): null"
+              class="au-target"
+              au-target-id="79"
+            ></td>
+          </tr>
+          <!--anchor-->
+          <!--anchor--><!--view-->
+          <tr
+            ref="treeNode"
+            draggable="true"
+            dragstart.delegate="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDrag === true)? onDragStart($event): null"
+            drop.trigger="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDropChild === true)? dropNode($event, true): null"
+            dragover.trigger="treeService.modifiable? onDragOver($event): null"
+            dblclick.delegate="onSelectSingle()"
+            click.delegate="treeService.mode=='multi' ? onSelectMulti() : checkSingle()"
+            class="au-target tree-row tree-node"
+            au-target-id="36"
+            id="tree-ItemCategory_node_0_2"
+            style="width: 517.049px"
+          >
+            <td
+              ref="flexFirst"
+              class="tree-flex au-target"
+              au-target-id="37"
+              style="padding-left: 46px; width: auto"
+            >
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+              <span
+                ref="text"
+                class="tree-text au-target"
+                title.bind="(meta.item.toolTip) ? '' : meta.item.name"
+                au-target-id="47"
+                title="Software"
+                style="width: auto"
+              >
+                <!--view--><span
+                  class.bind="part.selected ? 'selected' : ''"
+                  class="au-target"
+                  au-target-id="48"
+                  >Software</span
+                ><!--anchor--><!--anchor-->
+                <!--anchor--> </span
+              ><!--anchor-->
+            </td>
+            <!--anchor-->
+            <!--anchor-->
+          </tr>
+          <!--anchor-->
+          <tr
+            dragover.trigger="treeService.modifiable? showSeparator(): null"
+            class="au-target tree-separator hidden"
+            au-target-id="78"
+          >
+            <td
+              colspan="100%"
+              drop.trigger="treeService.modifiable? dropNode($event, false): null"
+              class="au-target"
+              au-target-id="79"
+            ></td>
+          </tr>
+          <!--anchor-->
+          <!--anchor--><!--view-->
+          <tr
+            ref="treeNode"
+            draggable="true"
+            dragstart.delegate="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDrag === true)? onDragStart($event): null"
+            drop.trigger="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDropChild === true)? dropNode($event, true): null"
+            dragover.trigger="treeService.modifiable? onDragOver($event): null"
+            dblclick.delegate="onSelectSingle()"
+            click.delegate="treeService.mode=='multi' ? onSelectMulti() : checkSingle()"
+            class="au-target tree-row tree-node"
+            au-target-id="36"
+            id="tree-ItemCategory_node_0_3"
+            style="width: 517.049px"
+          >
+            <td
+              ref="flexFirst"
+              class="tree-flex au-target"
+              au-target-id="37"
+              style="padding-left: 46px; width: auto"
+            >
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+              <span
+                ref="text"
+                class="tree-text au-target"
+                title.bind="(meta.item.toolTip) ? '' : meta.item.name"
+                au-target-id="47"
+                title="Industrial Equipment"
+                style="width: auto"
+              >
+                <!--view--><span
+                  class.bind="part.selected ? 'selected' : ''"
+                  class="au-target"
+                  au-target-id="48"
+                  >Industrial Equipment</span
+                ><!--anchor--><!--anchor-->
+                <!--anchor--> </span
+              ><!--anchor-->
+            </td>
+            <!--anchor-->
+            <!--anchor-->
+          </tr>
+          <!--anchor-->
+          <tr
+            dragover.trigger="treeService.modifiable? showSeparator(): null"
+            class="au-target tree-separator hidden"
+            au-target-id="78"
+          >
+            <td
+              colspan="100%"
+              drop.trigger="treeService.modifiable? dropNode($event, false): null"
+              class="au-target"
+              au-target-id="79"
+            ></td>
+          </tr>
+          <!--anchor-->
+          <!--anchor--><!--view-->
+          <tr
+            ref="treeNode"
+            draggable="true"
+            dragstart.delegate="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDrag === true)? onDragStart($event): null"
+            drop.trigger="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDropChild === true)? dropNode($event, true): null"
+            dragover.trigger="treeService.modifiable? onDragOver($event): null"
+            dblclick.delegate="onSelectSingle()"
+            click.delegate="treeService.mode=='multi' ? onSelectMulti() : checkSingle()"
+            class="au-target tree-row tree-node"
+            au-target-id="36"
+            id="tree-ItemCategory_node_0_4"
+            style="width: 517.049px"
+          >
+            <td
+              ref="flexFirst"
+              class="tree-flex au-target"
+              au-target-id="37"
+              style="padding-left: 46px; width: auto"
+            >
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+              <span
+                ref="text"
+                class="tree-text au-target"
+                title.bind="(meta.item.toolTip) ? '' : meta.item.name"
+                au-target-id="47"
+                title="Consumer Goods"
+                style="width: auto"
+              >
+                <!--view--><span
+                  class.bind="part.selected ? 'selected' : ''"
+                  class="au-target"
+                  au-target-id="48"
+                  >Consumer Goods</span
+                ><!--anchor--><!--anchor-->
+                <!--anchor--> </span
+              ><!--anchor-->
+            </td>
+            <!--anchor-->
+            <!--anchor-->
+          </tr>
+          <!--anchor-->
+          <tr
+            dragover.trigger="treeService.modifiable? showSeparator(): null"
+            class="au-target tree-separator hidden"
+            au-target-id="78"
+          >
+            <td
+              colspan="100%"
+              drop.trigger="treeService.modifiable? dropNode($event, false): null"
+              class="au-target"
+              au-target-id="79"
+            ></td>
+          </tr>
+          <!--anchor-->
+          <!--anchor--><!--view-->
+          <tr
+            ref="treeNode"
+            draggable="true"
+            dragstart.delegate="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDrag === true)? onDragStart($event): null"
+            drop.trigger="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDropChild === true)? dropNode($event, true): null"
+            dragover.trigger="treeService.modifiable? onDragOver($event): null"
+            dblclick.delegate="onSelectSingle()"
+            click.delegate="treeService.mode=='multi' ? onSelectMulti() : checkSingle()"
+            class="au-target tree-row tree-node"
+            au-target-id="36"
+            id="tree-ItemCategory_node_0_5"
+            style="width: 517.049px"
+          >
+            <td
+              ref="flexFirst"
+              class="tree-flex au-target"
+              au-target-id="37"
+              style="padding-left: 23px; width: auto"
+            >
+              <i
+                ref="arrow"
+                click.trigger="onOpen($event)"
+                class="au-target ac ac-keyboard_arrow_right tree-open"
+                au-target-id="38"
+              ></i
+              ><!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+              <span
+                ref="text"
+                class="tree-text au-target"
+                title.bind="(meta.item.toolTip) ? '' : meta.item.name"
+                au-target-id="47"
+                title="Computers"
+                style="width: auto"
+              >
+                <!--view--><span
+                  class.bind="part.selected ? 'selected' : ''"
+                  class="au-target"
+                  au-target-id="48"
+                  >Computers</span
+                ><!--anchor--><!--anchor-->
+                <!--anchor--> </span
+              ><!--anchor-->
+            </td>
+            <!--anchor-->
+            <!--anchor-->
+          </tr>
+          <!--anchor-->
+          <tr
+            dragover.trigger="treeService.modifiable? showSeparator(): null"
+            class="au-target tree-separator hidden"
+            au-target-id="78"
+          >
+            <td
+              colspan="100%"
+              drop.trigger="treeService.modifiable? dropNode($event, false): null"
+              class="au-target"
+              au-target-id="79"
+            ></td>
+          </tr>
+          <!--anchor-->
+          <!--anchor--><!--view-->
+          <tr
+            ref="treeNode"
+            draggable="true"
+            dragstart.delegate="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDrag === true)? onDragStart($event): null"
+            drop.trigger="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDropChild === true)? dropNode($event, true): null"
+            dragover.trigger="treeService.modifiable? onDragOver($event): null"
+            dblclick.delegate="onSelectSingle()"
+            click.delegate="treeService.mode=='multi' ? onSelectMulti() : checkSingle()"
+            class="au-target tree-row tree-node"
+            au-target-id="36"
+            id="tree-ItemCategory_node_0_6"
+            style="width: 517.049px"
+          >
+            <td
+              ref="flexFirst"
+              class="tree-flex au-target"
+              au-target-id="37"
+              style="padding-left: 46px; width: auto"
+            >
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+              <span
+                ref="text"
+                class="tree-text au-target"
+                title.bind="(meta.item.toolTip) ? '' : meta.item.name"
+                au-target-id="47"
+                title="Services"
+                style="width: auto"
+              >
+                <!--view--><span
+                  class.bind="part.selected ? 'selected' : ''"
+                  class="au-target"
+                  au-target-id="48"
+                  >Services</span
+                ><!--anchor--><!--anchor-->
+                <!--anchor--> </span
+              ><!--anchor-->
+            </td>
+            <!--anchor-->
+            <!--anchor-->
+          </tr>
+          <!--anchor-->
+          <tr
+            dragover.trigger="treeService.modifiable? showSeparator(): null"
+            class="au-target tree-separator hidden"
+            au-target-id="78"
+          >
+            <td
+              colspan="100%"
+              drop.trigger="treeService.modifiable? dropNode($event, false): null"
+              class="au-target"
+              au-target-id="79"
+            ></td>
+          </tr>
+          <!--anchor-->
+          <!--anchor--><!--view-->
+          <tr
+            ref="treeNode"
+            draggable="true"
+            dragstart.delegate="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDrag === true)? onDragStart($event): null"
+            drop.trigger="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDropChild === true)? dropNode($event, true): null"
+            dragover.trigger="treeService.modifiable? onDragOver($event): null"
+            dblclick.delegate="onSelectSingle()"
+            click.delegate="treeService.mode=='multi' ? onSelectMulti() : checkSingle()"
+            class="au-target tree-row tree-node"
+            au-target-id="36"
+            id="tree-ItemCategory_node_0_7"
+            style="width: 517.049px"
+          >
+            <td
+              ref="flexFirst"
+              class="tree-flex au-target"
+              au-target-id="37"
+              style="padding-left: 46px; width: auto"
+            >
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+              <span
+                ref="text"
+                class="tree-text au-target"
+                title.bind="(meta.item.toolTip) ? '' : meta.item.name"
+                au-target-id="47"
+                title="Other"
+                style="width: auto"
+              >
+                <!--view--><span
+                  class.bind="part.selected ? 'selected' : ''"
+                  class="au-target"
+                  au-target-id="48"
+                  >Other</span
+                ><!--anchor--><!--anchor-->
+                <!--anchor--> </span
+              ><!--anchor-->
+            </td>
+            <!--anchor-->
+            <!--anchor-->
+          </tr>
+          <!--anchor-->
+          <tr
+            dragover.trigger="treeService.modifiable? showSeparator(): null"
+            class="au-target tree-separator hidden"
+            au-target-id="78"
+          >
+            <td
+              colspan="100%"
+              drop.trigger="treeService.modifiable? dropNode($event, false): null"
+              class="au-target"
+              au-target-id="79"
+            ></td>
+          </tr>
+          <!--anchor-->
+          <!--anchor--><!--view-->
+          <tr
+            ref="treeNode"
+            draggable="true"
+            dragstart.delegate="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDrag === true)? onDragStart($event): null"
+            drop.trigger="treeService.modifiable &amp;&amp; !(meta.item.actions.disableDropChild === true)? dropNode($event, true): null"
+            dragover.trigger="treeService.modifiable? onDragOver($event): null"
+            dblclick.delegate="onSelectSingle()"
+            click.delegate="treeService.mode=='multi' ? onSelectMulti() : checkSingle()"
+            class="au-target tree-row tree-node"
+            au-target-id="36"
+            id="tree-ItemCategory_node_0_8"
+            style="width: 517.049px"
+          >
+            <td
+              ref="flexFirst"
+              class="tree-flex au-target"
+              au-target-id="37"
+              style="padding-left: 46px; width: auto"
+            >
+              <!--anchor-->
+              <!--anchor-->
+              <!--anchor-->
+              <span
+                ref="text"
+                class="tree-text au-target"
+                title.bind="(meta.item.toolTip) ? '' : meta.item.name"
+                au-target-id="47"
+                title="Cameras"
+                style="width: auto"
+              >
+                <!--view--><span
+                  class.bind="part.selected ? 'selected' : ''"
+                  class="au-target"
+                  au-target-id="48"
+                  >Cameras</span
+                ><!--anchor--><!--anchor-->
+                <!--anchor--> </span
+              ><!--anchor-->
+            </td>
+            <!--anchor-->
+            <!--anchor-->
+          </tr>
+          <!--anchor-->
+          <tr
+            dragover.trigger="treeService.modifiable? showSeparator(): null"
+            class="au-target tree-separator hidden"
+            au-target-id="78"
+          >
+            <td
+              colspan="100%"
+              drop.trigger="treeService.modifiable? dropNode($event, false): null"
+              class="au-target"
+              au-target-id="79"
+            ></td>
+          </tr>
+          <!--anchor-->
+          <!--anchor--><!--anchor-->
+          <!--anchor-->
+          <!--anchor--><!--anchor-->
+          <!--anchor-->
+        </table>
+      </div>
+      <!--anchor-->
+    </div>
+  </div>
+</qp-tree>

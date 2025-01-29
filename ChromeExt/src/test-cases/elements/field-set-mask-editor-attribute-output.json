@@ -2,7 +2,7 @@
   "Caption": null,
   "Children": [
     {
-      "ElementType": "Selector",
+      "ElementType": "TextEditor",
       "Id": "Root-1687",
       "Label": "Auto-Incremental Value",
       "Mandatory": false,

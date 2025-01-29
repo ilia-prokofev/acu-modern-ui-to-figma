@@ -1,0 +1,1717 @@
+<qp-rich-text-editor
+  state.bind="Item.Body"
+  class="stretch au-target qp-rich-text-editor"
+  wg-field=""
+  value.two-way="Item.Body.value"
+  au-target-id="1394"
+  id="edBody"
+>
+  <div
+    focusout.delegate="lazyUpdateValue()"
+    update.delegate="immediateUpdateValue()"
+    class="au-target qp-rte-control"
+    au-target-id="732"
+    tabindex="0"
+  >
+    <div
+      show.bind="!readonly &amp;&amp; !!mainToolbar"
+      class="qp-rte-toolbar main au-target"
+      component-id.bind="'mtlb'"
+      ref="toolbarHost"
+      au-target-id="733"
+      id="edBody_mtlb"
+    >
+      <qp-control-bar
+        config.bind="config"
+        class="au-target qp-control-bar-main"
+        au-target-id="1447"
+      >
+        <div class="au-target qp-control-bar main" au-target-id="735">
+          <qp-layout
+            layout="bar"
+            hide-behavior.bind="config.sizing"
+            min-count="0"
+            ellipsis-behavior="last-visible"
+            class="qp-control-bar-layout au-target qp-layout-bar"
+            ref="layout"
+            au-target-id="736"
+          >
+            <div
+              css.bind="inlineCss"
+              ref="host"
+              class="au-target qp-layout bar qp-layout-ellipsis-hidden"
+              au-target-id="658"
+            >
+              <div
+                as-element="qp-control-bar-item"
+                class="qp-control-bar-item-container au-target"
+                config.bind="item"
+                ref="item.ref"
+                show.bind="!item.hidden"
+                action-executed.delegate="actionExecuted($event)"
+                au-target-id="737"
+              >
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                  data-cmd="formatBlock"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <qp-drop-down
+                      config.bind="selectorConfig"
+                      value.two-way="value"
+                      component-id.bind="model.id"
+                      class="au-target"
+                      au-target-id="113"
+                      enabled="true"
+                      id="edBody_mtlb_textType"
+                      style="
+                        --control-editor-width: 12ch;
+                        --control-editor-box-sizing: content-box;
+                      "
+                    >
+                      <div
+                        tabindex="-1"
+                        ref="editorWrap"
+                        mousedown.trigger="toggleSelector($event)"
+                        buttons.bind="ROMode ? '0' : '' &amp; attr"
+                        class="au-target drop-down__editor size-"
+                        au-target-id="279"
+                        id=""
+                        buttons=""
+                        style="display: block"
+                      >
+                        <div class="editorCont">
+                          <div class="editorWrap" title="">
+                            <!--anchor-->
+                            <input
+                              type="text"
+                              autocomplete="off"
+                              autocorrect="off"
+                              ref="inputElement"
+                              value.bind="valueText"
+                              keydown.capture="onKeyDown($event)"
+                              keypress.delegate="onKeyPress($event)"
+                              input.delegate="onInput($event)"
+                              focus.bind="hasFocus"
+                              focus.capture="onFocus()"
+                              blur.capture="onBlur()"
+                              paste.delegate="onPaste($event)"
+                              readonly.bind="ROMode ? 'readonly' : null &amp; attr"
+                              class="au-target drop-down__display-text drop-down__invisible"
+                              au-target-id="282"
+                              name="$text"
+                              id="_text"
+                              tabindex="0"
+                              value="Paragraph"
+                            /><span class="center"></span
+                            ><span
+                              valueattr.bind="value &amp; attr"
+                              valuetextattr.bind="valueText &amp; attr"
+                              class="au-target drop-down__text"
+                              au-target-id="283"
+                              valuetextattr="Paragraph"
+                              valueattr="Paragraph"
+                              ><!--anchor-->Paragraph</span
+                            >
+                          </div>
+                        </div>
+                        <div class="buttonsCont">
+                          <span class="center"></span>
+                          <!--anchor-->
+                          <qp-icon
+                            show.bind="!ROMode"
+                            imagesrc="svg:main@treeArrowDown"
+                            type="sel"
+                            class="au-target"
+                            au-target-id="289"
+                          >
+                            <!--anchor-->
+                            <!--anchor-->
+                            <svg>
+                              <use
+                                href.bind="imageName &amp; attr"
+                                class="au-target"
+                                au-target-id="398"
+                                href="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#treeArrowDown"
+                              ></use></svg
+                            ><!--anchor-->
+                            <!--anchor-->
+                          </qp-icon>
+                          <!-- <div class="sprite-icon control-icon" icon="DropDownN" type="sel"
+    css="${ROMode ? 'display: none;' : ''}">
+        <div class="control-icon-img control-DropDownN">
+        </div>
+    </div> -->
+                        </div>
+                      </div>
+                      <!--anchor-->
+                    </qp-drop-down>
+                    <!--anchor-->
+                  </div>
+                </div>
+                <!--view-->
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <div class="qp-tool-bar-splitter">
+                      <span
+                        data-width-value.bind="model.width &amp; attr"
+                        class="au-target splitter"
+                        au-target-id="112"
+                        data-width-value="10"
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <!--anchor-->
+                <!--anchor--><!--anchor-->
+              </div>
+              <div
+                as-element="qp-control-bar-item"
+                class="qp-control-bar-item-container au-target"
+                config.bind="item"
+                ref="item.ref"
+                show.bind="!item.hidden"
+                action-executed.delegate="actionExecuted($event)"
+                au-target-id="737"
+              >
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                  data-cmd="fontName"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <qp-drop-down
+                      config.bind="selectorConfig"
+                      value.two-way="value"
+                      component-id.bind="model.id"
+                      class="au-target"
+                      au-target-id="113"
+                      enabled="true"
+                      id="edBody_mtlb_fontName"
+                      style="
+                        --control-editor-width: 15ch;
+                        --control-editor-box-sizing: content-box;
+                      "
+                    >
+                      <div
+                        tabindex="-1"
+                        ref="editorWrap"
+                        mousedown.trigger="toggleSelector($event)"
+                        buttons.bind="ROMode ? '0' : '' &amp; attr"
+                        class="au-target drop-down__editor size-"
+                        au-target-id="279"
+                        id=""
+                        buttons=""
+                        style="display: block"
+                      >
+                        <div class="editorCont">
+                          <div class="editorWrap" title="">
+                            <!--anchor-->
+                            <input
+                              type="text"
+                              autocomplete="off"
+                              autocorrect="off"
+                              ref="inputElement"
+                              value.bind="valueText"
+                              keydown.capture="onKeyDown($event)"
+                              keypress.delegate="onKeyPress($event)"
+                              input.delegate="onInput($event)"
+                              focus.bind="hasFocus"
+                              focus.capture="onFocus()"
+                              blur.capture="onBlur()"
+                              paste.delegate="onPaste($event)"
+                              readonly.bind="ROMode ? 'readonly' : null &amp; attr"
+                              class="au-target drop-down__display-text drop-down__invisible"
+                              au-target-id="282"
+                              name="$text"
+                              id="_text"
+                              tabindex="0"
+                              value="Arial"
+                            /><span class="center"></span
+                            ><span
+                              valueattr.bind="value &amp; attr"
+                              valuetextattr.bind="valueText &amp; attr"
+                              class="au-target drop-down__text"
+                              au-target-id="283"
+                              valuetextattr="Arial"
+                              valueattr="Arial"
+                              ><!--anchor-->Arial</span
+                            >
+                          </div>
+                        </div>
+                        <div class="buttonsCont">
+                          <span class="center"></span>
+                          <!--anchor-->
+                          <qp-icon
+                            show.bind="!ROMode"
+                            imagesrc="svg:main@treeArrowDown"
+                            type="sel"
+                            class="au-target"
+                            au-target-id="289"
+                          >
+                            <!--anchor-->
+                            <!--anchor-->
+                            <svg>
+                              <use
+                                href.bind="imageName &amp; attr"
+                                class="au-target"
+                                au-target-id="398"
+                                href="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#treeArrowDown"
+                              ></use></svg
+                            ><!--anchor-->
+                            <!--anchor-->
+                          </qp-icon>
+                          <!-- <div class="sprite-icon control-icon" icon="DropDownN" type="sel"
+    css="${ROMode ? 'display: none;' : ''}">
+        <div class="control-icon-img control-DropDownN">
+        </div>
+    </div> -->
+                        </div>
+                      </div>
+                      <!--anchor-->
+                    </qp-drop-down>
+                    <!--anchor-->
+                  </div>
+                </div>
+                <!--view-->
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <div class="qp-tool-bar-splitter">
+                      <span
+                        data-width-value.bind="model.width &amp; attr"
+                        class="au-target splitter"
+                        au-target-id="112"
+                        data-width-value="10"
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <!--anchor-->
+                <!--anchor--><!--anchor-->
+              </div>
+              <div
+                as-element="qp-control-bar-item"
+                class="qp-control-bar-item-container au-target"
+                config.bind="item"
+                ref="item.ref"
+                show.bind="!item.hidden"
+                action-executed.delegate="actionExecuted($event)"
+                au-target-id="737"
+              >
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                  data-cmd="fontSize"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <qp-drop-down
+                      config.bind="selectorConfig"
+                      value.two-way="value"
+                      component-id.bind="model.id"
+                      class="au-target"
+                      au-target-id="113"
+                      enabled="true"
+                      id="edBody_mtlb_fontSize"
+                      style="
+                        --control-editor-width: 2ch;
+                        --control-editor-box-sizing: content-box;
+                      "
+                    >
+                      <div
+                        tabindex="-1"
+                        ref="editorWrap"
+                        mousedown.trigger="toggleSelector($event)"
+                        buttons.bind="ROMode ? '0' : '' &amp; attr"
+                        class="au-target drop-down__editor size-"
+                        au-target-id="279"
+                        id=""
+                        buttons=""
+                        style="display: block"
+                      >
+                        <div class="editorCont">
+                          <div class="editorWrap" title="">
+                            <!--anchor-->
+                            <input
+                              type="text"
+                              autocomplete="off"
+                              autocorrect="off"
+                              ref="inputElement"
+                              value.bind="valueText"
+                              keydown.capture="onKeyDown($event)"
+                              keypress.delegate="onKeyPress($event)"
+                              input.delegate="onInput($event)"
+                              focus.bind="hasFocus"
+                              focus.capture="onFocus()"
+                              blur.capture="onBlur()"
+                              paste.delegate="onPaste($event)"
+                              readonly.bind="ROMode ? 'readonly' : null &amp; attr"
+                              class="au-target drop-down__display-text drop-down__invisible"
+                              au-target-id="282"
+                              name="$text"
+                              id="_text"
+                              tabindex="0"
+                              value="13"
+                            /><span class="center"></span
+                            ><span
+                              valueattr.bind="value &amp; attr"
+                              valuetextattr.bind="valueText &amp; attr"
+                              class="au-target drop-down__text"
+                              au-target-id="283"
+                              valuetextattr="13"
+                              valueattr="13"
+                              ><!--anchor-->13</span
+                            >
+                          </div>
+                        </div>
+                        <div class="buttonsCont">
+                          <span class="center"></span>
+                          <!--anchor-->
+                          <qp-icon
+                            show.bind="!ROMode"
+                            imagesrc="svg:main@treeArrowDown"
+                            type="sel"
+                            class="au-target"
+                            au-target-id="289"
+                          >
+                            <!--anchor-->
+                            <!--anchor-->
+                            <svg>
+                              <use
+                                href.bind="imageName &amp; attr"
+                                class="au-target"
+                                au-target-id="398"
+                                href="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#treeArrowDown"
+                              ></use></svg
+                            ><!--anchor-->
+                            <!--anchor-->
+                          </qp-icon>
+                          <!-- <div class="sprite-icon control-icon" icon="DropDownN" type="sel"
+    css="${ROMode ? 'display: none;' : ''}">
+        <div class="control-icon-img control-DropDownN">
+        </div>
+    </div> -->
+                        </div>
+                      </div>
+                      <!--anchor-->
+                    </qp-drop-down>
+                    <!--anchor-->
+                  </div>
+                </div>
+                <!--view-->
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <div class="qp-tool-bar-splitter">
+                      <span
+                        data-width-value.bind="model.width &amp; attr"
+                        class="au-target splitter"
+                        au-target-id="112"
+                        data-width-value="10"
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <!--anchor-->
+                <!--anchor--><!--anchor-->
+              </div>
+              <div
+                as-element="qp-control-bar-item"
+                class="qp-control-bar-item-container au-target"
+                config.bind="item"
+                ref="item.ref"
+                show.bind="!item.hidden"
+                action-executed.delegate="actionExecuted($event)"
+                au-target-id="737"
+              >
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                  data-cmd="bold"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <div
+                      component-id.bind="model.id"
+                      click.delegate="performCommand()"
+                      class="au-target qp-control-bar-button qp-toggle-released"
+                      au-target-id="99"
+                      id="edBody_mtlb_bold"
+                    >
+                      <qp-hyper-icon
+                        images.bind="model.images"
+                        class="au-target"
+                        au-target-id="100"
+                      >
+                        <div
+                          class="qp-hyper-icon au-target"
+                          mouseover.delegate="OnMouseOver()"
+                          mouseout.delegate="OnMouseOut()"
+                          mousedown.delegate="OnMouseDown()"
+                          click.delegate="OnClick()"
+                          au-target-id="24"
+                        >
+                          <!--anchor-->
+                          <div
+                            icon.bind="ImageName &amp; attr"
+                            class="au-target sprite-icon text-icon"
+                            au-target-id="27"
+                            icon="Bold"
+                          >
+                            <div
+                              class="au-target text-icon-img text-Bold"
+                              au-target-id="28"
+                            ></div>
+                            <!--anchor-->
+                            <!--anchor-->
+                          </div>
+                          <!--anchor-->
+                        </div> </qp-hyper-icon
+                      ><!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <qp-tooltip class="au-target" au-target-id="104">
+                    </qp-tooltip
+                    ><!--anchor-->
+                  </div>
+                </div>
+                <!--anchor-->
+              </div>
+              <div
+                as-element="qp-control-bar-item"
+                class="qp-control-bar-item-container au-target"
+                config.bind="item"
+                ref="item.ref"
+                show.bind="!item.hidden"
+                action-executed.delegate="actionExecuted($event)"
+                au-target-id="737"
+              >
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                  data-cmd="italic"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <div
+                      component-id.bind="model.id"
+                      click.delegate="performCommand()"
+                      class="au-target qp-control-bar-button qp-toggle-released"
+                      au-target-id="99"
+                      id="edBody_mtlb_italic"
+                    >
+                      <qp-hyper-icon
+                        images.bind="model.images"
+                        class="au-target"
+                        au-target-id="100"
+                      >
+                        <div
+                          class="qp-hyper-icon au-target"
+                          mouseover.delegate="OnMouseOver()"
+                          mouseout.delegate="OnMouseOut()"
+                          mousedown.delegate="OnMouseDown()"
+                          click.delegate="OnClick()"
+                          au-target-id="24"
+                        >
+                          <!--anchor-->
+                          <div
+                            icon.bind="ImageName &amp; attr"
+                            class="au-target sprite-icon text-icon"
+                            au-target-id="27"
+                            icon="Italic"
+                          >
+                            <div
+                              class="au-target text-icon-img text-Italic"
+                              au-target-id="28"
+                            ></div>
+                            <!--anchor-->
+                            <!--anchor-->
+                          </div>
+                          <!--anchor-->
+                        </div> </qp-hyper-icon
+                      ><!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <qp-tooltip class="au-target" au-target-id="104">
+                    </qp-tooltip
+                    ><!--anchor-->
+                  </div>
+                </div>
+                <!--anchor-->
+              </div>
+              <div
+                as-element="qp-control-bar-item"
+                class="qp-control-bar-item-container au-target"
+                config.bind="item"
+                ref="item.ref"
+                show.bind="!item.hidden"
+                action-executed.delegate="actionExecuted($event)"
+                au-target-id="737"
+              >
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                  data-cmd="underline"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <div
+                      component-id.bind="model.id"
+                      click.delegate="performCommand()"
+                      class="au-target qp-control-bar-button qp-toggle-released"
+                      au-target-id="99"
+                      id="edBody_mtlb_underline"
+                    >
+                      <qp-hyper-icon
+                        images.bind="model.images"
+                        class="au-target"
+                        au-target-id="100"
+                      >
+                        <div
+                          class="qp-hyper-icon au-target"
+                          mouseover.delegate="OnMouseOver()"
+                          mouseout.delegate="OnMouseOut()"
+                          mousedown.delegate="OnMouseDown()"
+                          click.delegate="OnClick()"
+                          au-target-id="24"
+                        >
+                          <!--anchor-->
+                          <div
+                            icon.bind="ImageName &amp; attr"
+                            class="au-target sprite-icon text-icon"
+                            au-target-id="27"
+                            icon="Underline"
+                          >
+                            <div
+                              class="au-target text-icon-img text-Underline"
+                              au-target-id="28"
+                            ></div>
+                            <!--anchor-->
+                            <!--anchor-->
+                          </div>
+                          <!--anchor-->
+                        </div> </qp-hyper-icon
+                      ><!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <qp-tooltip class="au-target" au-target-id="104">
+                    </qp-tooltip
+                    ><!--anchor-->
+                  </div>
+                </div>
+                <!--anchor-->
+              </div>
+              <div
+                as-element="qp-control-bar-item"
+                class="qp-control-bar-item-container au-target"
+                config.bind="item"
+                ref="item.ref"
+                show.bind="!item.hidden"
+                action-executed.delegate="actionExecuted($event)"
+                au-target-id="737"
+              >
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                  data-cmd="strikethrough"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <div
+                      component-id.bind="model.id"
+                      click.delegate="performCommand()"
+                      class="au-target qp-control-bar-button qp-toggle-released"
+                      au-target-id="99"
+                      id="edBody_mtlb_strikethrough"
+                    >
+                      <qp-hyper-icon
+                        images.bind="model.images"
+                        class="au-target"
+                        au-target-id="100"
+                      >
+                        <div
+                          class="qp-hyper-icon au-target"
+                          mouseover.delegate="OnMouseOver()"
+                          mouseout.delegate="OnMouseOut()"
+                          mousedown.delegate="OnMouseDown()"
+                          click.delegate="OnClick()"
+                          au-target-id="24"
+                        >
+                          <!--anchor-->
+                          <div
+                            icon.bind="ImageName &amp; attr"
+                            class="au-target sprite-icon text-icon"
+                            au-target-id="27"
+                            icon="Strike"
+                          >
+                            <div
+                              class="au-target text-icon-img text-Strike"
+                              au-target-id="28"
+                            ></div>
+                            <!--anchor-->
+                            <!--anchor-->
+                          </div>
+                          <!--anchor-->
+                        </div> </qp-hyper-icon
+                      ><!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <qp-tooltip class="au-target" au-target-id="104">
+                    </qp-tooltip
+                    ><!--anchor-->
+                  </div>
+                </div>
+                <!--anchor-->
+              </div>
+              <div
+                as-element="qp-control-bar-item"
+                class="qp-control-bar-item-container au-target"
+                config.bind="item"
+                ref="item.ref"
+                show.bind="!item.hidden"
+                action-executed.delegate="actionExecuted($event)"
+                au-target-id="737"
+              >
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                  data-cmd="foreColor"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <qp-menu-color-picker
+                      config.bind="model"
+                      colorselected.trigger="colorSelected($event)"
+                      component-id.bind="model.id"
+                      newcolor.trigger="newColorAdded($event)"
+                      class="au-target"
+                      au-target-id="117"
+                      id="edBody_mtlb_menucolorText"
+                    >
+                      <div
+                        as-element="qp-drop-down-frame"
+                        control-class="qp-menu-color-picker"
+                        ref="dropDown"
+                        dropdownopened.trigger="dropDownOpened($event)"
+                        class="au-target"
+                        au-target-id="654"
+                      >
+                        <div
+                          ref="control"
+                          class="au-target qp-menu-color-picker"
+                          au-target-id="85"
+                        >
+                          <button
+                            ref="btnElement"
+                            class="qp-menu-color-picker-button qp-menu-color-picker-action-button au-target"
+                            click.capture="processButtonClick($event)"
+                            au-target-id="647"
+                          >
+                            <qp-hyper-icon
+                              images.bind="config.images"
+                              class="au-target"
+                              au-target-id="648"
+                              style="color: red"
+                            >
+                              <div
+                                class="qp-hyper-icon au-target"
+                                mouseover.delegate="OnMouseOver()"
+                                mouseout.delegate="OnMouseOut()"
+                                mousedown.delegate="OnMouseDown()"
+                                click.delegate="OnClick()"
+                                au-target-id="24"
+                              >
+                                <!--anchor-->
+                                <div
+                                  icon.bind="ImageName &amp; attr"
+                                  class="au-target sprite-icon rte-icon"
+                                  au-target-id="27"
+                                  icon="/ui-pool/Content/svg_icons/rte.svg?0e168ab1c248e9b46784#colorText"
+                                >
+                                  <!--anchor-->
+                                  <svg>
+                                    <use
+                                      href.bind="SvgUrl &amp; attr"
+                                      class="au-target"
+                                      au-target-id="30"
+                                      href="/ui-pool/Content/svg_icons/rte.svg?0e168ab1c248e9b46784#colorText"
+                                    ></use></svg
+                                  ><!--anchor-->
+                                </div>
+                                <!--anchor-->
+                              </div> </qp-hyper-icon
+                            ><!--anchor-->
+                            <!--anchor-->
+                          </button>
+                          <!--anchor-->
+
+                          <button
+                            click.capture="toggleDropDown($event)"
+                            class="au-target qp-menu-color-picker-opener"
+                            au-target-id="87"
+                          >
+                            <qp-icon
+                              imagesrc.bind="openerIcon || (opened ? 'svg:main@treeArrowUp': 'svg:main@treeArrowDown')"
+                              class="au-target"
+                              au-target-id="88"
+                            >
+                              <!--anchor-->
+                              <!--anchor-->
+                              <svg>
+                                <use
+                                  href.bind="imageName &amp; attr"
+                                  class="au-target"
+                                  au-target-id="398"
+                                  href="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#treeArrowDown"
+                                ></use></svg
+                              ><!--anchor-->
+                              <!--anchor-->
+                            </qp-icon></button
+                          ><!--anchor-->
+                          <!--anchor-->
+                        </div>
+                        <!--anchor-->
+                      </div>
+                      <!--anchor-->
+                    </qp-menu-color-picker>
+                  </div>
+                </div>
+                <!--anchor-->
+              </div>
+              <div
+                as-element="qp-control-bar-item"
+                class="qp-control-bar-item-container au-target"
+                config.bind="item"
+                ref="item.ref"
+                show.bind="!item.hidden"
+                action-executed.delegate="actionExecuted($event)"
+                au-target-id="737"
+              >
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                  data-cmd="hiliteColor"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <qp-menu-color-picker
+                      config.bind="model"
+                      colorselected.trigger="colorSelected($event)"
+                      component-id.bind="model.id"
+                      newcolor.trigger="newColorAdded($event)"
+                      class="au-target"
+                      au-target-id="117"
+                      id="edBody_mtlb_hiliteColor"
+                    >
+                      <div
+                        as-element="qp-drop-down-frame"
+                        control-class="qp-menu-color-picker"
+                        ref="dropDown"
+                        dropdownopened.trigger="dropDownOpened($event)"
+                        class="au-target"
+                        au-target-id="654"
+                      >
+                        <div
+                          ref="control"
+                          class="au-target qp-menu-color-picker"
+                          au-target-id="85"
+                        >
+                          <button
+                            ref="btnElement"
+                            class="qp-menu-color-picker-button qp-menu-color-picker-action-button au-target"
+                            click.capture="processButtonClick($event)"
+                            au-target-id="647"
+                          >
+                            <qp-hyper-icon
+                              images.bind="config.images"
+                              class="au-target"
+                              au-target-id="648"
+                              style="color: yellow"
+                            >
+                              <div
+                                class="qp-hyper-icon au-target"
+                                mouseover.delegate="OnMouseOver()"
+                                mouseout.delegate="OnMouseOut()"
+                                mousedown.delegate="OnMouseDown()"
+                                click.delegate="OnClick()"
+                                au-target-id="24"
+                              >
+                                <!--anchor-->
+                                <div
+                                  icon.bind="ImageName &amp; attr"
+                                  class="au-target sprite-icon rte-icon"
+                                  au-target-id="27"
+                                  icon="/ui-pool/Content/svg_icons/rte.svg?0e168ab1c248e9b46784#colorBg"
+                                >
+                                  <!--anchor-->
+                                  <svg>
+                                    <use
+                                      href.bind="SvgUrl &amp; attr"
+                                      class="au-target"
+                                      au-target-id="30"
+                                      href="/ui-pool/Content/svg_icons/rte.svg?0e168ab1c248e9b46784#colorBg"
+                                    ></use></svg
+                                  ><!--anchor-->
+                                </div>
+                                <!--anchor-->
+                              </div> </qp-hyper-icon
+                            ><!--anchor-->
+                            <!--anchor-->
+                          </button>
+                          <!--anchor-->
+
+                          <button
+                            click.capture="toggleDropDown($event)"
+                            class="au-target qp-menu-color-picker-opener"
+                            au-target-id="87"
+                          >
+                            <qp-icon
+                              imagesrc.bind="openerIcon || (opened ? 'svg:main@treeArrowUp': 'svg:main@treeArrowDown')"
+                              class="au-target"
+                              au-target-id="88"
+                            >
+                              <!--anchor-->
+                              <!--anchor-->
+                              <svg>
+                                <use
+                                  href.bind="imageName &amp; attr"
+                                  class="au-target"
+                                  au-target-id="398"
+                                  href="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#treeArrowDown"
+                                ></use></svg
+                              ><!--anchor-->
+                              <!--anchor-->
+                            </qp-icon></button
+                          ><!--anchor-->
+                          <!--anchor-->
+                        </div>
+                        <!--anchor-->
+                      </div>
+                      <!--anchor-->
+                    </qp-menu-color-picker>
+                  </div>
+                </div>
+                <!--view-->
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <div class="qp-tool-bar-splitter">
+                      <span
+                        data-width-value.bind="model.width &amp; attr"
+                        class="au-target splitter"
+                        au-target-id="112"
+                        data-width-value="10"
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <!--anchor-->
+                <!--anchor--><!--anchor-->
+              </div>
+              <div
+                as-element="qp-control-bar-item"
+                class="qp-control-bar-item-container au-target"
+                config.bind="item"
+                ref="item.ref"
+                show.bind="!item.hidden"
+                action-executed.delegate="actionExecuted($event)"
+                au-target-id="737"
+              >
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                  data-cmd="justify-group"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <qp-menu
+                      config.bind="menuConfig"
+                      mousedown.capture="captureClick($event)"
+                      menuselected.trigger="processButton($event)"
+                      component-id.bind="model.id"
+                      class="au-target"
+                      au-target-id="107"
+                      id="edBody_mtlb_justify-group"
+                    >
+                      <div
+                        ref="menuElement"
+                        mousedown.trigger="toggleMenu($event)"
+                        class="au-target qp-menu"
+                        au-target-id="371"
+                        id="justifyLeft_menu"
+                      >
+                        <button
+                          mousedown.trigger="processButtonMousedown($event)"
+                          click.capture="processButtonClick($event)"
+                          class="au-target qp-menu-button qp-menu-action-button"
+                          au-target-id="372"
+                          tabindex="0"
+                        >
+                          <qp-hyper-icon
+                            images.bind="config.images"
+                            class="au-target"
+                            au-target-id="373"
+                          >
+                            <div
+                              class="qp-hyper-icon au-target"
+                              mouseover.delegate="OnMouseOver()"
+                              mouseout.delegate="OnMouseOut()"
+                              mousedown.delegate="OnMouseDown()"
+                              click.delegate="OnClick()"
+                              au-target-id="24"
+                            >
+                              <!--anchor-->
+                              <div
+                                icon.bind="ImageName &amp; attr"
+                                class="au-target sprite-icon text-icon"
+                                au-target-id="27"
+                                icon="JustifyLeft"
+                              >
+                                <div
+                                  class="au-target text-icon-img text-JustifyLeft"
+                                  au-target-id="28"
+                                ></div>
+                                <!--anchor-->
+                                <!--anchor-->
+                              </div>
+                              <!--anchor-->
+                            </div> </qp-hyper-icon
+                          ><!--anchor-->
+                          <!--anchor-->
+                        </button>
+                        <button
+                          tabindex="-1"
+                          click.capture="stopPropagation($event)"
+                          class="au-target qp-menu-opener qp-menu-action-opener"
+                          au-target-id="377"
+                        >
+                          <qp-icon
+                            imagesrc="svg:main@treeArrowDown"
+                            data-type="drop"
+                            class="au-target"
+                            au-target-id="378"
+                          >
+                            <!--anchor-->
+                            <!--anchor-->
+                            <svg>
+                              <use
+                                href.bind="imageName &amp; attr"
+                                class="au-target"
+                                au-target-id="398"
+                                href="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#treeArrowDown"
+                              ></use></svg
+                            ><!--anchor-->
+                            <!--anchor-->
+                          </qp-icon></button
+                        ><!--anchor-->
+                      </div>
+
+                      <!--anchor--> </qp-menu
+                    ><!--anchor-->
+                    <qp-tooltip
+                      exclude=".qp-menu-options, .qp-menu-opener"
+                      class="au-target"
+                      au-target-id="109"
+                    >
+                    </qp-tooltip
+                    ><!--anchor-->
+                  </div>
+                </div>
+                <!--anchor-->
+              </div>
+              <div
+                as-element="qp-control-bar-item"
+                class="qp-control-bar-item-container au-target"
+                config.bind="item"
+                ref="item.ref"
+                show.bind="!item.hidden"
+                action-executed.delegate="actionExecuted($event)"
+                au-target-id="737"
+              >
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                  data-cmd="insertorderedlist"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <div
+                      component-id.bind="model.id"
+                      click.delegate="performCommand()"
+                      class="au-target qp-control-bar-button qp-toggle-released"
+                      au-target-id="99"
+                      id="edBody_mtlb_insertorderedlist"
+                    >
+                      <qp-hyper-icon
+                        images.bind="model.images"
+                        class="au-target"
+                        au-target-id="100"
+                      >
+                        <div
+                          class="qp-hyper-icon au-target"
+                          mouseover.delegate="OnMouseOver()"
+                          mouseout.delegate="OnMouseOut()"
+                          mousedown.delegate="OnMouseDown()"
+                          click.delegate="OnClick()"
+                          au-target-id="24"
+                        >
+                          <!--anchor-->
+                          <div
+                            icon.bind="ImageName &amp; attr"
+                            class="au-target sprite-icon text-icon"
+                            au-target-id="27"
+                            icon="Ordered"
+                          >
+                            <div
+                              class="au-target text-icon-img text-Ordered"
+                              au-target-id="28"
+                            ></div>
+                            <!--anchor-->
+                            <!--anchor-->
+                          </div>
+                          <!--anchor-->
+                        </div> </qp-hyper-icon
+                      ><!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <!--anchor-->
+                  </div>
+                </div>
+                <!--anchor-->
+              </div>
+              <div
+                as-element="qp-control-bar-item"
+                class="qp-control-bar-item-container au-target"
+                config.bind="item"
+                ref="item.ref"
+                show.bind="!item.hidden"
+                action-executed.delegate="actionExecuted($event)"
+                au-target-id="737"
+              >
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                  data-cmd="insertunorderedlist"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <div
+                      component-id.bind="model.id"
+                      click.delegate="performCommand()"
+                      class="au-target qp-control-bar-button qp-toggle-pushed"
+                      au-target-id="99"
+                      id="edBody_mtlb_insertunorderedlist"
+                    >
+                      <qp-hyper-icon
+                        images.bind="model.images"
+                        class="au-target"
+                        au-target-id="100"
+                      >
+                        <div
+                          class="qp-hyper-icon au-target"
+                          mouseover.delegate="OnMouseOver()"
+                          mouseout.delegate="OnMouseOut()"
+                          mousedown.delegate="OnMouseDown()"
+                          click.delegate="OnClick()"
+                          au-target-id="24"
+                        >
+                          <!--anchor-->
+                          <div
+                            icon.bind="ImageName &amp; attr"
+                            class="au-target sprite-icon text-icon"
+                            au-target-id="27"
+                            icon="UnOrdered"
+                          >
+                            <div
+                              class="au-target text-icon-img text-UnOrdered"
+                              au-target-id="28"
+                            ></div>
+                            <!--anchor-->
+                            <!--anchor-->
+                          </div>
+                          <!--anchor-->
+                        </div> </qp-hyper-icon
+                      ><!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <!--anchor-->
+                  </div>
+                </div>
+                <!--anchor-->
+              </div>
+              <div
+                as-element="qp-control-bar-item"
+                class="qp-control-bar-item-container au-target"
+                config.bind="item"
+                ref="item.ref"
+                show.bind="!item.hidden"
+                action-executed.delegate="actionExecuted($event)"
+                au-target-id="737"
+              >
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                  data-cmd="indent"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <div
+                      component-id.bind="model.id"
+                      click.delegate="performCommand()"
+                      class="au-target qp-control-bar-button qp-toggle-released"
+                      au-target-id="99"
+                      id="edBody_mtlb_indent"
+                    >
+                      <qp-hyper-icon
+                        images.bind="model.images"
+                        class="au-target"
+                        au-target-id="100"
+                      >
+                        <div
+                          class="qp-hyper-icon au-target"
+                          mouseover.delegate="OnMouseOver()"
+                          mouseout.delegate="OnMouseOut()"
+                          mousedown.delegate="OnMouseDown()"
+                          click.delegate="OnClick()"
+                          au-target-id="24"
+                        >
+                          <!--anchor-->
+                          <div
+                            icon.bind="ImageName &amp; attr"
+                            class="au-target sprite-icon text-icon"
+                            au-target-id="27"
+                            icon="IndentR"
+                          >
+                            <div
+                              class="au-target text-icon-img text-IndentR"
+                              au-target-id="28"
+                            ></div>
+                            <!--anchor-->
+                            <!--anchor-->
+                          </div>
+                          <!--anchor-->
+                        </div> </qp-hyper-icon
+                      ><!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <qp-tooltip class="au-target" au-target-id="104">
+                    </qp-tooltip
+                    ><!--anchor-->
+                  </div>
+                </div>
+                <!--anchor-->
+              </div>
+              <div
+                as-element="qp-control-bar-item"
+                class="qp-control-bar-item-container au-target"
+                config.bind="item"
+                ref="item.ref"
+                show.bind="!item.hidden"
+                action-executed.delegate="actionExecuted($event)"
+                au-target-id="737"
+              >
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                  data-cmd="outdent"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <div
+                      component-id.bind="model.id"
+                      click.delegate="performCommand()"
+                      class="au-target qp-control-bar-button qp-toggle-released"
+                      au-target-id="99"
+                      id="edBody_mtlb_outdent"
+                    >
+                      <qp-hyper-icon
+                        images.bind="model.images"
+                        class="au-target"
+                        au-target-id="100"
+                      >
+                        <div
+                          class="qp-hyper-icon au-target"
+                          mouseover.delegate="OnMouseOver()"
+                          mouseout.delegate="OnMouseOut()"
+                          mousedown.delegate="OnMouseDown()"
+                          click.delegate="OnClick()"
+                          au-target-id="24"
+                        >
+                          <!--anchor-->
+                          <div
+                            icon.bind="ImageName &amp; attr"
+                            class="au-target sprite-icon text-icon"
+                            au-target-id="27"
+                            icon="IndentL"
+                          >
+                            <div
+                              class="au-target text-icon-img text-IndentL"
+                              au-target-id="28"
+                            ></div>
+                            <!--anchor-->
+                            <!--anchor-->
+                          </div>
+                          <!--anchor-->
+                        </div> </qp-hyper-icon
+                      ><!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <qp-tooltip class="au-target" au-target-id="104">
+                    </qp-tooltip
+                    ><!--anchor-->
+                  </div>
+                </div>
+                <!--anchor-->
+              </div>
+              <!--anchor--><!--slot-->
+              <!--anchor-->
+            </div>
+          </qp-layout>
+        </div> </qp-control-bar
+      ><qp-control-bar
+        config.bind="config"
+        class="au-target qp-control-bar-panel"
+        au-target-id="1448"
+      >
+        <div class="au-target qp-control-bar panel" au-target-id="735">
+          <qp-layout
+            layout="bar"
+            hide-behavior.bind="config.sizing"
+            min-count="0"
+            ellipsis-behavior="last-visible"
+            class="qp-control-bar-layout au-target qp-layout-bar"
+            ref="layout"
+            au-target-id="736"
+          >
+            <div
+              css.bind="inlineCss"
+              ref="host"
+              class="au-target qp-layout bar qp-layout-ellipsis-hidden"
+              au-target-id="658"
+            >
+              <div
+                as-element="qp-control-bar-item"
+                class="qp-control-bar-item-container au-target"
+                config.bind="item"
+                ref="item.ref"
+                show.bind="!item.hidden"
+                action-executed.delegate="actionExecuted($event)"
+                au-target-id="737"
+              >
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                  data-cmd="mode-group"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <qp-menu
+                      config.bind="menuConfig"
+                      mousedown.capture="captureClick($event)"
+                      menuselected.trigger="processButton($event)"
+                      component-id.bind="model.id"
+                      class="au-target"
+                      au-target-id="107"
+                      id="edBody_mtlb_mode-group"
+                    >
+                      <div
+                        ref="menuElement"
+                        mousedown.trigger="toggleMenu($event)"
+                        class="au-target qp-menu"
+                        au-target-id="371"
+                        id="editMode_menu"
+                      >
+                        <button
+                          mousedown.trigger="processButtonMousedown($event)"
+                          click.capture="processButtonClick($event)"
+                          class="au-target qp-menu-button"
+                          au-target-id="372"
+                          tabindex="0"
+                        >
+                          <!--anchor-->
+                          <div>Visual</div>
+                          <!--anchor-->
+                        </button>
+                        <button
+                          tabindex="-1"
+                          click.capture="stopPropagation($event)"
+                          class="au-target qp-menu-opener"
+                          au-target-id="377"
+                        >
+                          <qp-icon
+                            imagesrc="svg:main@treeArrowDown"
+                            data-type="drop"
+                            class="au-target"
+                            au-target-id="378"
+                          >
+                            <!--anchor-->
+                            <!--anchor-->
+                            <svg>
+                              <use
+                                href.bind="imageName &amp; attr"
+                                class="au-target"
+                                au-target-id="398"
+                                href="/ui-pool/Content/svg_icons/main.svg?0e168ab1c248e9b46784#treeArrowDown"
+                              ></use></svg
+                            ><!--anchor-->
+                            <!--anchor-->
+                          </qp-icon></button
+                        ><!--anchor-->
+                      </div>
+
+                      <!--anchor--> </qp-menu
+                    ><!--anchor-->
+                    <qp-tooltip
+                      exclude=".qp-menu-options, .qp-menu-opener"
+                      class="au-target"
+                      au-target-id="109"
+                    >
+                    </qp-tooltip
+                    ><!--anchor-->
+                  </div>
+                </div>
+                <!--view-->
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <div class="qp-tool-bar-splitter">
+                      <span
+                        data-width-value.bind="model.width &amp; attr"
+                        class="au-target splitter"
+                        au-target-id="112"
+                        data-width-value="10"
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <!--anchor-->
+                <!--anchor--><!--anchor-->
+              </div>
+              <div
+                as-element="qp-control-bar-item"
+                class="qp-control-bar-item-container au-target"
+                config.bind="item"
+                ref="item.ref"
+                show.bind="!item.hidden"
+                action-executed.delegate="actionExecuted($event)"
+                au-target-id="737"
+              >
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                  data-cmd="undo"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <div
+                      component-id.bind="model.id"
+                      click.delegate="performCommand()"
+                      class="au-target qp-control-bar-button disabled"
+                      au-target-id="99"
+                      id="edBody_mtlb_undo"
+                    >
+                      <qp-hyper-icon
+                        images.bind="model.images"
+                        class="au-target"
+                        au-target-id="100"
+                      >
+                        <div
+                          class="qp-hyper-icon au-target"
+                          mouseover.delegate="OnMouseOver()"
+                          mouseout.delegate="OnMouseOut()"
+                          mousedown.delegate="OnMouseDown()"
+                          click.delegate="OnClick()"
+                          au-target-id="24"
+                        >
+                          <!--anchor-->
+                          <div
+                            icon.bind="ImageName &amp; attr"
+                            class="au-target sprite-icon main-icon"
+                            au-target-id="27"
+                            icon="Cancel"
+                          >
+                            <div
+                              class="au-target main-icon-img main-Cancel"
+                              au-target-id="28"
+                            ></div>
+                            <!--anchor-->
+                            <!--anchor-->
+                          </div>
+                          <!--anchor-->
+                        </div> </qp-hyper-icon
+                      ><!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <!--anchor-->
+                  </div>
+                </div>
+                <!--anchor-->
+              </div>
+              <div
+                as-element="qp-control-bar-item"
+                class="qp-control-bar-item-container au-target"
+                config.bind="item"
+                ref="item.ref"
+                show.bind="!item.hidden"
+                action-executed.delegate="actionExecuted($event)"
+                au-target-id="737"
+              >
+                <div
+                  class="qp-control-bar-item au-target"
+                  data-cmd.bind="model.id &amp; attr"
+                  show.bind="model.visible !== false"
+                  au-target-id="95"
+                  data-cmd="redo"
+                >
+                  <div
+                    as-element="compose"
+                    class="qp-control-bar-control au-target"
+                    view-model.bind="config.modelName ? './qp-control-bar-' + config.modelName : ''"
+                    model.bind="model"
+                    ref="control"
+                    au-target-id="96"
+                  >
+                    <div
+                      component-id.bind="model.id"
+                      click.delegate="performCommand()"
+                      class="au-target qp-control-bar-button disabled"
+                      au-target-id="99"
+                      id="edBody_mtlb_redo"
+                    >
+                      <qp-hyper-icon
+                        images.bind="model.images"
+                        class="au-target"
+                        au-target-id="100"
+                      >
+                        <div
+                          class="qp-hyper-icon au-target"
+                          mouseover.delegate="OnMouseOver()"
+                          mouseout.delegate="OnMouseOut()"
+                          mousedown.delegate="OnMouseDown()"
+                          click.delegate="OnClick()"
+                          au-target-id="24"
+                        >
+                          <!--anchor-->
+                          <div
+                            icon.bind="ImageName &amp; attr"
+                            class="au-target sprite-icon main-icon"
+                            au-target-id="27"
+                            icon="Redo"
+                          >
+                            <div
+                              class="au-target main-icon-img main-Redo"
+                              au-target-id="28"
+                            ></div>
+                            <!--anchor-->
+                            <!--anchor-->
+                          </div>
+                          <!--anchor-->
+                        </div> </qp-hyper-icon
+                      ><!--anchor-->
+                      <!--anchor-->
+                    </div>
+                    <!--anchor-->
+                  </div>
+                </div>
+                <!--anchor-->
+              </div>
+              <!--anchor--><!--slot-->
+              <!--anchor-->
+            </div>
+          </qp-layout>
+        </div>
+      </qp-control-bar>
+    </div>
+    <div class="qp-rte-body au-target" ref="editorHost" au-target-id="734">
+      <iframe tabindex="0" style="outline-width: 0px"></iframe>
+    </div>
+  </div>
+</qp-rich-text-editor>

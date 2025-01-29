@@ -1,0 +1,13 @@
+{
+  "Caption": null,
+  "Children": [
+    {
+      "Id": "Root-1042",
+      "Type": "Image"
+    }
+  ],
+  "Id": "Root",
+  "Title": null,
+  "ToolBar": null,
+  "Type": "Root"
+}
