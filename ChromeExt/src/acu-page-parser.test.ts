@@ -44,6 +44,7 @@ describe('acu-page-parser.test', () => {
             Columns: [],
             ToolBar: null,
             Footer: null,
+            Wrapped: false,
         }
     }
 

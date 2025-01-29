@@ -293,7 +293,8 @@
                   "ToolBarType": "List",
                   "Type": "ToolBar"
                 },
-                "Type": "Grid"
+                "Type": "Grid",
+                "Wrapped": false
               }
             ],
             "Id": "Root-402-1345-339",
@@ -420,7 +421,8 @@
                   "ToolBarType": "List",
                   "Type": "ToolBar"
                 },
-                "Type": "Grid"
+                "Type": "Grid",
+                "Wrapped": false
               }
             ],
             "Id": "Root-402-1345-359",

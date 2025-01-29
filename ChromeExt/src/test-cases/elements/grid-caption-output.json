@@ -7,7 +7,8 @@
       "Footer": null,
       "Id": "Root-1324",
       "ToolBar": null,
-      "Type": "Grid"
+      "Type": "Grid",
+      "Wrapped": true
     }
   ],
   "Id": "Root",

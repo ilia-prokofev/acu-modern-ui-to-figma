@@ -328,6 +328,7 @@
       "Footer": null,
       "Id": "Root-1633",
       "ToolBar": null,
+      "Wrapped": true,
       "Type": "Grid"
     }
   ],
