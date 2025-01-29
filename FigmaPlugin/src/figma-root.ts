@@ -18,7 +18,7 @@ import {
 } from "./elements/qp-field";
 import {Template} from "./elements/qp-template";
 import {QPFieldset} from "./elements/qp-fieldset";
-import {AcuElement, AcuElementType} from "./elements/acu-element";
+import {AcuElementType} from "./elements/acu-element";
 import {FieldsetSlot} from "./elements/qp-fieldset-slot";
 import {Tab, TabBar} from "./elements/qp-tabbar";
 import {Grid, GridColumnType} from "./elements/qp-grid";
@@ -29,6 +29,7 @@ import {QPRichTextEditor} from "./elements/qp-rich-text-editor";
 import {QPImage} from "./elements/qp-image";
 import {QPSplitContainer, QPSplitContainerOrientation, QPSplitPanel} from "./elements/qp-split";
 import {QPTree} from "./elements/qp-tree";
+import {FigmaNode} from "./figma-node";
 
 const horizontalSpacing = 12;
 const verticalSpacing = 12;
@@ -82,32 +83,6 @@ const buttonIcons = new Map<IconType, string>([
 ]);
 let buttonIconIDs = new Map<IconType, string>();
 
-class FigmaNode {
-
-    childIndex: number = -1; // to find this instance in the children list of parent instance by index
-    name: string; // to find this instance in nested items of the parent instance by name
-    tryToFind = true;
-    createIfNotFound = false;
-    acuElement: AcuElement | null = null;
-    height = 0;
-    width = 0;
-    componentProperties: { [propertyName: string]: string | boolean; } = {};
-    properties: { [propertyName: string]: any; } = {};
-    children: FigmaNode[] = [];
-    type: figmaFieldTypes;
-    componentNode: ComponentNode | null = null;
-    layoutMode: figmaLayoutMode = 'VERTICAL';
-    figmaObject: FrameNode | InstanceNode | null = null;
-    detach = false;
-
-    constructor(name: string, type: figmaFieldTypes = 'INSTANCE', width = 0, height = 0) {
-        this.name = name;
-        this.type = type;
-        this.width = width;
-        this.height = height;
-    }
-}
-
 function SetProperties(instanceNode: InstanceNode, figmaNode: FigmaNode) {
     try {
         instanceNode.setProperties(figmaNode.componentProperties);
@@ -116,9 +91,6 @@ function SetProperties(instanceNode: InstanceNode, figmaNode: FigmaNode) {
         Warn((e as Error).message, figmaNode.acuElement?.Id);
     }
 }
-
-type figmaFieldTypes = 'INSTANCE' | 'FRAME';
-type figmaLayoutMode = 'NONE' | 'HORIZONTAL' | 'VERTICAL'
 
 function Warn(message: string, id: string | null = null, node: any | null = null): void {
     const messageAndID = `${message.replace(/\n/g, '\t')} (id: ${id})`;
@@ -245,8 +217,7 @@ class figmaValue extends FigmaNode{
 
 class figmaRow extends FigmaNode{
 
-    typePropertyName = 'Type';
-    rowTypes = new Map<QPFieldElementType, string>([
+    static rowTypes = new Map<QPFieldElementType, string>([
         [QPFieldElementType.Currency    , 'Currency'],
         [QPFieldElementType.CheckBox    , 'Checkbox'],
         [QPFieldElementType.DateTimeEdit, 'Date'],
@@ -285,11 +256,11 @@ class figmaRow extends FigmaNode{
             }
         }
 
-        if (!this.rowTypes.has(field.ElementType)) {
+        if (!figmaRow.rowTypes.has(field.ElementType)) {
             Warn(`${field.ElementType} row type is not supported`, this.acuElement.Id, field);
             elementType = QPFieldElementType.TextEditor;
         }
-        this.componentProperties[this.typePropertyName] = this.rowTypes.get(elementType)!;
+        this.componentProperties['Type'] = figmaRow.rowTypes.get(elementType)!;
 
         let labelField;
         let valueField;
@@ -874,16 +845,7 @@ class figmaSlot extends FigmaNode {
 
 class figmaFieldSet extends FigmaNode{
 
-    static Wrappings = {
-        Gray: "Gray",
-        Blue: "Blue",
-        Default: "Default"
-    }
-
-    showHeaderPropName = 'Show Group Header#6619:0';
-    wrappingPropName =  'Wrapping';
-    showGridPropName = 'Show grid#5425:0';
-    showRowPropNames = [
+    static showRowPropNames = [
         'Show Row 1#5419:15',
         'Show Row 2#5419:17',
         'Show Row 3#5419:19',
@@ -913,27 +875,27 @@ class figmaFieldSet extends FigmaNode{
         this.acuElement = fs;
 
         const showHeader = (fs.Label != '' && fs.Label != null)
-        this.componentProperties[this.showHeaderPropName] = showHeader;
+        this.componentProperties['Show Group Header#6619:0'] = showHeader;
         if (showHeader) {
             let child = new FigmaNode('Group Header');
             child.componentProperties['Text Value ▶#4494:3'] = fs.Label??'';
             this.children.push(child);
         }
 
-        this.componentProperties[this.wrappingPropName] = fs.Style;
+        this.componentProperties['Wrapping'] = fs.Style;
 
         let rowNumber = 0;
         for (const child of fs.Children) {
             if (child.Type == AcuElementType.Grid) {
-                this.componentProperties[this.showGridPropName] = true;
+                this.componentProperties['Show grid#5425:0'] = true;
                 this.children.push(new figmaGrid(child as unknown as Grid, 'Grid', false));
             }
             else
                 this.children.push(new figmaRow(child as QPField, `Row ${++rowNumber}`, this));
         }
 
-        for (let i = 0; i < this.showRowPropNames.length; i++)
-            this.componentProperties[this.showRowPropNames[i]] = (rowNumber > i);
+        for (let i = 0; i < figmaFieldSet.showRowPropNames.length; i++)
+            this.componentProperties[figmaFieldSet.showRowPropNames[i]] = (rowNumber > i);
 
     }
 }

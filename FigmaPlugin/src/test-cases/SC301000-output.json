@@ -1474,10 +1474,8 @@
               "layoutMode": "VERTICAL",
               "name": "Row 1",
               "properties": {},
-              "rowTypes": {},
               "tryToFind": true,
               "type": "INSTANCE",
-              "typePropertyName": "Type",
               "width": 0
             },
             {
@@ -1562,10 +1560,8 @@
               "layoutMode": "VERTICAL",
               "name": "Row 2",
               "properties": {},
-              "rowTypes": {},
               "tryToFind": true,
               "type": "INSTANCE",
-              "typePropertyName": "Type",
               "width": 0
             },
             {
@@ -1631,10 +1627,8 @@
               "layoutMode": "VERTICAL",
               "name": "Row 3",
               "properties": {},
-              "rowTypes": {},
               "tryToFind": true,
               "type": "INSTANCE",
-              "typePropertyName": "Type",
               "width": 0
             },
             {
@@ -1700,10 +1694,8 @@
               "layoutMode": "VERTICAL",
               "name": "Row 4",
               "properties": {},
-              "rowTypes": {},
               "tryToFind": true,
               "type": "INSTANCE",
-              "typePropertyName": "Type",
               "width": 0
             },
             {
@@ -1770,10 +1762,8 @@
               "layoutMode": "VERTICAL",
               "name": "Row 5",
               "properties": {},
-              "rowTypes": {},
               "tryToFind": true,
               "type": "INSTANCE",
-              "typePropertyName": "Type",
               "width": 0
             }
           ],
@@ -1808,34 +1798,9 @@
           "layoutMode": "VERTICAL",
           "name": "FieldSet",
           "properties": {},
-          "showGridPropName": "Show grid#5425:0",
-          "showHeaderPropName": "Show Group Header#6619:0",
-          "showRowPropNames": [
-            "Show Row 1#5419:15",
-            "Show Row 2#5419:17",
-            "Show Row 3#5419:19",
-            "Show Row 4#5419:13",
-            "Show Row 5#5419:11",
-            "Show Row 6#5419:9",
-            "Show Row 7#5419:8",
-            "Show Row 8#5419:7",
-            "Show Row 9#5419:5",
-            "Show Row 10#5419:12",
-            "Show Row 11#5419:10",
-            "Show Row 12#5419:3",
-            "Show Row 13#5419:2",
-            "Show Row 14#5419:6",
-            "Show Row 15#5419:4",
-            "Show Row 16#5419:16",
-            "Show Row 17#5419:18",
-            "Show Row 18#5419:1",
-            "Show Row 19#5419:0",
-            "Show Row 20#5419:14"
-          ],
           "tryToFind": false,
           "type": "INSTANCE",
-          "width": 353.5,
-          "wrappingPropName": "Wrapping"
+          "width": 353.5
         },
         {
           "acuElement": {
@@ -1965,10 +1930,8 @@
               "layoutMode": "VERTICAL",
               "name": "Row 1",
               "properties": {},
-              "rowTypes": {},
               "tryToFind": true,
               "type": "INSTANCE",
-              "typePropertyName": "Type",
               "width": 0
             },
             {
@@ -2034,10 +1997,8 @@
               "layoutMode": "VERTICAL",
               "name": "Row 2",
               "properties": {},
-              "rowTypes": {},
               "tryToFind": true,
               "type": "INSTANCE",
-              "typePropertyName": "Type",
               "width": 0
             },
             {
@@ -2103,10 +2064,8 @@
               "layoutMode": "VERTICAL",
               "name": "Row 3",
               "properties": {},
-              "rowTypes": {},
               "tryToFind": true,
               "type": "INSTANCE",
-              "typePropertyName": "Type",
               "width": 0
             },
             {
@@ -2172,10 +2131,8 @@
               "layoutMode": "VERTICAL",
               "name": "Row 4",
               "properties": {},
-              "rowTypes": {},
               "tryToFind": true,
               "type": "INSTANCE",
-              "typePropertyName": "Type",
               "width": 0
             },
             {
@@ -2241,10 +2198,8 @@
               "layoutMode": "VERTICAL",
               "name": "Row 5",
               "properties": {},
-              "rowTypes": {},
               "tryToFind": true,
               "type": "INSTANCE",
-              "typePropertyName": "Type",
               "width": 0
             },
             {
@@ -2310,10 +2265,8 @@
               "layoutMode": "VERTICAL",
               "name": "Row 6",
               "properties": {},
-              "rowTypes": {},
               "tryToFind": true,
               "type": "INSTANCE",
-              "typePropertyName": "Type",
               "width": 0
             }
           ],
@@ -2348,34 +2301,9 @@
           "layoutMode": "VERTICAL",
           "name": "FieldSet",
           "properties": {},
-          "showGridPropName": "Show grid#5425:0",
-          "showHeaderPropName": "Show Group Header#6619:0",
-          "showRowPropNames": [
-            "Show Row 1#5419:15",
-            "Show Row 2#5419:17",
-            "Show Row 3#5419:19",
-            "Show Row 4#5419:13",
-            "Show Row 5#5419:11",
-            "Show Row 6#5419:9",
-            "Show Row 7#5419:8",
-            "Show Row 8#5419:7",
-            "Show Row 9#5419:5",
-            "Show Row 10#5419:12",
-            "Show Row 11#5419:10",
-            "Show Row 12#5419:3",
-            "Show Row 13#5419:2",
-            "Show Row 14#5419:6",
-            "Show Row 15#5419:4",
-            "Show Row 16#5419:16",
-            "Show Row 17#5419:18",
-            "Show Row 18#5419:1",
-            "Show Row 19#5419:0",
-            "Show Row 20#5419:14"
-          ],
           "tryToFind": false,
           "type": "INSTANCE",
-          "width": 505,
-          "wrappingPropName": "Wrapping"
+          "width": 505
         },
         {
           "acuElement": {
@@ -2487,10 +2415,8 @@
               "layoutMode": "VERTICAL",
               "name": "Row 1",
               "properties": {},
-              "rowTypes": {},
               "tryToFind": true,
               "type": "INSTANCE",
-              "typePropertyName": "Type",
               "width": 0
             },
             {
@@ -2556,10 +2482,8 @@
               "layoutMode": "VERTICAL",
               "name": "Row 2",
               "properties": {},
-              "rowTypes": {},
               "tryToFind": true,
               "type": "INSTANCE",
-              "typePropertyName": "Type",
               "width": 0
             },
             {
@@ -2625,10 +2549,8 @@
               "layoutMode": "VERTICAL",
               "name": "Row 3",
               "properties": {},
-              "rowTypes": {},
               "tryToFind": true,
               "type": "INSTANCE",
-              "typePropertyName": "Type",
               "width": 0
             },
             {
@@ -2694,10 +2616,8 @@
               "layoutMode": "VERTICAL",
               "name": "Row 4",
               "properties": {},
-              "rowTypes": {},
               "tryToFind": true,
               "type": "INSTANCE",
-              "typePropertyName": "Type",
               "width": 0
             }
           ],
@@ -2732,34 +2652,9 @@
           "layoutMode": "VERTICAL",
           "name": "FieldSet",
           "properties": {},
-          "showGridPropName": "Show grid#5425:0",
-          "showHeaderPropName": "Show Group Header#6619:0",
-          "showRowPropNames": [
-            "Show Row 1#5419:15",
-            "Show Row 2#5419:17",
-            "Show Row 3#5419:19",
-            "Show Row 4#5419:13",
-            "Show Row 5#5419:11",
-            "Show Row 6#5419:9",
-            "Show Row 7#5419:8",
-            "Show Row 8#5419:7",
-            "Show Row 9#5419:5",
-            "Show Row 10#5419:12",
-            "Show Row 11#5419:10",
-            "Show Row 12#5419:3",
-            "Show Row 13#5419:2",
-            "Show Row 14#5419:6",
-            "Show Row 15#5419:4",
-            "Show Row 16#5419:16",
-            "Show Row 17#5419:18",
-            "Show Row 18#5419:1",
-            "Show Row 19#5419:0",
-            "Show Row 20#5419:14"
-          ],
           "tryToFind": false,
           "type": "INSTANCE",
-          "width": 353.5,
-          "wrappingPropName": "Wrapping"
+          "width": 353.5
         }
       ],
       "componentNode": null,
