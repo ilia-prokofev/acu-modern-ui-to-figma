@@ -28,6 +28,7 @@ import QPFieldMaskEditorAttributeVisitor from "./qp-field-mask-editor-attribute-
 import QPSplitterVisitor from "./qp-splitter-visitor";
 import QPRichTextEditorVisitor from "./qp-rich-text-editor-visitor";
 import QPImageViewVisitor from "./qp-image-view-visitor";
+import QpTreeVisitor from "./qp-tree-visitor";
 
 export const allVisitors: ElementVisitor[] = [
     new QPRootVisitor(),
@@ -59,4 +60,5 @@ export const allVisitors: ElementVisitor[] = [
     new QPSplitterVisitor(),
     new QPRichTextEditorVisitor(),
     new QPImageViewVisitor(),
+    new QpTreeVisitor(),
 ];

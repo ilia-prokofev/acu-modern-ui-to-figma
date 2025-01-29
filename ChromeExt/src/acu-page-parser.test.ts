@@ -23,6 +23,7 @@ import QPFieldMaskEditorElementVisitor from "./visitors/qp-field-mask-editor-ele
 import QPFieldMaskEditorAttributeVisitor from "./visitors/qp-field-mask-editor-attribute-visitor";
 import QPRichTextEditorVisitor from "./visitors/qp-rich-text-editor-visitor";
 import QPImageViewVisitor from "./visitors/qp-image-view-visitor";
+import QpTreeVisitor from "./visitors/qp-tree-visitor";
 
 describe('acu-page-parser.test', () => {
     const createRoot = (): Root => {
@@ -247,6 +248,13 @@ describe('acu-page-parser.test', () => {
             childrenVisitor: new ChildrenVisitor([new QPImageViewVisitor()]),
             incomingHTMLFileName: './test-cases/elements/image-view-input.html',
             expectedJSONFile: './test-cases/elements/image-view-output.json',
+            parent: createRoot(),
+        },
+        {
+            testName: "elements/tree",
+            childrenVisitor: new ChildrenVisitor([new QpTreeVisitor()]),
+            incomingHTMLFileName: './test-cases/elements/tree-input.html',
+            expectedJSONFile: './test-cases/elements/tree-output.json',
             parent: createRoot(),
         },
     ]
