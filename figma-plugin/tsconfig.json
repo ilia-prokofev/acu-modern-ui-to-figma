@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react",
+    "allowJs": true,
+    "outDir": "./dist",
+    "types": ["node" ,"@figma/plugin-typings", "jest"]
+  },
+  "include": ["src/**/*.ts"],
+}
