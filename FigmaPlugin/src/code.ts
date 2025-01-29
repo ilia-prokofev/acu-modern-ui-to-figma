@@ -3,7 +3,7 @@
 // You can access browser APIs in the <script> tag inside "ui.html" which has a
 // full browser environment (See https://www.figma.com/plugin-docs/how-plugins-run).
 
-import {processScreen} from "./figma-root";
+import {processScreen} from "./figma-main";
 
 // This shows the HTML page in "ui.html".
 figma.showUI(__html__, {width: 650, height: 540});
