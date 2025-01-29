@@ -1,0 +1,1042 @@
+{
+  "Type": "Root",
+  "Children": [
+    {
+      "Type": "Template",
+      "Id": "Root-1627",
+      "Name": "7-10-7",
+      "Children": [
+        {
+          "Label": null,
+          "Type": "FieldSet",
+          "Id": "Root-1627-1628",
+          "Children": [
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "Selector",
+              "Id": "Root-1627-1628-2095",
+              "Label": "Project ID",
+              "Value": "TMR03_____",
+              "Mandatory": true
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": true,
+              "ElementType": "Status",
+              "Id": "Root-1627-1628-2097",
+              "Label": "Status",
+              "Value": "Active",
+              "Mandatory": true
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "DateTimeEdit",
+              "Id": "Root-1627-1628-2099",
+              "Label": "Start Date",
+              "Value": "9/5/2016",
+              "Mandatory": true
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "DateTimeEdit",
+              "Id": "Root-1627-1628-2101",
+              "Label": "End Date",
+              "Value": "12/31/2024",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": true,
+              "ElementType": "Selector",
+              "Id": "Root-1627-1628-2103",
+              "Label": "Quote Ref. Nbr.",
+              "Value": "",
+              "Mandatory": false
+            }
+          ],
+          "Style": "Gray"
+        },
+        {
+          "Label": null,
+          "Type": "FieldSet",
+          "Id": "Root-1627-1629",
+          "Children": [
+            {
+              "Type": "Field",
+              "ReadOnly": true,
+              "ElementType": "Selector",
+              "Id": "Root-1627-1629-2105",
+              "Label": "Template",
+              "Value": "TIME&MAT- Time and Materials with Allocation",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "Selector",
+              "Id": "Root-1627-1629-2107",
+              "Label": "Project Manager",
+              "Value": "",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "Selector",
+              "Id": "Root-1627-1629-2109",
+              "Label": "Customer",
+              "Value": "MARLINOFFI- Marlin Office Beverage Service",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "Currency",
+              "Id": "Root-1627-1629-2111",
+              "Label": "Budget Currency Rate",
+              "Value": "USD",
+              "Mandatory": true
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "MultilineTextEditor",
+              "Id": "Root-1627-1629-2113",
+              "Label": "Description",
+              "Value": "Marlin Beverage Process Re-architecture",
+              "Mandatory": false
+            }
+          ],
+          "Style": "Gray"
+        },
+        {
+          "Label": null,
+          "Type": "FieldSet",
+          "Id": "Root-1627-1630",
+          "Children": [
+            {
+              "Type": "Field",
+              "ReadOnly": true,
+              "ElementType": "NumberEditor",
+              "Id": "Root-1627-1630-2115",
+              "Label": "Actual Income",
+              "Value": "22,424.00",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": true,
+              "ElementType": "NumberEditor",
+              "Id": "Root-1627-1630-2117",
+              "Label": "Actual Expenses",
+              "Value": "18,812.00",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": true,
+              "ElementType": "NumberEditor",
+              "Id": "Root-1627-1630-2119",
+              "Label": "Margin Amount",
+              "Value": "3,612.00",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": true,
+              "ElementType": "NumberEditor",
+              "Id": "Root-1627-1630-2121",
+              "Label": "Margin (%)",
+              "Value": "16.11",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": true,
+              "ElementType": "NumberEditor",
+              "Id": "Root-1627-1630-2123",
+              "Label": "Pending Invoice Amount",
+              "Value": "0.00",
+              "Mandatory": false
+            }
+          ],
+          "Style": "Blue"
+        }
+      ]
+    },
+    {
+      "Type": "Tabbar",
+      "Id": "Root-396",
+      "Tabs": [
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Summary",
+          "IsActive": true
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Tasks",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Revenue Budget",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Cost Budget",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Balances",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Commitments",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Invoices",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Union Locals",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Activities",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Employees",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Equipment",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Addresses",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Defaults",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Attributes",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Approvals",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Mailing & Printing",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Compliance",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Contacts",
+          "IsActive": false
+        }
+      ],
+      "Children": [
+        {
+          "Type": "Template",
+          "Id": "Root-396-1633",
+          "Name": "1-1",
+          "Children": [
+            {
+              "Type": "FieldsetSlot",
+              "Id": "Root-396-1633-1634",
+              "Children": [
+                {
+                  "Label": "Project Properties",
+                  "Type": "FieldSet",
+                  "Id": "Root-396-1633-1634-1635",
+                  "Children": [
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "DropDown",
+                      "Id": "Root-396-1633-1634-1635-2021",
+                      "Label": "Revenue Budget Level",
+                      "Value": "Task and Item",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "DropDown",
+                      "Id": "Root-396-1633-1634-1635-2023",
+                      "Label": "Cost Budget Level",
+                      "Value": "Task and Item",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "Selector",
+                      "Id": "Root-396-1633-1634-1635-2025",
+                      "Label": "Project Group",
+                      "Value": "",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "Selector",
+                      "Id": "Root-396-1633-1634-1635-2027",
+                      "Label": "Time Activity Approver",
+                      "Value": "",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "TextEditor",
+                      "Id": "Root-396-1633-1634-1635-2029",
+                      "Label": "Last Revenue Change Nbr.",
+                      "Value": "",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "Selector",
+                      "Id": "Root-396-1633-1634-1635-2032",
+                      "Label": "Project Currency",
+                      "Value": "USD",
+                      "Mandatory": true
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "Selector",
+                      "Id": "Root-396-1633-1634-1635-2036",
+                      "Label": "Currency Rate Type",
+                      "Value": "SPOT- Spot Currency Rate",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "DropDown",
+                      "Id": "Root-396-1633-1634-1635-2038",
+                      "Label": "Inventory Tracking",
+                      "Value": "Track by Location",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "CheckBox",
+                      "Id": "Root-396-1633-1634-1635-2042",
+                      "CheckboxName": "Change Order Workflow",
+                      "Checked": false,
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "CheckBox",
+                      "Id": "Root-396-1633-1634-1635-2044",
+                      "CheckboxName": "Allow Adding New Items on the Fly",
+                      "Checked": false,
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "CheckBox",
+                      "Id": "Root-396-1633-1634-1635-2046",
+                      "CheckboxName": "Restrict Employees",
+                      "Checked": true,
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "CheckBox",
+                      "Id": "Root-396-1633-1634-1635-2048",
+                      "CheckboxName": "Restrict Equipment",
+                      "Checked": false,
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "CheckBox",
+                      "Id": "Root-396-1633-1634-1635-2050",
+                      "CheckboxName": "Track Production Data",
+                      "Checked": false,
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "CheckBox",
+                      "Id": "Root-396-1633-1634-1635-2052",
+                      "CheckboxName": "Certified Job",
+                      "Checked": false,
+                      "Mandatory": false
+                    }
+                  ],
+                  "Style": "Gray"
+                },
+                {
+                  "Label": "Billing and Allocation Settings",
+                  "Type": "FieldSet",
+                  "Id": "Root-396-1633-1634-1636",
+                  "Children": [
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "Selector",
+                      "Id": "Root-396-1633-1634-1636-1987",
+                      "Label": "Billing Currency",
+                      "Value": "USD",
+                      "Mandatory": true
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "DropDown",
+                      "Id": "Root-396-1633-1634-1636-1989",
+                      "Label": "Billing Period",
+                      "Value": "On Demand",
+                      "Mandatory": true
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "DateTimeEdit",
+                      "Id": "Root-396-1633-1634-1636-1991",
+                      "Label": "Next Billing Date",
+                      "Value": "",
+                      "Mandatory": true
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "DateTimeEdit",
+                      "Id": "Root-396-1633-1634-1636-1993",
+                      "Label": "Last Billing Date",
+                      "Value": "9/30/2016",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "Selector",
+                      "Id": "Root-396-1633-1634-1636-1995",
+                      "Label": "Customer Location",
+                      "Value": "MAIN - Primary Location",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "Selector",
+                      "Id": "Root-396-1633-1634-1636-1997",
+                      "Label": "Payroll Work Location",
+                      "Value": "",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "Selector",
+                      "Id": "Root-396-1633-1634-1636-1999",
+                      "Label": "Terms",
+                      "Value": "",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "Selector",
+                      "Id": "Root-396-1633-1634-1636-2001",
+                      "Label": "Allocation Rule",
+                      "Value": "TMR- Time & Material",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "CheckBox",
+                      "Id": "Root-396-1633-1634-1636-2003",
+                      "CheckboxName": "Run Allocation on Release of Project Transactions",
+                      "Checked": true,
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "Selector",
+                      "Id": "Root-396-1633-1634-1636-2005",
+                      "Label": "Billing Rule",
+                      "Value": "STANDARD- Standard billing rule",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "Selector",
+                      "Id": "Root-396-1633-1634-1636-2007",
+                      "Label": "Branch",
+                      "Value": "",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "Selector",
+                      "Id": "Root-396-1633-1634-1636-2009",
+                      "Label": "Rate Table",
+                      "Value": "STANDARD- Standard Rate Table",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "CheckBox",
+                      "Id": "Root-396-1633-1634-1636-2011",
+                      "CheckboxName": "Create Pro Forma Invoice on Billing",
+                      "Checked": false,
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "CheckBox",
+                      "Id": "Root-396-1633-1634-1636-2013",
+                      "CheckboxName": "Use T&M Revenue Budget Limits",
+                      "Checked": false,
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "CheckBox",
+                      "Id": "Root-396-1633-1634-1636-2019",
+                      "CheckboxName": "Automatically Release AR Documents",
+                      "Checked": false,
+                      "Mandatory": false
+                    }
+                  ],
+                  "Style": "Gray"
+                }
+              ],
+              "ID": "A"
+            },
+            {
+              "Type": "FieldsetSlot",
+              "Id": "Root-396-1633-1637",
+              "Children": [
+                {
+                  "Label": "Retainage",
+                  "Type": "FieldSet",
+                  "Id": "Root-396-1633-1637-1638",
+                  "Children": [
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "DropDown",
+                      "Id": "Root-396-1633-1637-1638-1843",
+                      "Label": "Retainage Mode",
+                      "Value": "Standard",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "CheckBox",
+                      "Id": "Root-396-1633-1637-1638-1845",
+                      "CheckboxName": "Include CO",
+                      "Checked": false,
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "NumberEditor",
+                      "Id": "Root-396-1633-1637-1638-1847",
+                      "Label": "Contract Total",
+                      "Value": "13,200.00",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "NumberEditor",
+                      "Id": "Root-396-1633-1637-1638-1851",
+                      "Label": "Completed (%)",
+                      "Value": "169.88",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "NumberEditor",
+                      "Id": "Root-396-1633-1637-1638-1855",
+                      "Label": "Total Retained Amount",
+                      "Value": "0.00",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "Id": "Root-396-1633-1637-1638-1857",
+                      "ElementType": "RadioButton",
+                      "Checked": false,
+                      "RadioName": "Fixed Retainage",
+                      "ReadOnly": false,
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "Id": "Root-396-1633-1637-1638-1857",
+                      "ElementType": "RadioButton",
+                      "Checked": true,
+                      "RadioName": "Retainage with Steps",
+                      "ReadOnly": false,
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Grid",
+                      "Id": "Root-396-1633-1637-1638-1865",
+                      "Caption": null,
+                      "ToolBar": {
+                        "Type": "ToolBar",
+                        "Id": "Root-396-1633-1637-1638-1865-1313",
+                        "ToolBarType": "List",
+                        "Items": [
+                          {
+                            "ItemType": "Button",
+                            "Icon": "Refresh",
+                            "Enabled": true,
+                            "Style": "Tertiary",
+                            "Text": null
+                          },
+                          {
+                            "ItemType": "Button",
+                            "Icon": "AddRow",
+                            "Enabled": true,
+                            "Style": "Tertiary",
+                            "Text": null
+                          },
+                          {
+                            "ItemType": "Button",
+                            "Icon": "DeleteRow",
+                            "Enabled": true,
+                            "Style": "Tertiary",
+                            "Text": null
+                          }
+                        ],
+                        "ShowRightAction": false,
+                        "ShowSaveButton": false
+                      },
+                      "Columns": [
+                        {
+                          "Type": "GridColumn",
+                          "Label": "",
+                          "ColumnType": "Settings",
+                          "Cells": [
+                            "",
+                            "",
+                            ""
+                          ],
+                          "Alignment": "Left"
+                        },
+                        {
+                          "Type": "GridColumn",
+                          "Label": "",
+                          "ColumnType": "Files",
+                          "Cells": [
+                            "",
+                            "",
+                            ""
+                          ],
+                          "Alignment": "Center"
+                        },
+                        {
+                          "Type": "GridColumn",
+                          "Label": "",
+                          "ColumnType": "Notes",
+                          "Cells": [
+                            "",
+                            "",
+                            ""
+                          ],
+                          "Alignment": "Center"
+                        },
+                        {
+                          "Type": "GridColumn",
+                          "Label": "Threshold (%)",
+                          "ColumnType": "Text",
+                          "Cells": [
+                            "10.00",
+                            "10.00",
+                            "15.00"
+                          ],
+                          "Alignment": "Right"
+                        },
+                        {
+                          "Type": "GridColumn",
+                          "Label": "Retainage (%)",
+                          "ColumnType": "Text",
+                          "Cells": [
+                            "7.00",
+                            "7.00",
+                            "8.00"
+                          ],
+                          "Alignment": "Right"
+                        }
+                      ],
+                      "Footer": null,
+                      "Wrapped": false
+                    }
+                  ],
+                  "Style": "Gray"
+                },
+                {
+                  "Label": "AIA",
+                  "Type": "FieldSet",
+                  "Id": "Root-396-1633-1637-1639",
+                  "Children": [
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "DropDown",
+                      "Id": "Root-396-1633-1637-1639-2125",
+                      "Label": "AIA Level",
+                      "Value": "Summary",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "TextEditor",
+                      "Id": "Root-396-1633-1637-1639-2127",
+                      "Label": "Last Application Nbr.",
+                      "Value": "",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "CheckBox",
+                      "Id": "Root-396-1633-1637-1639-2129",
+                      "CheckboxName": "Show Quantity in AIA Report",
+                      "Checked": false,
+                      "Mandatory": false
+                    }
+                  ],
+                  "Style": "Gray"
+                },
+                {
+                  "Label": "Tax Settings",
+                  "Type": "FieldSet",
+                  "Id": "Root-396-1633-1637-1640",
+                  "Children": [
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "Selector",
+                      "Id": "Root-396-1633-1637-1640-1977",
+                      "Label": "Cost Tax Zone",
+                      "Value": "",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "Selector",
+                      "Id": "Root-396-1633-1637-1640-1979",
+                      "Label": "Revenue Tax Zone",
+                      "Value": "",
+                      "Mandatory": false
+                    }
+                  ],
+                  "Style": "Gray"
+                },
+                {
+                  "Label": "Visibility Settings",
+                  "Type": "FieldSet",
+                  "Id": "Root-396-1633-1637-1641",
+                  "Children": [
+                    {
+                      "Type": "Field",
+                      "Id": "Root-396-1633-1637-1641-1867",
+                      "Children": [
+                        {
+                          "Type": "Field",
+                          "ReadOnly": false,
+                          "ElementType": "CheckBox",
+                          "Id": "Root-396-1633-1637-1641-1867-1868",
+                          "CheckboxName": "GL",
+                          "Checked": true,
+                          "Mandatory": false
+                        },
+                        {
+                          "Type": "Field",
+                          "ReadOnly": false,
+                          "ElementType": "CheckBox",
+                          "Id": "Root-396-1633-1637-1641-1867-1869",
+                          "CheckboxName": "AP",
+                          "Checked": true,
+                          "Mandatory": false
+                        },
+                        {
+                          "Type": "Field",
+                          "ReadOnly": false,
+                          "ElementType": "CheckBox",
+                          "Id": "Root-396-1633-1637-1641-1867-1870",
+                          "CheckboxName": "AR",
+                          "Checked": true,
+                          "Mandatory": false
+                        },
+                        {
+                          "Type": "Field",
+                          "ReadOnly": false,
+                          "ElementType": "CheckBox",
+                          "Id": "Root-396-1633-1637-1641-1867-1871",
+                          "CheckboxName": "SO",
+                          "Checked": true,
+                          "Mandatory": false
+                        },
+                        {
+                          "Type": "Field",
+                          "ReadOnly": false,
+                          "ElementType": "CheckBox",
+                          "Id": "Root-396-1633-1637-1641-1867-1872",
+                          "CheckboxName": "PO",
+                          "Checked": true,
+                          "Mandatory": false
+                        }
+                      ],
+                      "ReadOnly": false,
+                      "ElementType": "HorizontalContainer",
+                      "Mandatory": false,
+                      "Label": ""
+                    },
+                    {
+                      "Type": "Field",
+                      "Id": "Root-396-1633-1637-1641-1874",
+                      "Children": [
+                        {
+                          "Type": "Field",
+                          "ReadOnly": false,
+                          "ElementType": "CheckBox",
+                          "Id": "Root-396-1633-1637-1641-1874-1875",
+                          "CheckboxName": "IN",
+                          "Checked": true,
+                          "Mandatory": false
+                        },
+                        {
+                          "Type": "Field",
+                          "ReadOnly": false,
+                          "ElementType": "CheckBox",
+                          "Id": "Root-396-1633-1637-1641-1874-1876",
+                          "CheckboxName": "CA",
+                          "Checked": true,
+                          "Mandatory": false
+                        },
+                        {
+                          "Type": "Field",
+                          "ReadOnly": false,
+                          "ElementType": "CheckBox",
+                          "Id": "Root-396-1633-1637-1641-1874-1877",
+                          "CheckboxName": "CRM",
+                          "Checked": true,
+                          "Mandatory": false
+                        }
+                      ],
+                      "ReadOnly": false,
+                      "ElementType": "HorizontalContainer",
+                      "Mandatory": false,
+                      "Label": ""
+                    },
+                    {
+                      "Type": "Field",
+                      "Id": "Root-396-1633-1637-1641-1880",
+                      "Children": [
+                        {
+                          "Type": "Field",
+                          "ReadOnly": false,
+                          "ElementType": "CheckBox",
+                          "Id": "Root-396-1633-1637-1641-1880-1881",
+                          "CheckboxName": "Time Entries",
+                          "Checked": true,
+                          "Mandatory": false
+                        },
+                        {
+                          "Type": "Field",
+                          "ReadOnly": false,
+                          "ElementType": "CheckBox",
+                          "Id": "Root-396-1633-1637-1641-1880-1882",
+                          "CheckboxName": "Expenses",
+                          "Checked": true,
+                          "Mandatory": false
+                        }
+                      ],
+                      "ReadOnly": false,
+                      "ElementType": "HorizontalContainer",
+                      "Mandatory": false,
+                      "Label": ""
+                    }
+                  ],
+                  "Style": "Gray"
+                }
+              ],
+              "ID": "B"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Title": "Projects",
+  "Caption": "TMR03      - Marlin Beverage Process Re-architecture",
+  "ToolBar": {
+    "Type": "ToolBar",
+    "Id": "Root-27",
+    "ToolBarType": "Record",
+    "Items": [
+      {
+        "ItemType": "Button",
+        "Icon": "Back",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "SaveAndBack",
+        "Enabled": false,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Save",
+        "Enabled": false,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Undo",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Insert",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Delete",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "First",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Previous",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Next",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Last",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": null,
+        "Enabled": true,
+        "Style": "Secondary",
+        "Text": "Complete"
+      },
+      {
+        "ItemType": "Button",
+        "Icon": null,
+        "Enabled": true,
+        "Style": "Special",
+        "Text": "Run Billing"
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Ellipsis",
+        "Enabled": true,
+        "Style": "Secondary",
+        "Text": null
+      }
+    ],
+    "ShowRightAction": false,
+    "ShowSaveButton": false
+  },
+  "Id": "Root"
+}

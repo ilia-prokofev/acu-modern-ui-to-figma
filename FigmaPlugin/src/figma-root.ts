@@ -126,7 +126,7 @@ function Warn(message: string, id: string | null = null, node: any | null = null
     console.warn(messageAndID, node);
 }
 
-export function Log(message: string): void {
+function Log(message: string): void {
     log.push(message);
     console.log(message);
 }
@@ -1155,7 +1155,7 @@ function getLastItem(root: figmaRoot){
     }
 }
 
-export function stopNow() {
+function stopNow() {
     figma.ui.postMessage({ type: 'unlock' });
     childrenNumber = 0;
     childrenProcessed = 0;
@@ -1163,3 +1163,57 @@ export function stopNow() {
     figma.ui.postMessage({ type: 'progress', progress });
 }
 
+export async function processScreen(input: string, format: string, reuseSummary: boolean) {
+    if (format === 'cancel') {
+        isCancelled = true;
+        Log('Canceled');
+        figma.ui.postMessage({ type: 'log', log: log.join('\n') });
+        stopNow();
+        return;
+    }
+
+    log = [];
+    figma.ui.postMessage({ type: 'log', log: log.join('\n') });
+    isCancelled = false;
+    const startTime = Date.now();
+    progress = 5;
+    figma.ui.postMessage({type: 'progress', progress});
+    await new Promise(resolve => setTimeout(resolve, 20));
+
+    await figma.loadAllPagesAsync();
+
+    // Test
+    // csFieldset = await figma.importComponentSetByKeyAsync('65edf1d775107cc11081226f698821a462c6edc2');
+    // csHeader = await figma.importComponentSetByKeyAsync('80265c2d8ad685491923b57b91c64b3e0989a943');
+    // csMainHeader = await figma.importComponentSetByKeyAsync('2f11715b6ef9f03dad26d0c30e330fa824c18e96');
+    // cGrid = await figma.importComponentSetByKeyAsync('d6ed7417ddbc12fb781ef5a69d497ef543b5b1bf');
+    // cLeftMenu = await figma.importComponentByKeyAsync('790c900390c36c1d7dd582d34f12e1e9ed4c8866');
+    // cTabbar = await figma.importComponentByKeyAsync('6908d5b76e824d2a677a35490265b9d64efb3606');
+
+    // Prod
+    compFieldset       = (await figma.importComponentSetByKeyAsync('3738d3cfa01194fc3cfe855bf127daa66b21e39e')).defaultVariant;
+    compHeader         = (await figma.importComponentSetByKeyAsync('6bf3d7f22449e758cc2b697dd7d80ad7a2d3c21a')).defaultVariant;
+    compMainHeader     = (await figma.importComponentSetByKeyAsync('95717954e19e7929d19b33f7bcd03f16e8e1a51b')).defaultVariant;
+    compGrid           = (await figma.importComponentSetByKeyAsync('b6b4901b43589a4e2e738087122069e2df254b8f')).defaultVariant;
+    compCheckbox       = (await figma.importComponentSetByKeyAsync('4b4affdd12a4320b054701445e4c34aa95af7198')).defaultVariant;
+    compImageViewer    = (await figma.importComponentSetByKeyAsync('ba08cb51bc3ad778dc9221d76aaa1baaf1f6ae7b')).defaultVariant;
+    compRichTextEditor = (await figma.importComponentSetByKeyAsync('cb542d6b221cd1cb4302529415ff7bb4a135eb67')).defaultVariant;
+    compSplitter       = (await figma.importComponentSetByKeyAsync('c671076454c35e10bb86f1ef18936e7953cec793')).defaultVariant;
+    compLeftMenu       = await figma.importComponentByKeyAsync('5b4ee7b5f881aa8f6e64f128f4cceef050357378');
+    compTabbar         = await figma.importComponentByKeyAsync('e4b7a83b5e34cee8565ad8079b4932764b45dae4');
+    compTree           = await figma.importComponentByKeyAsync('ae9880fe4ddbd5f4c7e2784492b78b12ba47c14a');
+
+    for (const [iconType, componentKey] of buttonIcons) {
+        const icon = await figma.importComponentByKeyAsync(componentKey);
+        buttonIconIDs.set(iconType, icon.id);
+    }
+
+    if (format === 'json')
+        await DrawFromJSON(input, reuseSummary);
+
+    const endTime = Date.now();
+    Log(`Completed in ${Math.floor((endTime - startTime) / 1000)}s`);
+    figma.ui.postMessage({ type: 'log', log: log.join('\n') });
+
+    stopNow();
+}
