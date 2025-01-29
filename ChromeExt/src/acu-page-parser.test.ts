@@ -25,7 +25,7 @@ import QPRichTextEditorVisitor from "./visitors/qp-rich-text-editor-visitor";
 import QPImageViewVisitor from "./visitors/qp-image-view-visitor";
 import QPTreeVisitor from "./visitors/q-p-tree-visitor";
 
-describe('acu-page-parser.test', () => {
+describe('acu-page-parser', () => {
     const createRoot = (): Root => {
         return {
             Type: AcuElementType.Root,
