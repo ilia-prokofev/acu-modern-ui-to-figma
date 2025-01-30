@@ -1,6 +1,6 @@
-import {FigmaNode} from "./figma-node";
-import {QPTree} from "@modern-ui-to-figma/elements";
-import {compTree} from "./figma-main";
+import {FigmaNode} from './figma-node';
+import {QPTree} from '@modern-ui-to-figma/elements';
+import {compTree} from './figma-main';
 
 export class figmaTree extends FigmaNode {
     constructor(tree: QPTree, width = 0) {

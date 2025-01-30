@@ -26,7 +26,6 @@ export default tseslint.config(
 
       // 🔹 Security & Best Practices
       "no-eval": "error", // Disallow `eval`
-      "no-console": "warn", // Warn on console logs
       "@typescript-eslint/no-explicit-any": "warn", // Warn when using `any`
     },
   },

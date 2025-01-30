@@ -1,7 +1,7 @@
-import {FigmaNode} from "./figma-node";
-import {QPSplitContainer, QPSplitContainerOrientation} from "@modern-ui-to-figma/elements";
-import {compSplitter, viewportWidth} from "./figma-main";
-import {figmaSlot} from "./figma-slot";
+import {FigmaNode} from './figma-node';
+import {QPSplitContainer, QPSplitContainerOrientation} from '@modern-ui-to-figma/elements';
+import {compSplitter, viewportWidth} from './figma-main';
+import {figmaSlot} from './figma-slot';
 
 class figmaSplitter extends FigmaNode {
     constructor(orientation: QPSplitContainerOrientation) {

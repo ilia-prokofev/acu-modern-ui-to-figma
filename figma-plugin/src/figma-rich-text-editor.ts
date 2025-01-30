@@ -1,6 +1,6 @@
-import {FigmaNode} from "./figma-node";
-import {QPRichTextEditor} from "@modern-ui-to-figma/elements";
-import {compRichTextEditor} from "./figma-main";
+import {FigmaNode} from './figma-node';
+import {QPRichTextEditor} from '@modern-ui-to-figma/elements';
+import {compRichTextEditor} from './figma-main';
 
 export class figmaRichTextEditor extends FigmaNode {
     constructor(richTextEditor: QPRichTextEditor, width = 0) {

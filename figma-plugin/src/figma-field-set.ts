@@ -1,11 +1,11 @@
-import {FigmaNode} from "./figma-node";
-import {QPFieldset} from "@modern-ui-to-figma/elements";
-import {AcuElementType} from "@modern-ui-to-figma/elements";
-import {Grid} from "@modern-ui-to-figma/elements";
-import {QPField} from "@modern-ui-to-figma/elements";
-import {compFieldset} from "./figma-main";
-import {figmaGrid} from "./figma-grid";
-import {figmaRow} from "./figma-row";
+import {FigmaNode} from './figma-node';
+import {QPFieldset} from '@modern-ui-to-figma/elements';
+import {AcuElementType} from '@modern-ui-to-figma/elements';
+import {Grid} from '@modern-ui-to-figma/elements';
+import {QPField} from '@modern-ui-to-figma/elements';
+import {compFieldset} from './figma-main';
+import {figmaGrid} from './figma-grid';
+import {figmaRow} from './figma-row';
 
 export class figmaFieldSet extends FigmaNode {
 
@@ -41,7 +41,7 @@ export class figmaFieldSet extends FigmaNode {
         const showHeader = (fs.Label != '' && fs.Label != null)
         this.componentProperties['Show Group Header#6619:0'] = showHeader;
         if (showHeader) {
-            let child = new FigmaNode('Group Header');
+            const child = new FigmaNode('Group Header');
             child.componentProperties['Text Value ▶#4494:3'] = fs.Label ?? '';
             this.children.push(child);
         }

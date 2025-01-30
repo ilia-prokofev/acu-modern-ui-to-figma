@@ -1,7 +1,7 @@
-import {FigmaNode} from "./figma-node";
-import {Grid, GridColumnType} from "@modern-ui-to-figma/elements";
-import {figmaToolbar} from "./figma-toolbar";
-import {compGrid, logger, viewportWidth} from "./figma-main";
+import {FigmaNode} from './figma-node';
+import {AcuAlignment, Grid, GridColumnType} from '@modern-ui-to-figma/elements';
+import {figmaToolbar} from './figma-toolbar';
+import {compGrid, logger, viewportWidth} from './figma-main';
 
 export class figmaGrid extends FigmaNode {
 
@@ -70,10 +70,10 @@ export class figmaGrid extends FigmaNode {
 
         for (let i = 1; i <= visibleColumns; i++) {
             const column = grid.Columns[i - 1];
-            let columnInstance = new FigmaNode(`Grid Column ${columnNumber++}`);
+            const columnInstance = new FigmaNode(`Grid Column ${columnNumber++}`);
 
             if (!this.columnTypes.has(column.ColumnType))
-                logger.Warn(`${this.columnTypes} column type is not supported`, this.acuElement.Id, this);
+                logger.Warn(`${JSON.stringify(this.columnTypes)} column type is not supported`, this.acuElement.Id, this);
             else
                 columnInstance.componentProperties['Type'] = this.columnTypes.get(column.ColumnType)!;
 
@@ -90,7 +90,7 @@ export class figmaGrid extends FigmaNode {
             if (column.ColumnType == GridColumnType.Settings)
                 continue;
 
-            columnInstance.componentProperties['Alignment'] = (column.Alignment == 'Right' ? 'Right' : 'Left');
+            columnInstance.componentProperties['Alignment'] = (column.Alignment == AcuAlignment.Right ? 'Right' : 'Left');
             this.children.push(columnInstance);
 
             for (let j = displayedRowsDefault; j < displayedRows; j++) {
@@ -120,7 +120,7 @@ export class figmaGrid extends FigmaNode {
                 cell.childIndex = j + 1;
                 if (column.ColumnType == GridColumnType.Checkbox) {
                     if (column.Cells[j] == 'true') {
-                        const checkbox = new FigmaNode(`Checkbox Indicator`);
+                        const checkbox = new FigmaNode('Checkbox Indicator');
                         checkbox.componentProperties['Selected'] = true;
                         cell.children.push(checkbox);
                     }
@@ -144,7 +144,7 @@ export class figmaGrid extends FigmaNode {
         }
 
         if (columnNumber > 10) {
-            const gridColumn = new FigmaNode(`Grid Column 20`);
+            const gridColumn = new FigmaNode('Grid Column 20');
             gridColumn.properties['visible'] = false;
             this.children.push(gridColumn);
         }
