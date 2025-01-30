@@ -5,7 +5,8 @@ import { findClasses, findElementByClassesDown } from './html-element-utils';
 import ChildrenVisitor from './children-visitors';
 
 export default class QPRootVisitor implements ElementVisitor {
-    constructor(private readonly childrenVisitor: ChildrenVisitor) {}
+    constructor(private readonly childrenVisitor: ChildrenVisitor) {
+    }
 
     visit(htmlElement: Element, parent: AcuElement): boolean {
         if (parent.Type !== AcuElementType.Root) {
@@ -25,7 +26,7 @@ export default class QPRootVisitor implements ElementVisitor {
             'captionLine',
         );
         if (captionLineElement && captionLineElement.children.length > 0) {
-            ;(parent as Root).Title =
+            (parent as Root).Title =
         captionLineElement.children[0].textContent?.trim() ?? null;
         }
 
@@ -35,7 +36,7 @@ export default class QPRootVisitor implements ElementVisitor {
             'au-target',
         );
         if (userCaptionElement) {
-            ;(parent as Root).Caption = userCaptionElement.textContent?.trim() ?? null;
+            (parent as Root).Caption = userCaptionElement.textContent?.trim() ?? null;
         }
 
         this.childrenVisitor.visitChildren(htmlElement, parent);

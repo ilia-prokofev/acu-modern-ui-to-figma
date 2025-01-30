@@ -68,7 +68,7 @@ export default class QPTabBarVisitor implements ElementVisitor {
             }
         }
 
-        ;(parent as AcuContainer).Children.push(tabBar);
+        (parent as AcuContainer).Children.push(tabBar);
         return true;
     }
 }
