@@ -50,8 +50,7 @@ npm run test
 
 This repository uses **npm workspaces** to manage multiple projects efficiently:
 
-- A **single **`` is maintained at the root.
-- **Shared **`` at the root, avoiding redundant dependencies.
+- A **single `package-lock.json`** is maintained at the root.
 - A **common ESLint configuration** (`eslint.config.mjs`) is used across all projects.
 
 ---
