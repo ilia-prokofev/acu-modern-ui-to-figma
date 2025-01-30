@@ -15,7 +15,6 @@ export default tseslint.config(
       // 🔹 Code Style
       quotes: ["error", "single"], // Enforce single quotes
       indent: ["error", 4], // Enforce 4-space indentation
-      "linebreak-style": ["error", "unix"], // Use LF (Unix) line endings
 
       // 🔹 TypeScript-Specific Rules
       "@typescript-eslint/explicit-function-return-type": "error", // Require explicit return types

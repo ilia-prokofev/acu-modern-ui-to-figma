@@ -3,7 +3,8 @@
     "workspaces": [
       "elements",
       "chrome-extension",
-      "figma-plugin"
+      "figma-plugin",
+      "integration-tests"
     ],
     "scripts": {
         "build": "npm run build:elements && npm run build:chrome-extension && npm run build:figma-plugin",
@@ -11,14 +12,16 @@
         "build:chrome-extension": "npm run build --workspace=chrome-extension",
         "build:figma-plugin": "npm run build --workspace=figma-plugin",
 
-        "lint": "npm run lint:elements && npm run lint:chrome-extension && npm run lint:figma-plugin",
+        "lint": "npm run lint:elements && npm run lint:chrome-extension && npm run lint:figma-plugin && npm run lint:integration-tests",
         "lint:elements": "npm run lint --workspace=elements",
         "lint:chrome-extension": "npm run lint --workspace=chrome-extension",
         "lint:figma-plugin": "npm run lint --workspace=figma-plugin",
+        "lint:integration-tests": "npm run lint --workspace=integration-tests",
 
-        "test": "npm run test:chrome-extension && npm run test:figma-plugin",
+        "test": "npm run test:chrome-extension && npm run test:figma-plugin && npm run test:integration-tests",
         "test:chrome-extension": "npm run test --workspace=chrome-extension",
-        "test:figma-plugin": "npm run test --workspace=figma-plugin"
+        "test:figma-plugin": "npm run test --workspace=figma-plugin",
+        "test:integration-tests": "npm run test --workspace=integration-tests"
     },
     "dependencies": {
       "@modern-ui-to-figma/elements": "*"
