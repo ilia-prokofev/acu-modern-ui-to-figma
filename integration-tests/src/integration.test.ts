@@ -33,29 +33,27 @@ describe('integration', () => {
         const root = parser.parse(incomingHTML) as Root;
         expect(root).not.equal(null);
 
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const actualSerialized = serializeObject(new figmaRoot(root));
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const expectedSerialized = serializeObject(JSON.parse(expectedJSON));
 
         expect(actualSerialized).toEqual(expectedSerialized);
     });
 })
 
-const serializeObject = (obj: any): any => {
-    if (obj === null || typeof obj !== "object") return obj;
+const serializeObject = (obj: unknown): unknown => {
+    if (obj === null || typeof obj !== 'object') return obj;
 
-    // Если объект - массив, рекурсивно сериализуем его элементы
     if (Array.isArray(obj)) {
         return obj.map(serializeObject);
     }
 
-    // Если объект - экземпляр класса, приводим к plain-объекту
-    const serialized: any = {};
+    const serialized: Record<string, unknown> = {};
 
     for (const key of Object.keys(obj)) {
-        serialized[key] = serializeObject(obj[key]);
+        const value = (obj as Record<string, unknown>)[key];
+        serialized[key] = serializeObject(value);
     }
 
     return serialized;
 };
+
