@@ -30,16 +30,16 @@ jobs:
       - name: Run tests
         run: npm run test
 
-      - name: Upload Chrome Extension build artifact
+      - name: Upload Chrome Extension artifact
         uses: actions/upload-artifact@v4
         with:
-          name: chrome-extension-build
+          name: acumatica-chrome-extension
           path: chrome-extension/dist
           retention-days: 7
 
-      - name: Upload Figma Plugin build artifact
+      - name: Upload Figma Plugin artifact
         uses: actions/upload-artifact@v4
         with:
-          name: figma-plugin-build
+          name: acumatica-figma-plugin
           path: figma-plugin/dist
           retention-days: 7
