@@ -1,10 +1,8 @@
 import ElementVisitor from "./qp-element-visitor";
 import {AcuElement, AcuElementType} from "@modern-ui-to-figma/elements";
-import ChildrenVisitor from "./children-visitors";
 import {
     isQPToolbarContainer,
     QPToolBar,
-    QPToolbarContainer,
     QPToolBarItem,
     QPToolBarItemButton,
     QPToolBarItemType,
@@ -23,7 +21,7 @@ import {getButtonStyle} from "./button-utils";
 import {IconType} from "@modern-ui-to-figma/elements";
 
 export default class QPToolBarVisitor implements ElementVisitor {
-    visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean {
+    visit(htmlElement: Element, parent: AcuElement): boolean {
         if (!isQPToolbarContainer(parent)) {
             return false;
         }

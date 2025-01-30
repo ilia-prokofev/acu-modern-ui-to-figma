@@ -6,8 +6,8 @@
   "scripts": {
     "build": "node ./copyStaticFiles.cjs && webpack",
     "test": "npx vitest run",
-    "lint": "npx eslint **/*.ts",
-    "lint:fix": "npx eslint --fix **/*.ts"
+    "lint": "npx eslint src/*.ts",
+    "lint:fix": "npx eslint --fix src/*.ts"
   },
   "author": "PolaCode",
   "license": "MIT",

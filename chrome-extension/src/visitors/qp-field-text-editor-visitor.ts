@@ -1,10 +1,8 @@
 import ElementVisitor from "./qp-element-visitor";
 import {AcuElement, AcuElementType} from "@modern-ui-to-figma/elements";
-import ChildrenVisitor from "./children-visitors";
 import {AcuContainer} from "@modern-ui-to-figma/elements";
 import {
     concatElementID,
-    findClasses,
     findElementByNodeNameAndClassesDown,
     isElementDisabled
 } from "./html-element-utils";
@@ -12,7 +10,7 @@ import {QPFieldElementType, QPFieldLabelValue} from "@modern-ui-to-figma/element
 import {getFieldLabel, getInputValue, isFieldMandatory} from "./qp-field-utils";
 
 export default class QPFieldTextEditorVisitor implements ElementVisitor {
-    visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean {
+    visit(htmlElement: Element, parent: AcuElement): boolean {
         if (!(parent as AcuContainer)?.Children) {
             return false;
         }
