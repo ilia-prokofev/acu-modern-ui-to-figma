@@ -2,7 +2,6 @@ name: CI Pipeline
 
 on:
   push: # run on push
-  pull_request: # run on poll request
   workflow_dispatch: # manual run
 
 jobs:
