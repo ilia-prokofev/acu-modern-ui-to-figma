@@ -4,9 +4,9 @@ This is a **monorepository** containing multiple projects related to **Acumatica
 
 ## 📂 Project Structure
 
-- `` – Shared library of general interfaces, representing the parsed HTML structure. Used by both the **Chrome extension** and the **Figma plugin**.
-- `` – Chrome extension that parses Acumatica Modern UI pages and passes the structured JSON through the **Elements Library**.
-- `` – Figma plugin that takes the structured JSON (processed via **Elements Library**) and renders an Acumatica page using predefined **Acumatica Modern UI components**.
+- `elements` – Shared library of general interfaces, representing the parsed HTML structure. Used by both the **Chrome extension** and the **Figma plugin**.
+- `chrome-extension` – Chrome extension that parses Acumatica Modern UI pages and passes the structured JSON through the **Elements Library**.
+- `figma-plugin` – Figma plugin that takes the structured JSON (processed via **Elements Library**) and renders an Acumatica page using predefined **Acumatica Modern UI components**.
 
 ## 🔄 Component Interaction Diagram
 
