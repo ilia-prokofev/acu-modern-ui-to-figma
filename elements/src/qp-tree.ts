@@ -1,4 +1,4 @@
-import {AcuElement, AcuElementType} from "./acu-element";
+import {AcuElement, AcuElementType} from './acu-element';
 
 export interface QPTree extends AcuElement {
     Type: AcuElementType.Tree;

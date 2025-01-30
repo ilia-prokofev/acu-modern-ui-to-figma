@@ -1,26 +1,28 @@
-import ElementVisitor from "./qp-element-visitor";
-import {AcuElement, AcuElementType} from "@modern-ui-to-figma/elements";
-import ChildrenVisitor from "./children-visitors";
-import {AcuContainer} from "@modern-ui-to-figma/elements";
+import ElementVisitor from './qp-element-visitor';
+import { AcuElement, AcuElementType } from '@modern-ui-to-figma/elements';
+import { AcuContainer } from '@modern-ui-to-figma/elements';
 import {
     concatElementID,
     findElementByClassesDown,
-    findElementByNodeNameDown,
-    isElementDisabled
-} from "./html-element-utils";
+    isElementDisabled,
+} from './html-element-utils';
 import {
     QPFieldElementType,
-    QPFieldNumberEditor
-} from "@modern-ui-to-figma/elements";
-import {getFieldLabel, getInputValue, isFieldMandatory} from "./qp-field-utils";
+    QPFieldNumberEditor,
+} from '@modern-ui-to-figma/elements';
+import {
+    getFieldLabel,
+    getInputValue,
+    isFieldMandatory,
+} from './qp-field-utils';
 
 export default class QPFieldNumberEditorVisitor implements ElementVisitor {
-    visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean {
+    visit(htmlElement: Element, parent: AcuElement): boolean {
         if (!(parent as AcuContainer)?.Children) {
             return false;
         }
 
-        if (htmlElement.nodeName.toLowerCase() !== "qp-field") {
+        if (htmlElement.nodeName.toLowerCase() !== 'qp-field') {
             return false;
         }
 
@@ -36,9 +38,9 @@ export default class QPFieldNumberEditorVisitor implements ElementVisitor {
             Label: getFieldLabel(htmlElement),
             Value: getInputValue(htmlElement),
             Mandatory: isFieldMandatory(htmlElement),
-        };
+        }
 
-        (parent as AcuContainer).Children.push(field);
+    ;(parent as AcuContainer).Children.push(field);
         return true;
     }
 }

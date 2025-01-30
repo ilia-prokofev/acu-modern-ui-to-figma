@@ -1,11 +1,11 @@
-import {IconType} from "./icon";
-import {AcuElement} from "./acu-element";
+import {IconType} from './icon';
+import {AcuElement} from './acu-element';
 
 export enum ButtonStyle {
-    Primary = "Primary",
-    Secondary = "Secondary",
-    Tertiary = "Tertiary",
-    Special = "Special",
+    Primary = 'Primary',
+    Secondary = 'Secondary',
+    Tertiary = 'Tertiary',
+    Special = 'Special',
 }
 
 export interface QPButton extends AcuElement {

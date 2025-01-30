@@ -1,6 +1,5 @@
-import {AcuElement} from "@modern-ui-to-figma/elements";
-import ChildrenVisitor from "./children-visitors";
+import { AcuElement } from '@modern-ui-to-figma/elements';
 
 export default interface ElementVisitor {
-    visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean;
+    visit(htmlElement: Element, parent: AcuElement): boolean;
 }

@@ -1,12 +1,13 @@
-import {Root} from "@modern-ui-to-figma/elements";
-import {AcuElement, AcuElementType} from "@modern-ui-to-figma/elements";
-import ChildrenVisitor from "./visitors/children-visitors";
-import {allVisitors} from "./visitors/all-visitors";
+import { Root } from '@modern-ui-to-figma/elements';
+import { AcuElement, AcuElementType } from '@modern-ui-to-figma/elements';
+import ChildrenVisitor from './visitors/children-visitors';
 
 export class AcuPageParser {
+    constructor(private readonly childrenVisitor: ChildrenVisitor) {
+    }
+
     parse(html: string): AcuElement | null {
         const doc = new DOMParser().parseFromString(html, 'text/html');
-        const allVisitor = new ChildrenVisitor(allVisitors);
 
         const root: Root = {
             Type: AcuElementType.Root,
@@ -14,10 +15,10 @@ export class AcuPageParser {
             Title: null,
             Caption: null,
             ToolBar: null,
-            Id: "Root"
-        }
+            Id: 'Root',
+        };
 
-        allVisitor.visitChildren(doc.body, root);
+        this.childrenVisitor.visitChildren(doc.body, root);
 
         return root;
     }

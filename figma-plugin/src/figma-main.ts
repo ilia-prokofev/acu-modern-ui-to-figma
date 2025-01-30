@@ -1,20 +1,18 @@
-import {AcuElementType} from "@modern-ui-to-figma/elements";
-import {TabBar} from "@modern-ui-to-figma/elements";
-import {Root} from "@modern-ui-to-figma/elements";
-import {IconType} from "@modern-ui-to-figma/elements";
-import {FigmaNode} from "./figma-node";
-import {Logger} from "./logger";
-import {figmaRoot} from "./figma-root";
+import {AcuElementType} from '@modern-ui-to-figma/elements';
+import {TabBar} from '@modern-ui-to-figma/elements';
+import {Root} from '@modern-ui-to-figma/elements';
+import {IconType} from '@modern-ui-to-figma/elements';
+import {FigmaNode} from './figma-node';
+import {Logger} from './logger';
+import {figmaRoot} from './figma-root';
 
 export const horizontalSpacing = 12;
 const verticalSpacing = 12;
 const padding = 24;
-const screenSpacing = 50
 const pageWidth = 1364;//1600;
 const pageHeight = 900;
 export const viewportWidth = pageWidth - 80 - padding * 2;
 const viewportHeight = pageHeight - 50;
-const devMode = false;
 
 export const logger = new Logger();
 
@@ -36,40 +34,42 @@ export let compSplitter = undefined as unknown as ComponentNode;
 export let compTree = undefined as unknown as ComponentNode;
 
 const buttonIcons = new Map<IconType, string>([
-    [IconType.Refresh        , 'c49868efe2dfa88095d9db037824cdd7721ad06e'],
-    [IconType.Undo           , '6229695a70dcf7ded45f99f84288ae92b03c7c56'],
-    [IconType.Insert         , 'de700daf8268fce0d3acff9011f4a936bf77f714'],
-    [IconType.Edit           , 'b9257482b69a7be89190abee18ad34b6d42a9184'],
-    [IconType.AdjustColumns  , '83ed0e23748392291c66e9de42c2f6c42a4c634f'],
-    [IconType.ExportToExcel  , '54921de81540be32af6fc0af318f2b4937ad32ee'],
-    [IconType.Copy           , '7a292951e78c1b33bb1214a62617efaf264cb18e'],
-    [IconType.Delete         , '3768bac5ab85ab45fe6abc62eacf515cddddee11'],
-    [IconType.First          , '339e24e29430577c293d9826f77fabc48053d077'],
-    [IconType.Last           , '7c9aa4dd8f3449ddbdee384b8d348676ed5c2142'],
-    [IconType.Back           , 'ff33972c40f4435a4020c8ce300c305f68ac0a84'],
-    [IconType.Previous       , 'defe6a35b414086383ab7b4dd627a757e9349b01'],
-    [IconType.Next           , 'ac17253deb51f88a538228224f12f5b2bec0b64e'],
-    [IconType.Save           , '55688f66ef69a0bf4abc6ac8e48b561f4c08fc4f'],
-    [IconType.SaveAndBack    , '7693000f6771b4135a00ad062e3b9b4b718b6ceb'],
-    [IconType.Import         , '9bbe97f874029e4de44a1f28f9fa76cd39bfef29'],
-    [IconType.Ellipsis       , '19be5dec53338a1bd35ff1f7e409da34d5f1e287'],
-    [IconType.AddRow         , 'de700daf8268fce0d3acff9011f4a936bf77f714'],
-    [IconType.DeleteRow      , '4eb380b404d2d81e5c704961928388fd224c3964'],
-    [IconType.ArrowDown      , '800ef65e596f2ae7e722ca31984f4d649c4ccc63'],
+    [IconType.Refresh, 'c49868efe2dfa88095d9db037824cdd7721ad06e'],
+    [IconType.Undo, '6229695a70dcf7ded45f99f84288ae92b03c7c56'],
+    [IconType.Insert, 'de700daf8268fce0d3acff9011f4a936bf77f714'],
+    [IconType.Edit, 'b9257482b69a7be89190abee18ad34b6d42a9184'],
+    [IconType.AdjustColumns, '83ed0e23748392291c66e9de42c2f6c42a4c634f'],
+    [IconType.ExportToExcel, '54921de81540be32af6fc0af318f2b4937ad32ee'],
+    [IconType.Copy, '7a292951e78c1b33bb1214a62617efaf264cb18e'],
+    [IconType.Delete, '3768bac5ab85ab45fe6abc62eacf515cddddee11'],
+    [IconType.First, '339e24e29430577c293d9826f77fabc48053d077'],
+    [IconType.Last, '7c9aa4dd8f3449ddbdee384b8d348676ed5c2142'],
+    [IconType.Back, 'ff33972c40f4435a4020c8ce300c305f68ac0a84'],
+    [IconType.Previous, 'defe6a35b414086383ab7b4dd627a757e9349b01'],
+    [IconType.Next, 'ac17253deb51f88a538228224f12f5b2bec0b64e'],
+    [IconType.Save, '55688f66ef69a0bf4abc6ac8e48b561f4c08fc4f'],
+    [IconType.SaveAndBack, '7693000f6771b4135a00ad062e3b9b4b718b6ceb'],
+    [IconType.Import, '9bbe97f874029e4de44a1f28f9fa76cd39bfef29'],
+    [IconType.Ellipsis, '19be5dec53338a1bd35ff1f7e409da34d5f1e287'],
+    [IconType.AddRow, 'de700daf8268fce0d3acff9011f4a936bf77f714'],
+    [IconType.DeleteRow, '4eb380b404d2d81e5c704961928388fd224c3964'],
+    [IconType.ArrowDown, '800ef65e596f2ae7e722ca31984f4d649c4ccc63'],
 ]);
-export let buttonIconIDs = new Map<IconType, string>();
+export const buttonIconIDs = new Map<IconType, string>();
 
-function SetProperties(instanceNode: InstanceNode, figmaNode: FigmaNode) {
+function SetProperties(instanceNode: InstanceNode, figmaNode: FigmaNode): void {
     try {
         instanceNode.setProperties(figmaNode.componentProperties);
-    }
-    catch (e) {
+    } catch (e) {
         logger.Warn(`${(e as Error).message}: ${JSON.stringify(figmaNode.componentProperties)}`, figmaNode.acuElement?.Id, figmaNode);
     }
 }
 
-async function Draw(field: FigmaNode, parent: InstanceNode | PageNode | GroupNode | FrameNode | ComponentNode, setView = false) {
-    if (isCancelled) { stopNow(); return; }
+async function Draw(field: FigmaNode, parent: InstanceNode | PageNode | GroupNode | FrameNode | ComponentNode, setView = false): Promise<void> {
+    if (isCancelled) {
+        stopNow();
+        return;
+    }
     childrenProcessed++;
     if (childrenProcessed == childrenNumber || childrenProcessed % 10 == 0) {
         progress = Math.floor(childrenProcessed * 90 / childrenNumber) + 10;
@@ -93,14 +93,14 @@ async function Draw(field: FigmaNode, parent: InstanceNode | PageNode | GroupNod
 
         if (!instance) {
             switch (field.type) {
-                case 'INSTANCE':
-                    instance = field.componentNode!.createInstance() as InstanceNode;
-                    break;
-                case 'FRAME':
-                    instance = figma.createFrame() as FrameNode;
-                    instance.layoutMode = field.layoutMode;
-                    instance.itemSpacing = field.layoutMode == 'VERTICAL' ? verticalSpacing : horizontalSpacing;
-                    break;
+            case 'INSTANCE':
+                instance = field.componentNode!.createInstance();
+                break;
+            case 'FRAME':
+                instance = figma.createFrame();
+                instance.layoutMode = field.layoutMode;
+                instance.itemSpacing = field.layoutMode == 'VERTICAL' ? verticalSpacing : horizontalSpacing;
+                break;
             }
             instance.name = field.name;
             parent.appendChild(instance);
@@ -114,7 +114,9 @@ async function Draw(field: FigmaNode, parent: InstanceNode | PageNode | GroupNod
         SetProperties(instance, field);
 
     for (const property in field.properties) {
-        // @ts-ignore
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         instance[property] = field.properties[property];
     }
 
@@ -132,16 +134,14 @@ async function Draw(field: FigmaNode, parent: InstanceNode | PageNode | GroupNod
         await Draw(child, instance);
 }
 
-export async function DrawFromJSON(input: string, reuseSummary: boolean) {
-
+export async function DrawFromJSON(input: string, reuseSummary: boolean): Promise<void> {
     if (input === '')
         return;
 
     let root;
     try {
         root = JSON.parse(input) as Root;
-    }
-    catch (ex) {
+    } catch (ex) {
         logger.Warn(ex as string);
         return;
     }
@@ -150,15 +150,14 @@ export async function DrawFromJSON(input: string, reuseSummary: boolean) {
     console.log(rootItem);
     childrenNumber = countChildren(rootItem);
 
-    let screenName = root.Title??'Screen';
+    let screenName = root.Title ?? 'Screen';
     let drawSummaryComponent = false;
     let summary;
-    let compSummary;
+    let compSummary: ComponentNode | null = null;
 
     if (rootItem.children.length >= 2 &&
         rootItem.children[rootItem.children.length - 2].acuElement?.Type == AcuElementType.Template &&
-        rootItem.children[rootItem.children.length - 1].acuElement?.Type == AcuElementType.Tabbar)
-    {
+        rootItem.children[rootItem.children.length - 1].acuElement?.Type == AcuElementType.Tabbar) {
         summary = rootItem.children[rootItem.children.length - 2];
         setSummaryStretching(summary);
 
@@ -173,7 +172,7 @@ export async function DrawFromJSON(input: string, reuseSummary: boolean) {
             }
 
             const componentName = `${screenName} Summary`;
-            compSummary = libPage.children.find(n => n.type === 'COMPONENT' &&  n.name === componentName) as ComponentNode;
+            compSummary = libPage.children.find(n => n.type === 'COMPONENT' && n.name === componentName) as ComponentNode;
 
             if (!compSummary) {
                 await figma.setCurrentPageAsync(libPage);
@@ -219,31 +218,30 @@ export async function DrawFromJSON(input: string, reuseSummary: boolean) {
     figma.ui.postMessage({type: 'progress', progress});
     await new Promise(resolve => setTimeout(resolve, 20));
 
-    const frameCanvas = await CreateCanvas(screenName, root.Caption??root.Title, root.Caption == null ? null : root.Title);
+    const frameCanvas = await CreateCanvas(screenName, root.Caption ?? root.Title, root.Caption == null ? null : root.Title);
     if (!frameCanvas.figmaObject) return;
 
-    if (drawSummaryComponent)
-        await Draw(summary as FigmaNode, compSummary!);
+    if (drawSummaryComponent && compSummary)
+        await Draw(summary as FigmaNode, compSummary);
 
     rootItem.figmaObject = frameCanvas.figmaObject;
     await Draw(rootItem as FigmaNode, frameCanvas.figmaObject);
-    frameCanvas.figmaObject.primaryAxisSizingMode = "AUTO";
+    frameCanvas.figmaObject.primaryAxisSizingMode = 'AUTO';
 
     const lastItem = getLastItem(rootItem);
     if (lastItem.acuElement?.Type == AcuElementType.Grid &&
         frameCanvas.figmaObject.height > viewportHeight) {
         const grid = lastItem.figmaObject;
         if (grid) {
-            let newGridHeight = Math.max(250, grid.height - frameCanvas.figmaObject.height + viewportHeight);
+            const newGridHeight = Math.max(250, grid.height - frameCanvas.figmaObject.height + viewportHeight);
             grid.resize(grid.width, newGridHeight);
         }
     }
 
 }
 
-async function CreateCanvas(screenName: string, screenTitle: string|null, backLink: string|null) {
-
-    const frameScreenVertical  = new FigmaNode(screenName, 'FRAME', pageWidth, pageHeight);
+async function CreateCanvas(screenName: string, screenTitle: string | null, backLink: string | null): Promise<FigmaNode> {
+    const frameScreenVertical = new FigmaNode(screenName, 'FRAME', pageWidth, pageHeight);
     frameScreenVertical.tryToFind = false;
     frameScreenVertical.properties['itemSpacing'] = 0;
     frameScreenVertical.properties['primaryAxisSizingMode'] = 'AUTO';
@@ -261,7 +259,7 @@ async function CreateCanvas(screenName: string, screenTitle: string|null, backLi
     fieldMainHeader.componentNode = compMainHeader;
     frameScreenVertical.children.push(fieldMainHeader);
 
-    const frameScreenHorizontal  = new FigmaNode('FrameH', 'FRAME', pageWidth);
+    const frameScreenHorizontal = new FigmaNode('FrameH', 'FRAME', pageWidth);
     frameScreenHorizontal.tryToFind = false;
     frameScreenHorizontal.properties['primaryAxisSizingMode'] = 'FIXED';
     frameScreenHorizontal.properties['counterAxisSizingMode'] = 'AUTO';
@@ -275,7 +273,7 @@ async function CreateCanvas(screenName: string, screenTitle: string|null, backLi
     fieldLeftMenu.properties['layoutAlign'] = 'STRETCH';
     frameScreenHorizontal.children.push(fieldLeftMenu);
 
-    const frameCanvas  = new FigmaNode('Canvas', 'FRAME', pageWidth - compLeftMenu.width);
+    const frameCanvas = new FigmaNode('Canvas', 'FRAME', pageWidth - compLeftMenu.width);
     frameCanvas.tryToFind = false;
     frameCanvas.properties['counterAxisSizingMode'] = 'FIXED';
     frameCanvas.properties['itemSpacing'] = verticalSpacing;
@@ -288,8 +286,8 @@ async function CreateCanvas(screenName: string, screenTitle: string|null, backLi
     fieldHeader.tryToFind = false;
     fieldHeader.componentNode = compHeader;
     fieldHeader.componentProperties['Show Back Link#3139:0'] = backLink != null;
-    fieldHeader.componentProperties['Link Value ▶#6711:0'] = backLink??'';
-    fieldHeader.componentProperties['Title Value ▶#6711:8'] = screenTitle??'';
+    fieldHeader.componentProperties['Link Value ▶#6711:0'] = backLink ?? '';
+    fieldHeader.componentProperties['Title Value ▶#6711:8'] = screenTitle ?? '';
     frameCanvas.children.push(fieldHeader);
 
     childrenNumber += countChildren(frameScreenVertical);
@@ -298,7 +296,7 @@ async function CreateCanvas(screenName: string, screenTitle: string|null, backLi
     return frameCanvas;
 }
 
-function countChildren(root: figmaRoot){
+function countChildren(root: figmaRoot): number {
     let count = 1;
     for (const child of root.children) {
         count += countChildren(child);
@@ -306,7 +304,7 @@ function countChildren(root: figmaRoot){
     return count;
 }
 
-function setSummaryStretching(root: FigmaNode){
+function setSummaryStretching(root: FigmaNode): void {
     if (root.acuElement?.Type == AcuElementType.FieldSet) {
         root.properties['primaryAxisSizingMode'] = 'FIXED';
         root.properties['layoutAlign'] = 'STRETCH';
@@ -316,7 +314,7 @@ function setSummaryStretching(root: FigmaNode){
     }
 }
 
-function getLastItem(root: figmaRoot){
+function getLastItem(root: figmaRoot): figmaRoot {
     if (root.children.length == 0)
         return root;
     else {
@@ -327,25 +325,25 @@ function getLastItem(root: figmaRoot){
     }
 }
 
-function stopNow() {
-    figma.ui.postMessage({ type: 'unlock' });
+function stopNow(): void {
+    figma.ui.postMessage({type: 'unlock'});
     childrenNumber = 0;
     childrenProcessed = 0;
     progress = 0;
-    figma.ui.postMessage({ type: 'progress', progress });
+    figma.ui.postMessage({type: 'progress', progress});
 }
 
-export async function processScreen(input: string, format: string, reuseSummary: boolean) {
+export async function processScreen(input: string, format: string, reuseSummary: boolean): Promise<void> {
     if (format === 'cancel') {
         isCancelled = true;
         logger.Log('Canceled');
-        figma.ui.postMessage({ type: 'log', log: logger.GetLog() });
+        figma.ui.postMessage({type: 'log', log: logger.GetLog()});
         stopNow();
         return;
     }
 
     logger.Clear();
-    figma.ui.postMessage({ type: 'log', log: logger.GetLog() });
+    figma.ui.postMessage({type: 'log', log: logger.GetLog()});
     isCancelled = false;
     const startTime = Date.now();
     progress = 5;
@@ -363,17 +361,17 @@ export async function processScreen(input: string, format: string, reuseSummary:
     // cTabbar = await figma.importComponentByKeyAsync('6908d5b76e824d2a677a35490265b9d64efb3606');
 
     // Prod
-    compFieldset       = (await figma.importComponentSetByKeyAsync('3738d3cfa01194fc3cfe855bf127daa66b21e39e')).defaultVariant;
-    compHeader         = (await figma.importComponentSetByKeyAsync('6bf3d7f22449e758cc2b697dd7d80ad7a2d3c21a')).defaultVariant;
-    compMainHeader     = (await figma.importComponentSetByKeyAsync('95717954e19e7929d19b33f7bcd03f16e8e1a51b')).defaultVariant;
-    compGrid           = (await figma.importComponentSetByKeyAsync('b6b4901b43589a4e2e738087122069e2df254b8f')).defaultVariant;
-    compCheckbox       = (await figma.importComponentSetByKeyAsync('4b4affdd12a4320b054701445e4c34aa95af7198')).defaultVariant;
-    compImageViewer    = (await figma.importComponentSetByKeyAsync('ba08cb51bc3ad778dc9221d76aaa1baaf1f6ae7b')).defaultVariant;
+    compFieldset = (await figma.importComponentSetByKeyAsync('3738d3cfa01194fc3cfe855bf127daa66b21e39e')).defaultVariant;
+    compHeader = (await figma.importComponentSetByKeyAsync('6bf3d7f22449e758cc2b697dd7d80ad7a2d3c21a')).defaultVariant;
+    compMainHeader = (await figma.importComponentSetByKeyAsync('95717954e19e7929d19b33f7bcd03f16e8e1a51b')).defaultVariant;
+    compGrid = (await figma.importComponentSetByKeyAsync('b6b4901b43589a4e2e738087122069e2df254b8f')).defaultVariant;
+    compCheckbox = (await figma.importComponentSetByKeyAsync('4b4affdd12a4320b054701445e4c34aa95af7198')).defaultVariant;
+    compImageViewer = (await figma.importComponentSetByKeyAsync('ba08cb51bc3ad778dc9221d76aaa1baaf1f6ae7b')).defaultVariant;
     compRichTextEditor = (await figma.importComponentSetByKeyAsync('cb542d6b221cd1cb4302529415ff7bb4a135eb67')).defaultVariant;
-    compSplitter       = (await figma.importComponentSetByKeyAsync('c671076454c35e10bb86f1ef18936e7953cec793')).defaultVariant;
-    compLeftMenu       = await figma.importComponentByKeyAsync('5b4ee7b5f881aa8f6e64f128f4cceef050357378');
-    compTabbar         = await figma.importComponentByKeyAsync('e4b7a83b5e34cee8565ad8079b4932764b45dae4');
-    compTree           = await figma.importComponentByKeyAsync('ae9880fe4ddbd5f4c7e2784492b78b12ba47c14a');
+    compSplitter = (await figma.importComponentSetByKeyAsync('c671076454c35e10bb86f1ef18936e7953cec793')).defaultVariant;
+    compLeftMenu = await figma.importComponentByKeyAsync('5b4ee7b5f881aa8f6e64f128f4cceef050357378');
+    compTabbar = await figma.importComponentByKeyAsync('e4b7a83b5e34cee8565ad8079b4932764b45dae4');
+    compTree = await figma.importComponentByKeyAsync('ae9880fe4ddbd5f4c7e2784492b78b12ba47c14a');
 
     for (const [iconType, componentKey] of buttonIcons) {
         const icon = await figma.importComponentByKeyAsync(componentKey);
@@ -385,7 +383,7 @@ export async function processScreen(input: string, format: string, reuseSummary:
 
     const endTime = Date.now();
     logger.Log(`Completed in ${Math.floor((endTime - startTime) / 1000)}s`);
-    figma.ui.postMessage({ type: 'log', log: logger.GetLog() });
+    figma.ui.postMessage({type: 'log', log: logger.GetLog()});
 
     stopNow();
 }

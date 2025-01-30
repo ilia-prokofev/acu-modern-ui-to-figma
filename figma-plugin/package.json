@@ -5,7 +5,9 @@
   "main": "code.js",
   "scripts": {
     "build": "node copyStaticFiles.cjs && webpack",
-    "test": "npx vitest run"
+    "test": "npx vitest run",
+    "lint": "npx eslint src/**/*.ts",
+    "lint:fix": "npx eslint --fix src/**/*.ts"
   },
   "author": "",
   "license": "",
@@ -18,7 +20,13 @@
     "typescript": "^5.6.3",
     "vitest": "^3.0.4",
     "webpack": "^5.95.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "@eslint/js": "^9.19.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.57.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.6.3"
   },
   "eslintConfig": {
     "extends": [

@@ -1,6 +1,6 @@
-import {FigmaNode} from "./figma-node";
-import {QPImage} from "@modern-ui-to-figma/elements";
-import {compImageViewer} from "./figma-main";
+import {FigmaNode} from './figma-node';
+import {QPImage} from '@modern-ui-to-figma/elements';
+import {compImageViewer} from './figma-main';
 
 export class figmaImageViewer extends FigmaNode {
     constructor(imageViewer: QPImage, width = 0) {

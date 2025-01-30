@@ -1,5 +1,5 @@
-import {FigmaNode} from "./figma-node";
-import {QPFieldLabelValue, QPFieldSelector} from "@modern-ui-to-figma/elements";
+import {FigmaNode} from './figma-node';
+import {QPFieldLabelValue, QPFieldSelector} from '@modern-ui-to-figma/elements';
 
 export class figmaValue extends FigmaNode {
     constructor(field: QPFieldSelector) {

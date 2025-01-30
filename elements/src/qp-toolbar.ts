@@ -1,20 +1,24 @@
-import {AcuElement, AcuElementType} from "./acu-element";
-import {IconType} from "./icon";
-import {ButtonStyle, QPButton} from "./qp-button";
+import {AcuElement, AcuElementType} from './acu-element';
+import {IconType} from './icon';
+import {ButtonStyle, QPButton} from './qp-button';
 
 export interface QPToolbarContainer extends AcuElement {
     ToolBar: QPToolBar | null;
 }
 
-export function isQPToolbarContainer(obj: any): obj is QPToolbarContainer {
-    return obj && typeof obj.ToolBar !== 'undefined';
+export function isQPToolbarContainer(obj: unknown): obj is QPToolbarContainer {
+    return (
+        typeof obj === 'object' &&
+        obj !== null &&
+        'ToolBar' in obj
+    );
 }
 
 export enum QPToolBarItemType {
-    Button = "Button",
-    FilterButton = "FilterButton",
-    FilterCombo = "FilterCombo",
-    Separator = "Separator",
+    Button = 'Button',
+    FilterButton = 'FilterButton',
+    FilterCombo = 'FilterCombo',
+    Separator = 'Separator',
 }
 
 export interface QPToolBarItem {
@@ -53,9 +57,9 @@ export interface QPToolBarItemSeparator {
 }
 
 export enum QPToolBarType {
-    Record = "Record",
-    List = "List",
-    FilterBar = "FilterBar",
+    Record = 'Record',
+    List = 'List',
+    FilterBar = 'FilterBar',
 }
 
 export interface QPToolBar extends AcuElement {

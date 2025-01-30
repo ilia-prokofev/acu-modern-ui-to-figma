@@ -1,22 +1,25 @@
-import {AcuElement, AcuElementType} from "@modern-ui-to-figma/elements";
-import {AcuContainer} from "@modern-ui-to-figma/elements";
-import {Tab, TabBar} from "@modern-ui-to-figma/elements";
-import ElementVisitor from "./qp-element-visitor";
+import { AcuElement, AcuElementType } from '@modern-ui-to-figma/elements';
+import { AcuContainer } from '@modern-ui-to-figma/elements';
+import { Tab, TabBar } from '@modern-ui-to-figma/elements';
+import ElementVisitor from './qp-element-visitor';
 import {
     concatElementID,
     findClasses,
-    findElementByClassesDown, findElementByNodeNameDown,
-    findFirstLeafTextContent
-} from "./html-element-utils";
-import ChildrenVisitor from "./children-visitors";
+    findElementByClassesDown,
+    findElementByNodeNameDown,
+    findFirstLeafTextContent,
+} from './html-element-utils';
+import ChildrenVisitor from './children-visitors';
 
 export default class QPTabBarVisitor implements ElementVisitor {
-    visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean {
+    constructor(private childrenVisitor: ChildrenVisitor) {}
+
+    visit(htmlElement: Element, parent: AcuElement): boolean {
         if (!(parent as AcuContainer)?.Children) {
             return false;
         }
 
-        if (htmlElement.nodeName.toLowerCase() !== "div") {
+        if (htmlElement.nodeName.toLowerCase() !== 'div') {
             return false;
         }
 
@@ -31,7 +34,11 @@ export default class QPTabBarVisitor implements ElementVisitor {
             Children: [],
         };
 
-        const tabsContainer = findElementByClassesDown(htmlElement, 'qp-tabbar-wrapper', 'au-target');
+        const tabsContainer = findElementByClassesDown(
+            htmlElement,
+            'qp-tabbar-wrapper',
+            'au-target',
+        );
         if (!tabsContainer) {
             return false;
         }
@@ -46,16 +53,17 @@ export default class QPTabBarVisitor implements ElementVisitor {
                 Type: AcuElementType.Tab,
                 Id: concatElementID(parent.Id, htmlElement),
                 Label: findFirstLeafTextContent(tabHeader) ?? '',
-                IsActive: findElementByClassesDown(tabHeader, 'qp-tabbar-active') !== null,
+                IsActive:
+          findElementByClassesDown(tabHeader, 'qp-tabbar-active') !== null,
             };
 
             tabBar.Tabs.push(tab);
 
             if (tab.IsActive) {
                 // suppose there is the only tab (after preprocessing)
-                const tabElement = findElementByNodeNameDown(htmlElement, "qp-tab");
+                const tabElement = findElementByNodeNameDown(htmlElement, 'qp-tab');
                 if (tabElement) {
-                    allVisitor.visitChildren(tabElement, tabBar);
+                    this.childrenVisitor.visitChildren(tabElement, tabBar);
                 }
             }
         }

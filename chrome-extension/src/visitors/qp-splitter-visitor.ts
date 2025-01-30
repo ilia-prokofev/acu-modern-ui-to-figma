@@ -1,21 +1,30 @@
-import ElementVisitor from "./qp-element-visitor";
-import {AcuElement, AcuElementType} from "@modern-ui-to-figma/elements";
-import ChildrenVisitor from "./children-visitors";
-import {AcuContainer} from "@modern-ui-to-figma/elements";
-import {QPSplitContainer, QPSplitContainerOrientation, QPSplitPanel} from "@modern-ui-to-figma/elements";
-import {concatElementID, findElementByClassesDown} from "./html-element-utils";
+import ElementVisitor from './qp-element-visitor';
+import { AcuElement, AcuElementType } from '@modern-ui-to-figma/elements';
+import ChildrenVisitor from './children-visitors';
+import { AcuContainer } from '@modern-ui-to-figma/elements';
+import {
+    QPSplitContainer,
+    QPSplitContainerOrientation,
+    QPSplitPanel,
+} from '@modern-ui-to-figma/elements';
+import { concatElementID, findElementByClassesDown } from './html-element-utils';
 
 export default class QPSplitterVisitor implements ElementVisitor {
-    visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean {
+    constructor(private readonly childrenVisitor: ChildrenVisitor) {}
+
+    visit(htmlElement: Element, parent: AcuElement): boolean {
         if (!(parent as AcuContainer)?.Children) {
             return false;
         }
 
-        if (htmlElement.nodeName.toLowerCase() !== "qp-splitter") {
+        if (htmlElement.nodeName.toLowerCase() !== 'qp-splitter') {
             return false;
         }
 
-        const orientation = findElementByClassesDown(htmlElement, "qp-splitter-width")
+        const orientation = findElementByClassesDown(
+            htmlElement,
+            'qp-splitter-width',
+        )
             ? QPSplitContainerOrientation.Horizontal
             : QPSplitContainerOrientation.Vertical;
 
@@ -27,13 +36,23 @@ export default class QPSplitterVisitor implements ElementVisitor {
             Panel2: null,
         };
 
-        const panel1 = this.createSplitPanel(htmlElement, "qp-splitter-first", splitContainer.Id, allVisitor);
-        const panel2 = this.createSplitPanel(htmlElement, "qp-splitter-second", splitContainer.Id, allVisitor);
+        const panel1 = this.createSplitPanel(
+            htmlElement,
+            'qp-splitter-first',
+            splitContainer.Id,
+            this.childrenVisitor,
+        );
+        const panel2 = this.createSplitPanel(
+            htmlElement,
+            'qp-splitter-second',
+            splitContainer.Id,
+            this.childrenVisitor,
+        );
 
         splitContainer.Panel1 = panel1;
-        splitContainer.Panel2 = panel2;
+        splitContainer.Panel2 = panel2
 
-        (parent as AcuContainer).Children.push(splitContainer);
+        ;(parent as AcuContainer).Children.push(splitContainer);
         return true;
     }
 
@@ -43,7 +62,10 @@ export default class QPSplitterVisitor implements ElementVisitor {
         parentId: string,
         allVisitor: ChildrenVisitor,
     ): QPSplitPanel | null {
-        const splitterElement = findElementByClassesDown(htmlElement, splitPanelAttribute);
+        const splitterElement = findElementByClassesDown(
+            htmlElement,
+            splitPanelAttribute,
+        );
         if (!splitterElement) {
             return null;
         }
@@ -51,9 +73,9 @@ export default class QPSplitterVisitor implements ElementVisitor {
         const panel: QPSplitPanel = {
             Type: AcuElementType.SplitPanel,
             Id: concatElementID(parentId, splitterElement),
-            Children: []
+            Children: [],
         };
-        allVisitor.visitChildren(splitterElement, panel)
+        allVisitor.visitChildren(splitterElement, panel);
         return panel;
     }
 }

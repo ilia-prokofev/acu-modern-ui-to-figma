@@ -1,26 +1,40 @@
-import ElementVisitor from "./qp-element-visitor";
-import {AcuElement, AcuElementType} from "@modern-ui-to-figma/elements";
-import ChildrenVisitor from "./children-visitors";
-import {AcuContainer} from "@modern-ui-to-figma/elements";
+import ElementVisitor from './qp-element-visitor';
+import { AcuElement, AcuElementType } from '@modern-ui-to-figma/elements';
+import { AcuContainer } from '@modern-ui-to-figma/elements';
 import {
     concatElementID,
     findElementByNodeNameAndClassesDown,
-    isElementDisabled
-} from "./html-element-utils";
-import {QPFieldElementType, QPFieldTextEditor} from "@modern-ui-to-figma/elements";
-import {getFieldLabel, getInputValue, isFieldMandatory} from "./qp-field-utils";
+    isElementDisabled,
+} from './html-element-utils';
+import {
+    QPFieldElementType,
+    QPFieldTextEditor,
+} from '@modern-ui-to-figma/elements';
+import {
+    getFieldLabel,
+    getInputValue,
+    isFieldMandatory,
+} from './qp-field-utils';
 
-export default class QPFieldMaskEditorAttributeVisitor implements ElementVisitor {
-    visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean {
+export default class QPFieldMaskEditorAttributeVisitor
+implements ElementVisitor
+{
+    visit(htmlElement: Element, parent: AcuElement): boolean {
         if (!(parent as AcuContainer)?.Children) {
             return false;
         }
 
-        if (htmlElement.nodeName.toLowerCase() !== "qp-field") {
+        if (htmlElement.nodeName.toLowerCase() !== 'qp-field') {
             return false;
         }
 
-        if (!findElementByNodeNameAndClassesDown(htmlElement, "div", "qp-mask-editor-control")) {
+        if (
+            !findElementByNodeNameAndClassesDown(
+                htmlElement,
+                'div',
+                'qp-mask-editor-control',
+            )
+        ) {
             return false;
         }
 
@@ -32,8 +46,8 @@ export default class QPFieldMaskEditorAttributeVisitor implements ElementVisitor
             Label: getFieldLabel(htmlElement),
             Value: getInputValue(htmlElement),
             Mandatory: isFieldMandatory(htmlElement),
-        };
-        (parent as AcuContainer).Children.push(field);
+        }
+    ;(parent as AcuContainer).Children.push(field);
         return true;
     }
 }

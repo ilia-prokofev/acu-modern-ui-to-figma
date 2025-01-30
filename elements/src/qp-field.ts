@@ -1,5 +1,5 @@
-import {AcuElement, AcuElementType} from "./acu-element";
-import {AcuContainer} from "./acu-container";
+import {AcuElement, AcuElementType} from './acu-element';
+import {AcuContainer} from './acu-container';
 
 export enum QPFieldElementType {
     TextEditor = 'TextEditor',
@@ -13,9 +13,9 @@ export enum QPFieldElementType {
     RadioButton = 'RadioButton',
     Status = 'Status',
     Currency = 'Currency',
-    LabelFieldCheckbox = "LabelFieldCheckbox",
-    LabelFieldButton = "LabelFieldButton",
-    HorizontalContainer = "HorizontalContainer",
+    LabelFieldCheckbox = 'LabelFieldCheckbox',
+    LabelFieldButton = 'LabelFieldButton',
+    HorizontalContainer = 'HorizontalContainer',
 }
 
 export interface QPField extends AcuElement {

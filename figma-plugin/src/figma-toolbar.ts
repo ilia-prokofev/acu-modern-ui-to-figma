@@ -1,6 +1,6 @@
-import {FigmaNode} from "./figma-node";
-import {QPToolBar, QPToolBarItemButton, QPToolBarItemType, QPToolBarType} from "@modern-ui-to-figma/elements";
-import {buttonIconIDs, logger} from "./figma-main";
+import {FigmaNode} from './figma-node';
+import {QPToolBar, QPToolBarItemButton, QPToolBarItemType, QPToolBarType} from '@modern-ui-to-figma/elements';
+import {buttonIconIDs, logger} from './figma-main';
 
 export class figmaToolbar extends FigmaNode {
 
@@ -25,7 +25,7 @@ export class figmaToolbar extends FigmaNode {
         super('Toolbar');
         this.acuElement = toolbar;
 
-        const displayedButtonsMax = toolbar.ToolBarType == 'Record' ? 15 : 11;
+        const displayedButtonsMax = toolbar.ToolBarType == QPToolBarType.Record ? 15 : 11;
         if (this.toolBarTypes.has(toolbar.ToolBarType))
             this.componentProperties['Type'] = this.toolBarTypes.get(toolbar.ToolBarType)!;
         this.componentProperties['Show Right Actions#6826:45'] = toolbar.ShowRightAction;

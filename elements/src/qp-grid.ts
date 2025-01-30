@@ -1,14 +1,14 @@
-import {AcuAlignment} from "./acu-alignment";
-import {AcuElementType} from "./acu-element";
-import {QPToolbarContainer} from "./qp-toolbar";
+import {AcuAlignment} from './acu-alignment';
+import {AcuElementType} from './acu-element';
+import {QPToolbarContainer} from './qp-toolbar';
 
 export enum GridColumnType {
-    Settings = "Settings",
-    Notes = "Notes",
-    Files = "Files",
-    Text = "Text",
-    Link = "Link",
-    Checkbox = "Checkbox",
+    Settings = 'Settings',
+    Notes = 'Notes',
+    Files = 'Files',
+    Text = 'Text',
+    Link = 'Link',
+    Checkbox = 'Checkbox',
 }
 
 export interface GridColumn {
@@ -20,9 +20,9 @@ export interface GridColumn {
 }
 
 export enum GridFooterType {
-    WithCounters = "With сounters",
-    GI = "GI",
-    Simple = "Simple",
+    WithCounters = 'With сounters',
+    GI = 'GI',
+    Simple = 'Simple',
 }
 
 export interface GridFooter {

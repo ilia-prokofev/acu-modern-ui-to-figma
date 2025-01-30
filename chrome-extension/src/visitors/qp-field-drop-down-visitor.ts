@@ -1,18 +1,28 @@
-import ElementVisitor from "./qp-element-visitor";
-import {AcuElement, AcuElementType} from "@modern-ui-to-figma/elements";
-import ChildrenVisitor from "./children-visitors";
-import {AcuContainer} from "@modern-ui-to-figma/elements";
-import {concatElementID, findElementByClassesDown, isElementDisabled} from "./html-element-utils";
-import {QPFieldDropDown, QPFieldElementType} from "@modern-ui-to-figma/elements";
-import {getFieldLabel, getInputValue, isFieldMandatory} from "./qp-field-utils";
+import ElementVisitor from './qp-element-visitor';
+import { AcuElement, AcuElementType } from '@modern-ui-to-figma/elements';
+import { AcuContainer } from '@modern-ui-to-figma/elements';
+import {
+    concatElementID,
+    findElementByClassesDown,
+    isElementDisabled,
+} from './html-element-utils';
+import {
+    QPFieldDropDown,
+    QPFieldElementType,
+} from '@modern-ui-to-figma/elements';
+import {
+    getFieldLabel,
+    getInputValue,
+    isFieldMandatory,
+} from './qp-field-utils';
 
 export default class QPFieldDropDownVisitor implements ElementVisitor {
-    visit(htmlElement: Element, parent: AcuElement, allVisitor: ChildrenVisitor): boolean {
+    visit(htmlElement: Element, parent: AcuElement): boolean {
         if (!(parent as AcuContainer)?.Children) {
             return false;
         }
 
-        if (htmlElement.nodeName.toLowerCase() !== "qp-field") {
+        if (htmlElement.nodeName.toLowerCase() !== 'qp-field') {
             return false;
         }
 
@@ -28,9 +38,9 @@ export default class QPFieldDropDownVisitor implements ElementVisitor {
             Label: getFieldLabel(htmlElement),
             Value: getInputValue(htmlElement),
             Mandatory: isFieldMandatory(htmlElement),
-        };
+        }
 
-        (parent as AcuContainer).Children.push(field);
+    ;(parent as AcuContainer).Children.push(field);
         return true;
     }
 }
