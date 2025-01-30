@@ -1,13 +1,13 @@
-import ElementVisitor from "./qp-element-visitor";
-import {AcuElement, AcuElementType} from "@modern-ui-to-figma/elements";
-import {AcuContainer} from "@modern-ui-to-figma/elements";
+import ElementVisitor from './qp-element-visitor';
+import {AcuElement, AcuElementType} from '@modern-ui-to-figma/elements';
+import {AcuContainer} from '@modern-ui-to-figma/elements';
 import {
     concatElementID,
     findElementByNodeNameAndClassesDown,
     isElementDisabled
-} from "./html-element-utils";
-import {QPFieldElementType, QPFieldLabelValue} from "@modern-ui-to-figma/elements";
-import {getFieldLabel, getInputValue, isFieldMandatory} from "./qp-field-utils";
+} from './html-element-utils';
+import {QPFieldElementType, QPFieldLabelValue} from '@modern-ui-to-figma/elements';
+import {getFieldLabel, getInputValue, isFieldMandatory} from './qp-field-utils';
 
 export default class QPFieldTextEditorVisitor implements ElementVisitor {
     visit(htmlElement: Element, parent: AcuElement): boolean {
@@ -15,11 +15,11 @@ export default class QPFieldTextEditorVisitor implements ElementVisitor {
             return false;
         }
 
-        if (htmlElement.nodeName.toLowerCase() !== "qp-field") {
+        if (htmlElement.nodeName.toLowerCase() !== 'qp-field') {
             return false;
         }
 
-        if (!findElementByNodeNameAndClassesDown(htmlElement, "div", "qp-text-editor-control")) {
+        if (!findElementByNodeNameAndClassesDown(htmlElement, 'div', 'qp-text-editor-control')) {
             return false;
         }
 

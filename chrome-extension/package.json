@@ -6,8 +6,8 @@
   "scripts": {
     "build": "node ./copyStaticFiles.cjs && webpack",
     "test": "npx vitest run",
-    "lint": "npx eslint src/*.ts",
-    "lint:fix": "npx eslint --fix src/*.ts"
+    "lint": "npx eslint src/**/*.ts",
+    "lint:fix": "npx eslint --fix src/**/*.ts"
   },
   "author": "PolaCode",
   "license": "MIT",
@@ -18,10 +18,7 @@
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "eslint": "^8.57.1",
-    "eslint-config-prettier": "^10.0.1",
-    "eslint-plugin-prettier": "^5.2.3",
     "globals": "^15.14.0",
-    "prettier": "^3.4.2",
     "ts-loader": "^9.5.1",
     "typescript": "^5.6.3",
     "typescript-eslint": "^8.22.0",

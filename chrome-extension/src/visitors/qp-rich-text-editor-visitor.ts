@@ -1,25 +1,25 @@
-import ElementVisitor from './qp-element-visitor'
-import { AcuElement, AcuElementType } from '@modern-ui-to-figma/elements'
-import { AcuContainer } from '@modern-ui-to-figma/elements'
-import { QPRichTextEditor } from '@modern-ui-to-figma/elements'
-import { concatElementID } from './html-element-utils'
+import ElementVisitor from './qp-element-visitor';
+import { AcuElement, AcuElementType } from '@modern-ui-to-figma/elements';
+import { AcuContainer } from '@modern-ui-to-figma/elements';
+import { QPRichTextEditor } from '@modern-ui-to-figma/elements';
+import { concatElementID } from './html-element-utils';
 
 export default class QPRichTextEditorVisitor implements ElementVisitor {
-  visit(htmlElement: Element, parent: AcuElement): boolean {
-    if (!(parent as AcuContainer)?.Children) {
-      return false
-    }
+    visit(htmlElement: Element, parent: AcuElement): boolean {
+        if (!(parent as AcuContainer)?.Children) {
+            return false;
+        }
 
-    if (htmlElement.nodeName.toLowerCase() !== 'qp-rich-text-editor') {
-      return false
-    }
+        if (htmlElement.nodeName.toLowerCase() !== 'qp-rich-text-editor') {
+            return false;
+        }
 
-    const editor: QPRichTextEditor = {
-      Type: AcuElementType.RichTextEditor,
-      Id: concatElementID(parent.Id, htmlElement),
-    }
+        const editor: QPRichTextEditor = {
+            Type: AcuElementType.RichTextEditor,
+            Id: concatElementID(parent.Id, htmlElement),
+        }
 
-    ;(parent as AcuContainer).Children.push(editor)
-    return true
-  }
+    ;(parent as AcuContainer).Children.push(editor);
+        return true;
+    }
 }

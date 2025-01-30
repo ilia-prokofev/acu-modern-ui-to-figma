@@ -1,16 +1,16 @@
-import {ButtonStyle, QPButton} from "@modern-ui-to-figma/elements";
+import {ButtonStyle, QPButton} from '@modern-ui-to-figma/elements';
 import {
     findClasses,
     findElementByNodeNameDown,
     findFirstLeafTextContent,
     isElementDisabled
-} from "./html-element-utils";
-import {getIconType} from "./icon-utils";
+} from './html-element-utils';
+import {getIconType} from './icon-utils';
 
 export function getButtonStyle(element: Element): ButtonStyle {
     let buttonStyle: ButtonStyle | null = null;
 
-    const liElement = findElementByNodeNameDown(element, "li");
+    const liElement = findElementByNodeNameDown(element, 'li');
     if (liElement) {
         buttonStyle = getLiButtonStyle(liElement);
     }
@@ -19,11 +19,11 @@ export function getButtonStyle(element: Element): ButtonStyle {
 }
 
 function getLiButtonStyle(element: Element): ButtonStyle | null {
-    if (findClasses(element, "qp-connotation-Success")) {
+    if (findClasses(element, 'qp-connotation-Success')) {
         return ButtonStyle.Special;
     }
 
-    if (findClasses(element, "minor-button")) {
+    if (findClasses(element, 'minor-button')) {
         return ButtonStyle.Tertiary;
     }
 

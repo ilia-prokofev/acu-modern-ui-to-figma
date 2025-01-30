@@ -1,12 +1,12 @@
-import {AcuAlignment} from "@modern-ui-to-figma/elements";
+import {AcuAlignment} from '@modern-ui-to-figma/elements';
 
 export function findClasses(htmlElement: Element, ...classNames: string[]): boolean {
-    const classAttr = htmlElement.attributes.getNamedItem("class")?.value;
+    const classAttr = htmlElement.attributes.getNamedItem('class')?.value;
     if (!classAttr) {
         return false;
     }
 
-    const classes = classAttr.split(" ");
+    const classes = classAttr.split(' ');
     for (let className of classNames) {
         className = className.toLowerCase();
         if (classes.find(c => c.toLowerCase() === className) === undefined) {
@@ -58,7 +58,7 @@ export function findElementByNodeNameAndClassesDown(
     }
 
     for (const element of htmlElement.children) {
-        const foundElement = findElementByNodeNameAndClassesDown(element, nodeName, ...classNames)
+        const foundElement = findElementByNodeNameAndClassesDown(element, nodeName, ...classNames);
         if (foundElement) {
             return foundElement;
         }
@@ -67,7 +67,7 @@ export function findElementByNodeNameAndClassesDown(
     return null;
 }
 
-export function findAllElementsByNodeNameDown(htmlElement: Element, nodeName: string, target: Element[]) {
+export function findAllElementsByNodeNameDown(htmlElement: Element, nodeName: string, target: Element[]): void {
     if (htmlElement.nodeName.toLowerCase() === nodeName.toLowerCase()) {
         target.push(htmlElement);
     }
@@ -86,20 +86,20 @@ export function innerTextContent(htmlElement: Element): string | null {
 }
 
 export function getElementAlignment(htmlElement: Element): AcuAlignment | null {
-    const style = htmlElement.getAttribute("style")?.toLowerCase();
+    const style = htmlElement.getAttribute('style')?.toLowerCase();
     if (!style) {
         return null;
     }
 
-    if (style.includes("left")) {
+    if (style.includes('left')) {
         return AcuAlignment.Left;
     }
 
-    if (style.includes("right")) {
+    if (style.includes('right')) {
         return AcuAlignment.Right;
     }
 
-    if (style.includes("center")) {
+    if (style.includes('center')) {
         return AcuAlignment.Center;
     }
 
@@ -138,28 +138,28 @@ export function findAttributeValueDown(htmlElement: Element, attributeName: stri
 }
 
 export function concatElementID(otherId: string, htmlElement: Element): string {
-    const id = htmlElement.getAttribute("au-target-id") ??
-        htmlElement.getAttribute("id") ??
+    const id = htmlElement.getAttribute('au-target-id') ??
+        htmlElement.getAttribute('id') ??
         htmlElement.nodeName.toLowerCase();
-    return `${otherId}-${id}`
+    return `${otherId}-${id}`;
 }
 
 export function isElementDisabled(element: Element): boolean {
-    const attr = element.getAttribute("enabled")?.toLowerCase();
-    if (attr === "false") {
+    const attr = element.getAttribute('enabled')?.toLowerCase();
+    if (attr === 'false') {
         return false;
     }
 
-    return findElementByClassesDown(element, "disabled") !== null
-        || findElementByClassesDown(element, "qp-field-disabled") !== null;
+    return findElementByClassesDown(element, 'disabled') !== null
+        || findElementByClassesDown(element, 'qp-field-disabled') !== null;
 }
 
 export function isHiddenElement(element: Element): boolean {
-    if (findClasses(element, "aurelia-hide")) {
+    if (findClasses(element, 'aurelia-hide')) {
         return true;
     }
 
-    const style = element.getAttribute("style");
+    const style = element.getAttribute('style');
     if (!style) {
         return false;
     }

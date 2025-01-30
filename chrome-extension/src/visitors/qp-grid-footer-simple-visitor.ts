@@ -1,26 +1,26 @@
-import ElementVisitor from './qp-element-visitor'
-import { AcuElement, AcuElementType } from '@modern-ui-to-figma/elements'
-import { findClasses } from './html-element-utils'
-import { Grid, GridFooterType } from '@modern-ui-to-figma/elements'
+import ElementVisitor from './qp-element-visitor';
+import { AcuElement, AcuElementType } from '@modern-ui-to-figma/elements';
+import { findClasses } from './html-element-utils';
+import { Grid, GridFooterType } from '@modern-ui-to-figma/elements';
 
 export default class QPGridFooterSimpleVisitor implements ElementVisitor {
-  visit(htmlElement: Element, parent: AcuElement): boolean {
-    if (parent.Type !== AcuElementType.Grid) {
-      return false
-    }
+    visit(htmlElement: Element, parent: AcuElement): boolean {
+        if (parent.Type !== AcuElementType.Grid) {
+            return false;
+        }
 
-    if (htmlElement.nodeName.toLowerCase() !== 'ul') {
-      return false
-    }
+        if (htmlElement.nodeName.toLowerCase() !== 'ul') {
+            return false;
+        }
 
-    if (!findClasses(htmlElement, 'toolsList', 'astable')) {
-      return false
-    }
+        if (!findClasses(htmlElement, 'toolsList', 'astable')) {
+            return false;
+        }
 
-    (parent as Grid).Footer = {
-      FooterType: GridFooterType.Simple,
-    }
+        (parent as Grid).Footer = {
+            FooterType: GridFooterType.Simple,
+        };
 
-    return true
-  }
+        return true;
+    }
 }
