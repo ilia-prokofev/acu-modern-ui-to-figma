@@ -1,5 +1,5 @@
-import {AcuContainer} from "./acu-container";
-import {AcuElement, AcuElementType} from "./acu-element";
+import {AcuContainer} from './acu-container';
+import {AcuElement, AcuElementType} from './acu-element';
 
 export interface Tab extends AcuElement {
     Type: AcuElementType.Tab;

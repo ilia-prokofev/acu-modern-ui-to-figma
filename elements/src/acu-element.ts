@@ -9,11 +9,11 @@ export enum AcuElementType {
     FieldsetSlot = 'FieldsetSlot',
     Root = 'Root',
     ToolBar = 'ToolBar',
-    SplitContainer = "SplitContainer",
-    SplitPanel = "SplitPanel",
-    RichTextEditor = "RichTextEditor",
-    Image = "Image",
-    Tree = "Tree",
+    SplitContainer = 'SplitContainer',
+    SplitPanel = 'SplitPanel',
+    RichTextEditor = 'RichTextEditor',
+    Image = 'Image',
+    Tree = 'Tree',
 }
 
 export interface AcuElement {

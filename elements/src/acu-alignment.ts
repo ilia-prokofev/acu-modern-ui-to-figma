@@ -1,5 +1,5 @@
 export enum AcuAlignment {
-    Left = "Left",
-    Right = "Right",
-    Center = "Center",
+    Left = 'Left',
+    Right = 'Right',
+    Center = 'Center',
 }

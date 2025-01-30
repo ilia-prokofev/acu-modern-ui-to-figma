@@ -12,7 +12,7 @@ export class FigmaNode {
     height = 0;
     width = 0;
     componentProperties: { [propertyName: string]: string | boolean; } = {};
-    properties: { [propertyName: string]: number | string | boolean; } = {};
+    properties: { [propertyName: string]: number | string | boolean | []; } = {};
     children: FigmaNode[] = [];
     type: figmaFieldTypes;
     componentNode: ComponentNode | null = null;

@@ -10,6 +10,12 @@
         "build:elements": "npm run build --workspace=elements",
         "build:chrome-extension": "npm run build --workspace=chrome-extension",
         "build:figma-plugin": "npm run build --workspace=figma-plugin",
+
+        "lint": "npm run lint:elements && npm run lint:chrome-extension && npm run lint:figma-plugin",
+        "lint:elements": "npm run lint --workspace=elements",
+        "lint:chrome-extension": "npm run lint --workspace=chrome-extension",
+        "lint:figma-plugin": "npm run lint --workspace=figma-plugin",
+
         "test": "npm run test:chrome-extension && npm run test:figma-plugin",
         "test:chrome-extension": "npm run test --workspace=chrome-extension",
         "test:figma-plugin": "npm run test --workspace=figma-plugin"
