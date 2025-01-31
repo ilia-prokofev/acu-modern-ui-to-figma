@@ -1,0 +1,543 @@
+{
+  "Type": "Root",
+  "Children": [
+    {
+      "Type": "SplitContainer",
+      "Id": "Root-1627",
+      "Orientation": "Horizontal",
+      "Panel1": {
+        "Type": "SplitPanel",
+        "Id": "Root-1627-338",
+        "Children": [
+          {
+            "Type": "Grid",
+            "Id": "Root-1627-338-1629",
+            "Caption": "WCC Codes",
+            "ToolBar": {
+              "Type": "ToolBar",
+              "Id": "Root-1627-338-1629-1313",
+              "ToolBarType": "List",
+              "Items": [
+                {
+                  "ItemType": "Button",
+                  "Icon": "Refresh",
+                  "Enabled": true,
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "ItemType": "Button",
+                  "Icon": "AddRow",
+                  "Enabled": true,
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "ItemType": "Button",
+                  "Icon": "DeleteRow",
+                  "Enabled": true,
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "ItemType": "Button",
+                  "Icon": null,
+                  "Enabled": true,
+                  "Style": "Secondary",
+                  "Text": "View Max Insurable Wages"
+                },
+                {
+                  "ItemType": "Button",
+                  "Icon": "AdjustColumns",
+                  "Enabled": true,
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "ItemType": "Button",
+                  "Icon": "ExportToExcel",
+                  "Enabled": true,
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "ItemType": "Button",
+                  "Icon": "Ellipsis",
+                  "Enabled": true,
+                  "Style": "Secondary",
+                  "Text": null
+                }
+              ],
+              "ShowRightAction": true,
+              "ShowSaveButton": false
+            },
+            "Columns": [
+              {
+                "Type": "GridColumn",
+                "Label": "",
+                "ColumnType": "Settings",
+                "Cells": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ],
+                "Alignment": "Left"
+              },
+              {
+                "Type": "GridColumn",
+                "Label": "",
+                "ColumnType": "Files",
+                "Cells": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ],
+                "Alignment": "Center"
+              },
+              {
+                "Type": "GridColumn",
+                "Label": "",
+                "ColumnType": "Notes",
+                "Cells": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ],
+                "Alignment": "Center"
+              },
+              {
+                "Type": "GridColumn",
+                "Label": "Active",
+                "ColumnType": "Checkbox",
+                "Cells": [
+                  "true",
+                  "true",
+                  "true",
+                  "true",
+                  "true",
+                  "true",
+                  "true",
+                  "true",
+                  "true",
+                  "true",
+                  "true",
+                  "true",
+                  "true",
+                  "true",
+                  "true",
+                  "true",
+                  "true"
+                ],
+                "Alignment": "Center"
+              },
+              {
+                "Type": "GridColumn",
+                "Label": "WCC Code",
+                "ColumnType": "Text",
+                "Cells": [
+                  "5022",
+                  "5037",
+                  "5057",
+                  "5102",
+                  "5180",
+                  "5190",
+                  "5213",
+                  "5221",
+                  "5222",
+                  "5403",
+                  "541512",
+                  "541611",
+                  "5437",
+                  "5478",
+                  "5479",
+                  "5480",
+                  "5535"
+                ],
+                "Alignment": "Left"
+              },
+              {
+                "Type": "GridColumn",
+                "Label": "Description",
+                "ColumnType": "Text",
+                "Cells": [
+                  "Masonry",
+                  "Painting",
+                  "Framing",
+                  "Door - Installation",
+                  "Plumbing",
+                  "Electrical Wiring",
+                  "Concrete",
+                  "Paving",
+                  "Chimney Construction",
+                  "Siding Installation",
+                  "Network systems integration design services, computer",
+                  "Administrative management consulting services",
+                  "Drywall Installation",
+                  "Flooring",
+                  "Insulation",
+                  "Plastering",
+                  "Sheet Metal Work"
+                ],
+                "Alignment": "Left"
+              }
+            ],
+            "Footer": {
+              "FooterType": "GI"
+            },
+            "Wrapped": false
+          }
+        ]
+      },
+      "Panel2": {
+        "Type": "SplitPanel",
+        "Id": "Root-1627-358",
+        "Children": [
+          {
+            "Type": "SplitContainer",
+            "Id": "Root-1627-358-1631",
+            "Orientation": "Vertical",
+            "Panel1": {
+              "Type": "SplitPanel",
+              "Id": "Root-1627-358-1631-338",
+              "Children": [
+                {
+                  "Type": "Grid",
+                  "Id": "Root-1627-358-1631-338-1633",
+                  "Caption": "Rates",
+                  "ToolBar": {
+                    "Type": "ToolBar",
+                    "Id": "Root-1627-358-1631-338-1633-1313",
+                    "ToolBarType": "List",
+                    "Items": [
+                      {
+                        "ItemType": "Button",
+                        "Icon": "Refresh",
+                        "Enabled": true,
+                        "Style": "Tertiary",
+                        "Text": null
+                      },
+                      {
+                        "ItemType": "Button",
+                        "Icon": "AddRow",
+                        "Enabled": true,
+                        "Style": "Tertiary",
+                        "Text": null
+                      },
+                      {
+                        "ItemType": "Button",
+                        "Icon": "DeleteRow",
+                        "Enabled": true,
+                        "Style": "Tertiary",
+                        "Text": null
+                      },
+                      {
+                        "ItemType": "Button",
+                        "Icon": "AdjustColumns",
+                        "Enabled": true,
+                        "Style": "Tertiary",
+                        "Text": null
+                      },
+                      {
+                        "ItemType": "Button",
+                        "Icon": "ExportToExcel",
+                        "Enabled": true,
+                        "Style": "Tertiary",
+                        "Text": null
+                      }
+                    ],
+                    "ShowRightAction": true,
+                    "ShowSaveButton": false
+                  },
+                  "Columns": [
+                    {
+                      "Type": "GridColumn",
+                      "Label": "",
+                      "ColumnType": "Settings",
+                      "Cells": [
+                        "",
+                        ""
+                      ],
+                      "Alignment": "Left"
+                    },
+                    {
+                      "Type": "GridColumn",
+                      "Label": "Active",
+                      "ColumnType": "Checkbox",
+                      "Cells": [
+                        "true",
+                        "true"
+                      ],
+                      "Alignment": "Center"
+                    },
+                    {
+                      "Type": "GridColumn",
+                      "Label": "Deduction and Benefit Code",
+                      "ColumnType": "Text",
+                      "Cells": [
+                        "VAWC",
+                        "WAWC"
+                      ],
+                      "Alignment": "Left"
+                    },
+                    {
+                      "Type": "GridColumn",
+                      "Label": "Deduction Calculation Method",
+                      "ColumnType": "Text",
+                      "Cells": [
+                        "",
+                        "Amount per Hour"
+                      ],
+                      "Alignment": "Left"
+                    },
+                    {
+                      "Type": "GridColumn",
+                      "Label": "Benefit Calculation Method",
+                      "ColumnType": "Text",
+                      "Cells": [
+                        "Percent of Gross",
+                        "Amount per Hour"
+                      ],
+                      "Alignment": "Left"
+                    },
+                    {
+                      "Type": "GridColumn",
+                      "Label": "State",
+                      "ColumnType": "Text",
+                      "Cells": [
+                        "VA",
+                        "WA"
+                      ],
+                      "Alignment": "Left"
+                    },
+                    {
+                      "Type": "GridColumn",
+                      "Label": "Branch",
+                      "ColumnType": "Text",
+                      "Cells": [
+                        "",
+                        ""
+                      ],
+                      "Alignment": "Left"
+                    },
+                    {
+                      "Type": "GridColumn",
+                      "Label": "Deduction Rate",
+                      "ColumnType": "Text",
+                      "Cells": [
+                        "",
+                        "0.500000"
+                      ],
+                      "Alignment": "Right"
+                    },
+                    {
+                      "Type": "GridColumn",
+                      "Label": "Benefit Rate",
+                      "ColumnType": "Text",
+                      "Cells": [
+                        "0.500000",
+                        "0.500000"
+                      ],
+                      "Alignment": "Right"
+                    },
+                    {
+                      "Type": "GridColumn",
+                      "Label": "Effective Date",
+                      "ColumnType": "Text",
+                      "Cells": [
+                        "1/1/2019",
+                        "1/1/2019"
+                      ],
+                      "Alignment": "Left"
+                    }
+                  ],
+                  "Footer": null,
+                  "Wrapped": false
+                }
+              ]
+            },
+            "Panel2": {
+              "Type": "SplitPanel",
+              "Id": "Root-1627-358-1631-358",
+              "Children": [
+                {
+                  "Type": "Tabbar",
+                  "Id": "Root-1627-358-1631-358-396",
+                  "Tabs": [
+                    {
+                      "Type": "Tab",
+                      "Id": "Root-1627-358-1631-358-396",
+                      "Label": "Project Tasks",
+                      "IsActive": false
+                    },
+                    {
+                      "Type": "Tab",
+                      "Id": "Root-1627-358-1631-358-396",
+                      "Label": "Labor Items",
+                      "IsActive": false
+                    },
+                    {
+                      "Type": "Tab",
+                      "Id": "Root-1627-358-1631-358-396",
+                      "Label": "Cost Codes",
+                      "IsActive": true
+                    }
+                  ],
+                  "Children": [
+                    {
+                      "Type": "Grid",
+                      "Id": "Root-1627-358-1631-358-396-1642",
+                      "Caption": null,
+                      "ToolBar": {
+                        "Type": "ToolBar",
+                        "Id": "Root-1627-358-1631-358-396-1642-1313",
+                        "ToolBarType": "List",
+                        "Items": [
+                          {
+                            "ItemType": "Button",
+                            "Icon": "Refresh",
+                            "Enabled": true,
+                            "Style": "Tertiary",
+                            "Text": null
+                          },
+                          {
+                            "ItemType": "Button",
+                            "Icon": "AddRow",
+                            "Enabled": true,
+                            "Style": "Tertiary",
+                            "Text": null
+                          },
+                          {
+                            "ItemType": "Button",
+                            "Icon": "DeleteRow",
+                            "Enabled": true,
+                            "Style": "Tertiary",
+                            "Text": null
+                          },
+                          {
+                            "ItemType": "Button",
+                            "Icon": "AdjustColumns",
+                            "Enabled": true,
+                            "Style": "Tertiary",
+                            "Text": null
+                          },
+                          {
+                            "ItemType": "Button",
+                            "Icon": "ExportToExcel",
+                            "Enabled": true,
+                            "Style": "Tertiary",
+                            "Text": null
+                          }
+                        ],
+                        "ShowRightAction": true,
+                        "ShowSaveButton": false
+                      },
+                      "Columns": [
+                        {
+                          "Type": "GridColumn",
+                          "Label": "",
+                          "ColumnType": "Settings",
+                          "Cells": [
+                            ""
+                          ],
+                          "Alignment": "Left"
+                        },
+                        {
+                          "Type": "GridColumn",
+                          "Label": "Cost Code From",
+                          "ColumnType": "Text",
+                          "Cells": [
+                            "04-000"
+                          ],
+                          "Alignment": "Left"
+                        },
+                        {
+                          "Type": "GridColumn",
+                          "Label": "Cost Code To",
+                          "ColumnType": "Text",
+                          "Cells": [
+                            "04-900"
+                          ],
+                          "Alignment": "Left"
+                        }
+                      ],
+                      "Footer": null,
+                      "Wrapped": false
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Title": "Workers' Compensation Codes",
+  "Caption": null,
+  "ToolBar": {
+    "Type": "ToolBar",
+    "Id": "Root-27",
+    "ToolBarType": "List",
+    "Items": [
+      {
+        "ItemType": "Button",
+        "Icon": "Save",
+        "Enabled": false,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Undo",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      }
+    ],
+    "ShowRightAction": false,
+    "ShowSaveButton": false
+  },
+  "Id": "Root"
+}

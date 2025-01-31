@@ -1,0 +1,587 @@
+{
+  "Type": "Root",
+  "Children": [
+    {
+      "Type": "Template",
+      "Id": "Root-1627",
+      "Name": "1-1-1",
+      "Children": [
+        {
+          "Label": null,
+          "Type": "FieldSet",
+          "Id": "Root-1627-1628",
+          "Children": [
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "Selector",
+              "Id": "Root-1627-1628-1745",
+              "Label": "Inquiry Title",
+              "Value": "AM-Bill of Material",
+              "Mandatory": true
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "TextEditor",
+              "Id": "Root-1627-1628-1747",
+              "Label": "Site Map Title",
+              "Value": "Bill of Material",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "Selector",
+              "Id": "Root-1627-1628-1749",
+              "Label": "Workspace",
+              "Value": "Data Views",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "Selector",
+              "Id": "Root-1627-1628-1751",
+              "Label": "Category",
+              "Value": "Inquiries",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": true,
+              "ElementType": "TextEditor",
+              "Id": "Root-1627-1628-1753",
+              "Label": "Screen ID",
+              "Value": "AM.20.80.PL",
+              "Mandatory": false
+            }
+          ],
+          "Style": "Gray"
+        },
+        {
+          "Label": null,
+          "Type": "FieldSet",
+          "Id": "Root-1627-1629",
+          "Children": [
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "CheckBox",
+              "Id": "Root-1627-1629-1735",
+              "CheckboxName": "Show Deleted Records",
+              "Checked": false,
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "CheckBox",
+              "Id": "Root-1627-1629-1737",
+              "CheckboxName": "Show Archived Records",
+              "Checked": false,
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "CheckBox",
+              "Id": "Root-1627-1629-1739",
+              "CheckboxName": "Expose via OData",
+              "Checked": false,
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "CheckBox",
+              "Id": "Root-1627-1629-1741",
+              "CheckboxName": "Expose to the Mobile Application",
+              "Checked": false,
+              "Mandatory": false
+            }
+          ],
+          "Style": "Gray"
+        },
+        {
+          "Label": null,
+          "Type": "FieldSet",
+          "Id": "Root-1627-1630",
+          "Children": [
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "NumberEditor",
+              "Id": "Root-1627-1630-1722",
+              "Label": "Arrange Parameters in",
+              "Value": "3",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "NumberEditor",
+              "Id": "Root-1627-1630-1725",
+              "Label": "Select Top",
+              "Value": "0",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "NumberEditor",
+              "Id": "Root-1627-1630-1728",
+              "Label": "Records per Page",
+              "Value": "0",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "NumberEditor",
+              "Id": "Root-1627-1630-1731",
+              "Label": "Export Top",
+              "Value": "0",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "DropDown",
+              "Id": "Root-1627-1630-1733",
+              "Label": "Attach Notes To",
+              "Value": "",
+              "Mandatory": false
+            }
+          ],
+          "Style": "Gray"
+        }
+      ]
+    },
+    {
+      "Type": "Tabbar",
+      "Id": "Root-396",
+      "Tabs": [
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Data Sources",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Relations",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Parameters",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Conditions",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Grouping",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Sort Order",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Results Grid",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Entry Point",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Navigation",
+          "IsActive": true
+        }
+      ],
+      "Children": [
+        {
+          "Type": "SplitContainer",
+          "Id": "Root-396-1656",
+          "Orientation": "Horizontal",
+          "Panel1": {
+            "Type": "SplitPanel",
+            "Id": "Root-396-1656-338",
+            "Children": [
+              {
+                "Type": "Grid",
+                "Id": "Root-396-1656-338-1658",
+                "Caption": null,
+                "ToolBar": {
+                  "Type": "ToolBar",
+                  "Id": "Root-396-1656-338-1658-1313",
+                  "ToolBarType": "List",
+                  "Items": [
+                    {
+                      "ItemType": "Button",
+                      "Icon": "Refresh",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "AddRow",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "DeleteRow",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "AdjustColumns",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "ExportToExcel",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    }
+                  ],
+                  "ShowRightAction": true,
+                  "ShowSaveButton": false
+                },
+                "Columns": [
+                  {
+                    "Type": "GridColumn",
+                    "Label": "",
+                    "ColumnType": "Settings",
+                    "Cells": [
+                      "",
+                      "",
+                      ""
+                    ],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Active",
+                    "ColumnType": "Checkbox",
+                    "Cells": [
+                      "true",
+                      "true",
+                      "true"
+                    ],
+                    "Alignment": "Center"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Link",
+                    "ColumnType": "Link",
+                    "Cells": [
+                      "AM208000 - Bill of Material",
+                      "AM208000 - Bill of Material",
+                      "AM208500 - BOM Attributes"
+                    ],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Window Mode",
+                    "ColumnType": "Text",
+                    "Cells": [
+                      "Inline",
+                      "Side Panel",
+                      "Side Panel"
+                    ],
+                    "Alignment": "Left"
+                  }
+                ],
+                "Footer": null,
+                "Wrapped": false
+              }
+            ]
+          },
+          "Panel2": {
+            "Type": "SplitPanel",
+            "Id": "Root-396-1656-358",
+            "Children": [
+              {
+                "Type": "Template",
+                "Id": "Root-396-1656-358-1660",
+                "Name": "1-1",
+                "Children": [
+                  {
+                    "Label": "Side Panel Settings",
+                    "Type": "FieldSet",
+                    "Id": "Root-396-1656-358-1660-1661",
+                    "Children": [
+                      {
+                        "Type": "Field",
+                        "ReadOnly": false,
+                        "ElementType": "DropDown",
+                        "Id": "Root-396-1656-358-1660-1661-1782",
+                        "Label": "Icon",
+                        "Value": "visibility",
+                        "Mandatory": false
+                      },
+                      {
+                        "Type": "Field",
+                        "ReadOnly": false,
+                        "ElementType": "TextEditor",
+                        "Id": "Root-396-1656-358-1660-1661-1784",
+                        "Label": "Custom Title",
+                        "Value": "",
+                        "Mandatory": false
+                      }
+                    ],
+                    "Style": "Gray"
+                  }
+                ]
+              },
+              {
+                "Type": "Tabbar",
+                "Id": "Root-396-1656-358-396",
+                "Tabs": [
+                  {
+                    "Type": "Tab",
+                    "Id": "Root-396-1656-358-396",
+                    "Label": "Navigation Parameters",
+                    "IsActive": true
+                  },
+                  {
+                    "Type": "Tab",
+                    "Id": "Root-396-1656-358-396",
+                    "Label": "Visibility Conditions",
+                    "IsActive": false
+                  }
+                ],
+                "Children": [
+                  {
+                    "Type": "Grid",
+                    "Id": "Root-396-1656-358-396-1664",
+                    "Caption": null,
+                    "ToolBar": {
+                      "Type": "ToolBar",
+                      "Id": "Root-396-1656-358-396-1664-1313",
+                      "ToolBarType": "List",
+                      "Items": [
+                        {
+                          "ItemType": "Button",
+                          "Icon": "Refresh",
+                          "Enabled": true,
+                          "Style": "Tertiary",
+                          "Text": null
+                        },
+                        {
+                          "ItemType": "Button",
+                          "Icon": "AddRow",
+                          "Enabled": true,
+                          "Style": "Tertiary",
+                          "Text": null
+                        },
+                        {
+                          "ItemType": "Button",
+                          "Icon": "DeleteRow",
+                          "Enabled": true,
+                          "Style": "Tertiary",
+                          "Text": null
+                        },
+                        {
+                          "ItemType": "Button",
+                          "Icon": "AdjustColumns",
+                          "Enabled": true,
+                          "Style": "Tertiary",
+                          "Text": null
+                        },
+                        {
+                          "ItemType": "Button",
+                          "Icon": "ExportToExcel",
+                          "Enabled": true,
+                          "Style": "Tertiary",
+                          "Text": null
+                        }
+                      ],
+                      "ShowRightAction": true,
+                      "ShowSaveButton": false
+                    },
+                    "Columns": [
+                      {
+                        "Type": "GridColumn",
+                        "Label": "",
+                        "ColumnType": "Settings",
+                        "Cells": [
+                          "",
+                          ""
+                        ],
+                        "Alignment": "Left"
+                      },
+                      {
+                        "Type": "GridColumn",
+                        "Label": "Field",
+                        "ColumnType": "Text",
+                        "Cells": [
+                          "BOMID",
+                          "RevisionID"
+                        ],
+                        "Alignment": "Left"
+                      },
+                      {
+                        "Type": "GridColumn",
+                        "Label": "Parameter",
+                        "ColumnType": "Text",
+                        "Cells": [
+                          "AMBomItem.BOMID",
+                          "AMBomItem.RevisionID"
+                        ],
+                        "Alignment": "Left"
+                      },
+                      {
+                        "Type": "GridColumn",
+                        "Label": "From Schema",
+                        "ColumnType": "Checkbox",
+                        "Cells": [
+                          "false",
+                          "false"
+                        ],
+                        "Alignment": "Center"
+                      }
+                    ],
+                    "Footer": null,
+                    "Wrapped": false
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "Title": "Generic Inquiry",
+  "Caption": null,
+  "ToolBar": {
+    "Type": "ToolBar",
+    "Id": "Root-27",
+    "ToolBarType": "Record",
+    "Items": [
+      {
+        "ItemType": "Button",
+        "Icon": "Save",
+        "Enabled": false,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Undo",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Insert",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Delete",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Copy",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "First",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Previous",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Next",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Last",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": null,
+        "Enabled": true,
+        "Style": "Special",
+        "Text": "View Inquiry"
+      },
+      {
+        "ItemType": "Button",
+        "Icon": null,
+        "Enabled": true,
+        "Style": "Secondary",
+        "Text": "Publish to the UI"
+      },
+      {
+        "ItemType": "Button",
+        "Icon": null,
+        "Enabled": true,
+        "Style": "Secondary",
+        "Text": "Unpublish"
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Ellipsis",
+        "Enabled": true,
+        "Style": "Secondary",
+        "Text": null
+      }
+    ],
+    "ShowRightAction": false,
+    "ShowSaveButton": false
+  },
+  "Id": "Root"
+}

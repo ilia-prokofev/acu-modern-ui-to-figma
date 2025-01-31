@@ -1,0 +1,132 @@
+{
+  "Type": "Root",
+  "Children": [
+    {
+      "Type": "Template",
+      "Id": "Root-1627",
+      "Name": "7-10-7",
+      "Children": [
+        {
+          "Label": null,
+          "Type": "FieldSet",
+          "Id": "Root-1627-1628",
+          "Children": [
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "Selector",
+              "Id": "Root-1627-1628-1852",
+              "Label": "Subcontract Nbr.",
+              "Value": "SC-000036",
+              "Mandatory": false
+            }
+          ],
+          "Style": "Gray"
+        }
+      ]
+    }
+  ],
+  "Title": "Toolbar",
+  "Caption": "Test",
+  "ToolBar": {
+    "Type": "ToolBar",
+    "Id": "Root-27",
+    "ToolBarType": "Record",
+    "Items": [
+      {
+        "ItemType": "Button",
+        "Icon": "Back",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "SaveAndBack",
+        "Enabled": false,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Save",
+        "Enabled": false,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Undo",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Insert",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Delete",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Copy",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "First",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Previous",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Next",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Last",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": null,
+        "Enabled": true,
+        "Style": "Special",
+        "Text": "Remove Hold"
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Ellipsis",
+        "Enabled": true,
+        "Style": "Secondary",
+        "Text": null
+      }
+    ],
+    "ShowRightAction": false,
+    "ShowSaveButton": false
+  },
+  "Id": "Root"
+}

@@ -1,0 +1,5225 @@
+{
+  "childIndex": -1,
+  "tryToFind": false,
+  "createIfNotFound": false,
+  "acuElement": {
+    "Type": "Root",
+    "Children": [
+      {
+        "Type": "Template",
+        "Id": "Root-1627",
+        "Name": "7-10-7",
+        "Children": [
+          {
+            "Label": null,
+            "Type": "FieldSet",
+            "Id": "Root-1627-1628",
+            "Children": [
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1628-1852",
+                "Label": "Subcontract Nbr.",
+                "Value": "SC-000036",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "Status",
+                "Id": "Root-1627-1628-1854",
+                "Label": "Status",
+                "Value": "On Hold",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "DateTimeEdit",
+                "Id": "Root-1627-1628-1860",
+                "Label": "Date",
+                "Value": "12/1/2022",
+                "Mandatory": true
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "DateTimeEdit",
+                "Id": "Root-1627-1628-1862",
+                "Label": "Start Date",
+                "Value": "12/1/2022",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "TextEditor",
+                "Id": "Root-1627-1628-1866",
+                "Label": "Vendor Ref.",
+                "Value": "",
+                "Mandatory": false
+              }
+            ],
+            "Style": "Gray"
+          },
+          {
+            "Label": null,
+            "Type": "FieldSet",
+            "Id": "Root-1627-1629",
+            "Children": [
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1868",
+                "Label": "Vendor",
+                "Value": "CBSITEWORK- CB Sitework, Inc.",
+                "Mandatory": true
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1870",
+                "Label": "Location",
+                "Value": "MAIN - Primary Location",
+                "Mandatory": true
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1872",
+                "Label": "Owner",
+                "Value": "Maxwell Baker",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1874",
+                "Label": "Project",
+                "Value": "CSTRCONCRT- Marriott Bonvoy Hotels Concrete Quote",
+                "Mandatory": true
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Currency",
+                "Id": "Root-1627-1629-1876",
+                "Label": "Currency",
+                "Value": "USD",
+                "Mandatory": true
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "MultilineTextEditor",
+                "Id": "Root-1627-1629-1878",
+                "Label": "Description",
+                "Value": "SITE WORK",
+                "Mandatory": false
+              }
+            ],
+            "Style": "Gray"
+          },
+          {
+            "Label": null,
+            "Type": "FieldSet",
+            "Id": "Root-1627-1630",
+            "Children": [
+              {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1880",
+                "Label": "Detail Total",
+                "Value": "170,000.00",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1886",
+                "Label": "Tax Total",
+                "Value": "0.00",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1888",
+                "Label": "Subcontract Total",
+                "Value": "170,000.00",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1892",
+                "Label": "Retainage Total",
+                "Value": "8,500.00",
+                "Mandatory": false
+              }
+            ],
+            "Style": "Blue"
+          }
+        ]
+      },
+      {
+        "Type": "Tabbar",
+        "Id": "Root-396",
+        "Tabs": [
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Details",
+            "IsActive": false
+          },
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Taxes",
+            "IsActive": true
+          },
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Addresses",
+            "IsActive": false
+          },
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Discounts",
+            "IsActive": false
+          },
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Billing",
+            "IsActive": false
+          },
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Prepayments",
+            "IsActive": false
+          },
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Change Orders",
+            "IsActive": false
+          },
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Financial",
+            "IsActive": false
+          },
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Attributes",
+            "IsActive": false
+          },
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Compliance",
+            "IsActive": false
+          }
+        ],
+        "Children": [
+          {
+            "Type": "Template",
+            "Id": "Root-396-1635",
+            "Name": "17-7",
+            "Children": [
+              {
+                "Type": "Grid",
+                "Id": "Root-396-1635-1636",
+                "Caption": null,
+                "ToolBar": {
+                  "Type": "ToolBar",
+                  "Id": "Root-396-1635-1636-1313",
+                  "ToolBarType": "List",
+                  "Items": [
+                    {
+                      "ItemType": "Button",
+                      "Icon": "Refresh",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "AddRow",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "DeleteRow",
+                      "Enabled": false,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "AdjustColumns",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "ExportToExcel",
+                      "Enabled": false,
+                      "Style": "Tertiary",
+                      "Text": null
+                    }
+                  ],
+                  "ShowRightAction": true,
+                  "ShowSaveButton": false
+                },
+                "Columns": [
+                  {
+                    "Type": "GridColumn",
+                    "Label": "",
+                    "ColumnType": "Settings",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Tax ID",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Tax Rate",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Taxable Amount",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Tax Amount",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Retained Taxable",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Retained Tax",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  }
+                ],
+                "Footer": null,
+                "Wrapped": true
+              },
+              {
+                "Type": "FieldsetSlot",
+                "Id": "Root-396-1635-1637",
+                "Children": [
+                  {
+                    "Label": "Tax Info",
+                    "Type": "FieldSet",
+                    "Id": "Root-396-1635-1637-1638",
+                    "Children": [
+                      {
+                        "Type": "Field",
+                        "ReadOnly": false,
+                        "ElementType": "Selector",
+                        "Id": "Root-396-1635-1637-1638-1799",
+                        "Label": "Vendor Tax Zone",
+                        "Value": "",
+                        "Mandatory": false
+                      }
+                    ],
+                    "Style": "Gray"
+                  },
+                  {
+                    "Label": "Tax Totals",
+                    "Type": "FieldSet",
+                    "Id": "Root-396-1635-1637-1639",
+                    "Children": [
+                      {
+                        "Type": "Field",
+                        "ReadOnly": true,
+                        "ElementType": "NumberEditor",
+                        "Id": "Root-396-1635-1637-1639-1793",
+                        "Label": "Tax Exempt Total",
+                        "Value": "0.00",
+                        "Mandatory": false
+                      },
+                      {
+                        "Type": "Field",
+                        "ReadOnly": true,
+                        "ElementType": "NumberEditor",
+                        "Id": "Root-396-1635-1637-1639-1795",
+                        "Label": "Taxable Total",
+                        "Value": "0.00",
+                        "Mandatory": false
+                      },
+                      {
+                        "Type": "Field",
+                        "ReadOnly": true,
+                        "ElementType": "NumberEditor",
+                        "Id": "Root-396-1635-1637-1639-1797",
+                        "Label": "Tax Total",
+                        "Value": "0.00",
+                        "Mandatory": false
+                      }
+                    ],
+                    "Style": "Blue"
+                  }
+                ],
+                "ID": "B"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "Title": "Subcontracts",
+    "Caption": "SC-000036 - CB Sitework, Inc.",
+    "ToolBar": {
+      "Type": "ToolBar",
+      "Id": "Root-27",
+      "ToolBarType": "Record",
+      "Items": [
+        {
+          "ItemType": "Button",
+          "Icon": "Back",
+          "Enabled": true,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "SaveAndBack",
+          "Enabled": false,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "Save",
+          "Enabled": false,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "Undo",
+          "Enabled": true,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "Insert",
+          "Enabled": true,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "Delete",
+          "Enabled": true,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "Copy",
+          "Enabled": true,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "First",
+          "Enabled": true,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "Previous",
+          "Enabled": true,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "Next",
+          "Enabled": true,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "Last",
+          "Enabled": true,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": null,
+          "Enabled": true,
+          "Style": "Special",
+          "Text": "Remove Hold"
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "Ellipsis",
+          "Enabled": true,
+          "Style": "Secondary",
+          "Text": null
+        }
+      ],
+      "ShowRightAction": false,
+      "ShowSaveButton": false
+    },
+    "Id": "Root"
+  },
+  "height": 0,
+  "width": 0,
+  "componentProperties": {},
+  "properties": {},
+  "iconProperties": {},
+  "children": [
+    {
+      "childIndex": -1,
+      "tryToFind": true,
+      "createIfNotFound": false,
+      "acuElement": {
+        "Type": "ToolBar",
+        "Id": "Root-27",
+        "ToolBarType": "Record",
+        "Items": [
+          {
+            "ItemType": "Button",
+            "Icon": "Back",
+            "Enabled": true,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "SaveAndBack",
+            "Enabled": false,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "Save",
+            "Enabled": false,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "Undo",
+            "Enabled": true,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "Insert",
+            "Enabled": true,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "Delete",
+            "Enabled": true,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "Copy",
+            "Enabled": true,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "First",
+            "Enabled": true,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "Previous",
+            "Enabled": true,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "Next",
+            "Enabled": true,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "Last",
+            "Enabled": true,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": null,
+            "Enabled": true,
+            "Style": "Special",
+            "Text": "Remove Hold"
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "Ellipsis",
+            "Enabled": true,
+            "Style": "Secondary",
+            "Text": null
+          }
+        ],
+        "ShowRightAction": false,
+        "ShowSaveButton": false
+      },
+      "height": 0,
+      "width": 0,
+      "componentProperties": {
+        "Type": "Record",
+        "Show Right Actions#6826:45": false
+      },
+      "properties": {},
+      "iconProperties": {},
+      "children": [
+        {
+          "childIndex": 0,
+          "tryToFind": true,
+          "createIfNotFound": false,
+          "acuElement": null,
+          "height": 0,
+          "width": 0,
+          "componentProperties": {},
+          "properties": {},
+          "iconProperties": {},
+          "children": [
+            {
+              "childIndex": 0,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Back"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Disabled",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "SaveAndBack"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 2,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Disabled",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Save"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 3,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Undo"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 4,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Insert"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 5,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Delete"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 6,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Copy"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 7,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "First"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 8,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Previous"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 9,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Next"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 10,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Last"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 11,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Special",
+                "State": "Default",
+                "Show Icon Left#3133:110": false,
+                "Show Label#3133:443": true,
+                "Value ▶#3133:332": "Remove Hold"
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 12,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Secondary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Ellipsis"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 13,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {},
+              "properties": {
+                "visible": false
+              },
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 14,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {},
+              "properties": {
+                "visible": false
+              },
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            }
+          ],
+          "componentNode": null,
+          "layoutMode": "VERTICAL",
+          "figmaObject": null,
+          "detach": false,
+          "name": "Buttons",
+          "type": "INSTANCE"
+        }
+      ],
+      "componentNode": null,
+      "layoutMode": "VERTICAL",
+      "figmaObject": null,
+      "detach": false,
+      "name": "Toolbar",
+      "type": "INSTANCE",
+      "toolBarTypes": {},
+      "filterBarMapping": {}
+    },
+    {
+      "childIndex": -1,
+      "tryToFind": false,
+      "createIfNotFound": false,
+      "acuElement": {
+        "Type": "Template",
+        "Id": "Root-1627",
+        "Name": "7-10-7",
+        "Children": [
+          {
+            "Label": null,
+            "Type": "FieldSet",
+            "Id": "Root-1627-1628",
+            "Children": [
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1628-1852",
+                "Label": "Subcontract Nbr.",
+                "Value": "SC-000036",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "Status",
+                "Id": "Root-1627-1628-1854",
+                "Label": "Status",
+                "Value": "On Hold",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "DateTimeEdit",
+                "Id": "Root-1627-1628-1860",
+                "Label": "Date",
+                "Value": "12/1/2022",
+                "Mandatory": true
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "DateTimeEdit",
+                "Id": "Root-1627-1628-1862",
+                "Label": "Start Date",
+                "Value": "12/1/2022",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "TextEditor",
+                "Id": "Root-1627-1628-1866",
+                "Label": "Vendor Ref.",
+                "Value": "",
+                "Mandatory": false
+              }
+            ],
+            "Style": "Gray"
+          },
+          {
+            "Label": null,
+            "Type": "FieldSet",
+            "Id": "Root-1627-1629",
+            "Children": [
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1868",
+                "Label": "Vendor",
+                "Value": "CBSITEWORK- CB Sitework, Inc.",
+                "Mandatory": true
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1870",
+                "Label": "Location",
+                "Value": "MAIN - Primary Location",
+                "Mandatory": true
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1872",
+                "Label": "Owner",
+                "Value": "Maxwell Baker",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1874",
+                "Label": "Project",
+                "Value": "CSTRCONCRT- Marriott Bonvoy Hotels Concrete Quote",
+                "Mandatory": true
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Currency",
+                "Id": "Root-1627-1629-1876",
+                "Label": "Currency",
+                "Value": "USD",
+                "Mandatory": true
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "MultilineTextEditor",
+                "Id": "Root-1627-1629-1878",
+                "Label": "Description",
+                "Value": "SITE WORK",
+                "Mandatory": false
+              }
+            ],
+            "Style": "Gray"
+          },
+          {
+            "Label": null,
+            "Type": "FieldSet",
+            "Id": "Root-1627-1630",
+            "Children": [
+              {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1880",
+                "Label": "Detail Total",
+                "Value": "170,000.00",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1886",
+                "Label": "Tax Total",
+                "Value": "0.00",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1888",
+                "Label": "Subcontract Total",
+                "Value": "170,000.00",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1892",
+                "Label": "Retainage Total",
+                "Value": "8,500.00",
+                "Mandatory": false
+              }
+            ],
+            "Style": "Blue"
+          }
+        ]
+      },
+      "height": 0,
+      "width": 1236,
+      "componentProperties": {},
+      "properties": {
+        "counterAxisSizingMode": "AUTO"
+      },
+      "iconProperties": {},
+      "children": [
+        {
+          "childIndex": -1,
+          "tryToFind": false,
+          "createIfNotFound": false,
+          "acuElement": {
+            "Label": null,
+            "Type": "FieldSet",
+            "Id": "Root-1627-1628",
+            "Children": [
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1628-1852",
+                "Label": "Subcontract Nbr.",
+                "Value": "SC-000036",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "Status",
+                "Id": "Root-1627-1628-1854",
+                "Label": "Status",
+                "Value": "On Hold",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "DateTimeEdit",
+                "Id": "Root-1627-1628-1860",
+                "Label": "Date",
+                "Value": "12/1/2022",
+                "Mandatory": true
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "DateTimeEdit",
+                "Id": "Root-1627-1628-1862",
+                "Label": "Start Date",
+                "Value": "12/1/2022",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "TextEditor",
+                "Id": "Root-1627-1628-1866",
+                "Label": "Vendor Ref.",
+                "Value": "",
+                "Mandatory": false
+              }
+            ],
+            "Style": "Gray"
+          },
+          "height": 0,
+          "width": 353.5,
+          "componentProperties": {
+            "Show Group Header#6619:0": false,
+            "Wrapping": "Gray",
+            "Show Row 1#5419:15": true,
+            "Show Row 2#5419:17": true,
+            "Show Row 3#5419:19": true,
+            "Show Row 4#5419:13": true,
+            "Show Row 5#5419:11": true,
+            "Show Row 6#5419:9": false,
+            "Show Row 7#5419:8": false,
+            "Show Row 8#5419:7": false,
+            "Show Row 9#5419:5": false,
+            "Show Row 10#5419:12": false,
+            "Show Row 11#5419:10": false,
+            "Show Row 12#5419:3": false,
+            "Show Row 13#5419:2": false,
+            "Show Row 14#5419:6": false,
+            "Show Row 15#5419:4": false,
+            "Show Row 16#5419:16": false,
+            "Show Row 17#5419:18": false,
+            "Show Row 18#5419:1": false,
+            "Show Row 19#5419:0": false,
+            "Show Row 20#5419:14": false
+          },
+          "properties": {},
+          "iconProperties": {},
+          "children": [
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1628-1852",
+                "Label": "Subcontract Nbr.",
+                "Value": "SC-000036",
+                "Mandatory": false
+              },
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Label + Field"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Subcontract Nbr."
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Label",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Text Value ▶#3161:0": "SC-000036",
+                    "State": "Default"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Field",
+                  "type": "INSTANCE"
+                }
+              ],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Row 1",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "Status",
+                "Id": "Root-1627-1628-1854",
+                "Label": "Status",
+                "Value": "On Hold",
+                "Mandatory": false
+              },
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Label + Field"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Status"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Label",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Type": "Status",
+                    "State": "Disabled"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Field",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Status": "On Hold"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Status",
+                  "type": "INSTANCE"
+                }
+              ],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Row 2",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "DateTimeEdit",
+                "Id": "Root-1627-1628-1860",
+                "Label": "Date",
+                "Value": "12/1/2022",
+                "Mandatory": true
+              },
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Date"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Date"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Label",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Text Value ▶#3161:0": "12/1/2022",
+                    "State": "Disabled"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Field",
+                  "type": "INSTANCE"
+                }
+              ],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Row 3",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "DateTimeEdit",
+                "Id": "Root-1627-1628-1862",
+                "Label": "Start Date",
+                "Value": "12/1/2022",
+                "Mandatory": false
+              },
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Date"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Start Date"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Label",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Text Value ▶#3161:0": "12/1/2022",
+                    "State": "Default"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Field",
+                  "type": "INSTANCE"
+                }
+              ],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Row 4",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "TextEditor",
+                "Id": "Root-1627-1628-1866",
+                "Label": "Vendor Ref.",
+                "Value": "",
+                "Mandatory": false
+              },
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Label + Field"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Vendor Ref."
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Label",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Text Value ▶#3161:0": "",
+                    "Show Icon#3160:30": false,
+                    "State": "Default"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Field",
+                  "type": "INSTANCE"
+                }
+              ],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Row 5",
+              "type": "INSTANCE"
+            }
+          ],
+          "layoutMode": "VERTICAL",
+          "figmaObject": null,
+          "detach": false,
+          "name": "FieldSet",
+          "type": "INSTANCE"
+        },
+        {
+          "childIndex": -1,
+          "tryToFind": false,
+          "createIfNotFound": false,
+          "acuElement": {
+            "Label": null,
+            "Type": "FieldSet",
+            "Id": "Root-1627-1629",
+            "Children": [
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1868",
+                "Label": "Vendor",
+                "Value": "CBSITEWORK- CB Sitework, Inc.",
+                "Mandatory": true
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1870",
+                "Label": "Location",
+                "Value": "MAIN - Primary Location",
+                "Mandatory": true
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1872",
+                "Label": "Owner",
+                "Value": "Maxwell Baker",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1874",
+                "Label": "Project",
+                "Value": "CSTRCONCRT- Marriott Bonvoy Hotels Concrete Quote",
+                "Mandatory": true
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Currency",
+                "Id": "Root-1627-1629-1876",
+                "Label": "Currency",
+                "Value": "USD",
+                "Mandatory": true
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "MultilineTextEditor",
+                "Id": "Root-1627-1629-1878",
+                "Label": "Description",
+                "Value": "SITE WORK",
+                "Mandatory": false
+              }
+            ],
+            "Style": "Gray"
+          },
+          "height": 0,
+          "width": 505,
+          "componentProperties": {
+            "Show Group Header#6619:0": false,
+            "Wrapping": "Gray",
+            "Show Row 1#5419:15": true,
+            "Show Row 2#5419:17": true,
+            "Show Row 3#5419:19": true,
+            "Show Row 4#5419:13": true,
+            "Show Row 5#5419:11": true,
+            "Show Row 6#5419:9": true,
+            "Show Row 7#5419:8": false,
+            "Show Row 8#5419:7": false,
+            "Show Row 9#5419:5": false,
+            "Show Row 10#5419:12": false,
+            "Show Row 11#5419:10": false,
+            "Show Row 12#5419:3": false,
+            "Show Row 13#5419:2": false,
+            "Show Row 14#5419:6": false,
+            "Show Row 15#5419:4": false,
+            "Show Row 16#5419:16": false,
+            "Show Row 17#5419:18": false,
+            "Show Row 18#5419:1": false,
+            "Show Row 19#5419:0": false,
+            "Show Row 20#5419:14": false
+          },
+          "properties": {},
+          "iconProperties": {},
+          "children": [
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1868",
+                "Label": "Vendor",
+                "Value": "CBSITEWORK- CB Sitework, Inc.",
+                "Mandatory": true
+              },
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Label + Field"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Vendor",
+                    "Mandatory#3141:16": true
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Label",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Text Value ▶#3161:0": "CBSITEWORK- CB Sitework, Inc.",
+                    "State": "Default"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Field",
+                  "type": "INSTANCE"
+                }
+              ],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Row 1",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1870",
+                "Label": "Location",
+                "Value": "MAIN - Primary Location",
+                "Mandatory": true
+              },
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Label + Field"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Location",
+                    "Mandatory#3141:16": true
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Label",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Text Value ▶#3161:0": "MAIN - Primary Location",
+                    "State": "Default"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Field",
+                  "type": "INSTANCE"
+                }
+              ],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Row 2",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1872",
+                "Label": "Owner",
+                "Value": "Maxwell Baker",
+                "Mandatory": false
+              },
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Label + Field"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Owner"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Label",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Text Value ▶#3161:0": "Maxwell Baker",
+                    "State": "Default"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Field",
+                  "type": "INSTANCE"
+                }
+              ],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Row 3",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1629-1874",
+                "Label": "Project",
+                "Value": "CSTRCONCRT- Marriott Bonvoy Hotels Concrete Quote",
+                "Mandatory": true
+              },
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Label + Field"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Project",
+                    "Mandatory#3141:16": true
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Label",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Text Value ▶#3161:0": "CSTRCONCRT- Marriott Bonvoy Hotels Concrete Quote",
+                    "State": "Default"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Field",
+                  "type": "INSTANCE"
+                }
+              ],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Row 4",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Currency",
+                "Id": "Root-1627-1629-1876",
+                "Label": "Currency",
+                "Value": "USD",
+                "Mandatory": true
+              },
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Currency"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Currency",
+                    "Mandatory#3141:16": true
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Label",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Text Value ▶#3161:0": "USD",
+                    "State": "Default"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Field",
+                  "type": "INSTANCE"
+                }
+              ],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Row 5",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "MultilineTextEditor",
+                "Id": "Root-1627-1629-1878",
+                "Label": "Description",
+                "Value": "SITE WORK",
+                "Mandatory": false
+              },
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Label + Text Area"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Description"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Label",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Text Value ▶#4221:3": "SITE WORK",
+                    "State": "Normal"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Text Area",
+                  "type": "INSTANCE"
+                }
+              ],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Row 6",
+              "type": "INSTANCE"
+            }
+          ],
+          "layoutMode": "VERTICAL",
+          "figmaObject": null,
+          "detach": false,
+          "name": "FieldSet",
+          "type": "INSTANCE"
+        },
+        {
+          "childIndex": -1,
+          "tryToFind": false,
+          "createIfNotFound": false,
+          "acuElement": {
+            "Label": null,
+            "Type": "FieldSet",
+            "Id": "Root-1627-1630",
+            "Children": [
+              {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1880",
+                "Label": "Detail Total",
+                "Value": "170,000.00",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1886",
+                "Label": "Tax Total",
+                "Value": "0.00",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1888",
+                "Label": "Subcontract Total",
+                "Value": "170,000.00",
+                "Mandatory": false
+              },
+              {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1892",
+                "Label": "Retainage Total",
+                "Value": "8,500.00",
+                "Mandatory": false
+              }
+            ],
+            "Style": "Blue"
+          },
+          "height": 0,
+          "width": 353.5,
+          "componentProperties": {
+            "Show Group Header#6619:0": false,
+            "Wrapping": "Blue",
+            "Show Row 1#5419:15": true,
+            "Show Row 2#5419:17": true,
+            "Show Row 3#5419:19": true,
+            "Show Row 4#5419:13": true,
+            "Show Row 5#5419:11": false,
+            "Show Row 6#5419:9": false,
+            "Show Row 7#5419:8": false,
+            "Show Row 8#5419:7": false,
+            "Show Row 9#5419:5": false,
+            "Show Row 10#5419:12": false,
+            "Show Row 11#5419:10": false,
+            "Show Row 12#5419:3": false,
+            "Show Row 13#5419:2": false,
+            "Show Row 14#5419:6": false,
+            "Show Row 15#5419:4": false,
+            "Show Row 16#5419:16": false,
+            "Show Row 17#5419:18": false,
+            "Show Row 18#5419:1": false,
+            "Show Row 19#5419:0": false,
+            "Show Row 20#5419:14": false
+          },
+          "properties": {},
+          "iconProperties": {},
+          "children": [
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1880",
+                "Label": "Detail Total",
+                "Value": "170,000.00",
+                "Mandatory": false
+              },
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Label + Number Field"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Detail Total"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Label",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Text Value ▶#3161:0": "170,000.00",
+                    "State": "Disabled"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Field",
+                  "type": "INSTANCE"
+                }
+              ],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Row 1",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1886",
+                "Label": "Tax Total",
+                "Value": "0.00",
+                "Mandatory": false
+              },
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Label + Number Field"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Tax Total"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Label",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Text Value ▶#3161:0": "0.00",
+                    "State": "Disabled"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Field",
+                  "type": "INSTANCE"
+                }
+              ],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Row 2",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1888",
+                "Label": "Subcontract Total",
+                "Value": "170,000.00",
+                "Mandatory": false
+              },
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Label + Number Field"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Subcontract Total"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Label",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Text Value ▶#3161:0": "170,000.00",
+                    "State": "Disabled"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Field",
+                  "type": "INSTANCE"
+                }
+              ],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Row 3",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Field",
+                "ReadOnly": true,
+                "ElementType": "NumberEditor",
+                "Id": "Root-1627-1630-1892",
+                "Label": "Retainage Total",
+                "Value": "8,500.00",
+                "Mandatory": false
+              },
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Label + Number Field"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Retainage Total"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Label",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Text Value ▶#3161:0": "8,500.00",
+                    "State": "Disabled"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Field",
+                  "type": "INSTANCE"
+                }
+              ],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Row 4",
+              "type": "INSTANCE"
+            }
+          ],
+          "layoutMode": "VERTICAL",
+          "figmaObject": null,
+          "detach": false,
+          "name": "FieldSet",
+          "type": "INSTANCE"
+        }
+      ],
+      "componentNode": null,
+      "layoutMode": "HORIZONTAL",
+      "figmaObject": null,
+      "detach": false,
+      "name": "Template",
+      "type": "FRAME"
+    },
+    {
+      "childIndex": -1,
+      "tryToFind": false,
+      "createIfNotFound": false,
+      "acuElement": {
+        "Type": "Tabbar",
+        "Id": "Root-396",
+        "Tabs": [
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Details",
+            "IsActive": false
+          },
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Taxes",
+            "IsActive": true
+          },
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Addresses",
+            "IsActive": false
+          },
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Discounts",
+            "IsActive": false
+          },
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Billing",
+            "IsActive": false
+          },
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Prepayments",
+            "IsActive": false
+          },
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Change Orders",
+            "IsActive": false
+          },
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Financial",
+            "IsActive": false
+          },
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Attributes",
+            "IsActive": false
+          },
+          {
+            "Type": "Tab",
+            "Id": "Root-396",
+            "Label": "Compliance",
+            "IsActive": false
+          }
+        ],
+        "Children": [
+          {
+            "Type": "Template",
+            "Id": "Root-396-1635",
+            "Name": "17-7",
+            "Children": [
+              {
+                "Type": "Grid",
+                "Id": "Root-396-1635-1636",
+                "Caption": null,
+                "ToolBar": {
+                  "Type": "ToolBar",
+                  "Id": "Root-396-1635-1636-1313",
+                  "ToolBarType": "List",
+                  "Items": [
+                    {
+                      "ItemType": "Button",
+                      "Icon": "Refresh",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "AddRow",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "DeleteRow",
+                      "Enabled": false,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "AdjustColumns",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "ExportToExcel",
+                      "Enabled": false,
+                      "Style": "Tertiary",
+                      "Text": null
+                    }
+                  ],
+                  "ShowRightAction": true,
+                  "ShowSaveButton": false
+                },
+                "Columns": [
+                  {
+                    "Type": "GridColumn",
+                    "Label": "",
+                    "ColumnType": "Settings",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Tax ID",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Tax Rate",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Taxable Amount",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Tax Amount",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Retained Taxable",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Retained Tax",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  }
+                ],
+                "Footer": null,
+                "Wrapped": true
+              },
+              {
+                "Type": "FieldsetSlot",
+                "Id": "Root-396-1635-1637",
+                "Children": [
+                  {
+                    "Label": "Tax Info",
+                    "Type": "FieldSet",
+                    "Id": "Root-396-1635-1637-1638",
+                    "Children": [
+                      {
+                        "Type": "Field",
+                        "ReadOnly": false,
+                        "ElementType": "Selector",
+                        "Id": "Root-396-1635-1637-1638-1799",
+                        "Label": "Vendor Tax Zone",
+                        "Value": "",
+                        "Mandatory": false
+                      }
+                    ],
+                    "Style": "Gray"
+                  },
+                  {
+                    "Label": "Tax Totals",
+                    "Type": "FieldSet",
+                    "Id": "Root-396-1635-1637-1639",
+                    "Children": [
+                      {
+                        "Type": "Field",
+                        "ReadOnly": true,
+                        "ElementType": "NumberEditor",
+                        "Id": "Root-396-1635-1637-1639-1793",
+                        "Label": "Tax Exempt Total",
+                        "Value": "0.00",
+                        "Mandatory": false
+                      },
+                      {
+                        "Type": "Field",
+                        "ReadOnly": true,
+                        "ElementType": "NumberEditor",
+                        "Id": "Root-396-1635-1637-1639-1795",
+                        "Label": "Taxable Total",
+                        "Value": "0.00",
+                        "Mandatory": false
+                      },
+                      {
+                        "Type": "Field",
+                        "ReadOnly": true,
+                        "ElementType": "NumberEditor",
+                        "Id": "Root-396-1635-1637-1639-1797",
+                        "Label": "Tax Total",
+                        "Value": "0.00",
+                        "Mandatory": false
+                      }
+                    ],
+                    "Style": "Blue"
+                  }
+                ],
+                "ID": "B"
+              }
+            ]
+          }
+        ]
+      },
+      "height": 0,
+      "width": 1236,
+      "componentProperties": {},
+      "properties": {},
+      "iconProperties": {},
+      "children": [
+        {
+          "childIndex": -1,
+          "tryToFind": false,
+          "createIfNotFound": false,
+          "acuElement": null,
+          "height": 0,
+          "width": 0,
+          "componentProperties": {
+            "1 tab#6936:0": true,
+            "2 tab#6936:1": true,
+            "3 tab#6936:2": true,
+            "4 tab#6936:3": true,
+            "5 tab#6936:4": true,
+            "6 tab#6936:5": true,
+            "7 tab#6936:6": true,
+            "8 tab#6936:7": true,
+            "9 tab#6936:8": true,
+            "10 tab#6936:9": true,
+            "11 tab#6936:10": false,
+            "12 tab#6936:11": false,
+            "13 tab#6936:12": false
+          },
+          "properties": {},
+          "iconProperties": {},
+          "children": [
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "State": "Normal",
+                "Value ▶#3265:0": "Details",
+                "Selected": "False"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Tab 1",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "State": "Normal",
+                "Value ▶#3265:0": "Taxes",
+                "Selected": "True"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Tab 2",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "State": "Normal",
+                "Value ▶#3265:0": "Addresses",
+                "Selected": "False"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Tab 3",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "State": "Normal",
+                "Value ▶#3265:0": "Discounts",
+                "Selected": "False"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Tab 4",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "State": "Normal",
+                "Value ▶#3265:0": "Billing",
+                "Selected": "False"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Tab 5",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "State": "Normal",
+                "Value ▶#3265:0": "Prepayments",
+                "Selected": "False"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Tab 6",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "State": "Normal",
+                "Value ▶#3265:0": "Change Orders",
+                "Selected": "False"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Tab 7",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "State": "Normal",
+                "Value ▶#3265:0": "Financial",
+                "Selected": "False"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Tab 8",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "State": "Normal",
+                "Value ▶#3265:0": "Attributes",
+                "Selected": "False"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Tab 9",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "State": "Normal",
+                "Value ▶#3265:0": "Compliance",
+                "Selected": "False"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Tab 10",
+              "type": "INSTANCE"
+            }
+          ],
+          "layoutMode": "VERTICAL",
+          "figmaObject": null,
+          "detach": false,
+          "name": "Tabs",
+          "type": "INSTANCE"
+        },
+        {
+          "childIndex": -1,
+          "tryToFind": false,
+          "createIfNotFound": false,
+          "acuElement": {
+            "Type": "Template",
+            "Id": "Root-396-1635",
+            "Name": "17-7",
+            "Children": [
+              {
+                "Type": "Grid",
+                "Id": "Root-396-1635-1636",
+                "Caption": null,
+                "ToolBar": {
+                  "Type": "ToolBar",
+                  "Id": "Root-396-1635-1636-1313",
+                  "ToolBarType": "List",
+                  "Items": [
+                    {
+                      "ItemType": "Button",
+                      "Icon": "Refresh",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "AddRow",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "DeleteRow",
+                      "Enabled": false,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "AdjustColumns",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "ExportToExcel",
+                      "Enabled": false,
+                      "Style": "Tertiary",
+                      "Text": null
+                    }
+                  ],
+                  "ShowRightAction": true,
+                  "ShowSaveButton": false
+                },
+                "Columns": [
+                  {
+                    "Type": "GridColumn",
+                    "Label": "",
+                    "ColumnType": "Settings",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Tax ID",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Tax Rate",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Taxable Amount",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Tax Amount",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Retained Taxable",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Retained Tax",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  }
+                ],
+                "Footer": null,
+                "Wrapped": true
+              },
+              {
+                "Type": "FieldsetSlot",
+                "Id": "Root-396-1635-1637",
+                "Children": [
+                  {
+                    "Label": "Tax Info",
+                    "Type": "FieldSet",
+                    "Id": "Root-396-1635-1637-1638",
+                    "Children": [
+                      {
+                        "Type": "Field",
+                        "ReadOnly": false,
+                        "ElementType": "Selector",
+                        "Id": "Root-396-1635-1637-1638-1799",
+                        "Label": "Vendor Tax Zone",
+                        "Value": "",
+                        "Mandatory": false
+                      }
+                    ],
+                    "Style": "Gray"
+                  },
+                  {
+                    "Label": "Tax Totals",
+                    "Type": "FieldSet",
+                    "Id": "Root-396-1635-1637-1639",
+                    "Children": [
+                      {
+                        "Type": "Field",
+                        "ReadOnly": true,
+                        "ElementType": "NumberEditor",
+                        "Id": "Root-396-1635-1637-1639-1793",
+                        "Label": "Tax Exempt Total",
+                        "Value": "0.00",
+                        "Mandatory": false
+                      },
+                      {
+                        "Type": "Field",
+                        "ReadOnly": true,
+                        "ElementType": "NumberEditor",
+                        "Id": "Root-396-1635-1637-1639-1795",
+                        "Label": "Taxable Total",
+                        "Value": "0.00",
+                        "Mandatory": false
+                      },
+                      {
+                        "Type": "Field",
+                        "ReadOnly": true,
+                        "ElementType": "NumberEditor",
+                        "Id": "Root-396-1635-1637-1639-1797",
+                        "Label": "Tax Total",
+                        "Value": "0.00",
+                        "Mandatory": false
+                      }
+                    ],
+                    "Style": "Blue"
+                  }
+                ],
+                "ID": "B"
+              }
+            ]
+          },
+          "height": 0,
+          "width": 1236,
+          "componentProperties": {},
+          "properties": {
+            "counterAxisSizingMode": "AUTO"
+          },
+          "iconProperties": {},
+          "children": [
+            {
+              "childIndex": -1,
+              "tryToFind": false,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Grid",
+                "Id": "Root-396-1635-1636",
+                "Caption": null,
+                "ToolBar": {
+                  "Type": "ToolBar",
+                  "Id": "Root-396-1635-1636-1313",
+                  "ToolBarType": "List",
+                  "Items": [
+                    {
+                      "ItemType": "Button",
+                      "Icon": "Refresh",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "AddRow",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "DeleteRow",
+                      "Enabled": false,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "AdjustColumns",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "ExportToExcel",
+                      "Enabled": false,
+                      "Style": "Tertiary",
+                      "Text": null
+                    }
+                  ],
+                  "ShowRightAction": true,
+                  "ShowSaveButton": false
+                },
+                "Columns": [
+                  {
+                    "Type": "GridColumn",
+                    "Label": "",
+                    "ColumnType": "Settings",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Tax ID",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Tax Rate",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Taxable Amount",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Tax Amount",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Retained Taxable",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Retained Tax",
+                    "ColumnType": "Text",
+                    "Cells": [],
+                    "Alignment": "Left"
+                  }
+                ],
+                "Footer": null,
+                "Wrapped": true
+              },
+              "height": 250,
+              "width": 867,
+              "componentProperties": {
+                "Wrapped": "Yes",
+                "👁 Header#6826:0": true
+              },
+              "properties": {
+                "layoutAlign": "STRETCH"
+              },
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": {
+                    "Type": "ToolBar",
+                    "Id": "Root-396-1635-1636-1313",
+                    "ToolBarType": "List",
+                    "Items": [
+                      {
+                        "ItemType": "Button",
+                        "Icon": "Refresh",
+                        "Enabled": true,
+                        "Style": "Tertiary",
+                        "Text": null
+                      },
+                      {
+                        "ItemType": "Button",
+                        "Icon": "AddRow",
+                        "Enabled": true,
+                        "Style": "Tertiary",
+                        "Text": null
+                      },
+                      {
+                        "ItemType": "Button",
+                        "Icon": "DeleteRow",
+                        "Enabled": false,
+                        "Style": "Tertiary",
+                        "Text": null
+                      },
+                      {
+                        "ItemType": "Button",
+                        "Icon": "AdjustColumns",
+                        "Enabled": true,
+                        "Style": "Tertiary",
+                        "Text": null
+                      },
+                      {
+                        "ItemType": "Button",
+                        "Icon": "ExportToExcel",
+                        "Enabled": false,
+                        "Style": "Tertiary",
+                        "Text": null
+                      }
+                    ],
+                    "ShowRightAction": true,
+                    "ShowSaveButton": false
+                  },
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Type": "List",
+                    "Show Right Actions#6826:45": true
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [
+                    {
+                      "childIndex": 0,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {},
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [
+                        {
+                          "childIndex": 0,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Type": "Tertiary",
+                            "State": "Default",
+                            "Show Icon Left#3133:110": true,
+                            "Show Label#3133:443": false
+                          },
+                          "properties": {
+                            "visible": true
+                          },
+                          "iconProperties": {
+                            "Icon Left#3131:0": "Refresh"
+                          },
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 1,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Type": "Tertiary",
+                            "State": "Default",
+                            "Show Icon Left#3133:110": true,
+                            "Show Label#3133:443": false
+                          },
+                          "properties": {
+                            "visible": true
+                          },
+                          "iconProperties": {
+                            "Icon Left#3131:0": "AddRow"
+                          },
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 2,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Type": "Tertiary",
+                            "State": "Disabled",
+                            "Show Icon Left#3133:110": true,
+                            "Show Label#3133:443": false
+                          },
+                          "properties": {
+                            "visible": true
+                          },
+                          "iconProperties": {
+                            "Icon Left#3131:0": "DeleteRow"
+                          },
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 3,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Type": "Tertiary",
+                            "State": "Default",
+                            "Show Icon Left#3133:110": true,
+                            "Show Label#3133:443": false
+                          },
+                          "properties": {
+                            "visible": true
+                          },
+                          "iconProperties": {
+                            "Icon Left#3131:0": "AdjustColumns"
+                          },
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 4,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Type": "Tertiary",
+                            "State": "Disabled",
+                            "Show Icon Left#3133:110": true,
+                            "Show Label#3133:443": false
+                          },
+                          "properties": {
+                            "visible": true
+                          },
+                          "iconProperties": {
+                            "Icon Left#3131:0": "ExportToExcel"
+                          },
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 5,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {},
+                          "properties": {
+                            "visible": false
+                          },
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 6,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {},
+                          "properties": {
+                            "visible": false
+                          },
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 7,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {},
+                          "properties": {
+                            "visible": false
+                          },
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 8,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {},
+                          "properties": {
+                            "visible": false
+                          },
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 9,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {},
+                          "properties": {
+                            "visible": false
+                          },
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 10,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {},
+                          "properties": {
+                            "visible": false
+                          },
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        }
+                      ],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Buttons",
+                      "type": "INSTANCE"
+                    }
+                  ],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Toolbar",
+                  "type": "INSTANCE",
+                  "toolBarTypes": {},
+                  "filterBarMapping": {}
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Type": "Text",
+                    "Alignment": "Left"
+                  },
+                  "properties": {
+                    "visible": true,
+                    "counterAxisSizingMode": "AUTO",
+                    "layoutGrow": 1
+                  },
+                  "iconProperties": {},
+                  "children": [
+                    {
+                      "childIndex": 1,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 1",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 2,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 2",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 3,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 3",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 4,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 4",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 5,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 5",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 0,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Value#6706:49": "Tax ID"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Column Header",
+                      "type": "INSTANCE"
+                    }
+                  ],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Grid Column 2",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Type": "Text",
+                    "Alignment": "Left"
+                  },
+                  "properties": {
+                    "visible": true,
+                    "counterAxisSizingMode": "AUTO",
+                    "layoutGrow": 1
+                  },
+                  "iconProperties": {},
+                  "children": [
+                    {
+                      "childIndex": 1,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 1",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 2,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 2",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 3,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 3",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 4,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 4",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 5,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 5",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 0,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Value#6706:49": "Tax Rate"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Column Header",
+                      "type": "INSTANCE"
+                    }
+                  ],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Grid Column 3",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Type": "Text",
+                    "Alignment": "Left"
+                  },
+                  "properties": {
+                    "visible": true,
+                    "counterAxisSizingMode": "AUTO",
+                    "layoutGrow": 1
+                  },
+                  "iconProperties": {},
+                  "children": [
+                    {
+                      "childIndex": 1,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 1",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 2,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 2",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 3,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 3",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 4,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 4",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 5,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 5",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 0,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Value#6706:49": "Taxable Amount"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Column Header",
+                      "type": "INSTANCE"
+                    }
+                  ],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Grid Column 4",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Type": "Text",
+                    "Alignment": "Left"
+                  },
+                  "properties": {
+                    "visible": true,
+                    "counterAxisSizingMode": "AUTO",
+                    "layoutGrow": 1
+                  },
+                  "iconProperties": {},
+                  "children": [
+                    {
+                      "childIndex": 1,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 1",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 2,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 2",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 3,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 3",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 4,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 4",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 5,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 5",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 0,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Value#6706:49": "Tax Amount"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Column Header",
+                      "type": "INSTANCE"
+                    }
+                  ],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Grid Column 5",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Type": "Text",
+                    "Alignment": "Left"
+                  },
+                  "properties": {
+                    "visible": true,
+                    "counterAxisSizingMode": "AUTO",
+                    "layoutGrow": 1
+                  },
+                  "iconProperties": {},
+                  "children": [
+                    {
+                      "childIndex": 1,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 1",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 2,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 2",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 3,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 3",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 4,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 4",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 5,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 5",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 0,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Value#6706:49": "Retained Taxable"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Column Header",
+                      "type": "INSTANCE"
+                    }
+                  ],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Grid Column 6",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Type": "Text",
+                    "Alignment": "Left"
+                  },
+                  "properties": {
+                    "visible": true,
+                    "counterAxisSizingMode": "AUTO",
+                    "layoutGrow": 1
+                  },
+                  "iconProperties": {},
+                  "children": [
+                    {
+                      "childIndex": 1,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 1",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 2,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 2",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 3,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 3",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 4,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 4",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 5,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 5",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 0,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Value#6706:49": "Retained Tax"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Column Header",
+                      "type": "INSTANCE"
+                    }
+                  ],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Grid Column 7",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {},
+                  "properties": {
+                    "visible": false
+                  },
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Grid Column 8",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {},
+                  "properties": {
+                    "visible": false
+                  },
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Grid Column 9",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {},
+                  "properties": {
+                    "visible": false
+                  },
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Grid Column 10",
+                  "type": "INSTANCE"
+                }
+              ],
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Grid",
+              "type": "INSTANCE",
+              "columnTypes": {}
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": false,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "FieldsetSlot",
+                "Id": "Root-396-1635-1637",
+                "Children": [
+                  {
+                    "Label": "Tax Info",
+                    "Type": "FieldSet",
+                    "Id": "Root-396-1635-1637-1638",
+                    "Children": [
+                      {
+                        "Type": "Field",
+                        "ReadOnly": false,
+                        "ElementType": "Selector",
+                        "Id": "Root-396-1635-1637-1638-1799",
+                        "Label": "Vendor Tax Zone",
+                        "Value": "",
+                        "Mandatory": false
+                      }
+                    ],
+                    "Style": "Gray"
+                  },
+                  {
+                    "Label": "Tax Totals",
+                    "Type": "FieldSet",
+                    "Id": "Root-396-1635-1637-1639",
+                    "Children": [
+                      {
+                        "Type": "Field",
+                        "ReadOnly": true,
+                        "ElementType": "NumberEditor",
+                        "Id": "Root-396-1635-1637-1639-1793",
+                        "Label": "Tax Exempt Total",
+                        "Value": "0.00",
+                        "Mandatory": false
+                      },
+                      {
+                        "Type": "Field",
+                        "ReadOnly": true,
+                        "ElementType": "NumberEditor",
+                        "Id": "Root-396-1635-1637-1639-1795",
+                        "Label": "Taxable Total",
+                        "Value": "0.00",
+                        "Mandatory": false
+                      },
+                      {
+                        "Type": "Field",
+                        "ReadOnly": true,
+                        "ElementType": "NumberEditor",
+                        "Id": "Root-396-1635-1637-1639-1797",
+                        "Label": "Tax Total",
+                        "Value": "0.00",
+                        "Mandatory": false
+                      }
+                    ],
+                    "Style": "Blue"
+                  }
+                ],
+                "ID": "B"
+              },
+              "height": 0,
+              "width": 357,
+              "componentProperties": {},
+              "properties": {},
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": false,
+                  "createIfNotFound": false,
+                  "acuElement": {
+                    "Label": "Tax Info",
+                    "Type": "FieldSet",
+                    "Id": "Root-396-1635-1637-1638",
+                    "Children": [
+                      {
+                        "Type": "Field",
+                        "ReadOnly": false,
+                        "ElementType": "Selector",
+                        "Id": "Root-396-1635-1637-1638-1799",
+                        "Label": "Vendor Tax Zone",
+                        "Value": "",
+                        "Mandatory": false
+                      }
+                    ],
+                    "Style": "Gray"
+                  },
+                  "height": 0,
+                  "width": 357,
+                  "componentProperties": {
+                    "Show Group Header#6619:0": true,
+                    "Wrapping": "Gray",
+                    "Show Row 1#5419:15": true,
+                    "Show Row 2#5419:17": false,
+                    "Show Row 3#5419:19": false,
+                    "Show Row 4#5419:13": false,
+                    "Show Row 5#5419:11": false,
+                    "Show Row 6#5419:9": false,
+                    "Show Row 7#5419:8": false,
+                    "Show Row 8#5419:7": false,
+                    "Show Row 9#5419:5": false,
+                    "Show Row 10#5419:12": false,
+                    "Show Row 11#5419:10": false,
+                    "Show Row 12#5419:3": false,
+                    "Show Row 13#5419:2": false,
+                    "Show Row 14#5419:6": false,
+                    "Show Row 15#5419:4": false,
+                    "Show Row 16#5419:16": false,
+                    "Show Row 17#5419:18": false,
+                    "Show Row 18#5419:1": false,
+                    "Show Row 19#5419:0": false,
+                    "Show Row 20#5419:14": false
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [
+                    {
+                      "childIndex": -1,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Text Value ▶#4494:3": "Tax Info"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Group Header",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": -1,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": {
+                        "Type": "Field",
+                        "ReadOnly": false,
+                        "ElementType": "Selector",
+                        "Id": "Root-396-1635-1637-1638-1799",
+                        "Label": "Vendor Tax Zone",
+                        "Value": "",
+                        "Mandatory": false
+                      },
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Type": "Label + Field"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [
+                        {
+                          "childIndex": -1,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Label Value ▶#3141:62": "Vendor Tax Zone"
+                          },
+                          "properties": {},
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Label",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": -1,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Text Value ▶#3161:0": "",
+                            "State": "Default"
+                          },
+                          "properties": {},
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Field",
+                          "type": "INSTANCE"
+                        }
+                      ],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Row 1",
+                      "type": "INSTANCE"
+                    }
+                  ],
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "FieldSet",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": false,
+                  "createIfNotFound": false,
+                  "acuElement": {
+                    "Label": "Tax Totals",
+                    "Type": "FieldSet",
+                    "Id": "Root-396-1635-1637-1639",
+                    "Children": [
+                      {
+                        "Type": "Field",
+                        "ReadOnly": true,
+                        "ElementType": "NumberEditor",
+                        "Id": "Root-396-1635-1637-1639-1793",
+                        "Label": "Tax Exempt Total",
+                        "Value": "0.00",
+                        "Mandatory": false
+                      },
+                      {
+                        "Type": "Field",
+                        "ReadOnly": true,
+                        "ElementType": "NumberEditor",
+                        "Id": "Root-396-1635-1637-1639-1795",
+                        "Label": "Taxable Total",
+                        "Value": "0.00",
+                        "Mandatory": false
+                      },
+                      {
+                        "Type": "Field",
+                        "ReadOnly": true,
+                        "ElementType": "NumberEditor",
+                        "Id": "Root-396-1635-1637-1639-1797",
+                        "Label": "Tax Total",
+                        "Value": "0.00",
+                        "Mandatory": false
+                      }
+                    ],
+                    "Style": "Blue"
+                  },
+                  "height": 0,
+                  "width": 357,
+                  "componentProperties": {
+                    "Show Group Header#6619:0": true,
+                    "Wrapping": "Blue",
+                    "Show Row 1#5419:15": true,
+                    "Show Row 2#5419:17": true,
+                    "Show Row 3#5419:19": true,
+                    "Show Row 4#5419:13": false,
+                    "Show Row 5#5419:11": false,
+                    "Show Row 6#5419:9": false,
+                    "Show Row 7#5419:8": false,
+                    "Show Row 8#5419:7": false,
+                    "Show Row 9#5419:5": false,
+                    "Show Row 10#5419:12": false,
+                    "Show Row 11#5419:10": false,
+                    "Show Row 12#5419:3": false,
+                    "Show Row 13#5419:2": false,
+                    "Show Row 14#5419:6": false,
+                    "Show Row 15#5419:4": false,
+                    "Show Row 16#5419:16": false,
+                    "Show Row 17#5419:18": false,
+                    "Show Row 18#5419:1": false,
+                    "Show Row 19#5419:0": false,
+                    "Show Row 20#5419:14": false
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [
+                    {
+                      "childIndex": -1,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Text Value ▶#4494:3": "Tax Totals"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Group Header",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": -1,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": {
+                        "Type": "Field",
+                        "ReadOnly": true,
+                        "ElementType": "NumberEditor",
+                        "Id": "Root-396-1635-1637-1639-1793",
+                        "Label": "Tax Exempt Total",
+                        "Value": "0.00",
+                        "Mandatory": false
+                      },
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Type": "Label + Number Field"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [
+                        {
+                          "childIndex": -1,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Label Value ▶#3141:62": "Tax Exempt Total"
+                          },
+                          "properties": {},
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Label",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": -1,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Text Value ▶#3161:0": "0.00",
+                            "State": "Disabled"
+                          },
+                          "properties": {},
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Field",
+                          "type": "INSTANCE"
+                        }
+                      ],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Row 1",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": -1,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": {
+                        "Type": "Field",
+                        "ReadOnly": true,
+                        "ElementType": "NumberEditor",
+                        "Id": "Root-396-1635-1637-1639-1795",
+                        "Label": "Taxable Total",
+                        "Value": "0.00",
+                        "Mandatory": false
+                      },
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Type": "Label + Number Field"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [
+                        {
+                          "childIndex": -1,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Label Value ▶#3141:62": "Taxable Total"
+                          },
+                          "properties": {},
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Label",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": -1,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Text Value ▶#3161:0": "0.00",
+                            "State": "Disabled"
+                          },
+                          "properties": {},
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Field",
+                          "type": "INSTANCE"
+                        }
+                      ],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Row 2",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": -1,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": {
+                        "Type": "Field",
+                        "ReadOnly": true,
+                        "ElementType": "NumberEditor",
+                        "Id": "Root-396-1635-1637-1639-1797",
+                        "Label": "Tax Total",
+                        "Value": "0.00",
+                        "Mandatory": false
+                      },
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Type": "Label + Number Field"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [
+                        {
+                          "childIndex": -1,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Label Value ▶#3141:62": "Tax Total"
+                          },
+                          "properties": {},
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Label",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": -1,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Text Value ▶#3161:0": "0.00",
+                            "State": "Disabled"
+                          },
+                          "properties": {},
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Field",
+                          "type": "INSTANCE"
+                        }
+                      ],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Row 3",
+                      "type": "INSTANCE"
+                    }
+                  ],
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "FieldSet",
+                  "type": "INSTANCE"
+                }
+              ],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "slot",
+              "type": "FRAME"
+            }
+          ],
+          "componentNode": null,
+          "layoutMode": "HORIZONTAL",
+          "figmaObject": null,
+          "detach": false,
+          "name": "Template",
+          "type": "FRAME"
+        }
+      ],
+      "componentNode": null,
+      "layoutMode": "VERTICAL",
+      "figmaObject": null,
+      "detach": false,
+      "name": "TabBar",
+      "type": "FRAME"
+    }
+  ],
+  "componentNode": null,
+  "layoutMode": "VERTICAL",
+  "figmaObject": null,
+  "detach": false,
+  "name": "Canvas",
+  "type": "FRAME"
+}

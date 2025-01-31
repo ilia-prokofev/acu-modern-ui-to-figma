@@ -2,7 +2,7 @@ import {FigmaNode} from './figma-node';
 import {QPImage} from '@modern-ui-to-figma/elements';
 import {compImageViewer} from './figma-main';
 
-export class figmaImageViewer extends FigmaNode {
+export class FigmaImageViewer extends FigmaNode {
     constructor(imageViewer: QPImage, width = 0) {
         super('ImageViewer');
         this.tryToFind = false;

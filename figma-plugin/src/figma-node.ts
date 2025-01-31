@@ -1,4 +1,4 @@
-import {AcuElement} from '@modern-ui-to-figma/elements';
+import {AcuElement, IconType} from '@modern-ui-to-figma/elements';
 
 export type figmaFieldTypes = 'INSTANCE' | 'FRAME';
 export type figmaLayoutMode = 'NONE' | 'HORIZONTAL' | 'VERTICAL'
@@ -13,6 +13,7 @@ export class FigmaNode {
     width = 0;
     componentProperties: { [propertyName: string]: string | boolean; } = {};
     properties: { [propertyName: string]: number | string | boolean | []; } = {};
+    iconProperties: { [propertyName: string]: IconType; } = {};
     children: FigmaNode[] = [];
     type: figmaFieldTypes;
     componentNode: ComponentNode | null = null;

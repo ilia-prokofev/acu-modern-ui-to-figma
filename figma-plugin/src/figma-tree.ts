@@ -2,7 +2,7 @@ import {FigmaNode} from './figma-node';
 import {QPTree} from '@modern-ui-to-figma/elements';
 import {compTree} from './figma-main';
 
-export class figmaTree extends FigmaNode {
+export class FigmaTree extends FigmaNode {
     constructor(tree: QPTree, width = 0) {
         super('Tree');
         this.tryToFind = false;

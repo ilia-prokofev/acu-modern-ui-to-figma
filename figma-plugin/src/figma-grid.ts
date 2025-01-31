@@ -3,7 +3,7 @@ import {AcuAlignment, Grid, GridColumnType} from '@modern-ui-to-figma/elements';
 import {figmaToolbar} from './figma-toolbar';
 import {compGrid, logger, viewportWidth} from './figma-main';
 
-export class figmaGrid extends FigmaNode {
+export class FigmaGrid extends FigmaNode {
 
     columnTypes = new Map<GridColumnType, string>([
         [GridColumnType.Settings, 'Settings'],

@@ -4,7 +4,26 @@ import {Root} from '@modern-ui-to-figma/elements';
 import {IconType} from '@modern-ui-to-figma/elements';
 import {FigmaNode} from './figma-node';
 import {Logger} from './logger';
-import {figmaRoot} from './figma-root';
+import {FigmaRoot} from './figma-root';
+import {FigmaFieldSet} from "./figma-field-set";
+import {FigmaTree} from "./figma-tree";
+import {FigmaTemplate} from "./figma-template";
+import {FigmaTabBar} from "./figma-tab-bar";
+import {FigmaSplitContainer} from "./figma-split-container";
+import {FigmaRichTextEditor} from "./figma-rich-text-editor";
+import {FigmaImageViewer} from "./figma-image-viewer";
+import { QPImage } from '@modern-ui-to-figma/elements';
+import { QPRichTextEditor } from '@modern-ui-to-figma/elements';
+import { QPSplitContainer } from '@modern-ui-to-figma/elements';
+import { Template } from '@modern-ui-to-figma/elements';
+import { QPTree } from '@modern-ui-to-figma/elements';
+import { AcuElement } from '@modern-ui-to-figma/elements';
+import { QPFieldset } from '@modern-ui-to-figma/elements';
+import {FigmaSlot} from "./figma-slot";
+import { FieldsetSlot } from '@modern-ui-to-figma/elements';
+import {FigmaGrid} from "./figma-grid";
+import { Grid } from '@modern-ui-to-figma/elements';
+import { Tab } from '@modern-ui-to-figma/elements';
 
 export const horizontalSpacing = 12;
 const verticalSpacing = 12;
@@ -26,14 +45,14 @@ export let compHeader = undefined as unknown as ComponentNode;
 export let compMainHeader = undefined as unknown as ComponentNode;
 export let compLeftMenu = undefined as unknown as ComponentNode;
 export let compGrid = undefined as unknown as ComponentNode;
-export let compTabbar = undefined as unknown as ComponentNode;
+export let compTabBar = undefined as unknown as ComponentNode;
 export let compCheckbox = undefined as unknown as ComponentNode;
 export let compImageViewer = undefined as unknown as ComponentNode;
 export let compRichTextEditor = undefined as unknown as ComponentNode;
 export let compSplitter = undefined as unknown as ComponentNode;
 export let compTree = undefined as unknown as ComponentNode;
 
-const buttonIcons = new Map<IconType, string>([
+export const buttonIcons = new Map<IconType, string>([
     [IconType.Refresh, 'c49868efe2dfa88095d9db037824cdd7721ad06e'],
     [IconType.Undo, '6229695a70dcf7ded45f99f84288ae92b03c7c56'],
     [IconType.Insert, 'de700daf8268fce0d3acff9011f4a936bf77f714'],
@@ -55,7 +74,7 @@ const buttonIcons = new Map<IconType, string>([
     [IconType.DeleteRow, '4eb380b404d2d81e5c704961928388fd224c3964'],
     [IconType.ArrowDown, '800ef65e596f2ae7e722ca31984f4d649c4ccc63'],
 ]);
-export const buttonIconIDs = new Map<IconType, string>();
+const buttonIconIDs = new Map<IconType, string>();
 
 function SetProperties(instanceNode: InstanceNode, figmaNode: FigmaNode): void {
     try {
@@ -65,7 +84,7 @@ function SetProperties(instanceNode: InstanceNode, figmaNode: FigmaNode): void {
     }
 }
 
-async function Draw(field: FigmaNode, parent: InstanceNode | PageNode | GroupNode | FrameNode | ComponentNode, setView = false): Promise<void> {
+async function Draw(figmaNode: FigmaNode, parent: InstanceNode | PageNode | GroupNode | FrameNode | ComponentNode, setView = false): Promise<void> {
     if (isCancelled) {
         stopNow();
         return;
@@ -77,60 +96,69 @@ async function Draw(field: FigmaNode, parent: InstanceNode | PageNode | GroupNod
         await new Promise(resolve => setTimeout(resolve, 20));
     }
 
-    let instance = field.figmaObject;
+    let instance = figmaNode.figmaObject;
     if (!instance) {
-        if (field.tryToFind) {
-            if (field.childIndex >= 0)
-                instance = parent.children[field.childIndex] as InstanceNode;
+        if (figmaNode.tryToFind) {
+            if (figmaNode.childIndex >= 0)
+                instance = parent.children[figmaNode.childIndex] as InstanceNode;
             else
-                instance = parent.findOne(node => node.type === field.type && node.name === field.name) as InstanceNode;
+                instance = parent.findOne(n => n.type === figmaNode.type && n.name === figmaNode.name) as InstanceNode;
 
-            if (!instance && !field.createIfNotFound) {
-                logger.Warn(`${field.name} not found`, field.acuElement?.Id, parent);
+            if (!instance && !figmaNode.createIfNotFound) {
+                logger.Warn(`${figmaNode.name} not found`, figmaNode.acuElement?.Id, parent);
                 return;
             }
         }
 
         if (!instance) {
-            switch (field.type) {
+            switch (figmaNode.type) {
             case 'INSTANCE':
-                instance = field.componentNode!.createInstance();
+                instance = figmaNode.componentNode!.createInstance();
                 break;
             case 'FRAME':
                 instance = figma.createFrame();
-                instance.layoutMode = field.layoutMode;
-                instance.itemSpacing = field.layoutMode == 'VERTICAL' ? verticalSpacing : horizontalSpacing;
+                instance.layoutMode = figmaNode.layoutMode;
+                instance.itemSpacing = figmaNode.layoutMode == 'VERTICAL' ? verticalSpacing : horizontalSpacing;
                 break;
             }
-            instance.name = field.name;
+            instance.name = figmaNode.name;
             parent.appendChild(instance);
         }
     }
 
-    if (field.width > 0 || field.height > 0)
-        instance.resize(field.width > 0 ? field.width : instance.width, field.height > 0 ? field.height : instance.height);
+    if (figmaNode.width > 0 || figmaNode.height > 0)
+        instance.resize(figmaNode.width > 0 ? figmaNode.width : instance.width, figmaNode.height > 0 ? figmaNode.height : instance.height);
+
+    for (const iconPropertyName in figmaNode.iconProperties) {
+        const icon = figmaNode.iconProperties[iconPropertyName];
+        if (!buttonIconIDs.has(icon))
+            logger.Warn(`${icon} icon is not supported`, figmaNode.acuElement?.Id);
+        else
+            figmaNode.componentProperties[iconPropertyName] = buttonIconIDs.get(figmaNode.iconProperties[iconPropertyName])!;
+    }
 
     if (instance.type === 'INSTANCE')
-        SetProperties(instance, field);
+        SetProperties(instance, figmaNode);
 
-    for (const property in field.properties) {
+    for (const property in figmaNode.properties) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        instance[property] = field.properties[property];
+        instance[property] = figmaNode.properties[property];
     }
 
-    field.figmaObject = instance;
+    figmaNode.figmaObject = instance;
 
     if (setView)
         figma.viewport.scrollAndZoomIntoView([instance]);
 
-    if (field.detach) {
+    if (figmaNode.detach) {
         instance = (instance as InstanceNode).detachInstance();
-        instance.children[1].remove();
+        if (figmaNode.acuElement?.Type == AcuElementType.Field)
+            instance.children[1].remove();
     }
 
-    for (const child of field.children)
+    for (const child of figmaNode.children)
         await Draw(child, instance);
 }
 
@@ -146,7 +174,7 @@ export async function DrawFromJSON(input: string, reuseSummary: boolean): Promis
         return;
     }
 
-    const rootItem = new figmaRoot(root);
+    const rootItem = new FigmaRoot(root);
     console.log(rootItem);
     childrenNumber = countChildren(rootItem);
 
@@ -196,7 +224,7 @@ export async function DrawFromJSON(input: string, reuseSummary: boolean): Promis
 
             let tabName = 'undefined';
             const tabBar = rootItem.children[rootItem.children.length - 1].acuElement as TabBar;
-            tabBar.Tabs.forEach((tab) => {
+            tabBar.Tabs.forEach((tab:Tab) => {
                 if (tab.IsActive)
                     tabName = tab.Label;
             })
@@ -237,7 +265,52 @@ export async function DrawFromJSON(input: string, reuseSummary: boolean): Promis
             grid.resize(grid.width, newGridHeight);
         }
     }
+}
 
+export function addChild(parent: FigmaNode, parentType: AcuElementType, child: AcuElement, slotWidth: number) {
+    switch (child.Type) {
+        case AcuElementType.FieldSet:
+            parent.children.push(new FigmaFieldSet(child as QPFieldset, slotWidth));
+            break;
+        case AcuElementType.FieldsetSlot:
+            parent.children.push(new FigmaSlot(child as FieldsetSlot, slotWidth));
+            break;
+        case AcuElementType.Grid:
+            const grid = new FigmaGrid((child as unknown) as Grid, 'Grid', true);
+            switch (parentType)
+            {
+                case AcuElementType.Root:
+                    break;
+                case AcuElementType.Tabbar:
+                    grid.width = slotWidth;
+                    break;
+                default:
+                    grid.properties['layoutAlign'] = 'STRETCH';
+                    grid.height = 250;
+                    grid.width = slotWidth;
+                    break
+            }
+            parent.children.push(grid);
+            break;
+        case AcuElementType.Image:
+            parent.children.push(new FigmaImageViewer(child as QPImage, slotWidth));
+            break;
+        case AcuElementType.RichTextEditor:
+            parent.children.push(new FigmaRichTextEditor(child as QPRichTextEditor, slotWidth));
+            break;
+        case AcuElementType.SplitContainer:
+            parent.children.push(new FigmaSplitContainer(child as QPSplitContainer, slotWidth));
+            break;
+        case AcuElementType.Tabbar:
+            parent.children.push(new FigmaTabBar(child as TabBar, slotWidth));
+            break;
+        case AcuElementType.Template:
+            parent.children.push(new FigmaTemplate(child as Template, slotWidth));
+            break;
+        case AcuElementType.Tree:
+            parent.children.push(new FigmaTree(child as QPTree, slotWidth));
+            break;
+    }
 }
 
 async function CreateCanvas(screenName: string, screenTitle: string | null, backLink: string | null): Promise<FigmaNode> {
@@ -296,7 +369,7 @@ async function CreateCanvas(screenName: string, screenTitle: string | null, back
     return frameCanvas;
 }
 
-function countChildren(root: figmaRoot): number {
+function countChildren(root: FigmaRoot): number {
     let count = 1;
     for (const child of root.children) {
         count += countChildren(child);
@@ -314,7 +387,7 @@ function setSummaryStretching(root: FigmaNode): void {
     }
 }
 
-function getLastItem(root: figmaRoot): figmaRoot {
+function getLastItem(root: FigmaRoot): FigmaRoot {
     if (root.children.length == 0)
         return root;
     else {
@@ -352,15 +425,6 @@ export async function processScreen(input: string, format: string, reuseSummary:
 
     await figma.loadAllPagesAsync();
 
-    // Test
-    // csFieldset = await figma.importComponentSetByKeyAsync('65edf1d775107cc11081226f698821a462c6edc2');
-    // csHeader = await figma.importComponentSetByKeyAsync('80265c2d8ad685491923b57b91c64b3e0989a943');
-    // csMainHeader = await figma.importComponentSetByKeyAsync('2f11715b6ef9f03dad26d0c30e330fa824c18e96');
-    // cGrid = await figma.importComponentSetByKeyAsync('d6ed7417ddbc12fb781ef5a69d497ef543b5b1bf');
-    // cLeftMenu = await figma.importComponentByKeyAsync('790c900390c36c1d7dd582d34f12e1e9ed4c8866');
-    // cTabbar = await figma.importComponentByKeyAsync('6908d5b76e824d2a677a35490265b9d64efb3606');
-
-    // Prod
     compFieldset = (await figma.importComponentSetByKeyAsync('3738d3cfa01194fc3cfe855bf127daa66b21e39e')).defaultVariant;
     compHeader = (await figma.importComponentSetByKeyAsync('6bf3d7f22449e758cc2b697dd7d80ad7a2d3c21a')).defaultVariant;
     compMainHeader = (await figma.importComponentSetByKeyAsync('95717954e19e7929d19b33f7bcd03f16e8e1a51b')).defaultVariant;
@@ -370,7 +434,7 @@ export async function processScreen(input: string, format: string, reuseSummary:
     compRichTextEditor = (await figma.importComponentSetByKeyAsync('cb542d6b221cd1cb4302529415ff7bb4a135eb67')).defaultVariant;
     compSplitter = (await figma.importComponentSetByKeyAsync('c671076454c35e10bb86f1ef18936e7953cec793')).defaultVariant;
     compLeftMenu = await figma.importComponentByKeyAsync('5b4ee7b5f881aa8f6e64f128f4cceef050357378');
-    compTabbar = await figma.importComponentByKeyAsync('e4b7a83b5e34cee8565ad8079b4932764b45dae4');
+    compTabBar = await figma.importComponentByKeyAsync('e4b7a83b5e34cee8565ad8079b4932764b45dae4');
     compTree = await figma.importComponentByKeyAsync('ae9880fe4ddbd5f4c7e2784492b78b12ba47c14a');
 
     for (const [iconType, componentKey] of buttonIcons) {

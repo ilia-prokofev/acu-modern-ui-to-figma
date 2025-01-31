@@ -1,0 +1,853 @@
+{
+  "childIndex": -1,
+  "tryToFind": false,
+  "createIfNotFound": false,
+  "acuElement": {
+    "Type": "Root",
+    "Children": [
+      {
+        "Type": "Template",
+        "Id": "Root-1627",
+        "Name": "7-10-7",
+        "Children": [
+          {
+            "Label": null,
+            "Type": "FieldSet",
+            "Id": "Root-1627-1628",
+            "Children": [
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1628-1852",
+                "Label": "Subcontract Nbr.",
+                "Value": "SC-000036",
+                "Mandatory": false
+              }
+            ],
+            "Style": "Gray"
+          }
+        ]
+      }
+    ],
+    "Title": "Toolbar",
+    "Caption": "Test",
+    "ToolBar": {
+      "Type": "ToolBar",
+      "Id": "Root-27",
+      "ToolBarType": "Record",
+      "Items": [
+        {
+          "ItemType": "Button",
+          "Icon": "Back",
+          "Enabled": true,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "SaveAndBack",
+          "Enabled": false,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "Save",
+          "Enabled": false,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "Undo",
+          "Enabled": true,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "Insert",
+          "Enabled": true,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "Delete",
+          "Enabled": true,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "Copy",
+          "Enabled": true,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "First",
+          "Enabled": true,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "Previous",
+          "Enabled": true,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "Next",
+          "Enabled": true,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "Last",
+          "Enabled": true,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": null,
+          "Enabled": true,
+          "Style": "Special",
+          "Text": "Remove Hold"
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "Ellipsis",
+          "Enabled": true,
+          "Style": "Secondary",
+          "Text": null
+        }
+      ],
+      "ShowRightAction": false,
+      "ShowSaveButton": false
+    },
+    "Id": "Root"
+  },
+  "height": 0,
+  "width": 0,
+  "componentProperties": {},
+  "properties": {},
+  "iconProperties": {},
+  "children": [
+    {
+      "childIndex": -1,
+      "tryToFind": true,
+      "createIfNotFound": false,
+      "acuElement": {
+        "Type": "ToolBar",
+        "Id": "Root-27",
+        "ToolBarType": "Record",
+        "Items": [
+          {
+            "ItemType": "Button",
+            "Icon": "Back",
+            "Enabled": true,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "SaveAndBack",
+            "Enabled": false,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "Save",
+            "Enabled": false,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "Undo",
+            "Enabled": true,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "Insert",
+            "Enabled": true,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "Delete",
+            "Enabled": true,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "Copy",
+            "Enabled": true,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "First",
+            "Enabled": true,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "Previous",
+            "Enabled": true,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "Next",
+            "Enabled": true,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "Last",
+            "Enabled": true,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": null,
+            "Enabled": true,
+            "Style": "Special",
+            "Text": "Remove Hold"
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "Ellipsis",
+            "Enabled": true,
+            "Style": "Secondary",
+            "Text": null
+          }
+        ],
+        "ShowRightAction": false,
+        "ShowSaveButton": false
+      },
+      "height": 0,
+      "width": 0,
+      "componentProperties": {
+        "Type": "Record",
+        "Show Right Actions#6826:45": false
+      },
+      "properties": {},
+      "iconProperties": {},
+      "children": [
+        {
+          "childIndex": 0,
+          "tryToFind": true,
+          "createIfNotFound": false,
+          "acuElement": null,
+          "height": 0,
+          "width": 0,
+          "componentProperties": {},
+          "properties": {},
+          "iconProperties": {},
+          "children": [
+            {
+              "childIndex": 0,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Back"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Disabled",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "SaveAndBack"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 2,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Disabled",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Save"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 3,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Undo"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 4,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Insert"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 5,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Delete"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 6,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Copy"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 7,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "First"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 8,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Previous"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 9,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Next"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 10,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Last"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 11,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Special",
+                "State": "Default",
+                "Show Icon Left#3133:110": false,
+                "Show Label#3133:443": true,
+                "Value ▶#3133:332": "Remove Hold"
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 12,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Secondary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Ellipsis"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 13,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {},
+              "properties": {
+                "visible": false
+              },
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 14,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {},
+              "properties": {
+                "visible": false
+              },
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            }
+          ],
+          "componentNode": null,
+          "layoutMode": "VERTICAL",
+          "figmaObject": null,
+          "detach": false,
+          "name": "Buttons",
+          "type": "INSTANCE"
+        }
+      ],
+      "componentNode": null,
+      "layoutMode": "VERTICAL",
+      "figmaObject": null,
+      "detach": false,
+      "name": "Toolbar",
+      "type": "INSTANCE",
+      "toolBarTypes": {},
+      "filterBarMapping": {}
+    },
+    {
+      "childIndex": -1,
+      "tryToFind": false,
+      "createIfNotFound": false,
+      "acuElement": {
+        "Type": "Template",
+        "Id": "Root-1627",
+        "Name": "7-10-7",
+        "Children": [
+          {
+            "Label": null,
+            "Type": "FieldSet",
+            "Id": "Root-1627-1628",
+            "Children": [
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1628-1852",
+                "Label": "Subcontract Nbr.",
+                "Value": "SC-000036",
+                "Mandatory": false
+              }
+            ],
+            "Style": "Gray"
+          }
+        ]
+      },
+      "height": 0,
+      "width": 1236,
+      "componentProperties": {},
+      "properties": {
+        "counterAxisSizingMode": "AUTO"
+      },
+      "iconProperties": {},
+      "children": [
+        {
+          "childIndex": -1,
+          "tryToFind": false,
+          "createIfNotFound": false,
+          "acuElement": {
+            "Label": null,
+            "Type": "FieldSet",
+            "Id": "Root-1627-1628",
+            "Children": [
+              {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1628-1852",
+                "Label": "Subcontract Nbr.",
+                "Value": "SC-000036",
+                "Mandatory": false
+              }
+            ],
+            "Style": "Gray"
+          },
+          "height": 0,
+          "width": 360.5,
+          "componentProperties": {
+            "Show Group Header#6619:0": false,
+            "Wrapping": "Gray",
+            "Show Row 1#5419:15": true,
+            "Show Row 2#5419:17": false,
+            "Show Row 3#5419:19": false,
+            "Show Row 4#5419:13": false,
+            "Show Row 5#5419:11": false,
+            "Show Row 6#5419:9": false,
+            "Show Row 7#5419:8": false,
+            "Show Row 8#5419:7": false,
+            "Show Row 9#5419:5": false,
+            "Show Row 10#5419:12": false,
+            "Show Row 11#5419:10": false,
+            "Show Row 12#5419:3": false,
+            "Show Row 13#5419:2": false,
+            "Show Row 14#5419:6": false,
+            "Show Row 15#5419:4": false,
+            "Show Row 16#5419:16": false,
+            "Show Row 17#5419:18": false,
+            "Show Row 18#5419:1": false,
+            "Show Row 19#5419:0": false,
+            "Show Row 20#5419:14": false
+          },
+          "properties": {},
+          "iconProperties": {},
+          "children": [
+            {
+              "childIndex": -1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Field",
+                "ReadOnly": false,
+                "ElementType": "Selector",
+                "Id": "Root-1627-1628-1852",
+                "Label": "Subcontract Nbr.",
+                "Value": "SC-000036",
+                "Mandatory": false
+              },
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Label + Field"
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Label Value ▶#3141:62": "Subcontract Nbr."
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Label",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Text Value ▶#3161:0": "SC-000036",
+                    "State": "Default"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Field",
+                  "type": "INSTANCE"
+                }
+              ],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Row 1",
+              "type": "INSTANCE"
+            }
+          ],
+          "layoutMode": "VERTICAL",
+          "figmaObject": null,
+          "detach": false,
+          "name": "FieldSet",
+          "type": "INSTANCE"
+        }
+      ],
+      "componentNode": null,
+      "layoutMode": "HORIZONTAL",
+      "figmaObject": null,
+      "detach": false,
+      "name": "Template",
+      "type": "FRAME"
+    }
+  ],
+  "componentNode": null,
+  "layoutMode": "VERTICAL",
+  "figmaObject": null,
+  "detach": false,
+  "name": "Canvas",
+  "type": "FRAME"
+}

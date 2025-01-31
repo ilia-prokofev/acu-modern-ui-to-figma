@@ -12,11 +12,11 @@ import {
     QPFieldStatus
 } from '@modern-ui-to-figma/elements';
 import {IconType} from '@modern-ui-to-figma/elements';
-import {buttonIconIDs, compCheckbox, logger} from './figma-main';
-import {figmaCheckbox} from './figma-checkbox';
-import {figmaValue} from './figma-value';
+import {compCheckbox, logger} from './figma-main';
+import {FigmaCheckbox} from './figma-checkbox';
+import {FigmaValue} from './figma-value';
 
-export class figmaRow extends FigmaNode {
+export class FigmaRow extends FigmaNode {
 
     static rowTypes = new Map<QPFieldElementType, string>([
         [QPFieldElementType.Currency, 'Currency'],
@@ -57,11 +57,11 @@ export class figmaRow extends FigmaNode {
             }
         }
 
-        if (!figmaRow.rowTypes.has(field.ElementType)) {
+        if (!FigmaRow.rowTypes.has(field.ElementType)) {
             logger.Warn(`${field.ElementType} row type is not supported`, this.acuElement.Id, field);
             elementType = QPFieldElementType.TextEditor;
         }
-        this.componentProperties['Type'] = figmaRow.rowTypes.get(elementType)!;
+        this.componentProperties['Type'] = FigmaRow.rowTypes.get(elementType)!;
 
         let labelField;
         let valueField;
@@ -71,7 +71,7 @@ export class figmaRow extends FigmaNode {
         switch (elementType) {
         case QPFieldElementType.CheckBox:
             typedField = field as QPFieldCheckbox;
-            valueField = new figmaCheckbox(typedField, 'Checkbox');
+            valueField = new FigmaCheckbox(typedField, 'Checkbox');
             this.children.push(valueField);
             break;
         case QPFieldElementType.RadioButton:
@@ -147,7 +147,7 @@ export class figmaRow extends FigmaNode {
                 let newChild;
                 switch ((childField as QPField).ElementType) {
                 case QPFieldElementType.CheckBox:
-                    newChild = new figmaCheckbox(childField as QPFieldCheckbox, `Checkbox ${childNumber++}`);
+                    newChild = new FigmaCheckbox(childField as QPFieldCheckbox, `Checkbox ${childNumber++}`);
                     break;
                     // case QPFieldElementType.Selector:
                     //     newChild = new figmaCheckbox(childField as QPFieldCheckbox, `Checkbox ${childNumber++}`);
@@ -168,8 +168,8 @@ export class figmaRow extends FigmaNode {
             labelField = new FigmaNode('Label');
             labelField.componentProperties['Label Value ▶#3141:62'] = typedField.Label ?? '';
             this.children.push(labelField);
-            this.children.push(new figmaValue(typedField.Children[0] as QPFieldSelector));
-            this.children.push(new figmaCheckbox(typedField.Children[1] as QPFieldCheckbox, 'Checkbox'));
+            this.children.push(new FigmaValue(typedField.Children[0] as QPFieldSelector));
+            this.children.push(new FigmaCheckbox(typedField.Children[1] as QPFieldCheckbox, 'Checkbox'));
             break;
         case QPFieldElementType.TextEditor:
         case QPFieldElementType.Selector:
@@ -185,7 +185,7 @@ export class figmaRow extends FigmaNode {
             valueField = new FigmaNode('Field');
             valueField.componentProperties['Text Value ▶#3161:0'] = typedField.Value ?? '';
             if (elementType == QPFieldElementType.DropDown)
-                valueField.componentProperties['Icon#3160:22'] = buttonIconIDs.get(IconType.ArrowDown)!;
+                valueField.iconProperties['Icon#3160:22'] = IconType.ArrowDown;
             if (elementType == QPFieldElementType.TextEditor)
                 valueField.componentProperties['Show Icon#3160:30'] = false;
 

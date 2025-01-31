@@ -1,9 +1,9 @@
 import {FigmaNode} from './figma-node';
 import {QPSplitContainer, QPSplitContainerOrientation} from '@modern-ui-to-figma/elements';
 import {compSplitter, viewportWidth} from './figma-main';
-import {figmaSlot} from './figma-slot';
+import {FigmaSlot} from './figma-slot';
 
-class figmaSplitter extends FigmaNode {
+class FigmaSplitter extends FigmaNode {
     constructor(orientation: QPSplitContainerOrientation) {
         super('Splitter');
         this.tryToFind = false;
@@ -14,7 +14,7 @@ class figmaSplitter extends FigmaNode {
     }
 }
 
-export class figmaSplitContainer extends FigmaNode {
+export class FigmaSplitContainer extends FigmaNode {
     constructor(splitContainer: QPSplitContainer, width = 0) {
         super('SplitContainer', 'FRAME');
         this.layoutMode = splitContainer.Orientation == QPSplitContainerOrientation.Vertical ? 'VERTICAL' : 'HORIZONTAL';
@@ -29,9 +29,9 @@ export class figmaSplitContainer extends FigmaNode {
             panelWidth = (panelWidth - splitterWidth) / 2;
 
         if (splitContainer.Panel1)
-            this.children.push(new figmaSlot(splitContainer.Panel1, panelWidth));
-        this.children.push(new figmaSplitter(splitContainer.Orientation));
+            this.children.push(new FigmaSlot(splitContainer.Panel1, panelWidth));
+        this.children.push(new FigmaSplitter(splitContainer.Orientation));
         if (splitContainer.Panel2)
-            this.children.push(new figmaSlot(splitContainer.Panel2, panelWidth));
+            this.children.push(new FigmaSlot(splitContainer.Panel2, panelWidth));
     }
 }

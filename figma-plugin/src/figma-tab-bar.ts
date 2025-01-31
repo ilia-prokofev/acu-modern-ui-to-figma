@@ -1,25 +1,25 @@
 import {FigmaNode} from './figma-node';
 import {Tab, TabBar} from '@modern-ui-to-figma/elements';
 import {AcuElementType} from '@modern-ui-to-figma/elements';
-import {figmaTemplate} from './figma-template';
+import {FigmaTemplate} from './figma-template';
 import {Template} from '@modern-ui-to-figma/elements';
 import {QPTree} from '@modern-ui-to-figma/elements';
 import {Grid} from '@modern-ui-to-figma/elements';
-import {figmaSplitContainer} from './figma-split-container';
+import {FigmaSplitContainer} from './figma-split-container';
 import {QPSplitContainer} from '@modern-ui-to-figma/elements';
-import {compTabbar, viewportWidth} from './figma-main';
-import {figmaTree} from './figma-tree';
-import {figmaGrid} from './figma-grid';
+import {addChild, compTabBar, viewportWidth} from './figma-main';
+import {FigmaTree} from './figma-tree';
+import {FigmaGrid} from './figma-grid';
 
-export class figmaTabbar extends FigmaNode {
+export class FigmaTabBar extends FigmaNode {
     constructor(tabBar: TabBar, width = 0) {
-        super('Tabbar', 'FRAME', width == 0 ? viewportWidth : width);
+        super('TabBar', 'FRAME', width == 0 ? viewportWidth : width);
         this.tryToFind = false;
         this.acuElement = tabBar;
 
         const tabs = new FigmaNode('Tabs');
         tabs.tryToFind = false;
-        tabs.componentNode = compTabbar;
+        tabs.componentNode = compTabBar;
 
         const maxTabsCount = 13;
 
@@ -39,26 +39,7 @@ export class figmaTabbar extends FigmaNode {
 
         this.children.push(tabs);
 
-        tabBar.Children.forEach(fs => {
-            switch (fs.Type) {
-            case AcuElementType.Template: {
-                this.children.push(new figmaTemplate(fs as Template, width));
-                break;
-            }
-            case AcuElementType.Tree:
-                this.children.push(new figmaTree(fs as QPTree, width));
-                break;
-            case AcuElementType.Grid: {
-                const grid = new figmaGrid((fs as unknown) as Grid, 'Grid', true);
-                grid.width = width;
-                this.children.push(grid);
-                break;
-            }
-            case AcuElementType.SplitContainer: {
-                this.children.push(new figmaSplitContainer(fs as QPSplitContainer, viewportWidth));
-                break;
-            }
-            }
-        });
+        for (const child of tabBar.Children)
+            addChild(this, tabBar.Type, child, width);
     }
 }

@@ -1,6 +1,6 @@
 import {FigmaNode} from './figma-node';
 import {QPToolBar, QPToolBarItemButton, QPToolBarItemType, QPToolBarType} from '@modern-ui-to-figma/elements';
-import {buttonIconIDs, logger} from './figma-main';
+import {buttonIcons, logger} from './figma-main';
 
 export class figmaToolbar extends FigmaNode {
 
@@ -61,12 +61,8 @@ export class figmaToolbar extends FigmaNode {
 
                 const icon = buttonItem.Icon;
                 button.componentProperties['Show Icon Left#3133:110'] = icon != null;
-                if (icon) {
-                    if (!buttonIconIDs.has(icon))
-                        logger.Warn(`${icon} icon is not supported`, this.acuElement.Id);
-                    else
-                        button.componentProperties['Icon Left#3131:0'] = buttonIconIDs.get(icon)!;
-                }
+                if (icon)
+                    button.iconProperties['Icon Left#3131:0'] = icon;
                 const text = buttonItem.Text;
                 button.componentProperties['Show Label#3133:443'] = text != null;
                 if (text)

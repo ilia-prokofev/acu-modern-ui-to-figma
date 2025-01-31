@@ -1,7 +1,7 @@
 import {FigmaNode} from './figma-node';
 import {QPFieldLabelValue, QPFieldSelector} from '@modern-ui-to-figma/elements';
 
-export class figmaValue extends FigmaNode {
+export class FigmaValue extends FigmaNode {
     constructor(field: QPFieldSelector) {
         super('Field', 'INSTANCE');
         const typedField = field as QPFieldLabelValue;

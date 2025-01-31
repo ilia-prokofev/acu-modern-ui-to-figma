@@ -1,0 +1,496 @@
+{
+  "Type": "Root",
+  "Children": [
+    {
+      "Type": "Template",
+      "Id": "Root-1627",
+      "Name": "7-10-7",
+      "Children": [
+        {
+          "Label": null,
+          "Type": "FieldSet",
+          "Id": "Root-1627-1628",
+          "Children": [
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "Selector",
+              "Id": "Root-1627-1628-1852",
+              "Label": "Subcontract Nbr.",
+              "Value": "SC-000036",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": true,
+              "ElementType": "Status",
+              "Id": "Root-1627-1628-1854",
+              "Label": "Status",
+              "Value": "On Hold",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": true,
+              "ElementType": "DateTimeEdit",
+              "Id": "Root-1627-1628-1860",
+              "Label": "Date",
+              "Value": "12/1/2022",
+              "Mandatory": true
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "DateTimeEdit",
+              "Id": "Root-1627-1628-1862",
+              "Label": "Start Date",
+              "Value": "12/1/2022",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "TextEditor",
+              "Id": "Root-1627-1628-1866",
+              "Label": "Vendor Ref.",
+              "Value": "",
+              "Mandatory": false
+            }
+          ],
+          "Style": "Gray"
+        },
+        {
+          "Label": null,
+          "Type": "FieldSet",
+          "Id": "Root-1627-1629",
+          "Children": [
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "Selector",
+              "Id": "Root-1627-1629-1868",
+              "Label": "Vendor",
+              "Value": "CBSITEWORK- CB Sitework, Inc.",
+              "Mandatory": true
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "Selector",
+              "Id": "Root-1627-1629-1870",
+              "Label": "Location",
+              "Value": "MAIN - Primary Location",
+              "Mandatory": true
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "Selector",
+              "Id": "Root-1627-1629-1872",
+              "Label": "Owner",
+              "Value": "Maxwell Baker",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "Selector",
+              "Id": "Root-1627-1629-1874",
+              "Label": "Project",
+              "Value": "CSTRCONCRT- Marriott Bonvoy Hotels Concrete Quote",
+              "Mandatory": true
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "Currency",
+              "Id": "Root-1627-1629-1876",
+              "Label": "Currency",
+              "Value": "USD",
+              "Mandatory": true
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": false,
+              "ElementType": "MultilineTextEditor",
+              "Id": "Root-1627-1629-1878",
+              "Label": "Description",
+              "Value": "SITE WORK",
+              "Mandatory": false
+            }
+          ],
+          "Style": "Gray"
+        },
+        {
+          "Label": null,
+          "Type": "FieldSet",
+          "Id": "Root-1627-1630",
+          "Children": [
+            {
+              "Type": "Field",
+              "ReadOnly": true,
+              "ElementType": "NumberEditor",
+              "Id": "Root-1627-1630-1880",
+              "Label": "Detail Total",
+              "Value": "170,000.00",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": true,
+              "ElementType": "NumberEditor",
+              "Id": "Root-1627-1630-1886",
+              "Label": "Tax Total",
+              "Value": "0.00",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": true,
+              "ElementType": "NumberEditor",
+              "Id": "Root-1627-1630-1888",
+              "Label": "Subcontract Total",
+              "Value": "170,000.00",
+              "Mandatory": false
+            },
+            {
+              "Type": "Field",
+              "ReadOnly": true,
+              "ElementType": "NumberEditor",
+              "Id": "Root-1627-1630-1892",
+              "Label": "Retainage Total",
+              "Value": "8,500.00",
+              "Mandatory": false
+            }
+          ],
+          "Style": "Blue"
+        }
+      ]
+    },
+    {
+      "Type": "Tabbar",
+      "Id": "Root-396",
+      "Tabs": [
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Details",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Taxes",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Addresses",
+          "IsActive": true
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Discounts",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Billing",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Prepayments",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Change Orders",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Financial",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Attributes",
+          "IsActive": false
+        },
+        {
+          "Type": "Tab",
+          "Id": "Root-396",
+          "Label": "Compliance",
+          "IsActive": false
+        }
+      ],
+      "Children": [
+        {
+          "Type": "Template",
+          "Id": "Root-396-1641",
+          "Name": "17-17-14",
+          "Children": [
+            {
+              "Type": "FieldsetSlot",
+              "Id": "Root-396-1641-1642",
+              "Children": [
+                {
+                  "Label": "Vendor Contact",
+                  "Type": "FieldSet",
+                  "Id": "Root-396-1641-1642-1643",
+                  "Children": [
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "CheckBox",
+                      "Id": "Root-396-1641-1642-1643-1783",
+                      "CheckboxName": "Override",
+                      "Checked": false,
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "TextEditor",
+                      "Id": "Root-396-1641-1642-1643-1785",
+                      "Label": "Account Name",
+                      "Value": "CB Sitework, Inc.",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "TextEditor",
+                      "Id": "Root-396-1641-1642-1643-1787",
+                      "Label": "Job Title",
+                      "Value": "",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "TextEditor",
+                      "Id": "Root-396-1641-1642-1643-1789",
+                      "Label": "Phone 1",
+                      "Value": "786-294-6641",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "TextEditor",
+                      "Id": "Root-396-1641-1642-1643-1791",
+                      "Label": "Email",
+                      "Value": "ar@cbsitework.con",
+                      "Mandatory": false
+                    }
+                  ],
+                  "Style": "Gray"
+                }
+              ],
+              "ID": "A"
+            },
+            {
+              "Type": "FieldsetSlot",
+              "Id": "Root-396-1641-1644",
+              "Children": [
+                {
+                  "Label": "Vendor Address",
+                  "Type": "FieldSet",
+                  "Id": "Root-396-1641-1644-1645",
+                  "Children": [
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "CheckBox",
+                      "Id": "Root-396-1641-1644-1645-1732",
+                      "CheckboxName": "Override",
+                      "Checked": false,
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "Button",
+                      "Id": "Root-396-1641-1644-1645-1735",
+                      "Label": "",
+                      "Value": "Address Lookup",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "TextEditor",
+                      "Id": "Root-396-1641-1644-1645-1737",
+                      "Label": "Address Line 1",
+                      "Value": "8430 Christopher Street",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "TextEditor",
+                      "Id": "Root-396-1641-1644-1645-1739",
+                      "Label": "Address Line 2",
+                      "Value": "",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "TextEditor",
+                      "Id": "Root-396-1641-1644-1645-1741",
+                      "Label": "City",
+                      "Value": "Miami",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "Selector",
+                      "Id": "Root-396-1641-1644-1645-1743",
+                      "Label": "Country",
+                      "Value": "US - United States of America",
+                      "Mandatory": true
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "Selector",
+                      "Id": "Root-396-1641-1644-1645-1745",
+                      "Label": "State",
+                      "Value": "FL - FLORIDA",
+                      "Mandatory": false
+                    },
+                    {
+                      "Type": "Field",
+                      "ReadOnly": true,
+                      "ElementType": "TextEditor",
+                      "Id": "Root-396-1641-1644-1645-1747",
+                      "Label": "Postal Code",
+                      "Value": "",
+                      "Mandatory": false
+                    }
+                  ],
+                  "Style": "Gray"
+                }
+              ],
+              "ID": "B"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Title": "Subcontracts",
+  "Caption": "SC-000036 - CB Sitework, Inc.",
+  "ToolBar": {
+    "Type": "ToolBar",
+    "Id": "Root-27",
+    "ToolBarType": "Record",
+    "Items": [
+      {
+        "ItemType": "Button",
+        "Icon": "Back",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "SaveAndBack",
+        "Enabled": false,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Save",
+        "Enabled": false,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Undo",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Insert",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Delete",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Copy",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "First",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Previous",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Next",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Last",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": null,
+        "Enabled": true,
+        "Style": "Special",
+        "Text": "Remove Hold"
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Ellipsis",
+        "Enabled": true,
+        "Style": "Secondary",
+        "Text": null
+      }
+    ],
+    "ShowRightAction": false,
+    "ShowSaveButton": false
+  },
+  "Id": "Root"
+}
