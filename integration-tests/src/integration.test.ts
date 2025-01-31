@@ -4,7 +4,7 @@ import {AcuPageParser} from '../../chrome-extension/src/acu-page-parser'
 import {Root} from '@modern-ui-to-figma/elements';
 import ChildrenVisitor from '../../chrome-extension/src/visitors/children-visitors';
 import {createAllVisitors} from '../../chrome-extension/src/visitors/all-visitors';
-import {figmaRoot} from '../../figma-plugin/src/figma-root'
+import {FigmaRoot} from '../../figma-plugin/src/figma-root'
 
 describe('integration', () => {
     interface testCase {
@@ -33,7 +33,7 @@ describe('integration', () => {
         const root = parser.parse(incomingHTML) as Root;
         expect(root).not.equal(null);
 
-        const actualSerialized = serializeObject(new figmaRoot(root));
+        const actualSerialized = serializeObject(new FigmaRoot(root));
         const expectedSerialized = serializeObject(JSON.parse(expectedJSON));
 
         expect(actualSerialized).toEqual(expectedSerialized);

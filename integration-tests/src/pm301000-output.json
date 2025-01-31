@@ -963,6 +963,7 @@
   "width": 0,
   "componentProperties": {},
   "properties": {},
+  "iconProperties": {},
   "children": [
     {
       "childIndex": -1,
@@ -1075,6 +1076,7 @@
         "Show Right Actions#6826:45": false
       },
       "properties": {},
+      "iconProperties": {},
       "children": [
         {
           "childIndex": 0,
@@ -1085,6 +1087,7 @@
           "width": 0,
           "componentProperties": {},
           "properties": {},
+          "iconProperties": {},
           "children": [
             {
               "childIndex": 0,
@@ -1101,6 +1104,9 @@
               },
               "properties": {
                 "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Back"
               },
               "children": [],
               "componentNode": null,
@@ -1126,6 +1132,9 @@
               "properties": {
                 "visible": true
               },
+              "iconProperties": {
+                "Icon Left#3131:0": "SaveAndBack"
+              },
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -1149,6 +1158,9 @@
               },
               "properties": {
                 "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Save"
               },
               "children": [],
               "componentNode": null,
@@ -1174,6 +1186,9 @@
               "properties": {
                 "visible": true
               },
+              "iconProperties": {
+                "Icon Left#3131:0": "Undo"
+              },
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -1197,6 +1212,9 @@
               },
               "properties": {
                 "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Insert"
               },
               "children": [],
               "componentNode": null,
@@ -1222,6 +1240,9 @@
               "properties": {
                 "visible": true
               },
+              "iconProperties": {
+                "Icon Left#3131:0": "Delete"
+              },
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -1245,6 +1266,9 @@
               },
               "properties": {
                 "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "First"
               },
               "children": [],
               "componentNode": null,
@@ -1270,6 +1294,9 @@
               "properties": {
                 "visible": true
               },
+              "iconProperties": {
+                "Icon Left#3131:0": "Previous"
+              },
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -1294,6 +1321,9 @@
               "properties": {
                 "visible": true
               },
+              "iconProperties": {
+                "Icon Left#3131:0": "Next"
+              },
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -1317,6 +1347,9 @@
               },
               "properties": {
                 "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Last"
               },
               "children": [],
               "componentNode": null,
@@ -1343,6 +1376,7 @@
               "properties": {
                 "visible": true
               },
+              "iconProperties": {},
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -1368,6 +1402,7 @@
               "properties": {
                 "visible": true
               },
+              "iconProperties": {},
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -1392,6 +1427,9 @@
               "properties": {
                 "visible": true
               },
+              "iconProperties": {
+                "Icon Left#3131:0": "Ellipsis"
+              },
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -1411,6 +1449,7 @@
               "properties": {
                 "visible": false
               },
+              "iconProperties": {},
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -1430,6 +1469,7 @@
               "properties": {
                 "visible": false
               },
+              "iconProperties": {},
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -1632,6 +1672,7 @@
       "properties": {
         "counterAxisSizingMode": "AUTO"
       },
+      "iconProperties": {},
       "children": [
         {
           "childIndex": -1,
@@ -1717,6 +1758,7 @@
             "Show Row 20#5419:14": false
           },
           "properties": {},
+          "iconProperties": {},
           "children": [
             {
               "childIndex": -1,
@@ -1737,6 +1779,7 @@
                 "Type": "Label + Field"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [
                 {
                   "childIndex": -1,
@@ -1750,6 +1793,7 @@
                     "Mandatory#3141:16": true
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -1770,6 +1814,7 @@
                     "State": "Default"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -1805,6 +1850,7 @@
                 "Type": "Label + Field"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [
                 {
                   "childIndex": -1,
@@ -1817,6 +1863,7 @@
                     "Label Value ▶#3141:62": "Status"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -1837,6 +1884,7 @@
                     "State": "Disabled"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -1856,6 +1904,7 @@
                     "Status": "Completed"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -1891,6 +1940,7 @@
                 "Type": "Date"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [
                 {
                   "childIndex": -1,
@@ -1903,6 +1953,7 @@
                     "Label Value ▶#3141:62": "Start Date"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -1923,6 +1974,7 @@
                     "State": "Disabled"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -1958,6 +2010,7 @@
                 "Type": "Date"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [
                 {
                   "childIndex": -1,
@@ -1970,6 +2023,7 @@
                     "Label Value ▶#3141:62": "End Date"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -1990,6 +2044,7 @@
                     "State": "Disabled"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2025,6 +2080,7 @@
                 "Type": "Label + Field"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [
                 {
                   "childIndex": -1,
@@ -2037,6 +2093,7 @@
                     "Label Value ▶#3141:62": "Quote Ref. Nbr."
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2057,6 +2114,7 @@
                     "State": "Disabled"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2164,6 +2222,7 @@
             "Show Row 20#5419:14": false
           },
           "properties": {},
+          "iconProperties": {},
           "children": [
             {
               "childIndex": -1,
@@ -2184,6 +2243,7 @@
                 "Type": "Label + Field"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [
                 {
                   "childIndex": -1,
@@ -2196,6 +2256,7 @@
                     "Label Value ▶#3141:62": "Template"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2216,6 +2277,7 @@
                     "State": "Disabled"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2251,6 +2313,7 @@
                 "Type": "Label + Field"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [
                 {
                   "childIndex": -1,
@@ -2263,6 +2326,7 @@
                     "Label Value ▶#3141:62": "Project Manager"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2283,6 +2347,7 @@
                     "State": "Default"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2318,6 +2383,7 @@
                 "Type": "Label + Field"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [
                 {
                   "childIndex": -1,
@@ -2330,6 +2396,7 @@
                     "Label Value ▶#3141:62": "Customer"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2350,6 +2417,7 @@
                     "State": "Disabled"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2385,6 +2453,7 @@
                 "Type": "Currency"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [
                 {
                   "childIndex": -1,
@@ -2398,6 +2467,7 @@
                     "Mandatory#3141:16": true
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2418,6 +2488,7 @@
                     "State": "Default"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2453,6 +2524,7 @@
                 "Type": "Label + Text Area"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [
                 {
                   "childIndex": -1,
@@ -2465,6 +2537,7 @@
                     "Label Value ▶#3141:62": "Description"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2485,6 +2558,7 @@
                     "State": "Normal"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2592,6 +2666,7 @@
             "Show Row 20#5419:14": false
           },
           "properties": {},
+          "iconProperties": {},
           "children": [
             {
               "childIndex": -1,
@@ -2612,6 +2687,7 @@
                 "Type": "Label + Number Field"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [
                 {
                   "childIndex": -1,
@@ -2624,6 +2700,7 @@
                     "Label Value ▶#3141:62": "Actual Income"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2644,6 +2721,7 @@
                     "State": "Disabled"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2679,6 +2757,7 @@
                 "Type": "Label + Number Field"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [
                 {
                   "childIndex": -1,
@@ -2691,6 +2770,7 @@
                     "Label Value ▶#3141:62": "Actual Expenses"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2711,6 +2791,7 @@
                     "State": "Disabled"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2746,6 +2827,7 @@
                 "Type": "Label + Number Field"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [
                 {
                   "childIndex": -1,
@@ -2758,6 +2840,7 @@
                     "Label Value ▶#3141:62": "Margin Amount"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2778,6 +2861,7 @@
                     "State": "Disabled"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2813,6 +2897,7 @@
                 "Type": "Label + Number Field"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [
                 {
                   "childIndex": -1,
@@ -2825,6 +2910,7 @@
                     "Label Value ▶#3141:62": "Margin (%)"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2845,6 +2931,7 @@
                     "State": "Disabled"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2880,6 +2967,7 @@
                 "Type": "Label + Number Field"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [
                 {
                   "childIndex": -1,
@@ -2892,6 +2980,7 @@
                     "Label Value ▶#3141:62": "Pending Invoice Amount"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -2912,6 +3001,7 @@
                     "State": "Disabled"
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [],
                   "componentNode": null,
                   "layoutMode": "VERTICAL",
@@ -3634,6 +3724,7 @@
       "width": 1236,
       "componentProperties": {},
       "properties": {},
+      "iconProperties": {},
       "children": [
         {
           "childIndex": -1,
@@ -3658,6 +3749,7 @@
             "13 tab#6936:12": true
           },
           "properties": {},
+          "iconProperties": {},
           "children": [
             {
               "childIndex": -1,
@@ -3672,6 +3764,7 @@
                 "Selected": "True"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -3693,6 +3786,7 @@
                 "Selected": "False"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -3714,6 +3808,7 @@
                 "Selected": "False"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -3735,6 +3830,7 @@
                 "Selected": "False"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -3756,6 +3852,7 @@
                 "Selected": "False"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -3777,6 +3874,7 @@
                 "Selected": "False"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -3798,6 +3896,7 @@
                 "Selected": "False"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -3819,6 +3918,7 @@
                 "Selected": "False"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -3840,6 +3940,7 @@
                 "Selected": "False"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -3861,6 +3962,7 @@
                 "Selected": "False"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -3882,6 +3984,7 @@
                 "Selected": "False"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -3903,6 +4006,7 @@
                 "Selected": "False"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -3924,6 +4028,7 @@
                 "Selected": "False"
               },
               "properties": {},
+              "iconProperties": {},
               "children": [],
               "componentNode": null,
               "layoutMode": "VERTICAL",
@@ -4516,6 +4621,7 @@
           "properties": {
             "counterAxisSizingMode": "AUTO"
           },
+          "iconProperties": {},
           "children": [
             {
               "childIndex": -1,
@@ -4809,6 +4915,7 @@
               "width": 612,
               "componentProperties": {},
               "properties": {},
+              "iconProperties": {},
               "children": [
                 {
                   "childIndex": -1,
@@ -4975,6 +5082,7 @@
                     "Show Row 20#5419:14": false
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [
                     {
                       "childIndex": -1,
@@ -4987,6 +5095,7 @@
                         "Text Value ▶#4494:3": "Project Properties"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [],
                       "componentNode": null,
                       "layoutMode": "VERTICAL",
@@ -5014,6 +5123,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -5026,6 +5136,7 @@
                             "Label Value ▶#3141:62": "Revenue Budget Level"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5046,6 +5157,9 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {
+                            "Icon#3160:22": "ArrowDown"
+                          },
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5081,6 +5195,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -5093,6 +5208,7 @@
                             "Label Value ▶#3141:62": "Cost Budget Level"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5113,6 +5229,9 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {
+                            "Icon#3160:22": "ArrowDown"
+                          },
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5148,6 +5267,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -5160,6 +5280,7 @@
                             "Label Value ▶#3141:62": "Project Group"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5180,6 +5301,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5215,6 +5337,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -5227,6 +5350,7 @@
                             "Label Value ▶#3141:62": "Time Activity Approver"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5247,6 +5371,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5282,6 +5407,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -5294,6 +5420,7 @@
                             "Label Value ▶#3141:62": "Last Revenue Change Nbr."
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5315,6 +5442,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5350,6 +5478,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -5363,6 +5492,7 @@
                             "Mandatory#3141:16": true
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5383,6 +5513,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5418,6 +5549,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -5430,6 +5562,7 @@
                             "Label Value ▶#3141:62": "Currency Rate Type"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5450,6 +5583,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5485,6 +5619,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -5497,6 +5632,7 @@
                             "Label Value ▶#3141:62": "Inventory Tracking"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5517,6 +5653,9 @@
                             "State": "Disabled"
                           },
                           "properties": {},
+                          "iconProperties": {
+                            "Icon#3160:22": "ArrowDown"
+                          },
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5552,6 +5691,7 @@
                         "Type": "Checkbox"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -5566,6 +5706,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5601,6 +5742,7 @@
                         "Type": "Checkbox"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -5615,6 +5757,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5650,6 +5793,7 @@
                         "Type": "Checkbox"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -5664,6 +5808,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5699,6 +5844,7 @@
                         "Type": "Checkbox"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -5713,6 +5859,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5748,6 +5895,7 @@
                         "Type": "Checkbox"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -5762,6 +5910,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -5797,6 +5946,7 @@
                         "Type": "Checkbox"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -5811,6 +5961,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6008,6 +6159,7 @@
                     "Show Row 20#5419:14": false
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [
                     {
                       "childIndex": -1,
@@ -6020,6 +6172,7 @@
                         "Text Value ▶#4494:3": "Billing and Allocation Settings"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [],
                       "componentNode": null,
                       "layoutMode": "VERTICAL",
@@ -6047,6 +6200,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -6060,6 +6214,7 @@
                             "Mandatory#3141:16": true
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6080,6 +6235,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6115,6 +6271,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -6127,6 +6284,7 @@
                             "Label Value ▶#3141:62": "Billing Period"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6147,6 +6305,9 @@
                             "State": "Disabled"
                           },
                           "properties": {},
+                          "iconProperties": {
+                            "Icon#3160:22": "ArrowDown"
+                          },
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6182,6 +6343,7 @@
                         "Type": "Date"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -6194,6 +6356,7 @@
                             "Label Value ▶#3141:62": "Next Billing Date"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6214,6 +6377,7 @@
                             "State": "Disabled"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6249,6 +6413,7 @@
                         "Type": "Date"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -6261,6 +6426,7 @@
                             "Label Value ▶#3141:62": "Last Billing Date"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6281,6 +6447,7 @@
                             "State": "Disabled"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6316,6 +6483,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -6328,6 +6496,7 @@
                             "Label Value ▶#3141:62": "Customer Location"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6348,6 +6517,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6383,6 +6553,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -6395,6 +6566,7 @@
                             "Label Value ▶#3141:62": "Payroll Work Location"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6415,6 +6587,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6450,6 +6623,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -6462,6 +6636,7 @@
                             "Label Value ▶#3141:62": "Terms"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6482,6 +6657,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6517,6 +6693,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -6529,6 +6706,7 @@
                             "Label Value ▶#3141:62": "Allocation Rule"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6549,6 +6727,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6584,6 +6763,7 @@
                         "Type": "Checkbox"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -6598,6 +6778,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6633,6 +6814,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -6645,6 +6827,7 @@
                             "Label Value ▶#3141:62": "Billing Rule"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6665,6 +6848,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6700,6 +6884,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -6712,6 +6897,7 @@
                             "Label Value ▶#3141:62": "Branch"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6732,6 +6918,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6767,6 +6954,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -6779,6 +6967,7 @@
                             "Label Value ▶#3141:62": "Rate Table"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6799,6 +6988,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6834,6 +7024,7 @@
                         "Type": "Checkbox"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -6848,6 +7039,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6883,6 +7075,7 @@
                         "Type": "Checkbox"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -6897,6 +7090,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -6932,6 +7126,7 @@
                         "Type": "Checkbox"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -6946,6 +7141,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -7261,6 +7457,7 @@
               "width": 612,
               "componentProperties": {},
               "properties": {},
+              "iconProperties": {},
               "children": [
                 {
                   "childIndex": -1,
@@ -7373,6 +7570,7 @@
                     "Show Row 20#5419:14": false
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [
                     {
                       "childIndex": -1,
@@ -7385,6 +7583,7 @@
                         "Text Value ▶#4494:3": "Retainage"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [],
                       "componentNode": null,
                       "layoutMode": "VERTICAL",
@@ -7412,6 +7611,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -7424,6 +7624,7 @@
                             "Label Value ▶#3141:62": "Retainage Mode"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -7444,6 +7645,9 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {
+                            "Icon#3160:22": "ArrowDown"
+                          },
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -7479,6 +7683,7 @@
                         "Type": "Checkbox"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -7493,6 +7698,7 @@
                             "State": "Disabled"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -7528,6 +7734,7 @@
                         "Type": "Label + Number Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -7540,6 +7747,7 @@
                             "Label Value ▶#3141:62": "Contract Total"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -7560,6 +7768,7 @@
                             "State": "Disabled"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -7595,6 +7804,7 @@
                         "Type": "Label + Number Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -7607,6 +7817,7 @@
                             "Label Value ▶#3141:62": "Completed (%)"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -7627,6 +7838,7 @@
                             "State": "Disabled"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -7662,6 +7874,7 @@
                         "Type": "Label + Number Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -7674,6 +7887,7 @@
                             "Label Value ▶#3141:62": "Total Retained Amount"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -7694,6 +7908,7 @@
                             "State": "Disabled"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -7731,6 +7946,7 @@
                         "Label Length": "s"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -7745,6 +7961,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -7782,6 +7999,7 @@
                         "Label Length": "s"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -7796,6 +8014,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -7831,6 +8050,7 @@
                         "Type": "Label + Number Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -7843,6 +8063,7 @@
                             "Label Value ▶#3141:62": "Retainage (%)"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -7863,6 +8084,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -7952,6 +8174,7 @@
                     "Show Row 20#5419:14": false
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [
                     {
                       "childIndex": -1,
@@ -7964,6 +8187,7 @@
                         "Text Value ▶#4494:3": "AIA"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [],
                       "componentNode": null,
                       "layoutMode": "VERTICAL",
@@ -7991,6 +8215,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -8003,6 +8228,7 @@
                             "Label Value ▶#3141:62": "AIA Level"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -8023,6 +8249,9 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {
+                            "Icon#3160:22": "ArrowDown"
+                          },
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -8058,6 +8287,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -8070,6 +8300,7 @@
                             "Label Value ▶#3141:62": "Last Application Nbr."
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -8091,6 +8322,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -8126,6 +8358,7 @@
                         "Type": "Checkbox"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -8140,6 +8373,7 @@
                             "State": "Default"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -8220,6 +8454,7 @@
                     "Show Row 20#5419:14": false
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [
                     {
                       "childIndex": -1,
@@ -8232,6 +8467,7 @@
                         "Text Value ▶#4494:3": "Tax Settings"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [],
                       "componentNode": null,
                       "layoutMode": "VERTICAL",
@@ -8259,6 +8495,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -8271,6 +8508,7 @@
                             "Label Value ▶#3141:62": "Cost Tax Zone"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -8291,6 +8529,7 @@
                             "State": "Disabled"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -8326,6 +8565,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -8338,6 +8578,7 @@
                             "Label Value ▶#3141:62": "Revenue Tax Zone"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -8358,6 +8599,7 @@
                             "State": "Disabled"
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -8540,6 +8782,7 @@
                     "Show Row 20#5419:14": false
                   },
                   "properties": {},
+                  "iconProperties": {},
                   "children": [
                     {
                       "childIndex": -1,
@@ -8552,6 +8795,7 @@
                         "Text Value ▶#4494:3": "Visibility Settings"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [],
                       "componentNode": null,
                       "layoutMode": "VERTICAL",
@@ -8625,6 +8869,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -8637,6 +8882,7 @@
                             "Label Value ▶#3141:62": ""
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -8660,6 +8906,7 @@
                             "layoutGrow": 1,
                             "fills": []
                           },
+                          "iconProperties": {},
                           "children": [
                             {
                               "childIndex": -1,
@@ -8673,6 +8920,7 @@
                                 "Selected": "True"
                               },
                               "properties": {},
+                              "iconProperties": {},
                               "children": [],
                               "layoutMode": "VERTICAL",
                               "figmaObject": null,
@@ -8692,6 +8940,7 @@
                                 "Selected": "True"
                               },
                               "properties": {},
+                              "iconProperties": {},
                               "children": [],
                               "layoutMode": "VERTICAL",
                               "figmaObject": null,
@@ -8711,6 +8960,7 @@
                                 "Selected": "True"
                               },
                               "properties": {},
+                              "iconProperties": {},
                               "children": [],
                               "layoutMode": "VERTICAL",
                               "figmaObject": null,
@@ -8730,6 +8980,7 @@
                                 "Selected": "True"
                               },
                               "properties": {},
+                              "iconProperties": {},
                               "children": [],
                               "layoutMode": "VERTICAL",
                               "figmaObject": null,
@@ -8749,6 +9000,7 @@
                                 "Selected": "True"
                               },
                               "properties": {},
+                              "iconProperties": {},
                               "children": [],
                               "layoutMode": "VERTICAL",
                               "figmaObject": null,
@@ -8819,6 +9071,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -8831,6 +9084,7 @@
                             "Label Value ▶#3141:62": ""
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -8854,6 +9108,7 @@
                             "layoutGrow": 1,
                             "fills": []
                           },
+                          "iconProperties": {},
                           "children": [
                             {
                               "childIndex": -1,
@@ -8867,6 +9122,7 @@
                                 "Selected": "True"
                               },
                               "properties": {},
+                              "iconProperties": {},
                               "children": [],
                               "layoutMode": "VERTICAL",
                               "figmaObject": null,
@@ -8886,6 +9142,7 @@
                                 "Selected": "True"
                               },
                               "properties": {},
+                              "iconProperties": {},
                               "children": [],
                               "layoutMode": "VERTICAL",
                               "figmaObject": null,
@@ -8905,6 +9162,7 @@
                                 "Selected": "True"
                               },
                               "properties": {},
+                              "iconProperties": {},
                               "children": [],
                               "layoutMode": "VERTICAL",
                               "figmaObject": null,
@@ -8966,6 +9224,7 @@
                         "Type": "Label + Field"
                       },
                       "properties": {},
+                      "iconProperties": {},
                       "children": [
                         {
                           "childIndex": -1,
@@ -8978,6 +9237,7 @@
                             "Label Value ▶#3141:62": ""
                           },
                           "properties": {},
+                          "iconProperties": {},
                           "children": [],
                           "componentNode": null,
                           "layoutMode": "VERTICAL",
@@ -9001,6 +9261,7 @@
                             "layoutGrow": 1,
                             "fills": []
                           },
+                          "iconProperties": {},
                           "children": [
                             {
                               "childIndex": -1,
@@ -9014,6 +9275,7 @@
                                 "Selected": "True"
                               },
                               "properties": {},
+                              "iconProperties": {},
                               "children": [],
                               "layoutMode": "VERTICAL",
                               "figmaObject": null,
@@ -9033,6 +9295,7 @@
                                 "Selected": "True"
                               },
                               "properties": {},
+                              "iconProperties": {},
                               "children": [],
                               "layoutMode": "VERTICAL",
                               "figmaObject": null,
@@ -9084,7 +9347,7 @@
       "layoutMode": "VERTICAL",
       "figmaObject": null,
       "detach": false,
-      "name": "Tabbar",
+      "name": "TabBar",
       "type": "FRAME"
     }
   ],
