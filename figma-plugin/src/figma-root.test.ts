@@ -8,7 +8,6 @@ describe('figma-root', () => {
 
     const inputFolder = './src/test-cases/input/';
     const outputFolder = './src/test-cases/output/';
-    const actualFolder = './src/test-cases/actual/';
 
     interface testCase {
         testName: string;
@@ -38,7 +37,7 @@ describe('figma-root', () => {
             const actual = new FigmaRoot(root);
             // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             const expected = JSON.parse(expectedJSON);
-            //fs.writeFileSync(`${actualFolder}${testName}.json`, JSON.stringify(actual, null, 2));
+            //fs.writeFileSync(`${actualFolder}actual/${testName}.json`, JSON.stringify(actual, null, 2));
             expect(JSON.parse(JSON.stringify(actual))).toEqual(expected);
         }
     );

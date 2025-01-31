@@ -1,15 +1,6 @@
 import {FigmaNode} from './figma-node';
 import {Tab, TabBar} from '@modern-ui-to-figma/elements';
-import {AcuElementType} from '@modern-ui-to-figma/elements';
-import {FigmaTemplate} from './figma-template';
-import {Template} from '@modern-ui-to-figma/elements';
-import {QPTree} from '@modern-ui-to-figma/elements';
-import {Grid} from '@modern-ui-to-figma/elements';
-import {FigmaSplitContainer} from './figma-split-container';
-import {QPSplitContainer} from '@modern-ui-to-figma/elements';
 import {addChild, compTabBar, viewportWidth} from './figma-main';
-import {FigmaTree} from './figma-tree';
-import {FigmaGrid} from './figma-grid';
 
 export class FigmaTabBar extends FigmaNode {
     constructor(tabBar: TabBar, width = 0) {

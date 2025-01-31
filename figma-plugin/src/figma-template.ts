@@ -1,19 +1,6 @@
 import {FigmaNode} from './figma-node';
 import {Template} from '@modern-ui-to-figma/elements';
-import {AcuElementType} from '@modern-ui-to-figma/elements';
-import {FigmaFieldSet} from './figma-field-set';
-import {QPFieldset} from '@modern-ui-to-figma/elements';
-import {FigmaSlot} from './figma-slot';
-import {FieldsetSlot} from '@modern-ui-to-figma/elements';
-import {QPImage} from '@modern-ui-to-figma/elements';
-import {QPRichTextEditor} from '@modern-ui-to-figma/elements';
-import {QPTree} from '@modern-ui-to-figma/elements';
-import {Grid} from '@modern-ui-to-figma/elements';
 import {addChild, horizontalSpacing, viewportWidth} from './figma-main';
-import {FigmaImageViewer} from './figma-image-viewer';
-import {FigmaRichTextEditor} from './figma-rich-text-editor';
-import {FigmaTree} from './figma-tree';
-import {FigmaGrid} from './figma-grid';
 
 export class FigmaTemplate extends FigmaNode {
     constructor(template: Template, width = 0) {

@@ -5,13 +5,13 @@ import {IconType} from '@modern-ui-to-figma/elements';
 import {FigmaNode} from './figma-node';
 import {Logger} from './logger';
 import {FigmaRoot} from './figma-root';
-import {FigmaFieldSet} from "./figma-field-set";
-import {FigmaTree} from "./figma-tree";
-import {FigmaTemplate} from "./figma-template";
-import {FigmaTabBar} from "./figma-tab-bar";
-import {FigmaSplitContainer} from "./figma-split-container";
-import {FigmaRichTextEditor} from "./figma-rich-text-editor";
-import {FigmaImageViewer} from "./figma-image-viewer";
+import {FigmaFieldSet} from './figma-field-set';
+import {FigmaTree} from './figma-tree';
+import {FigmaTemplate} from './figma-template';
+import {FigmaTabBar} from './figma-tab-bar';
+import {FigmaSplitContainer} from './figma-split-container';
+import {FigmaRichTextEditor} from './figma-rich-text-editor';
+import {FigmaImageViewer} from './figma-image-viewer';
 import { QPImage } from '@modern-ui-to-figma/elements';
 import { QPRichTextEditor } from '@modern-ui-to-figma/elements';
 import { QPSplitContainer } from '@modern-ui-to-figma/elements';
@@ -19,9 +19,9 @@ import { Template } from '@modern-ui-to-figma/elements';
 import { QPTree } from '@modern-ui-to-figma/elements';
 import { AcuElement } from '@modern-ui-to-figma/elements';
 import { QPFieldset } from '@modern-ui-to-figma/elements';
-import {FigmaSlot} from "./figma-slot";
+import {FigmaSlot} from './figma-slot';
 import { FieldsetSlot } from '@modern-ui-to-figma/elements';
-import {FigmaGrid} from "./figma-grid";
+import {FigmaGrid} from './figma-grid';
 import { Grid } from '@modern-ui-to-figma/elements';
 import { Tab } from '@modern-ui-to-figma/elements';
 
@@ -267,49 +267,50 @@ export async function DrawFromJSON(input: string, reuseSummary: boolean): Promis
     }
 }
 
-export function addChild(parent: FigmaNode, parentType: AcuElementType, child: AcuElement, slotWidth: number) {
+export function addChild(parent: FigmaNode, parentType: AcuElementType, child: AcuElement, slotWidth: number): void {
     switch (child.Type) {
-        case AcuElementType.FieldSet:
-            parent.children.push(new FigmaFieldSet(child as QPFieldset, slotWidth));
-            break;
-        case AcuElementType.FieldsetSlot:
-            parent.children.push(new FigmaSlot(child as FieldsetSlot, slotWidth));
-            break;
-        case AcuElementType.Grid:
-            const grid = new FigmaGrid((child as unknown) as Grid, 'Grid', true);
-            switch (parentType)
-            {
-                case AcuElementType.Root:
-                    break;
-                case AcuElementType.Tabbar:
-                    grid.width = slotWidth;
-                    break;
-                default:
-                    grid.properties['layoutAlign'] = 'STRETCH';
-                    grid.height = 250;
-                    grid.width = slotWidth;
-                    break
-            }
-            parent.children.push(grid);
-            break;
-        case AcuElementType.Image:
-            parent.children.push(new FigmaImageViewer(child as QPImage, slotWidth));
-            break;
-        case AcuElementType.RichTextEditor:
-            parent.children.push(new FigmaRichTextEditor(child as QPRichTextEditor, slotWidth));
-            break;
-        case AcuElementType.SplitContainer:
-            parent.children.push(new FigmaSplitContainer(child as QPSplitContainer, slotWidth));
+    case AcuElementType.FieldSet:
+        parent.children.push(new FigmaFieldSet(child as QPFieldset, slotWidth));
+        break;
+    case AcuElementType.FieldsetSlot:
+        parent.children.push(new FigmaSlot(child as FieldsetSlot, slotWidth));
+        break;
+    case AcuElementType.Grid: {
+        const grid = new FigmaGrid((child as unknown) as Grid, 'Grid', true);
+        switch (parentType)
+        {
+        case AcuElementType.Root:
             break;
         case AcuElementType.Tabbar:
-            parent.children.push(new FigmaTabBar(child as TabBar, slotWidth));
+            grid.width = slotWidth;
             break;
-        case AcuElementType.Template:
-            parent.children.push(new FigmaTemplate(child as Template, slotWidth));
-            break;
-        case AcuElementType.Tree:
-            parent.children.push(new FigmaTree(child as QPTree, slotWidth));
-            break;
+        default:
+            grid.properties['layoutAlign'] = 'STRETCH';
+            grid.height = 250;
+            grid.width = slotWidth;
+            break
+        }
+        parent.children.push(grid);
+        break;
+    }
+    case AcuElementType.Image:
+        parent.children.push(new FigmaImageViewer(child as QPImage, slotWidth));
+        break;
+    case AcuElementType.RichTextEditor:
+        parent.children.push(new FigmaRichTextEditor(child as QPRichTextEditor, slotWidth));
+        break;
+    case AcuElementType.SplitContainer:
+        parent.children.push(new FigmaSplitContainer(child as QPSplitContainer, slotWidth));
+        break;
+    case AcuElementType.Tabbar:
+        parent.children.push(new FigmaTabBar(child as TabBar, slotWidth));
+        break;
+    case AcuElementType.Template:
+        parent.children.push(new FigmaTemplate(child as Template, slotWidth));
+        break;
+    case AcuElementType.Tree:
+        parent.children.push(new FigmaTree(child as QPTree, slotWidth));
+        break;
     }
 }
 
