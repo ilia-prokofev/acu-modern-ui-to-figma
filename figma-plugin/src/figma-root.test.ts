@@ -17,6 +17,7 @@ describe('figma-root', () => {
     const testCases: testCase[] = [
         {testName: 'toolbar'},
         {testName: 'IN202500'},
+        {testName: 'IN204060'},
         {testName: 'PM301000-summary'},
         {testName: 'PO301000-po-history'},
         {testName: 'PR209800'},
@@ -37,7 +38,7 @@ describe('figma-root', () => {
             const actual = new FigmaRoot(root);
             // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             const expected = JSON.parse(expectedJSON);
-            // fs.writeFileSync(`${actualFolder}${testName}.json`, JSON.stringify(actual, null, 2));
+            //fs.writeFileSync(`${actualFolder}${testName}.json`, JSON.stringify(actual, null, 2));
             expect(JSON.parse(JSON.stringify(actual))).toEqual(expected);
         }
     );

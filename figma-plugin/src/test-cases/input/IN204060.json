@@ -1,0 +1,235 @@
+{
+  "Type": "Root",
+  "Children": [
+    {
+      "Type": "SplitContainer",
+      "Id": "Root-1627",
+      "Orientation": "Horizontal",
+      "Panel1": {
+        "Type": "SplitPanel",
+        "Id": "Root-1627-338",
+        "Children": [
+          {
+            "Type": "Tree",
+            "Id": "Root-1627-338-1629",
+            "Caption": "Categories"
+          }
+        ]
+      },
+      "Panel2": {
+        "Type": "SplitPanel",
+        "Id": "Root-1627-358",
+        "Children": [
+          {
+            "Type": "Template",
+            "Id": "Root-1627-358-1631",
+            "Name": "1-1",
+            "Children": [
+              {
+                "Label": null,
+                "Type": "FieldSet",
+                "Id": "Root-1627-358-1631-1632",
+                "Children": [
+                  {
+                    "Type": "Field",
+                    "ReadOnly": false,
+                    "ElementType": "TextEditor",
+                    "Id": "Root-1627-358-1631-1632-1641",
+                    "Label": "Description",
+                    "Value": "Laptops",
+                    "Mandatory": true
+                  }
+                ],
+                "Style": "Gray"
+              },
+              {
+                "Label": null,
+                "Type": "FieldSet",
+                "Id": "Root-1627-358-1631-1633",
+                "Children": [
+                  {
+                    "Type": "Field",
+                    "ReadOnly": false,
+                    "ElementType": "TextEditor",
+                    "Id": "Root-1627-358-1631-1633-1639",
+                    "Label": "Parent Category",
+                    "Value": "Computers",
+                    "Mandatory": false
+                  }
+                ],
+                "Style": "Gray"
+              }
+            ]
+          },
+          {
+            "Type": "Grid",
+            "Id": "Root-1627-358-1634",
+            "Caption": "Category Members",
+            "ToolBar": {
+              "Type": "ToolBar",
+              "Id": "Root-1627-358-1634-1313",
+              "ToolBarType": "List",
+              "Items": [
+                {
+                  "ItemType": "Button",
+                  "Icon": "Refresh",
+                  "Enabled": true,
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "ItemType": "Button",
+                  "Icon": "AddRow",
+                  "Enabled": true,
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "ItemType": "Button",
+                  "Icon": "DeleteRow",
+                  "Enabled": true,
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "ItemType": "Button",
+                  "Icon": "Copy",
+                  "Enabled": true,
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "ItemType": "Button",
+                  "Icon": null,
+                  "Enabled": true,
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "ItemType": "Button",
+                  "Icon": null,
+                  "Enabled": true,
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "ItemType": "Button",
+                  "Icon": null,
+                  "Enabled": true,
+                  "Style": "Secondary",
+                  "Text": "Add Items"
+                },
+                {
+                  "ItemType": "Button",
+                  "Icon": "AdjustColumns",
+                  "Enabled": true,
+                  "Style": "Tertiary",
+                  "Text": null
+                },
+                {
+                  "ItemType": "Button",
+                  "Icon": "ExportToExcel",
+                  "Enabled": true,
+                  "Style": "Tertiary",
+                  "Text": null
+                }
+              ],
+              "ShowRightAction": true,
+              "ShowSaveButton": false
+            },
+            "Columns": [
+              {
+                "Type": "GridColumn",
+                "Label": "",
+                "ColumnType": "Settings",
+                "Cells": [
+                  "",
+                  ""
+                ],
+                "Alignment": "Left"
+              },
+              {
+                "Type": "GridColumn",
+                "Label": "",
+                "ColumnType": "Checkbox",
+                "Cells": [
+                  "false",
+                  "false"
+                ],
+                "Alignment": "Center"
+              },
+              {
+                "Type": "GridColumn",
+                "Label": "Inventory ID",
+                "ColumnType": "Link",
+                "Cells": [
+                  "AACOMPUT01",
+                  "ELECOMP2"
+                ],
+                "Alignment": "Left"
+              },
+              {
+                "Type": "GridColumn",
+                "Label": "Description",
+                "ColumnType": "Text",
+                "Cells": [
+                  "Acer Laptop Computer",
+                  "Lenovo laptop computer"
+                ],
+                "Alignment": "Left"
+              },
+              {
+                "Type": "GridColumn",
+                "Label": "Item Class",
+                "ColumnType": "Link",
+                "Cells": [
+                  "ELECCOMP  -400-COMPUTERS",
+                  "ELECCOMP  -400-COMPUTERS"
+                ],
+                "Alignment": "Left"
+              },
+              {
+                "Type": "GridColumn",
+                "Label": "Item Status",
+                "ColumnType": "Text",
+                "Cells": [
+                  "Active",
+                  "Active"
+                ],
+                "Alignment": "Left"
+              }
+            ],
+            "Footer": null,
+            "Wrapped": false
+          }
+        ]
+      }
+    }
+  ],
+  "Title": "Item Sales Categories",
+  "Caption": null,
+  "ToolBar": {
+    "Type": "ToolBar",
+    "Id": "Root-27",
+    "ToolBarType": "List",
+    "Items": [
+      {
+        "ItemType": "Button",
+        "Icon": "Save",
+        "Enabled": false,
+        "Style": "Tertiary",
+        "Text": null
+      },
+      {
+        "ItemType": "Button",
+        "Icon": "Undo",
+        "Enabled": true,
+        "Style": "Tertiary",
+        "Text": null
+      }
+    ],
+    "ShowRightAction": false,
+    "ShowSaveButton": false
+  },
+  "Id": "Root"
+}

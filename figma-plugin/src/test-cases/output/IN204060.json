@@ -1,0 +1,2778 @@
+{
+  "childIndex": -1,
+  "tryToFind": false,
+  "createIfNotFound": false,
+  "acuElement": {
+    "Type": "Root",
+    "Children": [
+      {
+        "Type": "SplitContainer",
+        "Id": "Root-1627",
+        "Orientation": "Horizontal",
+        "Panel1": {
+          "Type": "SplitPanel",
+          "Id": "Root-1627-338",
+          "Children": [
+            {
+              "Type": "Tree",
+              "Id": "Root-1627-338-1629",
+              "Caption": "Categories"
+            }
+          ]
+        },
+        "Panel2": {
+          "Type": "SplitPanel",
+          "Id": "Root-1627-358",
+          "Children": [
+            {
+              "Type": "Template",
+              "Id": "Root-1627-358-1631",
+              "Name": "1-1",
+              "Children": [
+                {
+                  "Label": null,
+                  "Type": "FieldSet",
+                  "Id": "Root-1627-358-1631-1632",
+                  "Children": [
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "TextEditor",
+                      "Id": "Root-1627-358-1631-1632-1641",
+                      "Label": "Description",
+                      "Value": "Laptops",
+                      "Mandatory": true
+                    }
+                  ],
+                  "Style": "Gray"
+                },
+                {
+                  "Label": null,
+                  "Type": "FieldSet",
+                  "Id": "Root-1627-358-1631-1633",
+                  "Children": [
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "TextEditor",
+                      "Id": "Root-1627-358-1631-1633-1639",
+                      "Label": "Parent Category",
+                      "Value": "Computers",
+                      "Mandatory": false
+                    }
+                  ],
+                  "Style": "Gray"
+                }
+              ]
+            },
+            {
+              "Type": "Grid",
+              "Id": "Root-1627-358-1634",
+              "Caption": "Category Members",
+              "ToolBar": {
+                "Type": "ToolBar",
+                "Id": "Root-1627-358-1634-1313",
+                "ToolBarType": "List",
+                "Items": [
+                  {
+                    "ItemType": "Button",
+                    "Icon": "Refresh",
+                    "Enabled": true,
+                    "Style": "Tertiary",
+                    "Text": null
+                  },
+                  {
+                    "ItemType": "Button",
+                    "Icon": "AddRow",
+                    "Enabled": true,
+                    "Style": "Tertiary",
+                    "Text": null
+                  },
+                  {
+                    "ItemType": "Button",
+                    "Icon": "DeleteRow",
+                    "Enabled": true,
+                    "Style": "Tertiary",
+                    "Text": null
+                  },
+                  {
+                    "ItemType": "Button",
+                    "Icon": "Copy",
+                    "Enabled": true,
+                    "Style": "Tertiary",
+                    "Text": null
+                  },
+                  {
+                    "ItemType": "Button",
+                    "Icon": null,
+                    "Enabled": true,
+                    "Style": "Tertiary",
+                    "Text": null
+                  },
+                  {
+                    "ItemType": "Button",
+                    "Icon": null,
+                    "Enabled": true,
+                    "Style": "Tertiary",
+                    "Text": null
+                  },
+                  {
+                    "ItemType": "Button",
+                    "Icon": null,
+                    "Enabled": true,
+                    "Style": "Secondary",
+                    "Text": "Add Items"
+                  },
+                  {
+                    "ItemType": "Button",
+                    "Icon": "AdjustColumns",
+                    "Enabled": true,
+                    "Style": "Tertiary",
+                    "Text": null
+                  },
+                  {
+                    "ItemType": "Button",
+                    "Icon": "ExportToExcel",
+                    "Enabled": true,
+                    "Style": "Tertiary",
+                    "Text": null
+                  }
+                ],
+                "ShowRightAction": true,
+                "ShowSaveButton": false
+              },
+              "Columns": [
+                {
+                  "Type": "GridColumn",
+                  "Label": "",
+                  "ColumnType": "Settings",
+                  "Cells": [
+                    "",
+                    ""
+                  ],
+                  "Alignment": "Left"
+                },
+                {
+                  "Type": "GridColumn",
+                  "Label": "",
+                  "ColumnType": "Checkbox",
+                  "Cells": [
+                    "false",
+                    "false"
+                  ],
+                  "Alignment": "Center"
+                },
+                {
+                  "Type": "GridColumn",
+                  "Label": "Inventory ID",
+                  "ColumnType": "Link",
+                  "Cells": [
+                    "AACOMPUT01",
+                    "ELECOMP2"
+                  ],
+                  "Alignment": "Left"
+                },
+                {
+                  "Type": "GridColumn",
+                  "Label": "Description",
+                  "ColumnType": "Text",
+                  "Cells": [
+                    "Acer Laptop Computer",
+                    "Lenovo laptop computer"
+                  ],
+                  "Alignment": "Left"
+                },
+                {
+                  "Type": "GridColumn",
+                  "Label": "Item Class",
+                  "ColumnType": "Link",
+                  "Cells": [
+                    "ELECCOMP  -400-COMPUTERS",
+                    "ELECCOMP  -400-COMPUTERS"
+                  ],
+                  "Alignment": "Left"
+                },
+                {
+                  "Type": "GridColumn",
+                  "Label": "Item Status",
+                  "ColumnType": "Text",
+                  "Cells": [
+                    "Active",
+                    "Active"
+                  ],
+                  "Alignment": "Left"
+                }
+              ],
+              "Footer": null,
+              "Wrapped": false
+            }
+          ]
+        }
+      }
+    ],
+    "Title": "Item Sales Categories",
+    "Caption": null,
+    "ToolBar": {
+      "Type": "ToolBar",
+      "Id": "Root-27",
+      "ToolBarType": "List",
+      "Items": [
+        {
+          "ItemType": "Button",
+          "Icon": "Save",
+          "Enabled": false,
+          "Style": "Tertiary",
+          "Text": null
+        },
+        {
+          "ItemType": "Button",
+          "Icon": "Undo",
+          "Enabled": true,
+          "Style": "Tertiary",
+          "Text": null
+        }
+      ],
+      "ShowRightAction": false,
+      "ShowSaveButton": false
+    },
+    "Id": "Root"
+  },
+  "height": 0,
+  "width": 0,
+  "componentProperties": {},
+  "properties": {},
+  "iconProperties": {},
+  "children": [
+    {
+      "childIndex": -1,
+      "tryToFind": true,
+      "createIfNotFound": false,
+      "acuElement": {
+        "Type": "ToolBar",
+        "Id": "Root-27",
+        "ToolBarType": "List",
+        "Items": [
+          {
+            "ItemType": "Button",
+            "Icon": "Save",
+            "Enabled": false,
+            "Style": "Tertiary",
+            "Text": null
+          },
+          {
+            "ItemType": "Button",
+            "Icon": "Undo",
+            "Enabled": true,
+            "Style": "Tertiary",
+            "Text": null
+          }
+        ],
+        "ShowRightAction": false,
+        "ShowSaveButton": false
+      },
+      "height": 0,
+      "width": 0,
+      "componentProperties": {
+        "Type": "List",
+        "Show Right Actions#6826:45": false
+      },
+      "properties": {},
+      "iconProperties": {},
+      "children": [
+        {
+          "childIndex": 0,
+          "tryToFind": true,
+          "createIfNotFound": false,
+          "acuElement": null,
+          "height": 0,
+          "width": 0,
+          "componentProperties": {},
+          "properties": {},
+          "iconProperties": {},
+          "children": [
+            {
+              "childIndex": 0,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Disabled",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Save"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 1,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {
+                "Type": "Tertiary",
+                "State": "Default",
+                "Show Icon Left#3133:110": true,
+                "Show Label#3133:443": false
+              },
+              "properties": {
+                "visible": true
+              },
+              "iconProperties": {
+                "Icon Left#3131:0": "Undo"
+              },
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 2,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {},
+              "properties": {
+                "visible": false
+              },
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 3,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {},
+              "properties": {
+                "visible": false
+              },
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 4,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {},
+              "properties": {
+                "visible": false
+              },
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 5,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {},
+              "properties": {
+                "visible": false
+              },
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 6,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {},
+              "properties": {
+                "visible": false
+              },
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 7,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {},
+              "properties": {
+                "visible": false
+              },
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 8,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {},
+              "properties": {
+                "visible": false
+              },
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 9,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {},
+              "properties": {
+                "visible": false
+              },
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            },
+            {
+              "childIndex": 10,
+              "tryToFind": true,
+              "createIfNotFound": false,
+              "acuElement": null,
+              "height": 0,
+              "width": 0,
+              "componentProperties": {},
+              "properties": {
+                "visible": false
+              },
+              "iconProperties": {},
+              "children": [],
+              "componentNode": null,
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Button",
+              "type": "INSTANCE"
+            }
+          ],
+          "componentNode": null,
+          "layoutMode": "VERTICAL",
+          "figmaObject": null,
+          "detach": false,
+          "name": "Buttons",
+          "type": "INSTANCE"
+        }
+      ],
+      "componentNode": null,
+      "layoutMode": "VERTICAL",
+      "figmaObject": null,
+      "detach": false,
+      "name": "Toolbar",
+      "type": "INSTANCE",
+      "toolBarTypes": {},
+      "filterBarMapping": {}
+    },
+    {
+      "childIndex": -1,
+      "tryToFind": false,
+      "createIfNotFound": false,
+      "acuElement": {
+        "Type": "SplitContainer",
+        "Id": "Root-1627",
+        "Orientation": "Horizontal",
+        "Panel1": {
+          "Type": "SplitPanel",
+          "Id": "Root-1627-338",
+          "Children": [
+            {
+              "Type": "Tree",
+              "Id": "Root-1627-338-1629",
+              "Caption": "Categories"
+            }
+          ]
+        },
+        "Panel2": {
+          "Type": "SplitPanel",
+          "Id": "Root-1627-358",
+          "Children": [
+            {
+              "Type": "Template",
+              "Id": "Root-1627-358-1631",
+              "Name": "1-1",
+              "Children": [
+                {
+                  "Label": null,
+                  "Type": "FieldSet",
+                  "Id": "Root-1627-358-1631-1632",
+                  "Children": [
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "TextEditor",
+                      "Id": "Root-1627-358-1631-1632-1641",
+                      "Label": "Description",
+                      "Value": "Laptops",
+                      "Mandatory": true
+                    }
+                  ],
+                  "Style": "Gray"
+                },
+                {
+                  "Label": null,
+                  "Type": "FieldSet",
+                  "Id": "Root-1627-358-1631-1633",
+                  "Children": [
+                    {
+                      "Type": "Field",
+                      "ReadOnly": false,
+                      "ElementType": "TextEditor",
+                      "Id": "Root-1627-358-1631-1633-1639",
+                      "Label": "Parent Category",
+                      "Value": "Computers",
+                      "Mandatory": false
+                    }
+                  ],
+                  "Style": "Gray"
+                }
+              ]
+            },
+            {
+              "Type": "Grid",
+              "Id": "Root-1627-358-1634",
+              "Caption": "Category Members",
+              "ToolBar": {
+                "Type": "ToolBar",
+                "Id": "Root-1627-358-1634-1313",
+                "ToolBarType": "List",
+                "Items": [
+                  {
+                    "ItemType": "Button",
+                    "Icon": "Refresh",
+                    "Enabled": true,
+                    "Style": "Tertiary",
+                    "Text": null
+                  },
+                  {
+                    "ItemType": "Button",
+                    "Icon": "AddRow",
+                    "Enabled": true,
+                    "Style": "Tertiary",
+                    "Text": null
+                  },
+                  {
+                    "ItemType": "Button",
+                    "Icon": "DeleteRow",
+                    "Enabled": true,
+                    "Style": "Tertiary",
+                    "Text": null
+                  },
+                  {
+                    "ItemType": "Button",
+                    "Icon": "Copy",
+                    "Enabled": true,
+                    "Style": "Tertiary",
+                    "Text": null
+                  },
+                  {
+                    "ItemType": "Button",
+                    "Icon": null,
+                    "Enabled": true,
+                    "Style": "Tertiary",
+                    "Text": null
+                  },
+                  {
+                    "ItemType": "Button",
+                    "Icon": null,
+                    "Enabled": true,
+                    "Style": "Tertiary",
+                    "Text": null
+                  },
+                  {
+                    "ItemType": "Button",
+                    "Icon": null,
+                    "Enabled": true,
+                    "Style": "Secondary",
+                    "Text": "Add Items"
+                  },
+                  {
+                    "ItemType": "Button",
+                    "Icon": "AdjustColumns",
+                    "Enabled": true,
+                    "Style": "Tertiary",
+                    "Text": null
+                  },
+                  {
+                    "ItemType": "Button",
+                    "Icon": "ExportToExcel",
+                    "Enabled": true,
+                    "Style": "Tertiary",
+                    "Text": null
+                  }
+                ],
+                "ShowRightAction": true,
+                "ShowSaveButton": false
+              },
+              "Columns": [
+                {
+                  "Type": "GridColumn",
+                  "Label": "",
+                  "ColumnType": "Settings",
+                  "Cells": [
+                    "",
+                    ""
+                  ],
+                  "Alignment": "Left"
+                },
+                {
+                  "Type": "GridColumn",
+                  "Label": "",
+                  "ColumnType": "Checkbox",
+                  "Cells": [
+                    "false",
+                    "false"
+                  ],
+                  "Alignment": "Center"
+                },
+                {
+                  "Type": "GridColumn",
+                  "Label": "Inventory ID",
+                  "ColumnType": "Link",
+                  "Cells": [
+                    "AACOMPUT01",
+                    "ELECOMP2"
+                  ],
+                  "Alignment": "Left"
+                },
+                {
+                  "Type": "GridColumn",
+                  "Label": "Description",
+                  "ColumnType": "Text",
+                  "Cells": [
+                    "Acer Laptop Computer",
+                    "Lenovo laptop computer"
+                  ],
+                  "Alignment": "Left"
+                },
+                {
+                  "Type": "GridColumn",
+                  "Label": "Item Class",
+                  "ColumnType": "Link",
+                  "Cells": [
+                    "ELECCOMP  -400-COMPUTERS",
+                    "ELECCOMP  -400-COMPUTERS"
+                  ],
+                  "Alignment": "Left"
+                },
+                {
+                  "Type": "GridColumn",
+                  "Label": "Item Status",
+                  "ColumnType": "Text",
+                  "Cells": [
+                    "Active",
+                    "Active"
+                  ],
+                  "Alignment": "Left"
+                }
+              ],
+              "Footer": null,
+              "Wrapped": false
+            }
+          ]
+        }
+      },
+      "height": 0,
+      "width": 0,
+      "componentProperties": {},
+      "properties": {
+        "counterAxisSizingMode": "AUTO",
+        "itemSpacing": 0
+      },
+      "iconProperties": {},
+      "children": [
+        {
+          "childIndex": -1,
+          "tryToFind": false,
+          "createIfNotFound": false,
+          "acuElement": {
+            "Type": "SplitPanel",
+            "Id": "Root-1627-338",
+            "Children": [
+              {
+                "Type": "Tree",
+                "Id": "Root-1627-338-1629",
+                "Caption": "Categories"
+              }
+            ]
+          },
+          "height": 0,
+          "width": 610,
+          "componentProperties": {},
+          "properties": {},
+          "iconProperties": {},
+          "children": [
+            {
+              "childIndex": -1,
+              "tryToFind": false,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Tree",
+                "Id": "Root-1627-338-1629",
+                "Caption": "Categories"
+              },
+              "height": 0,
+              "width": 610,
+              "componentProperties": {
+                "Search#7892:1": false,
+                "Caption#7892:0": true
+              },
+              "properties": {},
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Text Value ▶#4494:3": "Categories"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Group Header",
+                  "type": "INSTANCE"
+                }
+              ],
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Tree",
+              "type": "INSTANCE"
+            }
+          ],
+          "componentNode": null,
+          "layoutMode": "VERTICAL",
+          "figmaObject": null,
+          "detach": false,
+          "name": "slot",
+          "type": "FRAME"
+        },
+        {
+          "childIndex": -1,
+          "tryToFind": false,
+          "createIfNotFound": false,
+          "acuElement": null,
+          "height": 0,
+          "width": 16,
+          "componentProperties": {},
+          "properties": {
+            "rotation": 0,
+            "layoutAlign": "STRETCH"
+          },
+          "iconProperties": {},
+          "children": [],
+          "layoutMode": "VERTICAL",
+          "figmaObject": null,
+          "detach": false,
+          "name": "Splitter",
+          "type": "INSTANCE"
+        },
+        {
+          "childIndex": -1,
+          "tryToFind": false,
+          "createIfNotFound": false,
+          "acuElement": {
+            "Type": "SplitPanel",
+            "Id": "Root-1627-358",
+            "Children": [
+              {
+                "Type": "Template",
+                "Id": "Root-1627-358-1631",
+                "Name": "1-1",
+                "Children": [
+                  {
+                    "Label": null,
+                    "Type": "FieldSet",
+                    "Id": "Root-1627-358-1631-1632",
+                    "Children": [
+                      {
+                        "Type": "Field",
+                        "ReadOnly": false,
+                        "ElementType": "TextEditor",
+                        "Id": "Root-1627-358-1631-1632-1641",
+                        "Label": "Description",
+                        "Value": "Laptops",
+                        "Mandatory": true
+                      }
+                    ],
+                    "Style": "Gray"
+                  },
+                  {
+                    "Label": null,
+                    "Type": "FieldSet",
+                    "Id": "Root-1627-358-1631-1633",
+                    "Children": [
+                      {
+                        "Type": "Field",
+                        "ReadOnly": false,
+                        "ElementType": "TextEditor",
+                        "Id": "Root-1627-358-1631-1633-1639",
+                        "Label": "Parent Category",
+                        "Value": "Computers",
+                        "Mandatory": false
+                      }
+                    ],
+                    "Style": "Gray"
+                  }
+                ]
+              },
+              {
+                "Type": "Grid",
+                "Id": "Root-1627-358-1634",
+                "Caption": "Category Members",
+                "ToolBar": {
+                  "Type": "ToolBar",
+                  "Id": "Root-1627-358-1634-1313",
+                  "ToolBarType": "List",
+                  "Items": [
+                    {
+                      "ItemType": "Button",
+                      "Icon": "Refresh",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "AddRow",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "DeleteRow",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "Copy",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": null,
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": null,
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": null,
+                      "Enabled": true,
+                      "Style": "Secondary",
+                      "Text": "Add Items"
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "AdjustColumns",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "ExportToExcel",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    }
+                  ],
+                  "ShowRightAction": true,
+                  "ShowSaveButton": false
+                },
+                "Columns": [
+                  {
+                    "Type": "GridColumn",
+                    "Label": "",
+                    "ColumnType": "Settings",
+                    "Cells": [
+                      "",
+                      ""
+                    ],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "",
+                    "ColumnType": "Checkbox",
+                    "Cells": [
+                      "false",
+                      "false"
+                    ],
+                    "Alignment": "Center"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Inventory ID",
+                    "ColumnType": "Link",
+                    "Cells": [
+                      "AACOMPUT01",
+                      "ELECOMP2"
+                    ],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Description",
+                    "ColumnType": "Text",
+                    "Cells": [
+                      "Acer Laptop Computer",
+                      "Lenovo laptop computer"
+                    ],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Item Class",
+                    "ColumnType": "Link",
+                    "Cells": [
+                      "ELECCOMP  -400-COMPUTERS",
+                      "ELECCOMP  -400-COMPUTERS"
+                    ],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Item Status",
+                    "ColumnType": "Text",
+                    "Cells": [
+                      "Active",
+                      "Active"
+                    ],
+                    "Alignment": "Left"
+                  }
+                ],
+                "Footer": null,
+                "Wrapped": false
+              }
+            ]
+          },
+          "height": 0,
+          "width": 610,
+          "componentProperties": {},
+          "properties": {},
+          "iconProperties": {},
+          "children": [
+            {
+              "childIndex": -1,
+              "tryToFind": false,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Template",
+                "Id": "Root-1627-358-1631",
+                "Name": "1-1",
+                "Children": [
+                  {
+                    "Label": null,
+                    "Type": "FieldSet",
+                    "Id": "Root-1627-358-1631-1632",
+                    "Children": [
+                      {
+                        "Type": "Field",
+                        "ReadOnly": false,
+                        "ElementType": "TextEditor",
+                        "Id": "Root-1627-358-1631-1632-1641",
+                        "Label": "Description",
+                        "Value": "Laptops",
+                        "Mandatory": true
+                      }
+                    ],
+                    "Style": "Gray"
+                  },
+                  {
+                    "Label": null,
+                    "Type": "FieldSet",
+                    "Id": "Root-1627-358-1631-1633",
+                    "Children": [
+                      {
+                        "Type": "Field",
+                        "ReadOnly": false,
+                        "ElementType": "TextEditor",
+                        "Id": "Root-1627-358-1631-1633-1639",
+                        "Label": "Parent Category",
+                        "Value": "Computers",
+                        "Mandatory": false
+                      }
+                    ],
+                    "Style": "Gray"
+                  }
+                ]
+              },
+              "height": 0,
+              "width": 610,
+              "componentProperties": {},
+              "properties": {
+                "counterAxisSizingMode": "AUTO"
+              },
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": false,
+                  "createIfNotFound": false,
+                  "acuElement": {
+                    "Label": null,
+                    "Type": "FieldSet",
+                    "Id": "Root-1627-358-1631-1632",
+                    "Children": [
+                      {
+                        "Type": "Field",
+                        "ReadOnly": false,
+                        "ElementType": "TextEditor",
+                        "Id": "Root-1627-358-1631-1632-1641",
+                        "Label": "Description",
+                        "Value": "Laptops",
+                        "Mandatory": true
+                      }
+                    ],
+                    "Style": "Gray"
+                  },
+                  "height": 0,
+                  "width": 299,
+                  "componentProperties": {
+                    "Show Group Header#6619:0": false,
+                    "Wrapping": "Gray",
+                    "Show Row 1#5419:15": true,
+                    "Show Row 2#5419:17": false,
+                    "Show Row 3#5419:19": false,
+                    "Show Row 4#5419:13": false,
+                    "Show Row 5#5419:11": false,
+                    "Show Row 6#5419:9": false,
+                    "Show Row 7#5419:8": false,
+                    "Show Row 8#5419:7": false,
+                    "Show Row 9#5419:5": false,
+                    "Show Row 10#5419:12": false,
+                    "Show Row 11#5419:10": false,
+                    "Show Row 12#5419:3": false,
+                    "Show Row 13#5419:2": false,
+                    "Show Row 14#5419:6": false,
+                    "Show Row 15#5419:4": false,
+                    "Show Row 16#5419:16": false,
+                    "Show Row 17#5419:18": false,
+                    "Show Row 18#5419:1": false,
+                    "Show Row 19#5419:0": false,
+                    "Show Row 20#5419:14": false
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [
+                    {
+                      "childIndex": -1,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": {
+                        "Type": "Field",
+                        "ReadOnly": false,
+                        "ElementType": "TextEditor",
+                        "Id": "Root-1627-358-1631-1632-1641",
+                        "Label": "Description",
+                        "Value": "Laptops",
+                        "Mandatory": true
+                      },
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Type": "Label + Field"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [
+                        {
+                          "childIndex": -1,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Label Value ▶#3141:62": "Description",
+                            "Mandatory#3141:16": true
+                          },
+                          "properties": {},
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Label",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": -1,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Text Value ▶#3161:0": "Laptops",
+                            "Show Icon#3160:30": false,
+                            "State": "Default"
+                          },
+                          "properties": {},
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Field",
+                          "type": "INSTANCE"
+                        }
+                      ],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Row 1",
+                      "type": "INSTANCE"
+                    }
+                  ],
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "FieldSet",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": false,
+                  "createIfNotFound": false,
+                  "acuElement": {
+                    "Label": null,
+                    "Type": "FieldSet",
+                    "Id": "Root-1627-358-1631-1633",
+                    "Children": [
+                      {
+                        "Type": "Field",
+                        "ReadOnly": false,
+                        "ElementType": "TextEditor",
+                        "Id": "Root-1627-358-1631-1633-1639",
+                        "Label": "Parent Category",
+                        "Value": "Computers",
+                        "Mandatory": false
+                      }
+                    ],
+                    "Style": "Gray"
+                  },
+                  "height": 0,
+                  "width": 299,
+                  "componentProperties": {
+                    "Show Group Header#6619:0": false,
+                    "Wrapping": "Gray",
+                    "Show Row 1#5419:15": true,
+                    "Show Row 2#5419:17": false,
+                    "Show Row 3#5419:19": false,
+                    "Show Row 4#5419:13": false,
+                    "Show Row 5#5419:11": false,
+                    "Show Row 6#5419:9": false,
+                    "Show Row 7#5419:8": false,
+                    "Show Row 8#5419:7": false,
+                    "Show Row 9#5419:5": false,
+                    "Show Row 10#5419:12": false,
+                    "Show Row 11#5419:10": false,
+                    "Show Row 12#5419:3": false,
+                    "Show Row 13#5419:2": false,
+                    "Show Row 14#5419:6": false,
+                    "Show Row 15#5419:4": false,
+                    "Show Row 16#5419:16": false,
+                    "Show Row 17#5419:18": false,
+                    "Show Row 18#5419:1": false,
+                    "Show Row 19#5419:0": false,
+                    "Show Row 20#5419:14": false
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [
+                    {
+                      "childIndex": -1,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": {
+                        "Type": "Field",
+                        "ReadOnly": false,
+                        "ElementType": "TextEditor",
+                        "Id": "Root-1627-358-1631-1633-1639",
+                        "Label": "Parent Category",
+                        "Value": "Computers",
+                        "Mandatory": false
+                      },
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Type": "Label + Field"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [
+                        {
+                          "childIndex": -1,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Label Value ▶#3141:62": "Parent Category"
+                          },
+                          "properties": {},
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Label",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": -1,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Text Value ▶#3161:0": "Computers",
+                            "Show Icon#3160:30": false,
+                            "State": "Default"
+                          },
+                          "properties": {},
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Field",
+                          "type": "INSTANCE"
+                        }
+                      ],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Row 1",
+                      "type": "INSTANCE"
+                    }
+                  ],
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "FieldSet",
+                  "type": "INSTANCE"
+                }
+              ],
+              "componentNode": null,
+              "layoutMode": "HORIZONTAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Template",
+              "type": "FRAME"
+            },
+            {
+              "childIndex": -1,
+              "tryToFind": false,
+              "createIfNotFound": false,
+              "acuElement": {
+                "Type": "Grid",
+                "Id": "Root-1627-358-1634",
+                "Caption": "Category Members",
+                "ToolBar": {
+                  "Type": "ToolBar",
+                  "Id": "Root-1627-358-1634-1313",
+                  "ToolBarType": "List",
+                  "Items": [
+                    {
+                      "ItemType": "Button",
+                      "Icon": "Refresh",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "AddRow",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "DeleteRow",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "Copy",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": null,
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": null,
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": null,
+                      "Enabled": true,
+                      "Style": "Secondary",
+                      "Text": "Add Items"
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "AdjustColumns",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    },
+                    {
+                      "ItemType": "Button",
+                      "Icon": "ExportToExcel",
+                      "Enabled": true,
+                      "Style": "Tertiary",
+                      "Text": null
+                    }
+                  ],
+                  "ShowRightAction": true,
+                  "ShowSaveButton": false
+                },
+                "Columns": [
+                  {
+                    "Type": "GridColumn",
+                    "Label": "",
+                    "ColumnType": "Settings",
+                    "Cells": [
+                      "",
+                      ""
+                    ],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "",
+                    "ColumnType": "Checkbox",
+                    "Cells": [
+                      "false",
+                      "false"
+                    ],
+                    "Alignment": "Center"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Inventory ID",
+                    "ColumnType": "Link",
+                    "Cells": [
+                      "AACOMPUT01",
+                      "ELECOMP2"
+                    ],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Description",
+                    "ColumnType": "Text",
+                    "Cells": [
+                      "Acer Laptop Computer",
+                      "Lenovo laptop computer"
+                    ],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Item Class",
+                    "ColumnType": "Link",
+                    "Cells": [
+                      "ELECCOMP  -400-COMPUTERS",
+                      "ELECCOMP  -400-COMPUTERS"
+                    ],
+                    "Alignment": "Left"
+                  },
+                  {
+                    "Type": "GridColumn",
+                    "Label": "Item Status",
+                    "ColumnType": "Text",
+                    "Cells": [
+                      "Active",
+                      "Active"
+                    ],
+                    "Alignment": "Left"
+                  }
+                ],
+                "Footer": null,
+                "Wrapped": false
+              },
+              "height": 250,
+              "width": 610,
+              "componentProperties": {
+                "Wrapped": "No",
+                "👁 Caption#5610:0": true,
+                "👁 Header#6826:0": true
+              },
+              "properties": {
+                "layoutAlign": "STRETCH"
+              },
+              "iconProperties": {},
+              "children": [
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Text Value ▶#4494:3": "Category Members"
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Caption",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": {
+                    "Type": "ToolBar",
+                    "Id": "Root-1627-358-1634-1313",
+                    "ToolBarType": "List",
+                    "Items": [
+                      {
+                        "ItemType": "Button",
+                        "Icon": "Refresh",
+                        "Enabled": true,
+                        "Style": "Tertiary",
+                        "Text": null
+                      },
+                      {
+                        "ItemType": "Button",
+                        "Icon": "AddRow",
+                        "Enabled": true,
+                        "Style": "Tertiary",
+                        "Text": null
+                      },
+                      {
+                        "ItemType": "Button",
+                        "Icon": "DeleteRow",
+                        "Enabled": true,
+                        "Style": "Tertiary",
+                        "Text": null
+                      },
+                      {
+                        "ItemType": "Button",
+                        "Icon": "Copy",
+                        "Enabled": true,
+                        "Style": "Tertiary",
+                        "Text": null
+                      },
+                      {
+                        "ItemType": "Button",
+                        "Icon": null,
+                        "Enabled": true,
+                        "Style": "Tertiary",
+                        "Text": null
+                      },
+                      {
+                        "ItemType": "Button",
+                        "Icon": null,
+                        "Enabled": true,
+                        "Style": "Tertiary",
+                        "Text": null
+                      },
+                      {
+                        "ItemType": "Button",
+                        "Icon": null,
+                        "Enabled": true,
+                        "Style": "Secondary",
+                        "Text": "Add Items"
+                      },
+                      {
+                        "ItemType": "Button",
+                        "Icon": "AdjustColumns",
+                        "Enabled": true,
+                        "Style": "Tertiary",
+                        "Text": null
+                      },
+                      {
+                        "ItemType": "Button",
+                        "Icon": "ExportToExcel",
+                        "Enabled": true,
+                        "Style": "Tertiary",
+                        "Text": null
+                      }
+                    ],
+                    "ShowRightAction": true,
+                    "ShowSaveButton": false
+                  },
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Type": "List",
+                    "Show Right Actions#6826:45": true
+                  },
+                  "properties": {},
+                  "iconProperties": {},
+                  "children": [
+                    {
+                      "childIndex": 0,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {},
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [
+                        {
+                          "childIndex": 0,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Type": "Tertiary",
+                            "State": "Default",
+                            "Show Icon Left#3133:110": true,
+                            "Show Label#3133:443": false
+                          },
+                          "properties": {
+                            "visible": true
+                          },
+                          "iconProperties": {
+                            "Icon Left#3131:0": "Refresh"
+                          },
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 1,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Type": "Tertiary",
+                            "State": "Default",
+                            "Show Icon Left#3133:110": true,
+                            "Show Label#3133:443": false
+                          },
+                          "properties": {
+                            "visible": true
+                          },
+                          "iconProperties": {
+                            "Icon Left#3131:0": "AddRow"
+                          },
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 2,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Type": "Tertiary",
+                            "State": "Default",
+                            "Show Icon Left#3133:110": true,
+                            "Show Label#3133:443": false
+                          },
+                          "properties": {
+                            "visible": true
+                          },
+                          "iconProperties": {
+                            "Icon Left#3131:0": "DeleteRow"
+                          },
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 3,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Type": "Tertiary",
+                            "State": "Default",
+                            "Show Icon Left#3133:110": true,
+                            "Show Label#3133:443": false
+                          },
+                          "properties": {
+                            "visible": true
+                          },
+                          "iconProperties": {
+                            "Icon Left#3131:0": "Copy"
+                          },
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 4,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Type": "Tertiary",
+                            "State": "Default",
+                            "Show Icon Left#3133:110": false,
+                            "Show Label#3133:443": false
+                          },
+                          "properties": {
+                            "visible": true
+                          },
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 5,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Type": "Tertiary",
+                            "State": "Default",
+                            "Show Icon Left#3133:110": false,
+                            "Show Label#3133:443": false
+                          },
+                          "properties": {
+                            "visible": true
+                          },
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 6,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Type": "Secondary",
+                            "State": "Default",
+                            "Show Icon Left#3133:110": false,
+                            "Show Label#3133:443": true,
+                            "Value ▶#3133:332": "Add Items"
+                          },
+                          "properties": {
+                            "visible": true
+                          },
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 7,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Type": "Tertiary",
+                            "State": "Default",
+                            "Show Icon Left#3133:110": true,
+                            "Show Label#3133:443": false
+                          },
+                          "properties": {
+                            "visible": true
+                          },
+                          "iconProperties": {
+                            "Icon Left#3131:0": "AdjustColumns"
+                          },
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 8,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {
+                            "Type": "Tertiary",
+                            "State": "Default",
+                            "Show Icon Left#3133:110": true,
+                            "Show Label#3133:443": false
+                          },
+                          "properties": {
+                            "visible": true
+                          },
+                          "iconProperties": {
+                            "Icon Left#3131:0": "ExportToExcel"
+                          },
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 9,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {},
+                          "properties": {
+                            "visible": false
+                          },
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        },
+                        {
+                          "childIndex": 10,
+                          "tryToFind": true,
+                          "createIfNotFound": false,
+                          "acuElement": null,
+                          "height": 0,
+                          "width": 0,
+                          "componentProperties": {},
+                          "properties": {
+                            "visible": false
+                          },
+                          "iconProperties": {},
+                          "children": [],
+                          "componentNode": null,
+                          "layoutMode": "VERTICAL",
+                          "figmaObject": null,
+                          "detach": false,
+                          "name": "Button",
+                          "type": "INSTANCE"
+                        }
+                      ],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Buttons",
+                      "type": "INSTANCE"
+                    }
+                  ],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Toolbar",
+                  "type": "INSTANCE",
+                  "toolBarTypes": {},
+                  "filterBarMapping": {}
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Type": "Checkboxes with Text Header",
+                    "Alignment": "Left"
+                  },
+                  "properties": {
+                    "visible": true,
+                    "counterAxisSizingMode": "AUTO",
+                    "layoutGrow": 1
+                  },
+                  "iconProperties": {},
+                  "children": [
+                    {
+                      "childIndex": 3,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 3",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 4,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 4",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 5,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 5",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 0,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Value#6706:49": ""
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Column Header",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 1,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {},
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 1",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 2,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {},
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 2",
+                      "type": "INSTANCE"
+                    }
+                  ],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Grid Column 2",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Type": "Link",
+                    "Alignment": "Left"
+                  },
+                  "properties": {
+                    "visible": true,
+                    "counterAxisSizingMode": "AUTO",
+                    "layoutGrow": 1
+                  },
+                  "iconProperties": {},
+                  "children": [
+                    {
+                      "childIndex": 3,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 3",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 4,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 4",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 5,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 5",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 0,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Value#6706:49": "Inventory ID"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Column Header",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 1,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Value#6706:0": "AACOMPUT01"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 1",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 2,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Value#6706:0": "ELECOMP2"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 2",
+                      "type": "INSTANCE"
+                    }
+                  ],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Grid Column 3",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Type": "Text",
+                    "Alignment": "Left"
+                  },
+                  "properties": {
+                    "visible": true,
+                    "counterAxisSizingMode": "AUTO",
+                    "layoutGrow": 1
+                  },
+                  "iconProperties": {},
+                  "children": [
+                    {
+                      "childIndex": 3,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 3",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 4,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 4",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 5,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 5",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 0,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Value#6706:49": "Description"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Column Header",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 1,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Value#6706:0": "Acer Laptop Computer"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 1",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 2,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Value#6706:0": "Lenovo laptop computer"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 2",
+                      "type": "INSTANCE"
+                    }
+                  ],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Grid Column 4",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Type": "Link",
+                    "Alignment": "Left"
+                  },
+                  "properties": {
+                    "visible": true,
+                    "counterAxisSizingMode": "AUTO",
+                    "layoutGrow": 1
+                  },
+                  "iconProperties": {},
+                  "children": [
+                    {
+                      "childIndex": 3,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 3",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 4,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 4",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 5,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 5",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 0,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Value#6706:49": "Item Class"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Column Header",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 1,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Value#6706:0": "ELECCOMP  -400-COMPUTERS"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 1",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 2,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Value#6706:0": "ELECCOMP  -400-COMPUTERS"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 2",
+                      "type": "INSTANCE"
+                    }
+                  ],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Grid Column 5",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {
+                    "Type": "Text",
+                    "Alignment": "Left"
+                  },
+                  "properties": {
+                    "visible": true,
+                    "counterAxisSizingMode": "AUTO",
+                    "layoutGrow": 1
+                  },
+                  "iconProperties": {},
+                  "children": [
+                    {
+                      "childIndex": 3,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 3",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 4,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 4",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 5,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Show Value#4709:42": false
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 5",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 0,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Value#6706:49": "Item Status"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Column Header",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 1,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Value#6706:0": "Active"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 1",
+                      "type": "INSTANCE"
+                    },
+                    {
+                      "childIndex": 2,
+                      "tryToFind": true,
+                      "createIfNotFound": false,
+                      "acuElement": null,
+                      "height": 0,
+                      "width": 0,
+                      "componentProperties": {
+                        "Value#6706:0": "Active"
+                      },
+                      "properties": {},
+                      "iconProperties": {},
+                      "children": [],
+                      "componentNode": null,
+                      "layoutMode": "VERTICAL",
+                      "figmaObject": null,
+                      "detach": false,
+                      "name": "Cell 2",
+                      "type": "INSTANCE"
+                    }
+                  ],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Grid Column 6",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {},
+                  "properties": {
+                    "visible": false
+                  },
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Grid Column 7",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {},
+                  "properties": {
+                    "visible": false
+                  },
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Grid Column 8",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {},
+                  "properties": {
+                    "visible": false
+                  },
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Grid Column 9",
+                  "type": "INSTANCE"
+                },
+                {
+                  "childIndex": -1,
+                  "tryToFind": true,
+                  "createIfNotFound": false,
+                  "acuElement": null,
+                  "height": 0,
+                  "width": 0,
+                  "componentProperties": {},
+                  "properties": {
+                    "visible": false
+                  },
+                  "iconProperties": {},
+                  "children": [],
+                  "componentNode": null,
+                  "layoutMode": "VERTICAL",
+                  "figmaObject": null,
+                  "detach": false,
+                  "name": "Grid Column 10",
+                  "type": "INSTANCE"
+                }
+              ],
+              "layoutMode": "VERTICAL",
+              "figmaObject": null,
+              "detach": false,
+              "name": "Grid",
+              "type": "INSTANCE",
+              "columnTypes": {}
+            }
+          ],
+          "componentNode": null,
+          "layoutMode": "VERTICAL",
+          "figmaObject": null,
+          "detach": false,
+          "name": "slot",
+          "type": "FRAME"
+        }
+      ],
+      "componentNode": null,
+      "layoutMode": "HORIZONTAL",
+      "figmaObject": null,
+      "detach": false,
+      "name": "SplitContainer",
+      "type": "FRAME"
+    }
+  ],
+  "componentNode": null,
+  "layoutMode": "VERTICAL",
+  "figmaObject": null,
+  "detach": false,
+  "name": "Canvas",
+  "type": "FRAME"
+}
