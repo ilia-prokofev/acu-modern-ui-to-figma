@@ -16,23 +16,25 @@ import {compCheckbox, logger} from './figma-main';
 import {FigmaCheckbox} from './figma-checkbox';
 import {FigmaValue} from './figma-value';
 
+const supportedStatuses = ["Open", "Unpaid", "Paid", "New", "In Process", "Info Requested", "On Hold"] as const;
+
 export class FigmaRow extends FigmaNode {
 
     static rowTypes = new Map<QPFieldElementType, string>([
         [QPFieldElementType.Currency, 'Currency'],
         [QPFieldElementType.CheckBox, 'Checkbox'],
         [QPFieldElementType.DateTimeEdit, 'Date'],
-        [QPFieldElementType.DropDown, 'Label + Field'],
-        [QPFieldElementType.TextEditor, 'Label + Field'],
-        [QPFieldElementType.Selector, 'Label + Field'],
-        [QPFieldElementType.NumberEditor, 'Label + Number Field'],
-        [QPFieldElementType.Status, 'Label + Field'],
-        [QPFieldElementType.Button, 'Button'],
-        [QPFieldElementType.RadioButton, 'Radio Button'],
-        [QPFieldElementType.MultilineTextEditor, 'Label + Text Area'],
-        [QPFieldElementType.HorizontalContainer, 'Label + Field'],
-        [QPFieldElementType.LabelFieldCheckbox, 'Label + Field + Checkbox'],
-        [QPFieldElementType.LabelFieldButton, 'Label + Field + Button']
+        [QPFieldElementType.DropDown, 'Field'],
+        [QPFieldElementType.TextEditor, 'Field'],
+        [QPFieldElementType.Selector, 'Field'],
+        [QPFieldElementType.NumberEditor, 'Number Field'],
+        [QPFieldElementType.Status, 'Field'],
+        [QPFieldElementType.Button, 'Button Left'],
+        [QPFieldElementType.RadioButton, 'Radiobutton'],
+        [QPFieldElementType.MultilineTextEditor, 'Text Area'],
+        [QPFieldElementType.HorizontalContainer, 'Field'],
+        [QPFieldElementType.LabelFieldCheckbox, 'Field + Checkbox'],
+        [QPFieldElementType.LabelFieldButton, 'Field + Button']
     ]);
 
     constructor(field: QPField, name: string, parent: FigmaNode | null = null) {
@@ -61,7 +63,13 @@ export class FigmaRow extends FigmaNode {
             logger.Warn(`${field.ElementType} row type is not supported`, this.acuElement.Id, field);
             elementType = QPFieldElementType.TextEditor;
         }
-        this.componentProperties['Type'] = FigmaRow.rowTypes.get(elementType)!;
+
+        if (elementType != QPFieldElementType.HorizontalContainer) {
+            //this.componentProperties['Type'] = FigmaRow.rowTypes.get(elementType)!;
+            let rightContentField = new FigmaNode('👉 RIGHT_CONTENT');
+            rightContentField.componentProperties['Property'] = FigmaRow.rowTypes.get(elementType)!;
+            this.children.push(rightContentField);
+        }
 
         let labelField;
         let valueField;
@@ -73,12 +81,14 @@ export class FigmaRow extends FigmaNode {
             typedField = field as QPFieldCheckbox;
             valueField = new FigmaCheckbox(typedField, 'Checkbox');
             this.children.push(valueField);
+            labelField = new FigmaNode('👉 LEFT_CONTENT');
+            labelField.componentProperties['Show Value#9992:0'] = false;
+            this.children.push(labelField);
             break;
         case QPFieldElementType.RadioButton:
-            this.componentProperties['Label Position'] = 'Top';
-            this.componentProperties['Label Length'] = 's';
+            this.componentProperties['Show LeftContent#9784:31'] = false;
             typedField = field as QPFieldRadioButton;
-            valueField = new FigmaNode('Radiobuttons');
+            valueField = new FigmaNode('Radio Button');
             valueField.componentProperties['Name#8227:0'] = typedField.RadioName ?? '';
             valueField.componentProperties['Checked'] = typedField.Checked ? 'True' : 'False';
             this.children.push(valueField);
@@ -89,6 +99,9 @@ export class FigmaRow extends FigmaNode {
             valueField.componentProperties['Type'] = 'Secondary';
             valueField.componentProperties['Value ▶#3133:332'] = typedField.Value ?? '';
             this.children.push(valueField);
+            labelField = new FigmaNode('👉 LEFT_CONTENT');
+            labelField.componentProperties['Show Value#9992:0'] = false;
+            this.children.push(labelField);
             break;
         case QPFieldElementType.MultilineTextEditor:
             typedField = field as QPFieldMultilineTextEditor;
@@ -112,14 +125,17 @@ export class FigmaRow extends FigmaNode {
             this.children.push(valueField);
 
             const status = new FigmaNode('Status');
-            status.componentProperties['Status'] = typedField.Value ?? '';
+            const value = typedField.Value ?? supportedStatuses[0];
+            status.componentProperties['Status'] =  supportedStatuses.includes(value as typeof supportedStatuses[number])
+                ? value
+                : supportedStatuses[0];
             this.children.push(status);
         }
             break;
         case QPFieldElementType.HorizontalContainer: {
             let width = 0;
             const itemSpacing = 8;
-            const labelWisth = 200;
+            const labelWidth = 200;
             if (parent) {
                 parent.detach = true;
                 width = parent.width;
@@ -139,7 +155,7 @@ export class FigmaRow extends FigmaNode {
             labelField.componentProperties['Label Value ▶#3141:62'] = '';
             this.children.push(labelField);
             if (width > 0)
-                width = (width - labelWisth) / typedField.Children.length - itemSpacing;
+                width = (width - labelWidth) / typedField.Children.length - itemSpacing;
 
             this.children.push(container);
             let childNumber = 1;

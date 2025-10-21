@@ -4,7 +4,7 @@ import {QPToolBar, QPToolBarItemButton, QPToolBarItemType, QPToolBarType} from '
 export class figmaToolbar extends FigmaNode {
 
     toolBarTypes = new Map<QPToolBarType, string>([
-        [QPToolBarType.List, 'List'],
+        [QPToolBarType.List, 'Generic Inquiry'],
         [QPToolBarType.Record, 'Record'],
         [QPToolBarType.FilterBar, 'Filter bar']
     ]);
@@ -24,10 +24,13 @@ export class figmaToolbar extends FigmaNode {
         super('Toolbar');
         this.acuElement = toolbar;
 
-        const displayedButtonsMax = toolbar.ToolBarType == QPToolBarType.Record ? 15 : 11;
+        const displayedButtonsMax = toolbar.ToolBarType == QPToolBarType.Record ? 15 : 10;
         if (this.toolBarTypes.has(toolbar.ToolBarType))
             this.componentProperties['Type'] = this.toolBarTypes.get(toolbar.ToolBarType)!;
-        this.componentProperties['Show Right Actions#6826:45'] = toolbar.ShowRightAction;
+
+        if (toolbar.ToolBarType == QPToolBarType.Record) {
+            this.componentProperties['Collapse button#6826:45'] = toolbar.ShowRightAction;
+        }
 
         if (toolbar.ToolBarType == QPToolBarType.FilterBar) {
             // console.log(111);
@@ -40,7 +43,15 @@ export class figmaToolbar extends FigmaNode {
 
         const buttons = new FigmaNode('Buttons');
         buttons.childIndex = 0;
-        this.children.push(buttons);
+
+        if (toolbar.ToolBarType == QPToolBarType.List) {
+            const buttons0 = new FigmaNode('Buttons0');
+            buttons0.childIndex = 0;
+            buttons0.children.push(buttons);
+            this.children.push(buttons0);
+        } else {
+            this.children.push(buttons);
+        }
 
         for (let i = 0; i < displayedButtonsMax; i++) {
             const button = new FigmaNode('Button');

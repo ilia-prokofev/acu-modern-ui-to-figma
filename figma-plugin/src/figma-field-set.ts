@@ -3,6 +3,7 @@ import {QPFieldset} from '@modern-ui-to-figma/elements';
 import {AcuElementType} from '@modern-ui-to-figma/elements';
 import {Grid} from '@modern-ui-to-figma/elements';
 import {QPField} from '@modern-ui-to-figma/elements';
+import {LabelLength} from '@modern-ui-to-figma/elements';
 import {compFieldset} from './figma-main';
 import {FigmaGrid} from './figma-grid';
 import {FigmaRow} from './figma-row';
@@ -19,20 +20,10 @@ export class FigmaFieldSet extends FigmaNode {
         'Show Row 7#5419:8',
         'Show Row 8#5419:7',
         'Show Row 9#5419:5',
-        'Show Row 10#5419:12',
-        'Show Row 11#5419:10',
-        'Show Row 12#5419:3',
-        'Show Row 13#5419:2',
-        'Show Row 14#5419:6',
-        'Show Row 15#5419:4',
-        'Show Row 16#5419:16',
-        'Show Row 17#5419:18',
-        'Show Row 18#5419:1',
-        'Show Row 19#5419:0',
-        'Show Row 20#5419:14'
+        'Show Row 10#5419:12'
     ];
 
-    constructor(fs: QPFieldset, width = 0) {
+    constructor(fs: QPFieldset, width = 0, labelLength: LabelLength = LabelLength.s) {
         super('FieldSet', 'INSTANCE', width);
         this.tryToFind = false;
         this.componentNode = compFieldset;
@@ -47,6 +38,7 @@ export class FigmaFieldSet extends FigmaNode {
         }
 
         this.componentProperties['Wrapping'] = fs.Style;
+        this.componentProperties['Label Length'] = labelLength;
 
         let rowNumber = 0;
         for (const child of fs.Children) {
@@ -55,6 +47,9 @@ export class FigmaFieldSet extends FigmaNode {
                 this.children.push(new FigmaGrid(child as unknown as Grid, 'Grid', false));
             } else
                 this.children.push(new FigmaRow(child as QPField, `Row ${++rowNumber}`, this));
+
+            if (rowNumber == 10)
+                break;
         }
 
         for (let i = 0; i < FigmaFieldSet.showRowPropNames.length; i++)

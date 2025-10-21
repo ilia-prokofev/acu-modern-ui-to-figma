@@ -16,6 +16,7 @@ import { QPImage } from '@modern-ui-to-figma/elements';
 import { QPRichTextEditor } from '@modern-ui-to-figma/elements';
 import { QPSplitContainer } from '@modern-ui-to-figma/elements';
 import { Template } from '@modern-ui-to-figma/elements';
+import { LabelLength } from '@modern-ui-to-figma/elements';
 import { QPTree } from '@modern-ui-to-figma/elements';
 import { AcuElement } from '@modern-ui-to-figma/elements';
 import { QPFieldset } from '@modern-ui-to-figma/elements';
@@ -267,13 +268,13 @@ export async function DrawFromJSON(input: string, reuseSummary: boolean): Promis
     }
 }
 
-export function addChild(parent: FigmaNode, parentType: AcuElementType, child: AcuElement, slotWidth: number): void {
+export function addChild(parent: FigmaNode, parentType: AcuElementType, child: AcuElement, slotWidth: number, labelLength: LabelLength = LabelLength.s): void {
     switch (child.Type) {
     case AcuElementType.FieldSet:
-        parent.children.push(new FigmaFieldSet(child as QPFieldset, slotWidth));
+        parent.children.push(new FigmaFieldSet(child as QPFieldset, slotWidth, labelLength));
         break;
     case AcuElementType.FieldsetSlot:
-        parent.children.push(new FigmaSlot(child as FieldsetSlot, slotWidth));
+        parent.children.push(new FigmaSlot(child as FieldsetSlot, slotWidth, labelLength));
         break;
     case AcuElementType.Grid: {
         const grid = new FigmaGrid((child as unknown) as Grid, 'Grid', true);
@@ -362,6 +363,10 @@ async function CreateCanvas(screenName: string, screenTitle: string | null, back
     fieldHeader.componentProperties['Show Back Link#3139:0'] = backLink != null;
     fieldHeader.componentProperties['Link Value ▶#6711:0'] = backLink ?? '';
     fieldHeader.componentProperties['Title Value ▶#6711:8'] = screenTitle ?? '';
+    const fieldToolbar = new FigmaNode('Toolbar');
+    fieldToolbar.componentProperties['Filterbar#9334:0'] = false;
+    fieldHeader.children.push(fieldToolbar);
+
     frameCanvas.children.push(fieldHeader);
 
     childrenNumber += countChildren(frameScreenVertical);

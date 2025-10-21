@@ -24,7 +24,7 @@ export class FigmaTemplate extends FigmaNode {
             let slotWidth = proportionalWidth;
             if (sum > 0)
                 slotWidth = (this.width - (horizontalSpacing * (template.Children.length - 1))) * parts[slotIndex++] / sum;
-            addChild(this, template.Type, child, slotWidth);
+            addChild(this, template.Type, child, slotWidth, template.LabelLength);
         }
     }
 }
