@@ -1,4 +1,4 @@
-import {AcuElement, AcuElementType, LabelLength, QPFieldsetStyle} from '@modern-ui-to-figma/elements';
+import {AcuElement, AcuElementType, LabelLength} from '@modern-ui-to-figma/elements';
 import { AcuContainer } from '@modern-ui-to-figma/elements';
 import { Template } from '@modern-ui-to-figma/elements';
 import ElementVisitor from './qp-element-visitor';

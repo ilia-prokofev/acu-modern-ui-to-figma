@@ -16,7 +16,7 @@ import {compCheckbox, logger} from './figma-main';
 import {FigmaCheckbox} from './figma-checkbox';
 import {FigmaValue} from './figma-value';
 
-const supportedStatuses = ["Open", "Unpaid", "Paid", "New", "In Process", "Info Requested", "On Hold"] as const;
+const supportedStatuses = ['Open', 'Unpaid', 'Paid', 'New', 'In Process', 'Info Requested', 'On Hold'] as const;
 
 export class FigmaRow extends FigmaNode {
 
@@ -66,7 +66,7 @@ export class FigmaRow extends FigmaNode {
 
         if (elementType != QPFieldElementType.HorizontalContainer) {
             //this.componentProperties['Type'] = FigmaRow.rowTypes.get(elementType)!;
-            let rightContentField = new FigmaNode('👉 RIGHT_CONTENT');
+            const rightContentField = new FigmaNode('👉 RIGHT_CONTENT');
             rightContentField.componentProperties['Property'] = FigmaRow.rowTypes.get(elementType)!;
             this.children.push(rightContentField);
         }
